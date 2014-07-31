@@ -1,5 +1,5 @@
 ---
-- name: Wireless packages
+- name: wireless packages
   apt: name={{ item }}
   with_items:
     - iw

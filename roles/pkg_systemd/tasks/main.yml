@@ -1,5 +1,5 @@
 ---
-- name: Systemd
+- name: systemd
   apt: name={{ item }}
   with_items:
     - systemd-sysv

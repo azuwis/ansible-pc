@@ -1,5 +1,5 @@
 ---
-- name: "{{ name }}"
+- name: "create user {{ name }} as staff"
   user:
     name: "{{ name }}"
     comment: "{{ comment }}"

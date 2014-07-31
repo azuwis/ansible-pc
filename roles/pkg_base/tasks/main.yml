@@ -1,12 +1,13 @@
 ---
 # XXX Not work if locales is already installed
-- name: Default locale
+# TODO Use default filter
+- name: default locale
   debconf: name=locales question='locales/default_environment_locale' value=en_US.UTF-8 vtype='select'
 
-- name: Locales to generate
+- name: locales to generate
   debconf: name=locales question='locales/locales_to_be_generated'  value='en_US.UTF-8 UTF-8' vtype='multiselect'
 
-- name: Base packages
+- name: base packages
   apt: name={{ item }}
   with_items:
     - locales

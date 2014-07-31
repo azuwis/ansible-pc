@@ -1,21 +1,21 @@
 ---
-- name: Apt config
+- name: apt config
   copy: src=99misc dest=/etc/apt/apt.conf.d/99misc
 
-- name: Install lsb-release
+- name: install lsb-release
   apt: name=lsb-release install_recommends=no
 
-- name: Get ansible_lsb.codename if it's empty
+- name: reget ansible_lsb.codename if it's empty
   setup:
   when: ansible_lsb is not defined
 
 # TODO Use template
-- name: Remove /etc/apt/sources.list
+- name: remove /etc/apt/sources.list
   file: path=/etc/apt/sources.list state=absent
 
-- name: Main sources.list
+- name: main sources.list
   apt_repository: repo='deb http://{{ apt_mirror | default("ftp.cn.debian.org") }}/debian {{ ansible_lsb.codename }} main contrib non-free'
 
 # TODO Split to another role, handle deb-multimedia-keyring
-- name: Deb multimedia sources.list
+- name: deb multimedia sources.list
   apt_repository: repo='deb http://www.deb-multimedia.org {{ ansible_lsb.codename }} main non-free'
