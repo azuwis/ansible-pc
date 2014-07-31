@@ -1,0 +1,6 @@
+---
+- hosts: nuc
+  roles:
+    - apt
+    - pkg_base
+    - pkg_systemd
