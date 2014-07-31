@@ -1,8 +1,8 @@
 ---
-- name: User azuwis
+- name: "{{ name }}"
   user:
-    name: azuwis
-    comment: Zhong Jianxin
-    uid: 1000
+    name: "{{ name }}"
+    comment: "{{ comment }}"
+    uid: "{{ uid }}"
     shell: /bin/zsh
     groups: adm,staff,audio,video,plugdev,netdev,dialout,cdrom,floppy
