@@ -7,3 +7,11 @@
     - pkg_desktop_base
     - pkg_wireless
     - { role: staff, name: azuwis, comment: "Zhong Jianxin", uid: 1000 }
+  tasks:
+    - name: set hostname
+      hostname: name=nuc
+    - name: set domain
+      lineinfile:
+        dest: /etc/hosts
+        insertafter: ^127\.0\.0\.1\slocalhost
+        line: "127.0.0.1\tnuc.localdomain nuc"
