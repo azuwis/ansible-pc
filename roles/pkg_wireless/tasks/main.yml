@@ -1,0 +1,6 @@
+---
+- name: Wireless packages
+  apt: name={{ item }}
+  with_items:
+    - iw
+    - wpasupplicant

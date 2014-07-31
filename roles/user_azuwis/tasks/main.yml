@@ -1,0 +1,8 @@
+---
+- name: User azuwis
+  user:
+    name: azuwis
+    comment: Zhong Jianxin
+    uid: 1000
+    shell: /bin/zsh
+    groups: adm,staff,audio,video,plugdev,netdev,dialout,cdrom,floppy

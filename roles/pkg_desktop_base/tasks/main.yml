@@ -1,0 +1,6 @@
+---
+- name: Desktop base packages
+  apt: name={{ item }}
+  with_items:
+    - xserver-xorg
+    - zsh

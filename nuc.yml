@@ -4,3 +4,6 @@
     - apt
     - pkg_base
     - pkg_systemd
+    - pkg_desktop_base
+    - pkg_wireless
+    - user_azuwis
