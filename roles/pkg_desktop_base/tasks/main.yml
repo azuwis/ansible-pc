@@ -16,3 +16,16 @@
   with_items:
     - xserver-xorg
     - zsh
+    - openbox
+    - lightdm
+    - dmz-cursor-theme
+    - fonts-wqy-microhei
+    - fonts-croscore
+    - fonts-crosextra-caladea
+    - fonts-crosextra-carlito
+    - alsa-utils
+    - rxvt-unicode-256color
+    - chromium
+    - pepperflashplugin-nonfree
+    - iceweasel
+    - flashplugin-nonfree
