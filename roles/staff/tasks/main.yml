@@ -8,4 +8,4 @@
     groups: adm,staff,audio,video,plugdev,netdev,dialout,cdrom,floppy
 
 - name: "set permission for {{ name }}'s home dir"
-  file: dest=/home/{{ name }} mode=0750
+  file: dest=/home/{{ name }} mode=0700
