@@ -1,0 +1,11 @@
+[Unit]
+Description=Bittorrent client based on libtorrent-rasterbar
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/qbittorrent-nox
+User=torrent
+UMask=0007
+
+[Install]
+WantedBy=multi-user.target

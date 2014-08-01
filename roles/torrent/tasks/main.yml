@@ -1,0 +1,43 @@
+---
+- name: install qbittorrent-nox
+  apt: name=qbittorrent-nox
+
+- name: create torrent user
+  user:
+    name: torrent
+    uid: 20000
+    shell: /usr/sbin/nologin
+
+- name: "set permission for torrent's home dir"
+  file: dest=/home/torrent mode=0750
+
+- name: create .config dir
+  file:
+    dest: /home/torrent/.config/
+    state: directory
+    owner: torrent
+    group: torrent
+    mode: 0770
+
+- name: create qbittorrent config dir
+  file:
+    dest: /home/torrent/.config/qBittorrent/
+    state: directory
+    owner: torrent
+    group: torrent
+    mode: 0770
+
+- name: init config file
+  copy:
+    src: qBittorrent.conf
+    dest: /home/torrent/.config/qBittorrent/qBittorrent.conf
+    owner: torrent
+    group: torrent
+    mode: 0660
+    force: no
+
+- name: systemd service
+  copy: src=qbittorrent.service dest=/etc/systemd/system/
+
+- name: start qbittorrent
+  service: name=qbittorrent state=started enabled=yes
