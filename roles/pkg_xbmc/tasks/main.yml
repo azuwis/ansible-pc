@@ -1,0 +1,8 @@
+---
+- name: xbmc packages
+  apt: name={{ item }}
+  with_items:
+    - xbmc
+    - avahi-daemon
+    - libshairplay0
+    - libplist2

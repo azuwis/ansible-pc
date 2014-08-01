@@ -6,7 +6,11 @@
     - pkg_systemd
     - pkg_desktop_base
     - pkg_wireless
-    - { role: staff, name: azuwis, comment: "Zhong Jianxin", uid: 1000 }
+    - pkg_xbmc
+    - role: staff
+      name: azuwis
+      comment: "Zhong Jianxin"
+      uid: 1000
   tasks:
     - name: set hostname
       hostname: name=nuc
