@@ -15,3 +15,5 @@
     - bash-completion
     - ca-certificates
     - pciutils
+    - usbutils
+    - sudo

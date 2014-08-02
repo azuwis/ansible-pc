@@ -9,3 +9,6 @@
 
 - name: "set permission for {{ name }}'s home dir"
   file: dest=/home/{{ name }} mode=0700
+
+- name: sudoer for {{ name }}
+  template: src=sudoer.j2 dest=/etc/sudoers.d/{{ name }}
