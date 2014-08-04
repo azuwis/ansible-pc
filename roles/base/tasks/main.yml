@@ -27,3 +27,7 @@
     - usbutils
     - ethtool
     - sudo
+
+- name: initramfs-tools config
+  copy: src=initramfs-misc.conf dest=/etc/initramfs-tools/conf.d/misc.conf
+  notify: update initramfs
