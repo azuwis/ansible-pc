@@ -16,4 +16,5 @@
     - ca-certificates
     - pciutils
     - usbutils
+    - ethtool
     - sudo
