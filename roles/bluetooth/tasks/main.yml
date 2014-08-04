@@ -1,0 +1,6 @@
+---
+- name: install bluez
+  apt: name=bluez
+
+- name: add {{ staff }} to bluetooth group
+  user: name={{ staff }} groups=bluetooth append=yes
