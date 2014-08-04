@@ -6,11 +6,11 @@
       comment: "Zhong Jianxin"
       uid: 1000
     - apt
-    - pkg_base
-    - pkg_systemd
-    - pkg_desktop_base
-    - pkg_wireless
-    - pkg_xbmc
+    - base
+    - systemd
+    - desktop_base
+    - wireless
+    - xbmc
     - torrent
   tasks:
     - name: set hostname
