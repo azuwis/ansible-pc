@@ -1,10 +1,14 @@
 ---
 - hosts: nuc
+  vars:
+    domain: localdomain
+    staff:
+      - name: azuwis
+        comment: Zhong Jianxin
+        uid: 1000
+        shell: /bin/zsh
   roles:
-    - role: staff
-      name: azuwis
-      comment: "Zhong Jianxin"
-      uid: 1000
+    - staff
     - apt
     - base
     - systemd

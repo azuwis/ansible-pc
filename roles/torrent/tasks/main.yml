@@ -42,5 +42,6 @@
 - name: start qbittorrent
   service: name=qbittorrent state=started enabled=yes
 
-- name: add {{ staff }} to torrent group
-  user: name={{ staff }} groups=torrent append=yes
+- name: add {{ item.name }} to torrent group
+  user: name={{ item.name }} groups=torrent append=yes
+  with_items: staff

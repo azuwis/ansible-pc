@@ -1,15 +1,17 @@
 ---
-- name: "create user {{ name }} as staff"
+- name: "create user {{ item.name }} as staff"
   user:
-    name: "{{ name }}"
-    comment: "{{ comment }}"
-    uid: "{{ uid }}"
-    shell: /bin/zsh
+    name: "{{ item.name }}"
+    comment: "{{ item.comment }}"
+    shell: "{{ item.shell }}"
     groups: adm,staff,audio,video,plugdev,netdev,dialout,cdrom,floppy
     append: yes
+  with_items: staff
 
-- name: "set permission for {{ name }}'s home dir"
-  file: dest=/home/{{ name }} mode=0700
+- name: "set permission for {{ item.name }}'s home dir"
+  file: dest=/home/{{ item.name }} mode=0700
+  with_items: staff
 
-- name: sudoer for {{ name }}
-  template: src=sudoer.j2 dest=/etc/sudoers.d/{{ name }}
+- name: sudoer for {{ item.name }}
+  template: src=sudoer.j2 dest=/etc/sudoers.d/{{ item.name }}
+  with_items: staff
