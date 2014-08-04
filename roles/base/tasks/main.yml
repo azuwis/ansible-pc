@@ -1,4 +1,13 @@
 ---
+- name: set hostname
+  hostname: name={{ inventory_hostname }}
+
+- name: set domain to {{ domain }}
+  lineinfile:
+    dest: /etc/hosts
+    insertafter: ^127\.0\.0\.1\slocalhost
+    line: "127.0.0.1\t{{ inventory_hostname }}.{{ domain }} {{ inventory_hostname }}"
+
 # XXX Not work if locales is already installed
 # TODO Use default filter
 - name: default locale
