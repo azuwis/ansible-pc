@@ -3,6 +3,7 @@
   shell: lspci -nn | grep -q 'VGA.*8086'
   register: intel_graphic
   ignore_errors: True
+  changed_when: False
 - name: intel graphic driver
   apt: name={{ item }}
   when: intel_graphic|success
@@ -16,7 +17,7 @@
   with_items:
     - xserver-xorg
     - zsh
-    - openbox
+    - i3-wm
     - lightdm
     - dmz-cursor-theme
     - fonts-wqy-microhei
@@ -25,7 +26,16 @@
     - fonts-crosextra-carlito
     - alsa-utils
     - rxvt-unicode-256color
+    - vim-gtk
     - chromium
     - pepperflashplugin-nonfree
     - iceweasel
     - flashplugin-nonfree
+    - dialog
+    - fcitx-config-gtk
+    - fcitx-frontend-gtk2
+    - fcitx-frontend-gtk3
+    - fcitx-frontend-qt4
+    - fcitx-googlepinyin
+    - fcitx-ui-classic
+    - im-config
