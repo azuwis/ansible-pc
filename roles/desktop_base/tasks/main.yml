@@ -18,7 +18,6 @@
     - xserver-xorg
     - zsh
     - i3-wm
-    - lightdm
     - dmz-cursor-theme
     - fonts-wqy-microhei
     - fonts-croscore

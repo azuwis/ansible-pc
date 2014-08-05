@@ -3,5 +3,4 @@
   apt: name={{ item }}
   with_items:
     - systemd-sysv
-    - libpam-systemd
     - dbus
