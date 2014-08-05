@@ -20,6 +20,8 @@
     - usbutils
     - ethtool
     - sudo
+    - systemd-sysv
+    - dbus
 
 - name: locales to generate
   locale_gen: name={{ item }} state=present
