@@ -8,14 +8,6 @@
     insertafter: ^127\.0\.0\.1\slocalhost
     line: "127.0.0.1\t{{ inventory_hostname }}.{{ domain }} {{ inventory_hostname }}"
 
-# XXX Not work if locales is already installed
-# TODO Use default filter
-- name: default locale
-  debconf: name=locales question='locales/default_environment_locale' value=en_US.UTF-8 vtype='select'
-
-- name: locales to generate
-  debconf: name=locales question='locales/locales_to_be_generated'  value='en_US.UTF-8 UTF-8' vtype='multiselect'
-
 - name: base packages
   apt: name={{ item }}
   with_items:
@@ -28,6 +20,13 @@
     - usbutils
     - ethtool
     - sudo
+
+- name: locales to generate
+  locale_gen: name={{ item }} state=present
+  with_items: locales
+
+- name: default locale
+  copy: dest=/etc/default/locale content="{{ locales[0] }}\n"
 
 - name: initramfs-tools config
   copy: src=initramfs-misc.conf dest=/etc/initramfs-tools/conf.d/misc.conf
