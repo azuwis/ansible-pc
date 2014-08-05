@@ -21,6 +21,7 @@
   with_items:
     - locales
     - less
+    - file
     - bash-completion
     - ca-certificates
     - pciutils
