@@ -1,3 +1,4 @@
 ---
+# The fist locale will be set as default locale
 locales:
   - en_US.UTF-8
