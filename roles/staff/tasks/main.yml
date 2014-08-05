@@ -13,5 +13,5 @@
   with_items: staff
 
 - name: sudoer for {{ item.name }}
-  template: src=sudoer.j2 dest=/etc/sudoers.d/{{ item.name }}
+  template: src=sudoer.j2 dest=/etc/sudoers.d/{{ item.name }} validate='visudo -cf %s'
   with_items: staff
