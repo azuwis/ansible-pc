@@ -2,5 +2,13 @@
 - name: install bluez
   apt: name=bluez
 
-- name: add {{ staff }} to bluetooth group
-  user: name={{ staff }} groups=bluetooth append=yes
+- name: add {{ item.name }} to bluetooth group
+  user: name={{ item.name }} groups=bluetooth append=yes
+  with_items: staff
+
+- name: systemd service
+  copy: src=btkbd.service dest=/etc/systemd/system/
+
+- name: start btkbd
+  service: name=btkbd state=started enabled=yes
+  changed_when: False
