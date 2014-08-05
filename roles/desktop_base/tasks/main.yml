@@ -16,6 +16,7 @@
   apt: name={{ item }}
   with_items:
     - xserver-xorg
+    - xinit
     - zsh
     - i3-wm
     - dmz-cursor-theme
@@ -38,3 +39,7 @@
     - fcitx-googlepinyin
     - fcitx-ui-classic
     - im-config
+
+- name: zsh config to startx at login
+  copy: src=zlogin dest=/home/{{ item.name }}/.zlogin owner={{ item.name }} group={{ item.name }}
+  with_items: staff
