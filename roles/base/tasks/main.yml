@@ -34,6 +34,10 @@
   copy: src=initramfs-misc.conf dest=/etc/initramfs-tools/conf.d/misc.conf
   notify: update initramfs
 
+- name: grub timeout
+  lineinfile: dest=/etc/default/grub regexp=^GRUB_TIMEOUT= line=GRUB_TIMEOUT=0
+  notify: update grub
+
 # replace syslog with systemd-journald, see http://freedesktop.org/wiki/Software/systemd/Optimizations/
 - name: create /var/log/journal/
   file:
