@@ -38,6 +38,7 @@
     - fcitx-frontend-qt4
     - fcitx-googlepinyin
     - fcitx-ui-classic
+    - dbus-x11 # for fcitx
     - im-config
 
 - name: zsh config to startx at login
