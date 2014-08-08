@@ -8,11 +8,11 @@
         uid: 1000
         shell: /bin/zsh
   roles:
-    - staff
-    - apt
-    - base
-    - desktop_base
-    - wireless
-    - bluetooth
-    - xbmc
-    - torrent
+    - { role: staff, tags: staff }
+    - { role: apt, tags: apt }
+    - { role: base, tags: base }
+    - { role: desktop_base, tags: desktop_base }
+    - { role: wireless, tags: wireless }
+    - { role: bluetooth, tags: bluetooth }
+    - { role: xbmc, tags: xbmc }
+    - { role: torrent, tags: torrent }
