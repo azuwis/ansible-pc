@@ -1,0 +1,5 @@
+[localhost]
+localhost ansible_connection=local
+
+[nuc]
+nuc ansible_ssh_host=nuc.example.com ansible_ssh_user=root ansible_ssh_port=22
