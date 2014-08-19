@@ -1,1 +1,18 @@
+# See http://aptitude.alioth.debian.org/doc/en/ch02s05s05.html.
 APT::Install-Recommends "false";
+Apt::AutoRemove::RecommendsImportant "false";
+Apt::AutoRemove::SuggestsImportant "false";
+
+# See apt-get(8), --purge --auto-remove
+APT::Get::Purge "true";
+APT::Get::AutomaticRemove "true";
+
+Aptitude::UI::Package-Status-Format "%d%t";
+
+# Increase remove level, so keeping package is preferred.
+Aptitude::ProblemResolver::Remove-Level "30000";
+
+# See /etc/cron.daily/apt.
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Download-Upgradeable-Packages "1";
+APT::Periodic::AutocleanInterval "1";
