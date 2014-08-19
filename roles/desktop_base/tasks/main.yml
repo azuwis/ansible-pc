@@ -19,13 +19,14 @@
     - xinit
     - zsh
     - i3-wm
+    - i3status
     - dmz-cursor-theme
     - fonts-wqy-microhei
     - fonts-croscore
     - fonts-crosextra-caladea
     - fonts-crosextra-carlito
     - alsa-utils
-    - rxvt-unicode-256color
+    - xterm
     - vim-gtk
     - chromium
     - pepperflashplugin-nonfree

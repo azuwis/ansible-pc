@@ -18,12 +18,14 @@
     - ca-certificates
     - pciutils
     - usbutils
+    - dnsutils
     - ethtool
     - sudo
     - systemd-sysv
     - dbus
     - p7zip-full
     - p7zip-rar
+    - rsync
 
 - name: locales to generate
   locale_gen: name={{ item }} state=present
