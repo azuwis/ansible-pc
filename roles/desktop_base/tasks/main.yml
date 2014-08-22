@@ -42,6 +42,13 @@
     - dbus-x11 # for fcitx
     - im-config
 
+- name: cros fonts settings
+  file: src=../conf.avail/{{ item }} dest=/etc/fonts/conf.d/{{ item|replace('62-', '51-0-') }} state=link force=yes
+  with_items:
+    - 62-google-croscore-cousine-fontconfig.conf
+    - 62-google-crosextra-carlito-fontconfig.conf
+  tags: test
+
 - name: theme packages
   apt: name={{ item }}
   with_items: theme_pkgs
