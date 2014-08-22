@@ -42,6 +42,19 @@
     - dbus-x11 # for fcitx
     - im-config
 
+- name: theme packages
+  apt: name={{ item }}
+  with_items: theme_pkgs
+
+- name: numix gtk theme
+  git: dest=/usr/share/themes/Numix repo=https://github.com/shimmerproject/Numix.git
+
+- name: gtk2 config
+  template: src=gtk2.j2 dest=/etc/gtk-2.0/gtkrc
+
+- name: gtk3 config
+  template: src=gtk3.j2 dest=/etc/gtk-3.0/settings.ini
+
 - name: zsh config to startx at login
   copy: src=zlogin dest=/home/{{ item.name }}/.zlogin owner={{ item.name }} group={{ item.name }}
   with_items: staff
