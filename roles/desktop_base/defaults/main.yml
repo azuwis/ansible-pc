@@ -20,3 +20,4 @@ theme:
   icon: gnome-dust
   gtk2: Numix
   gtk3: Numix
+  qt4: GTK+
