@@ -51,7 +51,7 @@
 
 - name: theme packages
   apt: name={{ item }}
-  with_items: theme_pkgs
+  with_items: theme.pkgs
 
 - name: numix gtk theme
   git: dest=/usr/share/themes/Numix repo=https://github.com/shimmerproject/Numix.git

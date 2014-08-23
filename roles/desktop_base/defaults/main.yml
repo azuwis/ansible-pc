@@ -1,7 +1,8 @@
 ---
-theme_pkgs:
-  - gnome-dust-icon-theme
-  - gtk2-engines-murrine
-icon_theme: gnome-dust
-gtk2_theme: Numix
-gtk3_theme: Numix
+theme:
+  pkgs:
+    - gnome-dust-icon-theme
+    - gtk2-engines-murrine
+  icon: gnome-dust
+  gtk2: Numix
+  gtk3: Numix
