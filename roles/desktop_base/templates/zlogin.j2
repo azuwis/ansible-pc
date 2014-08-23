@@ -1,1 +1,6 @@
+# Add ~/bin to PATH
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
+# Start X if at tty1
 [[ -z $DISPLAY && x"$(tty)" == x"/dev/tty1" ]] && exec startx -- -dpi {{ dpi | default(96) }}
