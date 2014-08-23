@@ -27,6 +27,11 @@
     - p7zip-rar
     - rsync
 
+- name: unneeded packages
+  apt: name={{ item }} state=absent
+  with_items:
+    - libpam-systemd
+
 - name: locales to generate
   locale_gen: name="{{ item }}" state=present
   with_items: locales
