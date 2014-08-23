@@ -1,0 +1,1 @@
+[[ -z $DISPLAY && x"$(tty)" == x"/dev/tty1" ]] && exec startx -- -dpi {{ dpi | default(96) }}
