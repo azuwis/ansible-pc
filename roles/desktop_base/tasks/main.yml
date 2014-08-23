@@ -4,6 +4,7 @@
   register: intel_graphic
   ignore_errors: True
   changed_when: False
+
 - name: intel graphic driver
   apt: name={{ item }}
   when: intel_graphic|success
@@ -22,9 +23,6 @@
     - i3status
     - dmz-cursor-theme
     - fonts-wqy-microhei
-    - fonts-croscore
-    - fonts-crosextra-caladea
-    - fonts-crosextra-carlito
     - alsa-utils
     - xterm
     - vim-gtk
@@ -42,12 +40,16 @@
     - dbus-x11 # for fcitx
     - im-config
 
-- name: cros fonts settings
-  file: src=../conf.avail/{{ item }} dest=/etc/fonts/conf.d/{{ item|replace('62-', '51-0-') }} state=link force=yes
-  with_items:
-    - 62-google-croscore-cousine-fontconfig.conf
-    - 62-google-crosextra-carlito-fontconfig.conf
-  tags: test
+- name: font packages
+  apt: name={{ item }}
+  with_items: font.pkgs
+
+- name: fontconfig settings, local.conf
+  template: src=fontconfig.j2 dest=/etc/fonts/local.conf
+
+- name: fontconfig settings, enable from conf.avail
+  file: src=../conf.avail/{{ item }} dest=/etc/fonts/conf.d/{{ item }} state=link force=yes
+  with_items: font.enable
 
 - name: theme packages
   apt: name={{ item }}

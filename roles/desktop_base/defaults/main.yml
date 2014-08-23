@@ -1,4 +1,18 @@
 ---
+font:
+  pkgs:
+    - fonts-lato
+    - fonts-croscore
+    - fonts-crosextra-caladea
+    - fonts-crosextra-carlito
+  enable:
+    - 30-0-google-croscore-arimo-fontconfig.conf
+    - 30-0-google-croscore-cousine-fontconfig.conf
+    - 30-0-google-croscore-tinos-fontconfig.conf
+  sans: Lato
+  serif: Tinos
+  monospace: Cousine
+
 theme:
   pkgs:
     - gnome-dust-icon-theme
