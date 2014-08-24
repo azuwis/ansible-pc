@@ -55,8 +55,11 @@
     owner: root
     group: systemd-journal
     mode: "2755" # need to be quoted, ansible bug?
+  notify: restart journald
+
 - name: remove rsyslog
   apt: name=rsyslog state=absent purge=yes
+
 - name: add {{ item.name }} to systemd-journal group
   user: name={{ item.name }} groups=systemd-journal append=yes
   with_items: staff

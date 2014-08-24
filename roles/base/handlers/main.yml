@@ -4,3 +4,6 @@
 
 - name: update grub
   command: update-grub
+
+- name: restart journald
+  service: name=systemd-journald state=restarted
