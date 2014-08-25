@@ -21,6 +21,7 @@
     - zsh
     - i3-wm
     - i3status
+    - suckless-tools
     - dmz-cursor-theme
     - fonts-wqy-microhei
     - alsa-utils
