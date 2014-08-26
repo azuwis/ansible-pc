@@ -17,6 +17,7 @@
   apt: name={{ item }}
   with_items:
     - xserver-xorg
+    - x11-xserver-utils # for xrdb/xmodmap
     - xinit
     - zsh
     - i3-wm
