@@ -16,30 +16,30 @@
 - name: desktop base packages
   apt: name={{ item }}
   with_items:
-    - xserver-xorg
-    - x11-xserver-utils # for xrdb/xmodmap
+    - xserver-xorg              ## X
+    - x11-xserver-utils         #  xrdb/xmodmap
     - xinit
-    - zsh
-    - i3-wm
-    - i3status
-    - suckless-tools
     - dmz-cursor-theme
     - fonts-wqy-microhei
-    - alsa-utils
+    - zsh                       ## Shell
+    - i3-wm                     ## WM
+    - i3status
+    - suckless-tools
+    - alsa-utils                ## Utils
     - xterm
     - vim-gtk
-    - chromium
+    - chromium                  ## Browser
     - pepperflashplugin-nonfree
     - iceweasel
     - flashplugin-nonfree
-    - dialog
+    - dialog                    ## IME
     - fcitx-config-gtk
     - fcitx-frontend-gtk2
     - fcitx-frontend-gtk3
     - fcitx-frontend-qt4
     - fcitx-googlepinyin
     - fcitx-ui-classic
-    - dbus-x11 # for fcitx
+    - dbus-x11
     - im-config
 
 - name: font packages
