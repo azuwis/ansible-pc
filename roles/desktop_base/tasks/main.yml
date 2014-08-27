@@ -71,6 +71,14 @@
 - name: qt4 config
   template: src=qt4.j2 dest=/etc/xdg/Trolltech.conf
 
+- name: qt5 config
+  template: src=qt5.j2 dest=/etc/X11/Xsession.d/20qt5-style
+  when: theme.qt5 is defined
+
+- name: qt5 config absent
+  file: dest=/etc/X11/Xsession.d/20qt5-style state=absent
+  when: theme.qt5 is not defined
+
 - name: zsh config to startx at login
   template: src=zlogin.j2 dest=/home/{{ item.name }}/.zlogin owner={{ item.name }} group={{ item.name }}
   with_items: staff

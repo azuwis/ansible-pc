@@ -21,3 +21,4 @@ theme:
   gtk2: Numix
   gtk3: Numix
   qt4: GTK+
+  qt5: gtk
