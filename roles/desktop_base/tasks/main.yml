@@ -20,6 +20,7 @@
     - xinit
     - x11-xserver-utils         #  xrdb/xmodmap
     - xloadimage                #  xsetbg
+    - xdotool
     - dmz-cursor-theme
     - fonts-wqy-microhei
     - zsh                       ## Shell
