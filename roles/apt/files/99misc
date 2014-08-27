@@ -7,6 +7,7 @@ Apt::AutoRemove::SuggestsImportant "false";
 APT::Get::Purge "true";
 APT::Get::AutomaticRemove "true";
 
+# Display dist codename on the middle status line
 Aptitude::UI::Package-Status-Format "%d%t";
 
 # Increase remove level, so keeping package is preferred.
