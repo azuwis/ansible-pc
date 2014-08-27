@@ -1,3 +1,5 @@
+# Ansible managed
+
 # See http://aptitude.alioth.debian.org/doc/en/ch02s05s05.html.
 APT::Install-Recommends "false";
 Apt::AutoRemove::RecommendsImportant "false";
