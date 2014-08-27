@@ -19,7 +19,7 @@
     - xserver-xorg              ## X
     - xinit
     - x11-xserver-utils         #  xrdb/xmodmap
-    - xli                       #  set wallpaper
+    - hsetroot                  #  set wallpaper
     - xdotool
     - dmz-cursor-theme
     - fonts-wqy-microhei
