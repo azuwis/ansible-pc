@@ -26,6 +26,7 @@
     - p7zip-full
     - p7zip-rar
     - rsync
+    - tmux
 
 - name: unneeded packages
   apt: name={{ item }} state=absent
