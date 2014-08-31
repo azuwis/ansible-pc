@@ -20,6 +20,7 @@
     - usbutils
     - dnsutils
     - ethtool
+    - ntpdate
     - sudo
     - systemd-sysv
     - dbus
@@ -39,6 +40,10 @@
 
 - name: default locale
   copy: dest=/etc/default/locale content="LANG={{ locales[0] }}\n"
+
+- name: set /etc/timezone to {{ timezone }}
+  copy: content="{{ timezone }}\n" dest=/etc/timezone
+  notify: update timezone
 
 - name: initramfs-tools config
   copy: src=initramfs-misc.conf dest=/etc/initramfs-tools/conf.d/misc.conf
