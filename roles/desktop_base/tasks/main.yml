@@ -22,6 +22,7 @@
     - hsetroot                  #  set wallpaper
     - xdotool
     - dmz-cursor-theme
+    - xfonts-terminus           #  emacs ime bug
     - fonts-wqy-microhei
     - zsh                       ## Shell
     - i3-wm                     ## WM
