@@ -21,6 +21,7 @@
     - x11-xserver-utils         #  xrdb/xmodmap
     - hsetroot                  #  set wallpaper
     - xdotool
+    - xcape
     - dmz-cursor-theme
     - xfonts-terminus           #  emacs ime bug
     - fonts-wqy-microhei
@@ -45,6 +46,7 @@
     - dbus-x11
     - im-config
     - viewnior                  ## Image viewer
+    - clipit
 
 - name: font packages
   apt: name={{ item }}
