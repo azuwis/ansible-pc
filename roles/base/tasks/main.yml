@@ -29,6 +29,7 @@
     - rsync
     - tmux
     - debfoster
+    - silversearcher-ag
 
 - name: unneeded packages
   apt: name={{ item }} state=absent
