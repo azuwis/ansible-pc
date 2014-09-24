@@ -30,7 +30,7 @@
     - i3status
     - suckless-tools
     - alsa-utils                ## Utils
-    - xterm
+    - lilyterm
     - vim-gtk
     - chromium                  ## Browser
     - pepperflashplugin-nonfree
