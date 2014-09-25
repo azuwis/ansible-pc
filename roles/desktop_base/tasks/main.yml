@@ -32,6 +32,7 @@
     - alsa-utils                ## Utils
     - lilyterm
     - vim-gtk
+    - clipit
     - chromium                  ## Browser
     - pepperflashplugin-nonfree
     - iceweasel
@@ -46,7 +47,6 @@
     - dbus-x11
     - im-config
     - viewnior                  ## Image viewer
-    - clipit
 
 - name: font packages
   apt: name={{ item }}
