@@ -43,6 +43,7 @@
     - hsetroot                  #  set wallpaper
     - xdotool
     - xcape
+    - unclutter                 #  auto hide cursor
     - dmz-cursor-theme
     - xfonts-terminus           #  emacs ime bug
     - fonts-wqy-microhei
