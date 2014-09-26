@@ -52,7 +52,7 @@
     - i3status
     - suckless-tools
     - alsa-utils                ## Utils
-    - lilyterm
+    - lxterminal
     - vim-gtk
     - clipit
     - chromium                  ## Browser
