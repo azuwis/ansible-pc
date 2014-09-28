@@ -16,6 +16,7 @@
         LM_AC_INTEL_HDA_POWERSAVE: 1
         INTEL_HDA_DEVICE_TIMEOUT: 1
         AUTOSUSPEND_RUNTIME_DEVID_BLACKLIST: 045e:0745
+        CONTROL_DPMS_STANDBY: 0
   roles:
     - { role: staff, tags: staff }
     - { role: apt, tags: apt }
