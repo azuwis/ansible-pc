@@ -1,0 +1,19 @@
+---
+- name: laptop mode packages
+  apt: name={{ item }}
+  with_items:
+    - laptop-mode-tools
+    - hdparm
+
+- name: config laptop-mode.conf
+  lineinfile: dest=/etc/laptop-mode/laptop-mode.conf regexp="^{{ item.key }}" line="{{ item.key }}={{ item.value }}"
+  notify: restart laptop mode
+  with_items:
+    laptop_mode.global
+
+- name: create /etc/laptop-mode/conf.d/board-specific/ dir
+  file: dest=/etc/laptop-mode/conf.d/board-specific/ state=directory
+
+- name: config board settings
+  template: src=board.j2 dest=/etc/laptop-mode/conf.d/board-specific/board.conf
+  notify: restart laptop mode

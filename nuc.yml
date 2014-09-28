@@ -8,6 +8,14 @@
         uid: 1000
         shell: /bin/zsh
     dpi: 160
+    laptop_mode:
+      global:
+        - { key: 'ENABLE_LAPTOP_MODE_ON_AC', value: 1 }
+      board:
+        LM_AC_ACTIVATE_SATA_POWER: 1
+        LM_AC_INTEL_HDA_POWERSAVE: 1
+        INTEL_HDA_DEVICE_TIMEOUT: 1
+        AUTOSUSPEND_RUNTIME_DEVID_BLACKLIST: 045e:0745
   roles:
     - { role: staff, tags: staff }
     - { role: apt, tags: apt }
@@ -15,5 +23,6 @@
     - { role: desktop_base, tags: desktop_base }
     - { role: wireless, tags: wireless }
     - { role: bluetooth, tags: bluetooth }
+    - { role: laptop_mode, tags: laptop_mode }
     - { role: xbmc, tags: xbmc }
     - { role: torrent, tags: torrent }
