@@ -59,6 +59,9 @@
     - pepperflashplugin-nonfree
     - iceweasel
     - flashplugin-nonfree
+    - gstreamer1.0-libav        #  for H.264 playback
+    - gstreamer1.0-plugins-good
+    - gstreamer1.0-vaapi
     - dialog                    ## IME
     - fcitx-config-gtk
     - fcitx-frontend-gtk2
