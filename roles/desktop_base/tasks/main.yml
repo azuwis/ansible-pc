@@ -54,6 +54,7 @@
     - alsa-utils                ## Utils
     - lxterminal
     - vim-gtk
+    - exuberant-ctags           #  vim tagbar plugin
     - clipit
     - chromium                  ## Browser
     - pepperflashplugin-nonfree
