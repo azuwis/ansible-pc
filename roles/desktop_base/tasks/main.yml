@@ -73,6 +73,8 @@
     - dbus-x11
     - im-config
     - viewnior                  ## Image viewer
+    - evince-gtk                ## PDF viewer
+    - poppler-data              #  CJK pdf
 
 - name: font packages
   apt: name={{ item }}
