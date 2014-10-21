@@ -1,0 +1,20 @@
+---
+- hosts: mac
+  sudo: True
+  vars:
+    domain: localdomain
+    staff:
+      - name: azuwis
+        comment: Zhong Jianxin
+        uid: 1000
+        shell: /bin/zsh
+    dpi: 131
+    grub:
+      cmd: acpi_apic_instance=2
+  roles:
+    - { role: staff, tags: staff }
+    - { role: apt, tags: apt }
+    - { role: base, tags: base }
+    - { role: desktop_base, tags: desktop_base }
+    - { role: wireless, tags: wireless }
+    - { role: laptop_mode, tags: laptop_mode }
