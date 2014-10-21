@@ -52,8 +52,13 @@
   notify: update initramfs
 
 - name: grub timeout
-  lineinfile: dest=/etc/default/grub regexp=^GRUB_TIMEOUT= line=GRUB_TIMEOUT=1
+  lineinfile: dest=/etc/default/grub regexp=^GRUB_TIMEOUT= line=GRUB_TIMEOUT={{ grub.timeout | default(1) }}
   notify: update grub
+
+- name: grub linux init cmd
+  lineinfile: dest=/etc/default/grub regexp=^GRUB_CMDLINE_LINUX= line='GRUB_CMDLINE_LINUX="{{ grub.cmd }}"'
+  notify: update grub
+  when: grub is defined and grub.cmd is defined
 
 # replace syslog with systemd-journald, see http://freedesktop.org/wiki/Software/systemd/Optimizations/
 - name: create /var/log/journal/
