@@ -10,6 +10,7 @@
   notify: restart laptop mode
   with_items:
     laptop_mode.global
+  when: laptop_mode is defined and laptop_mode.global is defined
 
 - name: create /etc/laptop-mode/conf.d/board-specific/ dir
   file: dest=/etc/laptop-mode/conf.d/board-specific/ state=directory
@@ -17,3 +18,4 @@
 - name: config board settings
   template: src=board.j2 dest=/etc/laptop-mode/conf.d/board-specific/board.conf
   notify: restart laptop mode
+  when: laptop_mode is defined and laptop_mode.board is defined
