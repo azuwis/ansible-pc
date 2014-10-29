@@ -52,6 +52,7 @@
     - suckless-tools
     - alsa-utils                ## Utils
     - lxterminal
+    - xtermcontrol              #  for set lxterminal color scheme
     - vim-gtk
     - exuberant-ctags           #  vim tagbar plugin
     - clipit
