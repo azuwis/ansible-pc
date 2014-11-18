@@ -55,7 +55,7 @@
     - xtermcontrol              #  for set lxterminal color scheme
     - vim-gtk
     - exuberant-ctags           #  vim tagbar plugin
-    - clipit
+    - xfce4-clipman
     - chromium                  ## Browser
     - pepperflashplugin-nonfree
     - iceweasel
