@@ -76,6 +76,12 @@
     - evince-gtk                ## PDF viewer
     - poppler-data              #  CJK pdf
 
+- name: unclutter settings
+  lineinfile:
+    dest: /etc/default/unclutter
+    regexp: ^EXTRA_OPTS=
+    line: EXTRA_OPTS=""
+
 - name: font packages
   apt: name={{ item }}
   with_items: font.pkgs
