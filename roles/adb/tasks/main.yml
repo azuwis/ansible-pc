@@ -1,0 +1,14 @@
+---
+- name: install android tools
+  apt: name="{{ item }}"
+  with_items:
+    - android-tools-adb
+    - android-tools-fastboot
+
+- name: "add {{ item.name }} to adb group"
+  user:
+    name: "{{ item.name }}"
+    groups: adb
+    append: yes
+  with_items: staff
+

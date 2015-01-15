@@ -18,3 +18,4 @@
     - { role: desktop_base, tags: desktop_base }
     - { role: wireless, tags: wireless }
     - { role: laptop_mode, tags: laptop_mode }
+    - { role: adb, tags: adb }
