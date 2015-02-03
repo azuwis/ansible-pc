@@ -1,0 +1,10 @@
+[Unit]
+Description=Shadowsocks ss-local for %i config
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/ss-local -c /etc/shadowsocks-libev/%i.json
+User=proxy
+
+[Install]
+WantedBy=multi-user.target

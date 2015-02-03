@@ -1,0 +1,5 @@
+---
+- name: restart polipo
+  service:
+    name: polipo
+    state: restarted

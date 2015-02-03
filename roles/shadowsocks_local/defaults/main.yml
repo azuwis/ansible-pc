@@ -1,0 +1,3 @@
+---
+shadowsocks_local:
+  local_port: 7070
