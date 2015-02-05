@@ -1,9 +1,6 @@
 ---
-- name: install shadowsocks-libev and polipo
-  apt: name={{ item }}
-  with_items:
-    - shadowsocks-libev
-    - polipo
+- name: install polipo
+  apt: name=polipo
 
 - name: config polipo
   lineinfile:
@@ -12,20 +9,9 @@
     line: "{{ item.line }}"
   with_items:
     - regexp: ^socksParentProxy =
-      line: socksParentProxy = "127.0.0.1:{{ shadowsocks_local.local_port }}"
+      line: socksParentProxy = "127.0.0.1:{{ shadowsocks.local_port }}"
     - regexp: ^socksProxyType =
       line: socksProxyType = socks5
     - regexp: ^diskCacheRoot =
       line: diskCacheRoot = ""
   notify: restart polipo
-
-- name: install systemd service
-  copy:
-    src: shadowsocks-local@.service
-    dest: /etc/systemd/system/
-
-- name: enable systemd service
-  service:
-    name: shadowsocks-local@main
-    state: started
-    enabled: yes
