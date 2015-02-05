@@ -1,0 +1,23 @@
+---
+- name: install shadowsocks-libev
+  apt: name=shadowsocks-libev
+
+- name: install systemd service
+  copy:
+    src: shadowsocks-libev@.service
+    dest: /etc/systemd/system/
+
+- name: shadowsocks config for {{ shadowsocks_service }}
+  template:
+    src: config.json.j2
+    dest: /etc/shadowsocks-libev/{{ shadowsocks_service }}.json
+    owner: proxy
+    group: staff
+    mode: 0640
+  notify: "restart shadowsocks {{ shadowsocks_service }}"
+
+- name: enable systemd service for shadowsocks {{ shadowsocks_service }}
+  service:
+    name: shadowsocks-libev@{{ shadowsocks_service }}
+    state: started
+    enabled: yes

@@ -1,0 +1,5 @@
+---
+shadowsocks:
+  local: '"127.0.0.1"'
+  timeout: 60
+  fast_open: 'true'

@@ -1,0 +1,10 @@
+---
+- name: restart shadowsocks local
+  service:
+    name: shadowsocks-libev@local
+    state: restarted
+
+- name: restart shadowsocks redir
+  service:
+    name: shadowsocks-libev@redir
+    state: restarted
