@@ -1,0 +1,30 @@
+---
+- name: install ipset
+  apt: name=ipset
+
+- name: install ss-rule
+  copy:
+    src: shadowsocks.rule
+    dest: /usr/local/bin/ss-rule
+    owner: root
+    group: root
+    mode: 0755
+
+- name: install ss-chn
+  copy:
+    src: ss-chn
+    dest: /usr/local/bin/ss-chn
+    owner: root
+    group: root
+    mode: 0755
+
+- name: install shadowsocks-rule systemd service
+  copy:
+    src: shadowsocks-rule.service
+    dest: /etc/systemd/system/
+
+- name: enable shadowsocks-rule service
+  service:
+    name: shadowsocks-rule
+    state: started
+    enabled: yes
