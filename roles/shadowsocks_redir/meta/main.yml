@@ -1,4 +1,4 @@
 ---
 dependencies:
-  - { role: 'shadowsocks', shadowsocks_service: 'redir' }
+  - { role: 'shadowsocks' }
   - { role: 'chnroute' }

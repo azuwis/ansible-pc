@@ -1,0 +1,3 @@
+---
+shadowsocks:
+  local_port: 7071
