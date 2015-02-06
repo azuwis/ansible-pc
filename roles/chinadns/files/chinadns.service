@@ -1,0 +1,11 @@
+[Unit]
+Description=Chinadns
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/default/chinadns
+ExecStart=/usr/local/bin/chinadns -b $BIND_ADDR -p $BIND_PORT -c $CHNROUTE -s $DNS_SERVER $EXTRA_ARGS
+User=proxy
+
+[Install]
+WantedBy=multi-user.target

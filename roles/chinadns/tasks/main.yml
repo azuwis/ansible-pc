@@ -1,0 +1,26 @@
+---
+- name: install dnsmasq
+  apt: name=dnsmasq
+
+- name: config dnsmasq
+  copy:
+    src: dnsmasq.conf
+    dest: /etc/dnsmasq.d/chinadns.conf
+  notify: restart dnsmasq
+
+- name: install systemd service for chinadns
+  copy:
+    src: chinadns.service
+    dest: /etc/systemd/system/
+
+- name: copy environ file for chinadns
+  copy:
+    src: chinadns.default
+    dest: /etc/default/chinadns
+  notify: restart chinadns
+
+- name: enable systemd service for chinadns
+  service:
+    name: chinadns
+    state: started
+    enabled: yes
