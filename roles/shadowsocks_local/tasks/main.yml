@@ -1,4 +1,24 @@
 ---
+- name: install systemd service for shadowsocks local
+  copy:
+    src: shadowsocks-local.service
+    dest: /etc/systemd/system/
+
+- name: config for shadowsocks local
+  template:
+    src: local.json.j2
+    dest: /etc/shadowsocks-libev/local.json
+    owner: proxy
+    group: staff
+    mode: 0640
+  notify: restart shadowsocks-local
+
+- name: enable systemd service for shadowsocks local
+  service:
+    name: shadowsocks-local
+    state: started
+    enabled: yes
+
 - name: install polipo
   apt: name=polipo
 

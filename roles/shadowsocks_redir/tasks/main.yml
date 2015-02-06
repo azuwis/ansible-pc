@@ -1,4 +1,18 @@
 ---
+- name: install systemd service for shadowsocks redir
+  copy:
+    src: shadowsocks-redir.service
+    dest: /etc/systemd/system/
+
+- name: config for shadowsocks redir
+  template:
+    src: redir.json.j2
+    dest: /etc/shadowsocks-libev/redir.json
+    owner: proxy
+    group: staff
+    mode: 0640
+  notify: restart shadowsocks-redir
+
 - name: install ipset
   apt: name=ipset
 
@@ -18,13 +32,8 @@
     group: root
     mode: 0755
 
-- name: install shadowsocks-rule systemd service
-  copy:
-    src: shadowsocks-rule.service
-    dest: /etc/systemd/system/
-
-- name: enable shadowsocks-rule service
+- name: enable systemd service for shadowsocks redir
   service:
-    name: shadowsocks-rule
+    name: shadowsocks-redir
     state: started
     enabled: yes

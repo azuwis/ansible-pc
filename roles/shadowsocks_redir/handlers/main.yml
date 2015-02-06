@@ -1,0 +1,5 @@
+---
+- name: restart shadowsocks-redir
+  service:
+    name: shadowsocks-redir
+    state: restarted

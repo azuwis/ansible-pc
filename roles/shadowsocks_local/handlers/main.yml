@@ -1,4 +1,9 @@
 ---
+- name: restart shadowsocks-local
+  service:
+    name: shadowsocks-local
+    state: restarted
+
 - name: restart polipo
   service:
     name: polipo
