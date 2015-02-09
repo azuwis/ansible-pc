@@ -23,6 +23,7 @@
     owner: root
     group: root
     mode: 0755
+  notify: restart shadowsocks-redir
 
 - name: install ss-chn
   copy:
@@ -31,6 +32,7 @@
     owner: root
     group: root
     mode: 0755
+  notify: restart shadowsocks-redir
 
 - name: enable systemd service for shadowsocks redir
   service:
