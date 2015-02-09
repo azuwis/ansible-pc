@@ -4,4 +4,4 @@ resolveip() {
   getent ahostsv4 "$host" | head -1 | awk '{print $1}'
 }
 export -f resolveip
-bash /usr/local/bin/ss-rule -c /etc/shadowsocks-libev/redir.json -i /etc/chnroute.list -e "-m multiport --dports 22,80,443" -o "$@"
+bash /usr/local/bin/ss-rule -c /etc/shadowsocks-libev/redir.json -i /etc/chnroute.list -e "-m multiport --dports 22,80,443,5222,5228" -o "$@"
