@@ -19,6 +19,12 @@
     dest: /etc/default/chinadns
   notify: restart chinadns
 
+- name: get iplist for chinadns
+  get_url:
+    dest: /etc/chinadns.list
+    url: https://github.com/clowwindy/ChinaDNS/raw/master/iplist.txt
+  notify: restart chinadns
+
 - name: enable systemd service for chinadns
   service:
     name: chinadns
