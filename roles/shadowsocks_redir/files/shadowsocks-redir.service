@@ -5,7 +5,7 @@ After=network.target
 [Service]
 ExecStart=/sbin/start-stop-daemon --start --chuid proxy --exec /usr/bin/ss-redir -- -c /etc/shadowsocks-libev/redir.json
 ExecStartPost=/usr/local/bin/ss-chn
-ExecStop=/usr/local/bin/ss-chn -f
+ExecStopPost=/usr/local/bin/ss-chn -f
 
 [Install]
 WantedBy=multi-user.target
