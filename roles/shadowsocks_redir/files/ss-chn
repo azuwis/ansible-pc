@@ -5,3 +5,7 @@ resolveip() {
 }
 export -f resolveip
 bash /usr/local/bin/ss-rule -c /etc/shadowsocks-libev/redir.json -i /etc/chnroute.list -e "-m multiport --dports 22,80,443,5222,5228" -o "$@"
+
+if [ "$1" != "-f" ]; then
+  iptables -t nat -A OUTPUT -p tcp -d 8.8.8.8 -m comment --comment _SS_SPEC_RULE_ -j SS_SPEC_WAN_FW
+fi

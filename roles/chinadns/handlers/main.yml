@@ -8,3 +8,8 @@
   service:
     name: chinadns
     state: restarted
+
+- name: restart unbound
+  service:
+    name: unbound
+    state: restarted

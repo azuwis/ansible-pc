@@ -30,3 +30,26 @@
     name: chinadns
     state: started
     enabled: yes
+
+- name: install unbound
+  apt: name=unbound
+
+- name: config /etc/default/unbound
+  lineinfile:
+    dest: /etc/default/unbound
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - regexp: ^ROOT_TRUST_ANCHOR_UPDATE=
+      line: ROOT_TRUST_ANCHOR_UPDATE=false
+    - regexp: ^RESOLVCONF=
+      line: RESOLVCONF=false
+    - regexp: ^RESOLVCONF_FORWARDERS=
+      line: RESOLVCONF_FORWARDERS=false
+  notify: restart unbound
+
+- name: config unbound
+  copy:
+    src: unbound.conf
+    dest: /etc/unbound/unbound.conf.d/chinadns.conf
+  notify: restart unbound
