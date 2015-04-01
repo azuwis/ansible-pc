@@ -11,7 +11,7 @@
     dpi: 131
     grub:
       cmd: acpi_apic_instance=2
-    shadowsocks:
+    #shadowsocks:
       #server: '"server_ip"'
       #server_port: server_port
       #password: '"password"'
