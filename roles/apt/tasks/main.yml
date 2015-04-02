@@ -14,7 +14,7 @@
   file: path=/etc/apt/sources.list state=absent
 
 - name: main sources.list
-  apt_repository: repo='deb http://{{ apt_mirror | default("ftp.jp.debian.org") }}/debian {{ ansible_lsb.codename }} main contrib non-free'
+  apt_repository: repo='deb http://{{ apt_mirror | default("ftp.cn.debian.org") }}/debian {{ ansible_lsb.codename }} main contrib non-free'
 
 # TODO Split to another role, handle deb-multimedia-keyring
 - name: deb multimedia sources.list
