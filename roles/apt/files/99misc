@@ -19,3 +19,6 @@ Aptitude::ProblemResolver::Remove-Level "30000";
 APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Download-Upgradeable-Packages "1";
 APT::Periodic::AutocleanInterval "1";
+
+# Force ipv4
+Acquire::ForceIPv4 "true";
