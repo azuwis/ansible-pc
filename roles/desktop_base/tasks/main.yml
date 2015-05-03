@@ -49,7 +49,7 @@
     - zsh                       ## Shell
     - i3-wm                     ## WM
     - i3status
-    - suckless-tools
+    - rofi
     - alsa-utils                ## Utils
     - lxterminal
     - xtermcontrol              #  for set lxterminal color scheme
