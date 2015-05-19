@@ -53,9 +53,12 @@
     - alsa-utils                ## Utils
     - lxterminal
     - xtermcontrol              #  for set lxterminal color scheme
-    - vim-gtk
-    - exuberant-ctags           #  vim tagbar plugin
     - xfce4-clipman
+    - vim-gtk                   ## Editor
+    - exuberant-ctags           #  vim tagbar plugin
+    - emacs
+    - aspell                    # emacs flycheck
+    - aspell-en
     - chromium                  ## Browser
     - pepperflashplugin-nonfree
     - iceweasel
