@@ -44,11 +44,12 @@
     - xdotool
     - unclutter                 #  auto hide cursor
     - dmz-cursor-theme
-    - xfonts-terminus           #  emacs ime bug
     - fonts-wqy-microhei
+    - xfonts-terminus           #  emacs ime bug
     - zsh                       ## Shell
     - i3-wm                     ## WM
     - i3status
+    - i3lock
     - rofi
     - alsa-utils                ## Utils
     - lxterminal
