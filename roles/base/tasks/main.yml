@@ -24,6 +24,7 @@
     - sudo
     - systemd-sysv
     - dbus
+    - unzip
     - p7zip-full
     - p7zip-rar
     - rsync
