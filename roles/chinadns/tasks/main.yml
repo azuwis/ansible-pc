@@ -28,12 +28,12 @@
 - name: enable systemd service for chinadns
   service:
     name: chinadns
-    state: started
     enabled: yes
 
 - name: install unbound
   apt: name=unbound
 
+# XXX: Should stop the service before modify these configs?
 - name: config /etc/default/unbound
   lineinfile:
     dest: /etc/default/unbound
@@ -53,3 +53,12 @@
     src: unbound.conf
     dest: /etc/unbound/unbound.conf.d/chinadns.conf
   notify: restart unbound
+
+- name: ensure services are started
+  service:
+    name: "{{ item }}"
+    state: started
+  with_items:
+    - unbound
+    - chinadns
+    - dnsmasq
