@@ -60,6 +60,7 @@
     - emacs
     - aspell                    # emacs flycheck
     - aspell-en
+    - fonts-nanum               # for spacemacs to display unicode symbol on mode-line
     - chromium                  ## Browser
     - pepperflashplugin-nonfree
     - iceweasel
