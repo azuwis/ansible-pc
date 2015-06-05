@@ -11,11 +11,6 @@
     dpi: 131
     grub:
       cmd: acpi_apic_instance=2
-    #shadowsocks:
-      #server: '"server_ip"'
-      #server_port: server_port
-      #password: '"password"'
-      #method: '"method"'
   roles:
     - { role: staff, tags: staff }
     - { role: apt, tags: apt }
@@ -25,4 +20,3 @@
     - { role: laptop_mode, tags: laptop_mode }
     - { role: adb, tags: adb }
     - { role: chinadns, tags: chinadns }
-    - { role: shadowsocks_redir, tags: shadowsocks_redir }
