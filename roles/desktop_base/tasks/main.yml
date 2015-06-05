@@ -44,7 +44,6 @@
     - xdotool
     - unclutter                 #  auto hide cursor
     - dmz-cursor-theme
-    - fonts-wqy-microhei
     - xfonts-terminus           #  emacs ime bug
     - zsh                       ## Shell
     - i3-wm                     ## WM

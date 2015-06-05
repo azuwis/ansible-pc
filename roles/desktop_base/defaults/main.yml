@@ -5,6 +5,7 @@ font:
     - fonts-croscore
     - fonts-crosextra-caladea
     - fonts-crosextra-carlito
+    - fonts-wqy-microhei
   enable:
     - 30-0-google-croscore-arimo-fontconfig.conf
     - 30-0-google-croscore-cousine-fontconfig.conf
