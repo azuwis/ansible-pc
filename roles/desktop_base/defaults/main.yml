@@ -10,9 +10,15 @@ font:
     - 30-0-google-croscore-arimo-fontconfig.conf
     - 30-0-google-croscore-cousine-fontconfig.conf
     - 30-0-google-croscore-tinos-fontconfig.conf
-  sans: Lato
-  serif: Tinos
-  monospace: Cousine
+  sans:
+    - Lato
+    - WenQuanYi Micro Hei
+  serif:
+    - Tinos
+    - WenQuanYi Micro Hei
+  monospace:
+    - Cousine
+    - WenQuanYi Micro Hei Mono
 
 theme:
   pkgs:

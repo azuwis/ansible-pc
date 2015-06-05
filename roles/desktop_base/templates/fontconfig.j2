@@ -1,3 +1,4 @@
+#jinja2: lstrip_blocks: True
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
 <fontconfig>
@@ -7,38 +8,26 @@
   <alias>
     <family>sans-serif</family>
       <prefer>
-        <family>{{ font.sans }}</family>
+        {% for font in font.sans %}
+        <family>{{ font }}</family>
+        {% endfor %}
       </prefer>
-  </alias>
-  <alias>
-    <family>{{ font.sans }}</family>
-      <default>
-        <family>sans-serif</family>
-      </default>
   </alias>
   <alias>
     <family>serif</family>
       <prefer>
-        <family>{{ font.serif }}</family>
+        {% for font in font.serif %}
+        <family>{{ font }}</family>
+        {% endfor %}
       </prefer>
-  </alias>
-  <alias>
-    <family>{{ font.serif }}</family>
-      <default>
-        <family>serif</family>
-      </default>
   </alias>
   <alias>
     <family>monospace</family>
       <prefer>
-        <family>{{ font.monospace }}</family>
+        {% for font in font.monospace %}
+        <family>{{ font }}</family>
+        {% endfor %}
       </prefer>
-  </alias>
-  <alias>
-    <family>{{ font.monospace }}</family>
-      <default>
-        <family>monospace</family>
-      </default>
   </alias>
 
   <!-- https://wiki.debian.org/Fonts#Subpixel-hinting_and_Font-smoothing -->
