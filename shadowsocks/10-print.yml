@@ -1,0 +1,7 @@
+---
+- hosts: mac
+  gather_facts: False
+  tasks:
+    - name: print shadowsocks servers
+      debug:
+        msg: "{{ shadowsocks_servers | sort | join(' ') }}"
