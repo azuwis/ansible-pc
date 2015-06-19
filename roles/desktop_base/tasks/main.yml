@@ -113,7 +113,18 @@
 - name: qt4 config
   template: src=qt4.j2 dest=/etc/xdg/Trolltech.conf
 
-- name: qt4/5 env
+# Hack here. When no desktop environment is detected, qt4 use hicolor as
+# fallback icon theme. Let hicolor inherit theme.icon and theme.icon will be
+# used.
+- name: qt4 icon theme
+  lineinfile:
+    dest: /usr/share/icons/hicolor/index.theme
+    insertafter: ^Name=Hicolor$
+    regexp: ^Inherits=
+    line: Inherits={{ theme.icon }}
+  when: theme.icon is defined
+
+- name: qt5 env
   template: src=qt-env.j2 dest=/etc/X11/Xsession.d/20qt-env
 
 - name: adobe flash setting for firefox
