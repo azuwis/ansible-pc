@@ -34,6 +34,15 @@
   copy: src=nvidia.conf dest=/etc/X11/xorg.conf.d
   when: nvidia_graphic|success
 
+- name: install cron to auto clean up .xsession-errors
+  cron:
+    name: auto clean up .xsession-errors
+    user: "{{ item.name }}"
+    job: test $(stat -c\%s ~/.xsession-errors) -gt 10485760 && > ~/.xsession-errors
+    hour: 12
+    minute: 7
+  with_items: staff
+
 - name: desktop base packages
   apt: name={{ item }}
   with_items:
