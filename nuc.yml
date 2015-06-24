@@ -26,5 +26,5 @@
     - { role: wireless, tags: wireless }
     - { role: bluetooth, tags: bluetooth }
     - { role: laptop_mode, tags: laptop_mode }
-    - { role: xbmc, tags: xbmc }
+    - { role: kodi, tags: kodi }
     - { role: torrent, tags: torrent }
