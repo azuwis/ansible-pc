@@ -1,5 +1,6 @@
 ---
 - hosts: nuc
+  sudo: True
   vars:
     domain: localdomain
     staff:
