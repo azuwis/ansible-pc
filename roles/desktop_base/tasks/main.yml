@@ -139,6 +139,15 @@
 - name: adobe flash setting for firefox
   copy: src=mms.cfg dest=/etc/adobe/mms.cfg
 
+# XXX: If this fails, run chromium once
+- name: adobe flash setting for chromium
+  copy:
+    src: mms.cfg
+    dest: /home/{{ item.name }}/.config/chromium/Default/Pepper Data/Shockwave Flash/System/
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  with_items: staff
+
 - name: zsh config to startx at login
   template: src=zlogin.j2 dest=/home/{{ item.name }}/.zlogin owner={{ item.name }} group={{ item.name }}
   with_items: staff
