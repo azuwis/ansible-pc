@@ -136,10 +136,23 @@
 - name: qt5 env
   template: src=qt-env.j2 dest=/etc/X11/Xsession.d/20qt-env
 
+- name: adobe flash setting dir
+  file:
+    dest: /etc/adobe/
+    state: directory
+
 - name: adobe flash setting for firefox
   copy: src=mms.cfg dest=/etc/adobe/mms.cfg
 
 # XXX: If this fails, run chromium once
+- name: adobe flash setting dir for chromium
+  file:
+    dest: /home/{{ item.name }}/.config/chromium/Default/Pepper Data/Shockwave Flash/System/
+    state: directly
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  with_items: staff
+
 - name: adobe flash setting for chromium
   copy:
     src: mms.cfg
