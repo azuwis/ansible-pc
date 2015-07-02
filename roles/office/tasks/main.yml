@@ -1,0 +1,10 @@
+---
+- name: install office packages
+  apt: name="{{ items }}"
+  with_items:
+    - libreoffice-gtk
+    - libreoffice-style-sifr
+    - libreoffice-writer
+    - libreoffice-impress
+    - libreoffice-calc
+    - libreoffice-draw
