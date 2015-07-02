@@ -25,6 +25,8 @@
   with_items:
     - linux-headers-amd64
     - nvidia-driver
+    - libgles1-nvidia
+    - libgles2-nvidia
 
 - name: X11 config dir
   file: dest=/etc/X11/xorg.conf.d/ state=directory
