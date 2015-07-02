@@ -11,7 +11,7 @@
   with_items:
     - xserver-xorg-video-intel
     - libgl1-mesa-dri
-    - libvdpau-va-gl1
+    - i965-va-driver
 
 - name: test nvidia graphic card
   shell: lspci -nn | grep -q 'VGA.*10de'
