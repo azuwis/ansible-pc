@@ -161,6 +161,23 @@
     group: "{{ item.name }}"
   with_items: staff
 
+# XXX: If this fails, run firefox with freshplayerplugin once
+- name: adobe flash setting dir for freshplayerplugin
+  file:
+    dest: /home/{{ item.name }}/.config/freshwrapper-data/Shockwave Flash/System/
+    state: directory
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  with_items: staff
+
+- name: adobe flash setting for freshplayerplugin
+  copy:
+    src: mms.cfg
+    dest: /home/{{ item.name }}/.config/freshwrapper-data/Shockwave Flash/System/mms.cfg
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  with_items: staff
+
 - name: zsh config to startx at login
   template: src=zlogin.j2 dest=/home/{{ item.name }}/.zlogin owner={{ item.name }} group={{ item.name }}
   with_items: staff
