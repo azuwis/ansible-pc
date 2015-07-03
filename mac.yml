@@ -8,7 +8,7 @@
         comment: Zhong Jianxin
         uid: 1000
         shell: /bin/zsh
-    dpi: 131
+    dpi: 133
     grub:
       cmd: acpi_apic_instance=2
   roles:
