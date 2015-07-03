@@ -65,14 +65,14 @@
   when: grub is defined and grub.cmd is defined
 
 # replace syslog with systemd-journald, see http://freedesktop.org/wiki/Software/systemd/Optimizations/
-- name: create /var/log/journal/
-  file:
-    dest: /var/log/journal/
-    state: directory
-    owner: root
-    group: systemd-journal
-    mode: "2755" # need to be quoted, ansible bug?
-  notify: restart journald
+# - name: create /var/log/journal/
+#   file:
+#     dest: /var/log/journal/
+#     state: directory
+#     owner: root
+#     group: systemd-journal
+#     mode: "2755" # need to be quoted, ansible bug?
+#   notify: restart journald
 
-- name: remove rsyslog
-  apt: name=rsyslog state=absent purge=yes
+# - name: remove rsyslog
+#   apt: name=rsyslog state=absent purge=yes
