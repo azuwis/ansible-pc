@@ -4,7 +4,7 @@
     name: "{{ item.name }}"
     comment: "{{ item.comment }}"
     shell: "{{ item.shell }}"
-    groups: adm,staff,audio,video,plugdev,netdev,dialout,cdrom,floppy
+    groups: adm,staff,audio,video,plugdev,netdev,dialout,cdrom,floppy,systemd-journal
     append: yes
   with_items: staff
 
