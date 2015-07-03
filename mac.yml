@@ -16,6 +16,7 @@
     - { role: apt, tags: apt }
     - { role: base, tags: base }
     - { role: desktop_base, tags: desktop_base }
+    - { role: email-client, tags: email-client }
     - { role: wireless, tags: wireless }
     - { role: laptop_mode, tags: laptop_mode }
     - { role: adb, tags: adb }

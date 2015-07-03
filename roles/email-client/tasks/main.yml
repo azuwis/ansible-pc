@@ -1,0 +1,9 @@
+---
+- name: install packages
+  apt: name="{{ item }}"
+  with_items:
+    - isync
+    - emacs
+    - mu4e
+    - maildir-utils-extra
+    - msmtp
