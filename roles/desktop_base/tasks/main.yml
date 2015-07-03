@@ -150,7 +150,7 @@
 - name: adobe flash setting dir for chromium
   file:
     dest: /home/{{ item.name }}/.config/chromium/Default/Pepper Data/Shockwave Flash/System/
-    state: directly
+    state: directory
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
   with_items: staff
