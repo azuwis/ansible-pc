@@ -33,7 +33,10 @@
     - silversearcher-ag
 
 - name: unneeded packages
-  apt: name={{ item }} state=absent
+  apt:
+    name: "{{ item }}"
+    state: absent
+    purge: yes
   with_items:
     - libpam-systemd
 
