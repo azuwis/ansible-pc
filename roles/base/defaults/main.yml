@@ -1,5 +1,7 @@
 ---
 # The fist locale will be set as default locale
+grub:
+  timeout: 1
 locales:
   - en_US.UTF-8
 timezone: Asia/Shanghai

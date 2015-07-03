@@ -56,7 +56,7 @@
   notify: update initramfs
 
 - name: grub timeout
-  lineinfile: dest=/etc/default/grub regexp=^GRUB_TIMEOUT= line=GRUB_TIMEOUT={{ grub.timeout | default(1) }}
+  lineinfile: dest=/etc/default/grub regexp=^GRUB_TIMEOUT= line=GRUB_TIMEOUT={{ grub.timeout }}
   notify: update grub
 
 - name: grub linux init cmd

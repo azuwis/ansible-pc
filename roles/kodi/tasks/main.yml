@@ -1,8 +1,8 @@
 ---
-- name: xbmc packages
+- name: kodi packages
   apt: name={{ item }}
   with_items:
-    - xbmc
+    - kodi
     - avahi-daemon
     - libshairplay0
-    - libplist2
+    - libplist3
