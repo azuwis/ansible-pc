@@ -16,6 +16,10 @@
 - name: main sources.list
   apt_repository: repo='deb http://{{ apt_mirror | default("ftp.cn.debian.org") }}/debian {{ ansible_lsb.codename }} main contrib non-free'
 
+- name: experimental sources.list
+  apt_repository:
+    repo: deb http://{{ apt_mirror | default("ftp.cn.debian.org") }}/debian experimental main
+
 # TODO Split to another role, handle deb-multimedia-keyring
 - name: deb multimedia sources.list
   apt_repository: repo='deb http://www.deb-multimedia.org {{ ansible_lsb.codename }} main non-free'
