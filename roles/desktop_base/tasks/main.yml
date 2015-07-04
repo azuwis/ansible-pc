@@ -51,6 +51,7 @@
     - xserver-xorg              ## X
     - xinit
     - x11-xserver-utils         #  xrdb/xmodmap
+    - xdg-user-dirs             #  auto create well known user dirs
     - hsetroot                  #  set wallpaper
     - xdotool
     - unclutter                 #  auto hide cursor
