@@ -1,0 +1,31 @@
+---
+- name: install packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - goldendict
+    - dict-gcide
+
+- name: create dict dir
+  file:
+    dest: /usr/share/stardict/dic/
+    state: directory
+
+- name: test if wikt dict exists
+  shell: ls /usr/share/stardict/dic/wikt-en-*.ifo
+  register: wikt
+  ignore_errors: True
+  changed_when: False
+
+- name: download offline wiktionary
+  get_url:
+    url: http://www.dictinfo.com/stardict/wikt-en-ALL-2015-04-30.7z
+    dest: /tmp/wikt-en.7z
+    sha256sum: 4e672478eb30afa90f5d190f70fb14c9f9cc516015ba911e9a7c096df24c22dc
+  when: wikt|failed
+
+- name: unpack offline wiktionary
+  command: 7z x /tmp/wikt-en.7z
+  args:
+    chdir: /usr/share/stardict/dic/
+  when: wikt|failed
