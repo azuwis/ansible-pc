@@ -2,6 +2,11 @@
 - name: apt config
   copy: src=99misc dest=/etc/apt/apt.conf.d/99misc
 
+- name: apt preferences
+  template:
+    src: preferences.j2
+    dest: /etc/apt/preferences
+
 - name: install lsb-release
   apt: name=lsb-release install_recommends=no
 
@@ -34,4 +39,3 @@
   apt:
     update_cache: yes
   when: dmo_keyring.changed
-
