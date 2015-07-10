@@ -1,4 +1,11 @@
 ---
+- name: X11 config dir
+  file: dest=/etc/X11/xorg.conf.d/ state=directory
+
+# Install xserver-xorg-input-joystick to control mouse using joystick
+- name: xbox 360 pad setting
+  copy: src=xbox-360-pad.conf dest=/etc/X11/xorg.conf.d
+
 - name: test intel graphic card
   shell: lspci -nn | grep -q 'VGA.*8086'
   register: intel_graphic
@@ -27,10 +34,6 @@
     - nvidia-driver
     - libgles1-nvidia
     - libgles2-nvidia
-
-- name: X11 config dir
-  file: dest=/etc/X11/xorg.conf.d/ state=directory
-  when: nvidia_graphic|success
 
 - name: nvidia graphic driver
   copy: src=nvidia.conf dest=/etc/X11/xorg.conf.d
