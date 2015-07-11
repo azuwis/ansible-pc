@@ -6,17 +6,17 @@
     - goldendict
     - dict-gcide
 
-- name: set dictd run mode
-  lineinfile:
-    dest: /etc/default/dictd
-    regexp: ^RUN_MODE=
-    line: RUN_MODE="disable"
-
 - name: disable dictd system service
   service:
     name: dictd
     enabled: no
     state: stopped
+
+- name: set dictd run mode
+  lineinfile:
+    dest: /etc/default/dictd
+    regexp: ^RUN_MODE=
+    line: RUN_MODE="disable"
 
 - name: create dict dir
   file:
