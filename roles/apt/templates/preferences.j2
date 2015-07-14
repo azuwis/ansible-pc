@@ -1,16 +1,16 @@
 # {{ ansible_managed }}
 
-Package: *
-Pin: release o=Debian, n={{ ansible_lsb.codename }}
-Pin-Priority: 600
-
-Package: *
-Pin: release o=Unofficial Multimedia Packages
-Pin-Priority: 601
-
 Package: iceweasel
 Pin: release a=experimental
-Pin-Priority: 601
+Pin-Priority: 500
+
+# Package: *
+# Pin: release o=Debian, n={{ ansible_lsb.codename }}
+# Pin-Priority: 600
+
+# Package: *
+# Pin: release o=Unofficial Multimedia Packages
+# Pin-Priority: 601
 
 # Package: *nvidia* glx-diversions glx-alternative-mesa glx-alternative-nvidia
 # Pin: release o=Debian, n=experimental
