@@ -20,6 +20,10 @@
     - libgl1-mesa-dri
     - i965-va-driver
 
+- name: intel graphic driver config
+  copy: src=intel.conf dest=/etc/X11/xorg.conf.d/
+  when: intel_graphic|success
+
 - name: test nvidia graphic card
   shell: lspci -nn | grep -q 'VGA.*10de'
   register: nvidia_graphic
