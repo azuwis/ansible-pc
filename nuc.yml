@@ -24,8 +24,9 @@
     - { role: base, tags: base }
     - { role: desktop_base, tags: desktop_base }
     - { role: wireless, tags: wireless }
-    - { role: bluetooth, tags: bluetooth }
     - { role: laptop_mode, tags: laptop_mode }
+    - { role: dictionary, tags: dictionary }
+
+    - { role: bluetooth, tags: bluetooth }
     - { role: kodi, tags: kodi }
     - { role: torrent, tags: torrent }
-    - { role: dictionary, tags: dictionary }
