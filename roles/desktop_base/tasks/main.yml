@@ -87,7 +87,7 @@
     - fcitx-frontend-gtk2
     - fcitx-frontend-gtk3
     - fcitx-frontend-qt4
-    - fcitx-googlepinyin
+    - fcitx-sunpinyin
     - fcitx-ui-classic
     - dbus-x11
     - im-config
