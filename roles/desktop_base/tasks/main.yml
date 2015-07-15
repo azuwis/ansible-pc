@@ -35,8 +35,8 @@
     - libgles1-nvidia
     - libgles2-nvidia
 
-- name: nvidia graphic driver
-  copy: src=nvidia.conf dest=/etc/X11/xorg.conf.d
+- name: nvidia graphic driver config
+  copy: src=nvidia.conf dest=/etc/X11/xorg.conf.d/
   when: nvidia_graphic|success
 
 - name: install cron to auto clean up .xsession-errors
