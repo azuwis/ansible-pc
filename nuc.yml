@@ -28,3 +28,4 @@
     - { role: laptop_mode, tags: laptop_mode }
     - { role: kodi, tags: kodi }
     - { role: torrent, tags: torrent }
+    - { role: dictionary, tags: dictionary }
