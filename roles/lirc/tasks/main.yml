@@ -1,0 +1,11 @@
+---
+- name: install packages
+  apt: name="{{ items }}"
+  with_items:
+    - lirc
+
+- name: lircd config
+  copy:
+    dest: /etc/lirc/lircd.conf
+    src: lircd.conf
+
