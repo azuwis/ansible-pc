@@ -9,6 +9,9 @@
         uid: 1000
         shell: /bin/zsh
     dpi: 160
+    alsa:
+      card: 0
+      device: 3
     laptop_mode:
       global:
         - { key: 'ENABLE_LAPTOP_MODE_ON_AC', value: 1 }
