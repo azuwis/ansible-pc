@@ -95,6 +95,7 @@
     - fcitx-ui-classic
     - fcitx-rime
     - librime-data-double-pinyin
+    - librime-data-pinyin-simp
     - librime-bin
     - dbus-x11
     - im-config
