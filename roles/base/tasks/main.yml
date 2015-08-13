@@ -32,6 +32,7 @@
     - debfoster
     - silversearcher-ag
     - tofrodos
+    - ncdu
 
 - name: unneeded packages
   apt:
