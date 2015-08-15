@@ -1,6 +1,7 @@
 ---
 font:
   pkgs:
+    - fonts-lato
     - fonts-croscore
     - fonts-crosextra-caladea
     - fonts-crosextra-carlito
@@ -10,7 +11,7 @@ font:
     - 30-0-google-croscore-cousine-fontconfig.conf
     - 30-0-google-croscore-tinos-fontconfig.conf
   sans:
-    - Carlito
+    - Lato
     - WenQuanYi Micro Hei
   serif:
     - Caladea
