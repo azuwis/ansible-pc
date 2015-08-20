@@ -34,6 +34,7 @@
     - silversearcher-ag
     - tofrodos
     - ncdu
+    - os-prober
 
 - name: unneeded packages
   apt:
