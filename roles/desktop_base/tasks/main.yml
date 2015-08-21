@@ -73,6 +73,7 @@
     - lxterminal
     - xtermcontrol              #  for set lxterminal color scheme
     - xfce4-clipman
+    - dunst                     # notification daemon
     - libnotify-bin
     - vim-gtk                   ## Editor
     - exuberant-ctags           #  vim tagbar plugin
