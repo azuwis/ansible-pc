@@ -75,6 +75,7 @@
     - xfce4-clipman
     - dunst                     # notification daemon
     - libnotify-bin
+    - arandr
     - vim-gtk                   ## Editor
     - exuberant-ctags           #  vim tagbar plugin
     - emacs
