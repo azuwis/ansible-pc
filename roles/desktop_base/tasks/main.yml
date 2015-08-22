@@ -114,6 +114,11 @@
     dest: /etc/asound.conf
   when: alsa is defined
 
+- name: copy udev rule to set backlight sysfs permission
+  copy:
+    src: 99-backlight-permission.rules
+    dest: /etc/udev/rules.d/99-backlight-permission.rules
+
 - name: unclutter settings
   lineinfile:
     dest: /etc/default/unclutter
