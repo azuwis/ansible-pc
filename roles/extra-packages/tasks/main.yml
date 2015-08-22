@@ -1,0 +1,5 @@
+- name: install extra packages
+  apt: name="{{ item }}"
+  with_items:
+    - photoxx                 # digital photo editor
+    - blueman
