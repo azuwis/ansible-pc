@@ -130,6 +130,18 @@
     src: 99-backlight-permission.rules
     dest: /etc/udev/rules.d/99-backlight-permission.rules
 
+- name: set kbdlight sysfs permission once
+  file:
+    dest: /sys/class/leds/smc::kbd_backlight/brightness
+    owner: root
+    group: video
+    mode: 0664
+
+- name: copy udev rule to set kbdlight sysfs permission
+  copy:
+    src: 99-kbdlight-permission.rules
+    dest: /etc/udev/rules.d/99-kbdlight-permission.rules
+
 - name: unclutter settings
   lineinfile:
     dest: /etc/default/unclutter
