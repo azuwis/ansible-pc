@@ -35,6 +35,7 @@
     - tofrodos
     - ncdu
     - os-prober
+    - git-hub
 
 - name: unneeded packages
   apt:
