@@ -186,8 +186,13 @@
     line: Inherits={{ theme.icon }}
   when: theme.icon is defined
 
-- name: qt5 env
-  template: src=qt-env.j2 dest=/etc/X11/Xsession.d/20qt-env
+- name: remove old xsession.d config
+  file:
+    dest: /etc/X11/Xsession.d/20qt-env
+    state: absent
+
+- name: custom xsession.d config
+  template: src=20ansible-managed.j2 dest=/etc/X11/Xsession.d/20ansible-managed
 
 - name: adobe flash setting dir
   file:
