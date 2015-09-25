@@ -9,6 +9,7 @@ export QT_STYLE_OVERRIDE={{ theme.qt5 }}
 #export QT_STYLE_OVERRIDE=
 {% endif %}
 
+# Set default browser
 {% if browser.default is defined %}
 export BROWSER={{ browser.default }}
 {% endif %}
