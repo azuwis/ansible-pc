@@ -29,3 +29,6 @@ theme:
   gtk3: Numix
   qt4: GTK+
   qt5: gtk
+
+browser:
+  default: firefox
