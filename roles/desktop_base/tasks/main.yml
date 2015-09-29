@@ -96,6 +96,7 @@
     - fcitx-frontend-gtk2
     - fcitx-frontend-gtk3
     - fcitx-frontend-qt4
+    - fcitx-frontend-qt5
     - fcitx-ui-classic
     - fcitx-rime
     - librime-data-double-pinyin
