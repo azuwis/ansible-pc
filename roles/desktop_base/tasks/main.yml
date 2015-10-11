@@ -96,6 +96,7 @@
     - fcitx-frontend-gtk2
     - fcitx-frontend-gtk3
     - fcitx-frontend-qt4
+    - fcitx-frontend-qt5
     - fcitx-ui-classic
     - fcitx-rime
     - librime-data-double-pinyin
@@ -129,6 +130,18 @@
   copy:
     src: 99-backlight-permission.rules
     dest: /etc/udev/rules.d/99-backlight-permission.rules
+
+- name: set kbdlight sysfs permission once
+  file:
+    dest: /sys/class/leds/smc::kbd_backlight/brightness
+    owner: root
+    group: video
+    mode: 0664
+
+- name: copy udev rule to set kbdlight sysfs permission
+  copy:
+    src: 99-kbdlight-permission.rules
+    dest: /etc/udev/rules.d/99-kbdlight-permission.rules
 
 - name: unclutter settings
   lineinfile:
@@ -174,8 +187,13 @@
     line: Inherits={{ theme.icon }}
   when: theme.icon is defined
 
-- name: qt5 env
-  template: src=qt-env.j2 dest=/etc/X11/Xsession.d/20qt-env
+- name: remove old xsession.d config
+  file:
+    dest: /etc/X11/Xsession.d/20qt-env
+    state: absent
+
+- name: custom xsession.d config
+  template: src=20ansible-managed.j2 dest=/etc/X11/Xsession.d/20ansible-managed
 
 - name: adobe flash setting dir
   file:

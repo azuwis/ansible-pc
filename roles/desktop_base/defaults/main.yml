@@ -6,6 +6,7 @@ font:
     - fonts-crosextra-caladea
     - fonts-crosextra-carlito
     - fonts-wqy-microhei
+    # - fonts-font-awesome
   enable:
     - 30-0-google-croscore-arimo-fontconfig.conf
     - 30-0-google-croscore-cousine-fontconfig.conf
@@ -29,3 +30,6 @@ theme:
   gtk3: Numix
   qt4: GTK+
   qt5: gtk
+
+browser:
+  default: firefox

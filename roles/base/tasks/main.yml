@@ -23,6 +23,7 @@
     - ntpdate
     - sudo
     - systemd-sysv
+    - libpam-systemd
     - dbus
     - unzip
     - unrar
@@ -35,6 +36,8 @@
     - tofrodos
     - ncdu
     - os-prober
+    - git-hub
+    - apt-listbugs
 
 - name: unneeded packages
   apt:
@@ -42,7 +45,7 @@
     state: absent
     purge: yes
   with_items:
-    - libpam-systemd
+    - nscd
 
 - name: locales to generate
   locale_gen: name="{{ item }}" state=present
