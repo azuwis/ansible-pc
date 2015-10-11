@@ -133,10 +133,12 @@
 
 - name: set kbdlight sysfs permission once
   file:
-    dest: /sys/class/leds/smc::kbd_backlight/brightness
+    dest: "{{ item }}"
     owner: root
     group: video
     mode: 0664
+  with_fileglob:
+    - /sys/class/leds/smc::kbd_backlight/brightness
 
 - name: copy udev rule to set kbdlight sysfs permission
   copy:
