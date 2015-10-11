@@ -10,7 +10,7 @@
 - name: install lsb-release
   apt: name=lsb-release install_recommends=no
 
-- name: reget ansible_lsb.codename if it's empty
+- name: reget ansible_lsb.codename if it is empty
   setup:
   when: ansible_lsb is not defined
 
