@@ -5,8 +5,8 @@ font:
     - fonts-croscore
     - fonts-crosextra-caladea
     - fonts-crosextra-carlito
-    # - fonts-font-awesome
     - fonts-noto-cjk
+    - fonts-font-awesome
   enable:
     - 30-0-google-croscore-arimo-fontconfig.conf
     - 30-0-google-croscore-cousine-fontconfig.conf
