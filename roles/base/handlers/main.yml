@@ -8,5 +8,10 @@
 - name: update grub
   command: update-grub
 
+- name: reload ssh
+  service:
+    name: ssh
+    state: reloaded
+
 - name: restart journald
   service: name=systemd-journald state=restarted

@@ -71,6 +71,15 @@
   notify: update grub
   when: grub is defined and grub.cmd is defined
 
+- name: config sshd
+  copy:
+    dest: /etc/ssh/sshd_config
+    src: sshd_config
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload ssh
+
 # replace syslog with systemd-journald, see http://freedesktop.org/wiki/Software/systemd/Optimizations/
 # - name: create /var/log/journal/
 #   file:
