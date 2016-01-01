@@ -1,0 +1,7 @@
+---
+wireless_ap:
+  interface: wlan0
+  ip: 192.168.123.1/24
+  hw_mode: g
+  channel: 6
+  out_interface: eth0

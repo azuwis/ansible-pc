@@ -1,0 +1,5 @@
+---
+- hosts: mac
+  become: yes
+  roles:
+    - wireless_ap

@@ -1,0 +1,12 @@
+iface ap inet static
+    address {{ wireless_ap.ip | ipaddr('address') }}
+    netmask {{ wireless_ap.ip | ipaddr('netmask') }}
+    hostapd /etc/hostapd/hostapd.conf
+    post-up dnsmasq --bind-interfaces --no-dhcp-interface={{ wireless_ap.out_interface }} --listen-address={{ wireless_ap.ip | ipaddr('address') }} --dhcp-range={{ (wireless_ap.ip | ipaddr('address') | ipaddr('int') + 99) | ipaddr }},{{ (wireless_ap.ip | ipaddr('address') | ipaddr('int') + 149) | ipaddr }},12h
+    post-down pkill -u nobody dnsmasq
+    post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+    post-down echo 0 > /proc/sys/net/ipv4/ip_forward
+    post-up iptables -t nat -A POSTROUTING -s {{ wireless_ap.ip | ipaddr('network') }}/{{ wireless_ap.ip | ipaddr('prefix') }} -o {{ wireless_ap.out_interface }} -j MASQUERADE
+    post-down iptables -t nat -D POSTROUTING -s {{ wireless_ap.ip | ipaddr('network') }}/{{ wireless_ap.ip | ipaddr('prefix') }} -o {{ wireless_ap.out_interface }} -j MASQUERADE
+    post-up iptables -t nat -A PREROUTING -p tcp -m multiport --dports 22,80,443,5222,5228 -j SS_SPEC_WAN_AC || true
+    post-down iptables -t nat -D PREROUTING -p tcp -m multiport --dports 22,80,443,5222,5228 -j SS_SPEC_WAN_AC || true

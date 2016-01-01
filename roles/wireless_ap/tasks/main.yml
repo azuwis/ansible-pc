@@ -1,0 +1,26 @@
+---
+- name: install hostapd
+  apt:
+    name: hostapd
+
+- name: ifdown
+  command: ifdown {{ wireless_ap.interface }}
+
+- name: /etc/hostapd/hostapd.conf
+  template:
+    dest: /etc/hostapd/hostapd.conf
+    src: hostapd.conf.j2
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: /etc/network/interfaces.d/ap
+  template:
+    dest: /etc/network/interfaces.d/ap
+    src: ap.j2
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: ifup
+  command: ifup {{ wireless_ap.interface }}=ap
