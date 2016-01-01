@@ -5,3 +5,19 @@
     - iw
     - wireless-tools
     - wpasupplicant
+
+- name: /etc/network/interfaces.d/wireless
+  copy:
+    dest: /etc/network/interfaces.d/wireless
+    src: wireless
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: /etc/wpa_supplicant/wpa_supplicant.conf
+  template:
+    dest: /etc/wpa_supplicant/wpa_supplicant.conf
+    src: wpa_supplicant.conf.j2
+    owner: root
+    group: root
+    mode: '0600'

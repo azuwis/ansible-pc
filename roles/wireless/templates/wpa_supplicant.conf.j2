@@ -1,0 +1,13 @@
+#jinja2: lstrip_blocks: True
+ctrl_interface=DIR=/run/wpa_supplicant GROUP=netdev
+
+{% for item in wireless.network %}
+network={
+    ssid="{{ item.ssid }}"
+    psk="{{ item.psk }}"
+}
+{% endfor %}
+
+network={
+    key_mgmt=NONE
+}
