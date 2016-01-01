@@ -3,4 +3,5 @@
   apt: name={{ item }}
   with_items:
     - iw
+    - wireless-tools
     - wpasupplicant
