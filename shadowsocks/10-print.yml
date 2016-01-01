@@ -1,6 +1,5 @@
 ---
 - hosts: mac
-  gather_facts: False
   tasks:
     - name: print shadowsocks servers
       debug:

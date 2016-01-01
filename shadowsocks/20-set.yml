@@ -1,7 +1,6 @@
 ---
 - hosts: mac
   sudo: True
-  gather_facts: False
   vars_prompt:
     - name: shadowsocks_server
       prompt: shadowsocks server
