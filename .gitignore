@@ -1,1 +1,5 @@
 /production
+/retry/
+/fact_cache/
+/archive/
+/group_vars/all
