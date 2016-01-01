@@ -1,6 +1,6 @@
 ---
 - hosts: mac
-  sudo: True
+  become: yes
   vars_prompt:
     - name: shadowsocks_server
       prompt: shadowsocks server
