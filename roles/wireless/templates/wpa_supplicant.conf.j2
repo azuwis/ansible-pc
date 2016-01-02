@@ -4,7 +4,11 @@ ctrl_interface=DIR=/run/wpa_supplicant GROUP=netdev
 {% for item in wireless.network %}
 network={
   {% for key, value in item.iteritems() | sort %}
+    {% if key == 'key_mgmt' or key == 'eap' or key == 'priority' %}
+    {{ key }}={{ value }}
+    {% else %}
     {{ key }}="{{ value }}"
+    {% endif %}
   {% endfor %}
 }
 {% endfor %}
