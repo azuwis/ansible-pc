@@ -14,10 +14,10 @@
     group: root
     mode: '0600'
 
-- name: /etc/network/interfaces.d/ap
+- name: /etc/network/interfaces.d/wireless_ap
   template:
-    dest: /etc/network/interfaces.d/ap
-    src: ap.j2
+    dest: /etc/network/interfaces.d/wireless_ap
+    src: wireless_ap.j2
     owner: root
     group: root
     mode: '0644'
