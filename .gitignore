@@ -2,4 +2,4 @@
 /retry/
 /fact_cache/
 /archive/
-/group_vars/all
+/group_vars/all/vaulted.yml
