@@ -3,8 +3,9 @@ ctrl_interface=DIR=/run/wpa_supplicant GROUP=netdev
 
 {% for item in wireless.network %}
 network={
-    ssid="{{ item.ssid }}"
-    psk="{{ item.psk }}"
+  {% for key, value in item.iteritems() | sort %}
+    {{ key }}="{{ value }}"
+  {% endfor %}
 }
 {% endfor %}
 
