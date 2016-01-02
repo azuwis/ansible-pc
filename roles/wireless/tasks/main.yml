@@ -21,3 +21,4 @@
     owner: root
     group: root
     mode: '0600'
+  notify: wpa_cli reconfigure
