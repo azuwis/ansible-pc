@@ -5,6 +5,7 @@
     - iw
     - wireless-tools
     - wpasupplicant
+    - ifmetric
 
 - name: /etc/network/interfaces.d/wireless
   copy:
