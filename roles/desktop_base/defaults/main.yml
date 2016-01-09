@@ -26,6 +26,10 @@ theme:
     - gnome-dust-icon-theme
     - gnome-themes-standard
     - gtk2-engines-murrine
+  debs:
+    - dest: /root/arc-theme-solid.deb
+      url: "http://download.opensuse.org/repositories/home:/Horst3180/Debian_8.0/all/arc-theme-solid_1450051815.946cbf5_all.deb"
+      sha256sum: 7d315977ad253803e4f76b68bae024ee494d481e80f98497b6d2b6ea87edcc26
   icon: gnome-dust
   gtk2: Arc-Darker
   gtk3: Arc-Darker
