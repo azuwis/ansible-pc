@@ -169,8 +169,15 @@
   apt: name={{ item }}
   with_items: theme.pkgs
 
-- name: numix gtk theme
-  git: dest=/usr/share/themes/Numix repo=https://github.com/shimmerproject/Numix.git
+- name: download arc theme deb package
+  get_url:
+    dest: /root/arc-theme-solid.deb
+    sha256sum: 7d315977ad253803e4f76b68bae024ee494d481e80f98497b6d2b6ea87edcc26
+    url: "http://download.opensuse.org/repositories/home:/Horst3180/Debian_8.0/all/arc-theme-solid_1450051815.946cbf5_all.deb"
+
+- name: install arc theme
+  apt:
+    deb: /root/arc-theme-solid.deb
 
 - name: gtk2 config
   template: src=gtk2.j2 dest=/etc/gtk-2.0/gtkrc

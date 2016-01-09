@@ -24,10 +24,11 @@ font:
 theme:
   pkgs:
     - gnome-dust-icon-theme
+    - gnome-themes-standard
     - gtk2-engines-murrine
   icon: gnome-dust
-  gtk2: Numix
-  gtk3: Numix
+  gtk2: Arc-Darker
+  gtk3: Arc-Darker
   qt4: GTK+
   qt5: gtk
 
