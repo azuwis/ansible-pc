@@ -104,7 +104,7 @@
     - dbus-x11
     - dialog
     - im-config
-    - phototonic                ## Image viewer
+    - nomacs                    ## Image viewer
     - evince                    ## PDF viewer
     - poppler-data              #  CJK pdf
     - gpick                     ## Color picker
