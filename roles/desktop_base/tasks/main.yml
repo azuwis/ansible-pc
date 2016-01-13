@@ -62,7 +62,7 @@
     - hsetroot                  #  set wallpaper
     - xdotool
     - unclutter                 #  auto hide cursor
-    - dmz-cursor-theme
+    # - dmz-cursor-theme
     - redshift                  #  ease your eyes
     - zsh                       ## Shell
     - zsh-syntax-highlighting
