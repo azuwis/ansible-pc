@@ -25,6 +25,7 @@ theme:
   pkgs:
     - gnome-themes-standard
     - gtk2-engines-murrine
+    - gtk2-engines-pixbuf
   debs:
     - dest: /root/arc-theme-solid.deb
       url: "http://download.opensuse.org/repositories/home:/Horst3180/Debian_8.0/all/arc-theme-solid_1450051815.946cbf5_all.deb"
