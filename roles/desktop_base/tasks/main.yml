@@ -249,3 +249,8 @@
 - name: zsh config to startx at login
   template: src=zlogin.j2 dest=/home/{{ item.name }}/.zlogin owner={{ item.name }} group={{ item.name }}
   with_items: staff
+
+- name: system xresources
+  template:
+    dest: /etc/X11/Xresources/ansible-managed
+    src: xresources-ansible-managed.j2
