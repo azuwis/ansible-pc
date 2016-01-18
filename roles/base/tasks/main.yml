@@ -24,6 +24,7 @@
     - sudo
     - systemd-sysv
     - libpam-systemd
+    - curl
     - dbus
     - unzip
     - unrar
@@ -37,6 +38,7 @@
     - ncdu
     - os-prober
     - git-hub
+    - myrepos
 
 - name: unneeded packages
   apt:
