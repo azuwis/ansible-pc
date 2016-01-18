@@ -37,7 +37,6 @@
     - ncdu
     - os-prober
     - git-hub
-    - apt-listbugs
 
 - name: unneeded packages
   apt:

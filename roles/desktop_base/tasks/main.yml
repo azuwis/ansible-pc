@@ -78,6 +78,7 @@
     - i3lock
     - rofi
     - alsa-utils                ## Utils
+    - apt-listbugs
     - lxterminal
     - xtermcontrol              #  for set lxterminal color scheme
     - xfce4-clipman
