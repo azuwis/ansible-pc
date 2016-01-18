@@ -2,17 +2,17 @@
 - name: apt config
   copy: src=99misc dest=/etc/apt/apt.conf.d/99misc
 
-- name: apt preferences
-  template:
-    src: preferences.j2
-    dest: /etc/apt/preferences
-
 - name: install lsb-release
   apt: name=lsb-release install_recommends=no
 
 - name: reget ansible_lsb.codename if it is empty
   setup:
   when: ansible_lsb is not defined
+
+- name: apt preferences
+  template:
+    src: preferences.j2
+    dest: /etc/apt/preferences
 
 # TODO Use template
 - name: remove /etc/apt/sources.list
