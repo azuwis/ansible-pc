@@ -77,9 +77,8 @@
     - i3status
     - i3lock
     - rofi
-    - alsa-utils                ## Utils
-    - apt-listbugs
-    - lxterminal
+    - alsa-utils                ## Sound
+    - lxterminal                ## Terminal
     - xtermcontrol              #  for set lxterminal color scheme
     - xfce4-clipman
     - dunst                     # notification daemon
@@ -118,6 +117,9 @@
     - poppler-data              #  CJK pdf
     - gpick                     ## Color picker
     - duc                       ## Disk usage
+    - pass                      ## Utils
+    - git-remote-gcrypt
+    # - apt-listbugs
 
 - name: alsa config
   template:
