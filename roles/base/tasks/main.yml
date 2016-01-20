@@ -40,6 +40,12 @@
     - git-hub
     - myrepos
 
+- name: extra packages
+  apt:
+    name: "{{ item }}"
+  with_items: extra_packages
+  when: extra_packages is defined
+
 - name: unneeded packages
   apt:
     name: "{{ item }}"
