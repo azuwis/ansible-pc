@@ -59,9 +59,9 @@
   copy: content="{{ timezone }}\n" dest=/etc/timezone
   notify: update timezone
 
-- name: initramfs-tools config
-  copy: src=initramfs-misc.conf dest=/etc/initramfs-tools/conf.d/misc.conf
-  notify: update initramfs
+# - name: initramfs-tools config
+#   copy: src=initramfs-misc.conf dest=/etc/initramfs-tools/conf.d/misc.conf
+#   notify: update initramfs
 
 - name: grub timeout
   lineinfile: dest=/etc/default/grub regexp=^GRUB_TIMEOUT= line=GRUB_TIMEOUT={{ grub.timeout }}
