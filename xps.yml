@@ -1,0 +1,31 @@
+---
+- hosts: xps
+  become: yes
+  vars:
+    domain: localdomain
+    staff:
+      - name: azuwis
+        comment: Zhong Jianxin
+        uid: 1000
+        shell: /bin/zsh
+    dpi: 165
+    extra_packages:
+      - firmware-brcm80211
+      - firmware-misc-nonfree
+    kernel_modules:
+      - nvme
+      - i915
+    # grub:
+    #   cmd: acpi_apic_instance=2
+  roles:
+    - { role: apt, tags: apt }
+    - { role: base, tags: base }
+    - { role: staff, tags: staff }
+    - { role: desktop_base, tags: desktop_base }
+    - { role: wireless, tags: wireless }
+    # - { role: laptop_mode, tags: laptop_mode }
+    - { role: dictionary, tags: dictionary }
+
+    # - { role: adb, tags: adb }
+    # - { role: extra-packages, tags: extra-packages }
+    - { role: email-client, tags: email-client }
