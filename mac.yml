@@ -3,11 +3,6 @@
   become: yes
   vars:
     domain: localdomain
-    staff:
-      - name: azuwis
-        comment: Zhong Jianxin
-        uid: 1000
-        shell: /bin/zsh
     dpi: 133
     grub:
       cmd: acpi_apic_instance=2

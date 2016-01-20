@@ -1,0 +1,6 @@
+---
+staff:
+  - name: azuwis
+    comment: Zhong Jianxin
+    uid: 1000
+    shell: /bin/zsh
