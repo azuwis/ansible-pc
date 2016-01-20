@@ -111,6 +111,8 @@
     - poppler-data              #  CJK pdf
     - gpick                     ## Color picker
     - duc                       ## Disk usage
+    - freerdp-x11               ## Remote desktop client
+    - libfreerdp-plugins-standard
     - pass                      ## Utils
     - pinentry-gtk2
     - git-remote-gcrypt
