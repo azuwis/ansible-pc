@@ -9,6 +9,18 @@
     line: XKBOPTIONS="ctrl:swapcaps,terminate:ctrl_alt_bksp"
   notify: update keyboard
 
+- name: config console font
+  lineinfile:
+    dest: /etc/default/console-setup
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - regexp: ^FONTFACE
+      line: FONTFACE="TerminusBold"
+    - regexp: ^FONTSIZE
+      line: FONTSIZE="12x24"
+  notify: update console
+
 # Install xserver-xorg-input-joystick to control mouse using joystick
 - name: xbox 360 pad setting
   copy: src=xbox-360-pad.conf dest=/etc/X11/xorg.conf.d

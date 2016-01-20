@@ -1,3 +1,6 @@
 ---
 - name: update keyboard
   shell: dpkg-reconfigure --frontend noninteractive console-setup && udevadm trigger --subsystem-match=input --action=change
+
+- name: update console
+  command: setupcon --save-only
