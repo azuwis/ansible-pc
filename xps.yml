@@ -18,7 +18,7 @@
     - { role: staff, tags: staff }
     - { role: desktop_base, tags: desktop_base }
     - { role: wireless, tags: wireless }
-    # - { role: laptop_mode, tags: laptop_mode }
+    - { role: tlp, tags: tlp }
     - { role: dictionary, tags: dictionary }
 
     # - { role: adb, tags: adb }
