@@ -24,6 +24,8 @@
     - sudo
     - systemd-sysv
     - libpam-systemd
+    - traceroute
+    - mtr-tiny
     - curl
     - dbus
     - unzip
