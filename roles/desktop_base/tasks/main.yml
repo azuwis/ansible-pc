@@ -118,6 +118,7 @@
     - gpick                     ## Color picker
     - duc                       ## Disk usage
     - pass                      ## Utils
+    - pinentry-gtk2
     - git-remote-gcrypt
     # - apt-listbugs
 
