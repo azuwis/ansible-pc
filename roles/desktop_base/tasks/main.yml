@@ -105,6 +105,7 @@
     - dialog
     - im-config
     - mpv                       ## Video player
+    - ffmpeg
     - nomacs                    ## Image viewer
     - evince                    ## PDF viewer
     - poppler-data              #  CJK pdf
