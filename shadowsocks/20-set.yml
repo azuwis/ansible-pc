@@ -1,5 +1,5 @@
 ---
-- hosts: mac
+- hosts: xps
   become: yes
   vars_prompt:
     - name: shadowsocks_server

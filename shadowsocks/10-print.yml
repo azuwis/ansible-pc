@@ -1,5 +1,5 @@
 ---
-- hosts: mac
+- hosts: xps
   tasks:
     - name: print shadowsocks servers
       debug:
