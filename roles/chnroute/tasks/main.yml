@@ -1,10 +1,15 @@
 ---
-- name: generate chnroute.list
-  shell: curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > /etc/chnroute.list
-  args:
-    creates: /etc/chnroute.list
+- name: copy chnroute.list
+  copy:
+    dest: /etc/chnroute.list
+    src: chnroute.list
 
-- name: ensure lines of chnroute are more than 5290
-  shell: cat /etc/chnroute.list | wc -l
-  register: result
-  failed_when: result.stdout | int < 5290
+# - name: generate chnroute.list
+#   shell: curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > /etc/chnroute.list
+#   args:
+#     creates: /etc/chnroute.list
+
+# - name: ensure lines of chnroute are more than 5290
+#   shell: cat /etc/chnroute.list | wc -l
+#   register: result
+#   failed_when: result.stdout | int < 5290
