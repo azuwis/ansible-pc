@@ -1,5 +1,9 @@
 ---
-- hosts: mac
+- hosts: xps
   become: yes
+  vars:
+    wireless_ap:
+      interface: wlp58s0
+      out_interface: enxa0cec8075982
   roles:
     - wireless_ap
