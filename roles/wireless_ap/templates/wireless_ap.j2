@@ -10,3 +10,5 @@ iface ap inet static
     post-down iptables -t nat -D POSTROUTING -s {{ wireless_ap.ip | ipaddr('network') }}/{{ wireless_ap.ip | ipaddr('prefix') }} -o {{ wireless_ap.out_interface }} -j MASQUERADE
     post-up iptables -t nat -A PREROUTING -p tcp -m multiport --dports 22,80,443,5222,5228 -j SS_SPEC_WAN_AC || true
     post-down iptables -t nat -D PREROUTING -p tcp -m multiport --dports 22,80,443,5222,5228 -j SS_SPEC_WAN_AC || true
+    post-up iptables -t filter -I INPUT -i {{ wireless_ap.interface }} -j ACCEPT || true
+    post-down iptables -t filter -D INPUT -i {{ wireless_ap.interface }} -j ACCEPT || true
