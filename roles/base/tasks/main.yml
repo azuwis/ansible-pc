@@ -108,6 +108,11 @@
     value: 10
     sysctl_file: /etc/sysctl.d/99-ansible-managed.conf
 
+- name: common network interfaces
+  copy:
+    dest: /etc/network/interfaces.d/common
+    src: interfaces-common
+
 # replace syslog with systemd-journald, see http://freedesktop.org/wiki/Software/systemd/Optimizations/
 # - name: create /var/log/journal/
 #   file:

@@ -1,0 +1,6 @@
+iface dhcp inet dhcp
+    metric 1
+
+allow-hotplug enxa0cec8075982
+iface enxa0cec8075982 inet dhcp
+    metric 1
