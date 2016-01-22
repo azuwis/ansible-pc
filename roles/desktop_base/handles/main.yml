@@ -1,3 +1,6 @@
 ---
+- name: reconfigure keyboard-configuration
+  shell: dpkg-reconfigure --frontend noninteractive keyboard-configuration && udevadm trigger --subsystem-match=input --action=change
+
 - name: reconfigure console-setup
-  shell: dpkg-reconfigure --frontend noninteractive console-setup && udevadm trigger --subsystem-match=input --action=change
+  shell: dpkg-reconfigure --frontend noninteractive console-setup
