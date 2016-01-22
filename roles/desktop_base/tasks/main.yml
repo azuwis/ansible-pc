@@ -122,7 +122,7 @@
   lineinfile:
     dest: /etc/default/keyboard
     regexp: ^XKBOPTIONS
-    line: XKBOPTIONS="ctrl:swapcaps,terminate:ctrl_alt_bksp"
+    line: XKBOPTIONS="{{ keyboard.xkboptions }}"
   notify: reconfigure keyboard-configuration
 
 - name: config console font
