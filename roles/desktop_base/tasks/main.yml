@@ -123,7 +123,7 @@
     dest: /etc/default/keyboard
     regexp: ^XKBOPTIONS
     line: XKBOPTIONS="ctrl:swapcaps,terminate:ctrl_alt_bksp"
-  notify: update keyboard
+  notify: reconfigure console-setup
 
 - name: config console font
   lineinfile:
@@ -135,7 +135,7 @@
       line: FONTFACE="TerminusBold"
     - regexp: ^FONTSIZE
       line: FONTSIZE="12x24"
-  notify: update console
+  notify: reconfigure console-setup
 
 - name: alsa config
   template:
