@@ -19,6 +19,7 @@
     - pciutils
     - usbutils
     - dnsutils
+    - sysfsutils
     - ethtool
     - ntpdate
     - sudo
