@@ -69,6 +69,8 @@
     - i3-wm                     ## WM
     - i3status
     - i3lock
+    - xautolock
+    - imagemagick
     - rofi
     - alsa-utils                ## Sound
     - lxterminal                ## Terminal
@@ -107,6 +109,7 @@
     - mpv                       ## Video player
     - ffmpeg
     - nomacs                    ## Image viewer
+    - scrot
     - evince                    ## PDF viewer
     - poppler-data              #  CJK pdf
     - gpick                     ## Color picker
@@ -116,6 +119,7 @@
     - pass                      ## Utils
     - pinentry-gtk2
     - git-remote-gcrypt
+    - shellcheck
     # - apt-listbugs
 
 - name: config keyboard
