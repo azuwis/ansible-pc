@@ -120,6 +120,7 @@
     - pinentry-gtk2
     - git-remote-gcrypt
     - shellcheck
+    - sshfs
     # - apt-listbugs
 
 - name: config keyboard
