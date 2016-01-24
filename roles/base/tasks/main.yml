@@ -33,6 +33,7 @@
     - bzip2
     - xz-utils
     - lsof
+    - strace
     - dbus
     - unzip
     - unrar
