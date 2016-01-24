@@ -9,3 +9,9 @@
     - libreoffice-impress
     - libreoffice-calc
     - libreoffice-draw
+
+- name: disable start-up logo
+  lineinfile:
+    dest: /etc/libreoffice/sofficerc
+    regexp: ^Logo=
+    line: Logo=0
