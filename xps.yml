@@ -22,6 +22,7 @@
     - { role: wireless, tags: wireless }
     - { role: tlp, tags: tlp }
     - { role: dictionary, tags: dictionary }
+    - { role: office, tags: office }
 
     # - { role: adb, tags: adb }
     # - { role: extra-packages, tags: extra-packages }
