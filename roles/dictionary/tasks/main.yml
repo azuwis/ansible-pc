@@ -31,9 +31,9 @@
 
 - name: download offline wiktionary
   get_url:
-    url: http://www.dictinfo.com/stardict/wikt-en-ALL-2015-04-30.7z
+    url: http://www.dictinfo.com/stardict/wikt-en-en-2015-07-17.7z
     dest: /tmp/wikt-en.7z
-    sha256sum: 4e672478eb30afa90f5d190f70fb14c9f9cc516015ba911e9a7c096df24c22dc
+    sha256sum: 36677dae3f73cc63fec7d10dd8a129293c7d43c4c005a762e60ebbe966c8ab1e
   when: wikt|failed
 
 - name: unpack offline wiktionary
