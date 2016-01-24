@@ -101,3 +101,5 @@
       replace: <scanToMainWindow>1</scanToMainWindow>
     - regexp: <checkForNewReleases>1</checkForNewReleases>
       replace: <checkForNewReleases>0</checkForNewReleases>
+    - regexp: <enabled>1</enabled> # full text search
+      replace: <enabled>0</enabled>
