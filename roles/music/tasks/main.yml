@@ -1,0 +1,13 @@
+---
+- name: install dependances
+  apt:
+    name: "{{ item }}"
+  with_items:
+  - mpg123
+  - python-requests
+  - python-bs4
+  - python-crypto
+
+- name: install musicbox
+  pip:
+    name: NetEase-MusicBox
