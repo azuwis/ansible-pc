@@ -1,6 +1,7 @@
 ---
+# POST: libreoffice -> Tools -> Options -> LibreOffice -> View -> Icon size and style -> Sifr
 - name: install office packages
-  apt: name="{{ items }}"
+  apt: name="{{ item }}"
   with_items:
     - libreoffice-gtk
     - libreoffice-style-sifr
