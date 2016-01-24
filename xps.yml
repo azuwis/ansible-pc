@@ -2,7 +2,7 @@
 # NOTE:
 # * Use debian-installer from http://cdimage.debian.org/cdimage/daily-builds/sid_d-i/arch-latest/amd64/iso-cd/
 # * BIOS: 1) Set SATA-controller is set to AHCI, 2) Disable Secure-boot
-# * Use debian-installer from http://cdimage.debian.org/cdimage/daily-builds/sid_d-i/arch-latest/amd64/iso-cd/
+# * More at https://wiki.archlinux.org/index.php/Dell_XPS_13_(2016)
 - hosts: xps
   become: yes
   vars:
