@@ -1,4 +1,18 @@
 ---
+# POST:
+# Press ctrl+= 8 times
+# goldendict -> Edit -> Preferences -> Interface -> [x] Hide single tab
+#                                                -> [x] Start to system tray
+#                                                -> [x] ESC key hides main window
+#                                   -> Scan Popup -> [x] Start with scan popup turned on
+#                                                 -> [x] Only show popup when all selected keys are kept pressed -> Alt,Win
+#                                                 -> [x] Keys may also be pressed afterwards, within 1 secs
+#                                                 -> [x] Send translated word to main window
+#                                   -> Hotkeys -> [ ] Use the following hotkey to show or hide the main window
+#                                              -> [ ] Use the following hotkey to translate a word from clipboard
+#                                   -> Network -> [ ] Check for new program releases periodically
+#                    -> Dictionaries -> Sources -> Wikipedia -> Engligh Wikipedia -> https://en.wikipedia.org/w
+
 - name: install packages
   apt:
     name: "{{ item }}"
@@ -41,3 +55,37 @@
   args:
     chdir: /usr/share/stardict/dic/
   when: wikt|failed
+
+- name: config goldendict
+  sudo: no
+  replace:
+    dest: "~/.goldendict/config"
+    regexp: "{{ item.regexp }}"
+    replace: "{{ item.replace }}"
+  with_items:
+    - regexp: http://en.wikipedia.org/w
+      replace: https://en.wikipedia.org/w
+    - regexp: <hideSingleTab>0</hideSingleTab>
+      replace: <hideSingleTab>1</hideSingleTab>
+    - regexp: <startToTray>0</startToTray>
+      replace: <startToTray>1</startToTray>
+    - regexp: <escKeyHidesMainWindow>0</escKeyHidesMainWindow>
+      replace: <escKeyHidesMainWindow>1</escKeyHidesMainWindow>
+    - regexp: <zoomFactor>\d+</zoomFactor>
+      replace: <zoomFactor>1.8</zoomFactor>
+    - regexp: <enableMainWindowHotkey>1</enableMainWindowHotkey>
+      replace: <enableMainWindowHotkey>0</enableMainWindowHotkey>
+    - regexp: <enableClipboardHotkey>1</enableClipboardHotkey>
+      replace: <enableClipboardHotkey>0</enableClipboardHotkey>
+    - regexp: <startWithScanPopupOn>0</startWithScanPopupOn>
+      replace: <startWithScanPopupOn>1</startWithScanPopupOn>
+    - regexp: <enableScanPopupModifiers>0</enableScanPopupModifiers>
+      replace: <enableScanPopupModifiers>1</enableScanPopupModifiers>
+    - regexp: <scanPopupModifiers>\d+</scanPopupModifiers>
+      replace: <scanPopupModifiers>9</scanPopupModifiers>
+    - regexp: <scanPopupAltMode>0</scanPopupAltMode>
+      replace: <scanPopupAltMode>1</scanPopupAltMode>
+    - regexp: <scanToMainWindow>0</scanToMainWindow>
+      replace: <scanToMainWindow>1</scanToMainWindow>
+    - regexp: <checkForNewReleases>1</checkForNewReleases>
+      replace: <checkForNewReleases>0</checkForNewReleases>
