@@ -5,7 +5,6 @@
   with_items:
     - goldendict
     - dict-gcide
-    - dict-xdict
 
 - name: disable dictd system service
   service:
