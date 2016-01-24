@@ -123,6 +123,12 @@
     - sshfs
     # - apt-listbugs
 
+- name: create dmenu symlink to rofi
+  file:
+    dest: /usr/local/bin/dmenu
+    src: /usr/bin/rofi
+    state: link
+
 - name: config keyboard
   lineinfile:
     dest: /etc/default/keyboard
