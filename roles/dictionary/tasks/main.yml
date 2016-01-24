@@ -56,6 +56,18 @@
     chdir: /usr/share/stardict/dic/
   when: wikt|failed
 
+- name: download babylon en-chs dict
+  get_url:
+    url: http://dl.babsft.com/info/glossaries/390/Babylon_English_Chinese_S_.BGL
+    dest: /usr/share/stardict/dic/Babylon_English_Chinese_S_.BGL
+    sha256sum: 479d597a6140d6d08a02f6d538eaae99df71d92e598c0e80294493918ed82c79
+
+- name: download babylon chs-en dict
+  get_url:
+    url: http://dl.babsft.com/info/glossaries/4EE/Babylon_Chinese_S_English.BGL
+    dest: /usr/share/stardict/dic/Babylon_Chinese_S_English.BGL
+    sha256sum: 9442f7e3475c55a4bb55769e5f7dafc10cb5b32b53c669aef1d82fa5e73808c5
+
 - name: config goldendict
   sudo: no
   replace:
