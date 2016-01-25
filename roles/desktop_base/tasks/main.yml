@@ -121,6 +121,8 @@
     - git-remote-gcrypt
     - shellcheck
     - sshfs
+    - makepasswd
+    - whois
     # - apt-listbugs
 
 - name: create dmenu symlink to rofi
