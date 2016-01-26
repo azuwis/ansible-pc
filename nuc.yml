@@ -17,9 +17,9 @@
         AUTOSUSPEND_RUNTIME_DEVID_BLACKLIST: 045e:0745
         CONTROL_DPMS_STANDBY: 0
   roles:
-    - { role: staff, tags: staff }
     - { role: apt, tags: apt }
     - { role: base, tags: base }
+    - { role: staff, tags: staff }
     - { role: desktop_base, tags: desktop_base }
     - { role: laptop_mode, tags: laptop_mode }
     - { role: dictionary, tags: dictionary }
