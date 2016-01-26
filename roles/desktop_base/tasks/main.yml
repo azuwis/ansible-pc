@@ -65,6 +65,7 @@
     # - dmz-cursor-theme
     - redshift                  #  ease your eyes
     - zsh                       ## Shell
+    - zgen
     - zsh-syntax-highlighting
     - i3-wm                     ## WM
     - i3status
