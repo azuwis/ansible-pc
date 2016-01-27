@@ -7,7 +7,7 @@
   become: yes
   vars:
     domain: localdomain
-    dpi: 165
+    dpi: 168
     extra_packages:
       - firmware-brcm80211
       - firmware-misc-nonfree
