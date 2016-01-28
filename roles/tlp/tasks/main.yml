@@ -18,3 +18,16 @@
     - regexp: ^(SATA_LINKPWR_ON_BAT.*)$
       replace: "#\\1"
   notify: restart tlp
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=1236679
+- name: set usb blacklist
+  lineinfile:
+    dest: /etc/default/tlp
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    insertafter: "{{ item.insertafter | default(omit) }}"
+  with_items:
+    - regexp: ^USB_BLACKLIST=
+      line: USB_BLACKLIST="0bda:8153"
+      insertafter: "^#USB_BLACKLIST="
+  notify: restart tlp
