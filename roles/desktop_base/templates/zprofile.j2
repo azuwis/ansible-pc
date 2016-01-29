@@ -4,5 +4,5 @@
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
-# Start X if at tty1
-[[ -z $DISPLAY && x"$(tty)" == x"/dev/tty1" ]] && exec startx -- -dpi {{ dpi | default(96) }}
+# Start X if at tty1, extra args are copied from startx code
+[[ -z $DISPLAY && x"$(tty)" == x"/dev/tty1" ]] && exec startx -- :0 vt1 -keeptty -nolisten tcp -dpi {{ dpi | default(96) }}
