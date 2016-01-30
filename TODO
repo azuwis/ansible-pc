@@ -1,0 +1,2 @@
+* use apt pin -1 to prefer some alternative packages, like zenity/dialog
+* update shadowsocks.rule
