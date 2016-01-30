@@ -21,7 +21,6 @@
     - { role: base, tags: base }
     - { role: staff, tags: staff }
     - { role: desktop_base, tags: desktop_base }
-    - { role: laptop_mode, tags: laptop_mode }
     - { role: dictionary, tags: dictionary }
     # - { role: wireless, tags: wireless }
 
