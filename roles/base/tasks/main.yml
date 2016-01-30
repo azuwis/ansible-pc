@@ -25,21 +25,23 @@
     - sudo
     - systemd-sysv
     - libpam-systemd
+    - dbus
+    - make
     - telnet
     - netcat-traditional
     - traceroute
     - mtr-tiny
     - curl
+    - rsync
     - bzip2
     - xz-utils
-    - lsof
-    - strace
-    - dbus
+    - zip
     - unzip
     - unrar
     - p7zip-full
     - p7zip-rar
-    - rsync
+    - lsof
+    - strace
     - tmux
     - debfoster
     - silversearcher-ag
