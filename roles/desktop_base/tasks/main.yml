@@ -43,14 +43,10 @@
   copy: src=nvidia.conf dest=/etc/X11/xorg.conf.d/
   when: nvidia_graphic|success
 
-- name: install cron to auto clean up .xsession-errors
-  cron:
-    name: auto clean up .xsession-errors
-    user: "{{ item.name }}"
-    job: test $(stat -c\%s ~/.xsession-errors) -gt 10485760 && > ~/.xsession-errors
-    hour: 12
-    minute: 7
-  with_items: staff
+- name: logrotate config to clean up .xsession-errors
+  copy:
+    dest: /etc/logrotate.d/ansible-managed
+    src: logrotate-ansible-managed
 
 - name: desktop base packages
   apt: name={{ item }}

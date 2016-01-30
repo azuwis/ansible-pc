@@ -1,0 +1,7 @@
+/home/*/.xsession-errors {
+    rotate 1
+    size 500k
+    copytruncate
+    missingok
+    compress
+}
