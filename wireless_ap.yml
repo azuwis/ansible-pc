@@ -4,6 +4,6 @@
   vars:
     wireless_ap:
       interface: wlp58s0
-      out_interface: enxa0cec8075982
+      out_interface: enx0023576c7341
   roles:
     - wireless_ap
