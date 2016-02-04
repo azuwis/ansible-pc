@@ -16,8 +16,8 @@
       - i915
     keyboard:
       xkboptions: ctrl:swapcaps,altwin:swap_lalt_lwin,terminate:ctrl_alt_bksp
-    # grub:
-    #   cmd: acpi_apic_instance=2
+    grub:
+      cmd: net.ifnames=0
   roles:
     - { role: apt, tags: apt }
     - { role: base, tags: base }
