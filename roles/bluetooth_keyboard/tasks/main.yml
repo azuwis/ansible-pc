@@ -1,0 +1,12 @@
+---
+- name: systemd service
+  copy:
+    src: btkbd.service
+    dest: /etc/systemd/system/
+
+- name: start btkbd
+  service:
+    name: btkbd
+    state: started
+    enabled: yes
+  changed_when: False

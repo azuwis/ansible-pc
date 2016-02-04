@@ -24,6 +24,6 @@
     - { role: dictionary, tags: dictionary }
     # - { role: wireless, tags: wireless }
 
-    - { role: bluetooth, tags: bluetooth }
+    - { role: bluetooth_keyboard, tags: bluetooth_keyboard }
     - { role: kodi, tags: kodi }
     - { role: torrent, tags: torrent }
