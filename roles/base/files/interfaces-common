@@ -1,6 +1,10 @@
 iface dhcp inet dhcp
     metric 1
 
+allow-hotplug eth0
+iface eth0 inet dhcp
+    metric 1
+
 allow-hotplug usb0
 iface usb0 inet dhcp
     metric 1
