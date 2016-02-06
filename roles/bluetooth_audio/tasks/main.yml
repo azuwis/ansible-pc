@@ -1,0 +1,13 @@
+---
+# NOTE:
+# 1) Run alsamixer to make pulseaudio running, run bluetoothctl
+# 2) power on, agent on, scan on
+# 3) devices
+# 4) pair DEVICE_MAC, trust DEVICE_MAC
+# 5) To get A2DP to work, disconnect DEVICE_MAC and connect DEVICE_MAC
+- name: install packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - pulseaudio-module-bluetooth
+    - pavucontrol
