@@ -22,6 +22,7 @@
     - { role: staff, tags: staff }
     - { role: desktop_base, tags: desktop_base }
     - { role: dictionary, tags: dictionary }
+    - { role: music, tags: music }
     # - { role: wireless, tags: wireless }
 
     - { role: bluetooth_keyboard, tags: bluetooth_keyboard }
