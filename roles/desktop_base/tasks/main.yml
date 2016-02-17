@@ -6,6 +6,11 @@
 - name: xbox 360 pad setting
   copy: src=xbox-360-pad.conf dest=/etc/X11/xorg.conf.d
 
+- name: synaptics config
+  copy:
+    src: synaptics.conf
+    dest: /etc/X11/xorg.conf.d/
+
 - name: test intel graphic card
   shell: lspci -nn | grep -q 'VGA.*8086'
   register: intel_graphic
