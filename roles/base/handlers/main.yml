@@ -1,6 +1,6 @@
 ---
 - name: update timezone
-  shell: dpkg-reconfigure --frontend noninteractive tzdata && ntpdate-debian
+  shell: dpkg-reconfigure --frontend noninteractive tzdata
 
 - name: update initramfs
   command: update-initramfs -u

@@ -21,7 +21,6 @@
     - dnsutils
     - sysfsutils
     - ethtool
-    - ntpdate
     - sudo
     - systemd-sysv
     - libpam-systemd
