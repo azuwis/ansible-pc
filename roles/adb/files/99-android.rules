@@ -1,0 +1,2 @@
+#Xiaomi
+SUBSYSTEM=="usb", ATTR{idVendor}=="2717", MODE="0664", GROUP="plugdev"

@@ -29,6 +29,6 @@
     - { role: office, tags: office }
     - { role: music, tags: music }
 
-    # - { role: adb, tags: adb }
+    - { role: adb, tags: adb }
     # - { role: extra-packages, tags: extra-packages }
     - { role: email-client, tags: email-client }
