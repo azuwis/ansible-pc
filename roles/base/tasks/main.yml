@@ -24,6 +24,7 @@
     - sudo
     - systemd-sysv
     - libpam-systemd
+    - systemd-cron
     - dbus
     - make
     - telnet
@@ -63,6 +64,8 @@
     purge: yes
   with_items:
     - nscd
+    - ntpdate
+    - cron
 
 - name: locales to generate
   locale_gen: name="{{ item }}" state=present
