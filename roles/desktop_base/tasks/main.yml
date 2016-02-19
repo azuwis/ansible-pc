@@ -61,6 +61,7 @@
     - x11-xserver-utils         #  xrdb/xmodmap
     - xdg-user-dirs             #  auto create well known user dirs
     - hsetroot                  #  set wallpaper
+    - xinput
     - xdotool
     - unclutter                 #  auto hide cursor
     # - dmz-cursor-theme
