@@ -39,17 +39,9 @@
 
 # XXX: Should stop the service before modify these configs?
 - name: config /etc/default/unbound
-  lineinfile:
+  copy:
+    src: unbound.default
     dest: /etc/default/unbound
-    regexp: "{{ item.regexp }}"
-    line: "{{ item.line }}"
-  with_items:
-    - regexp: ^ROOT_TRUST_ANCHOR_UPDATE=
-      line: ROOT_TRUST_ANCHOR_UPDATE=false
-    - regexp: ^RESOLVCONF=
-      line: RESOLVCONF=false
-    - regexp: ^RESOLVCONF_FORWARDERS=
-      line: RESOLVCONF_FORWARDERS=false
   notify: restart unbound
 
 - name: config unbound
