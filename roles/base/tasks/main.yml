@@ -51,6 +51,7 @@
     - os-prober
     - git-hub
     - myrepos
+    - apt-listchanges
 
 - name: extra packages
   apt:
