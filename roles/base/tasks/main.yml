@@ -28,6 +28,7 @@
     - dbus
     - make
     - telnet
+    - tcpdump
     - netcat-traditional
     - traceroute
     - mtr-tiny
