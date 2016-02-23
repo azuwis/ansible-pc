@@ -44,6 +44,12 @@
     dest: /etc/default/unbound
   notify: restart unbound
 
+- name: disable unbound resolvconf upstream forward
+  file:
+    dest: /etc/resolvconf/update.d/unbound
+    mode: a-x
+  notify: restart unbound
+
 - name: config unbound
   copy:
     src: unbound.conf
