@@ -11,6 +11,7 @@
     extra_packages:
       - firmware-brcm80211
       - firmware-misc-nonfree
+      - nvme-cli
     kernel_modules:
       - nvme
       - i915
