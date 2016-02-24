@@ -18,7 +18,7 @@
     keyboard:
       xkboptions: ctrl:swapcaps,altwin:swap_lalt_lwin,terminate:ctrl_alt_bksp
     grub:
-      cmd: net.ifnames=0
+      cmd: net.ifnames=0 efi=noruntime
   roles:
     - { role: apt, tags: apt }
     - { role: base, tags: base }
