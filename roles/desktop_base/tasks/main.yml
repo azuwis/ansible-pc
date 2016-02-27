@@ -171,7 +171,7 @@
     owner: root
     group: video
     mode: 0664
-  with_items: backlight_sysfs.stdout_lines
+  with_items: "{{ backlight_sysfs.stdout_lines }}"
 
 - name: copy udev rule to set backlight sysfs permission
   copy:
@@ -199,30 +199,30 @@
 
 - name: font packages
   apt: name={{ item }}
-  with_items: font.pkgs
+  with_items: "{{ font.pkgs }}"
 
 - name: fontconfig settings, local.conf
   template: src=fontconfig.j2 dest=/etc/fonts/local.conf
 
 - name: fontconfig settings, enable from conf.avail
   file: src=../conf.avail/{{ item }} dest=/etc/fonts/conf.d/{{ item }} state=link force=yes
-  with_items: font.enable
+  with_items: "{{ font.enable }}"
 
 - name: theme packages
   apt: name={{ item }}
-  with_items: theme.pkgs
+  with_items: "{{ theme.pkgs }}"
 
 - name: download theme deb packages
   get_url:
     dest: "{{ item.dest }}"
     sha256sum: "{{ item.sha256sum }}"
     url: "{{ item.url }}"
-  with_items: theme.debs
+  with_items: "{{ theme.debs }}"
 
 - name: install theme deb packages
   apt:
     deb: "{{ item.dest }}"
-  with_items: theme.debs
+  with_items: "{{ theme.debs }}"
 
 - name: gtk2 config
   template: src=gtk2.j2 dest=/etc/gtk-2.0/gtkrc
@@ -262,7 +262,7 @@
     state: directory
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
-  with_items: staff
+  with_items: "{{ staff }}"
 
 - name: adobe flash setting for chromium
   copy:
@@ -270,7 +270,7 @@
     dest: /home/{{ item.name }}/.config/chromium/Default/Pepper Data/Shockwave Flash/System/
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
-  with_items: staff
+  with_items: "{{ staff }}"
 
 # XXX: If this fails, run firefox with freshplayerplugin once
 - name: adobe flash setting dir for freshplayerplugin
@@ -279,7 +279,7 @@
     state: directory
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
-  with_items: staff
+  with_items: "{{ staff }}"
 
 - name: adobe flash setting for freshplayerplugin
   copy:
@@ -287,7 +287,7 @@
     dest: /home/{{ item.name }}/.config/freshwrapper-data/Shockwave Flash/System/mms.cfg
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
-  with_items: staff
+  with_items: "{{ staff }}"
 
 - name: zsh config to startx at login
   template:
@@ -295,7 +295,7 @@
     dest: ~{{ item.name }}/.zprofile
     owner: "{{ item.name }}"
     group: "{{ item.name }}"
-  with_items: staff
+  with_items: "{{ staff }}"
 
 - name: system xresources
   template:

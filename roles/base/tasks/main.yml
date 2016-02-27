@@ -56,7 +56,7 @@
 - name: extra packages
   apt:
     name: "{{ item }}"
-  with_items: extra_packages
+  with_items: "{{ extra_packages }}"
   when: extra_packages is defined
 
 - name: unneeded packages
@@ -71,7 +71,7 @@
 
 - name: locales to generate
   locale_gen: name="{{ item }}" state=present
-  with_items: locales
+  with_items: "{{ locales }}"
 
 - name: default locale
   copy: dest=/etc/default/locale content="LANG={{ locales[0] }}\n"
@@ -88,7 +88,7 @@
   lineinfile:
     dest: /etc/initramfs-tools/modules
     line: "{{ item }}"
-  with_items: kernel_modules
+  with_items: "{{ kernel_modules }}"
   when: kernel_modules is defined
   notify: update initramfs
 

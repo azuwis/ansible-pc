@@ -6,12 +6,12 @@
     shell: "{{ item.shell }}"
     groups: adm,staff,audio,video,plugdev,netdev,dialout,cdrom,floppy,systemd-journal
     append: yes
-  with_items: staff
+  with_items: "{{ staff }}"
 
 - name: "set permission for {{ item.name }}'s home dir"
   file: dest=/home/{{ item.name }} mode=0700
-  with_items: staff
+  with_items: "{{ staff }}"
 
 - name: sudoer for {{ item.name }}
   template: src=sudoer.j2 dest=/etc/sudoers.d/{{ item.name }} validate='visudo -cf %s'
-  with_items: staff
+  with_items: "{{ staff }}"
