@@ -69,7 +69,7 @@
     sha256sum: 9442f7e3475c55a4bb55769e5f7dafc10cb5b32b53c669aef1d82fa5e73808c5
 
 - name: config goldendict
-  sudo: no
+  become: no
   replace:
     dest: "~/.goldendict/config"
     regexp: "{{ item.regexp }}"
