@@ -32,6 +32,7 @@
     - netcat-traditional
     - traceroute
     - mtr-tiny
+    - ipcalc
     - curl
     - rsync
     - bzip2
@@ -44,6 +45,7 @@
     - lsof
     - strace
     - tmux
+    - ncurses-term
     - debfoster
     - silversearcher-ag
     - tofrodos
@@ -68,6 +70,7 @@
     - nscd
     - ntpdate
     - cron
+    - installation-report
 
 - name: locales to generate
   locale_gen: name="{{ item }}" state=present
