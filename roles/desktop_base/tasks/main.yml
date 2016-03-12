@@ -91,7 +91,7 @@
     - aspell-en
     - chromium                  ## Browser
     - pepperflashplugin-nonfree
-    - iceweasel
+    - firefox
     - browser-plugin-freshplayer-pepperflash
     - gstreamer1.0-libav        #  for H.264 playback
     - gstreamer1.0-plugins-good
