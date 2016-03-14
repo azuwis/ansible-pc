@@ -86,6 +86,8 @@
     - exuberant-ctags           #  vim tagbar plugin
     - emacs
     - emacs-goodies-el
+    - python-jedi               # for emacs anaconda-mode
+    - python-six
     - xfonts-terminus           #  emacs ime bug
     - aspell                    #  emacs flycheck
     - aspell-en
