@@ -1,15 +1,12 @@
 # {{ ansible_managed }}
 
+{% if theme.qt5 is defined %}
 # Qt5 style
 # https://wiki.archlinux.org/index.php/Uniform_Look_for_Qt_and_GTK_Applications#Qt5_styles
-
-{% if theme.qt5 is defined %}
 export QT_STYLE_OVERRIDE={{ theme.qt5 }}
-{% else %}
-#export QT_STYLE_OVERRIDE=
 {% endif %}
 
-# Set default browser
 {% if browser.default is defined %}
+# Set default browser
 export BROWSER={{ browser.default }}
 {% endif %}
