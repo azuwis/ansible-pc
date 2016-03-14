@@ -10,3 +10,7 @@ export QT_STYLE_OVERRIDE={{ theme.qt5 }}
 # Set default browser
 export BROWSER={{ browser.default }}
 {% endif %}
+
+# Enable xinput2 for firefox, a.k.a. per pixel scrolling
+# https://bugzilla.mozilla.org/show_bug.cgi?id=1207973
+export MOZ_USE_XINPUT2=1
