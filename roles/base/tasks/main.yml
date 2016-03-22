@@ -45,6 +45,7 @@
     - lsof
     - strace
     - tmux
+    - ncurses-base
     - ncurses-term
     - debfoster
     - silversearcher-ag
@@ -52,8 +53,15 @@
     - ncdu
     - os-prober
     - git-hub
+    - perl-doc
     - myrepos
+    - apt-utils
     - apt-listchanges
+    - debsums
+    - logrotate
+    - manpages
+    - man-db
+    - console-setup
 
 - name: extra packages
   apt:

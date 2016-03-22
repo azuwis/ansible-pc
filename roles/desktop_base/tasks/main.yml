@@ -128,6 +128,10 @@
     - sshfs
     - makepasswd
     - whois
+    - sqlite3
+    - mosh
+    - archivemount
+    - powertop
     # - apt-listbugs
 
 - name: create dmenu symlink to rofi
