@@ -24,6 +24,7 @@
     - xserver-xorg-video-intel
     - libgl1-mesa-dri
     - i965-va-driver
+    - vainfo
 
 - name: intel graphic driver config
   copy: src=intel.conf dest=/etc/X11/xorg.conf.d/
