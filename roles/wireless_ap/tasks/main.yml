@@ -5,6 +5,7 @@
 
 - name: ifdown
   command: ifdown {{ wireless_ap.interface }}
+  ignore_errors: yes
 
 - name: /etc/hostapd/hostapd.conf
   template:
