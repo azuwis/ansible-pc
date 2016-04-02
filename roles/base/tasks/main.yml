@@ -62,6 +62,7 @@
     - manpages
     - man-db
     - console-setup
+    - patch
 
 - name: extra packages
   apt:
