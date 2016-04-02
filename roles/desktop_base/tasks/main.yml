@@ -83,7 +83,7 @@
     - dunst                     # notification daemon
     - libnotify-bin
     - arandr
-    - vim-gtk                   ## Editor
+    - vim-gtk3                  ## Editor
     - exuberant-ctags           #  vim tagbar plugin
     - emacs
     - emacs-goodies-el
