@@ -114,7 +114,8 @@
     - im-config
     - mpv                       ## Video player
     - ffmpeg
-    - nomacs                    ## Image viewer
+    - qpiv                      ## Image viewer
+    - mcomix
     - scrot
     - evince                    ## PDF viewer
     - poppler-data              #  CJK pdf
