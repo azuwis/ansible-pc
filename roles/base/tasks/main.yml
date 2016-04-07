@@ -63,6 +63,7 @@
     - man-db
     - console-setup
     - patch
+    - moreutils
 
 - name: extra packages
   apt:
