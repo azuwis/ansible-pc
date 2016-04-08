@@ -1,5 +1,6 @@
+/ansible.log
+/archive/
+/fact_cache/
+/group_vars/all/vaulted.yml
 /production
 /retry/
-/fact_cache/
-/archive/
-/group_vars/all/vaulted.yml
