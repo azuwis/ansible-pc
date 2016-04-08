@@ -123,6 +123,7 @@
     - duc                       ## Disk usage
     - freerdp-x11               ## Remote desktop client
     - libfreerdp-plugins-standard
+    - udevil                    ## Auto mounter
     - pass                      ## Utils
     - pinentry-gtk2
     - git-remote-gcrypt
