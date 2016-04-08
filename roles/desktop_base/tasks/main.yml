@@ -309,3 +309,8 @@
   template:
     dest: /etc/X11/Xresources/ansible-managed
     src: xresources-ansible-managed.j2
+
+- name: firefox settings
+  template:
+    dest: /etc/firefox/ansible-managed.js
+    src: firefox-ansible-managed.js.j2
