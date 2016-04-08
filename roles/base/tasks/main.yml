@@ -64,6 +64,9 @@
     - console-setup
     - patch
     - moreutils
+    - python-pip
+    - python-wheel
+    - python-setuptools
 
 - name: extra packages
   apt:
