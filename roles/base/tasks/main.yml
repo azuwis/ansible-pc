@@ -138,6 +138,11 @@
     value: 10
     sysctl_file: /etc/sysctl.d/99-ansible-managed.conf
 
+- name: system network interfaces
+  copy:
+    dest: /etc/network/interfaces
+    src: interfaces
+
 - name: common network interfaces
   copy:
     dest: /etc/network/interfaces.d/common
