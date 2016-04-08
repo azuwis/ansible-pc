@@ -96,6 +96,12 @@
   copy: content="{{ timezone }}\n" dest=/etc/timezone
   notify: update timezone
 
+- name: link /etc/localtime
+  file:
+    dest: /etc/localtime
+    src: /usr/share/zoneinfo/{{ timezone }}
+    state: link
+
 # - name: initramfs-tools config
 #   copy: src=initramfs-misc.conf dest=/etc/initramfs-tools/conf.d/misc.conf
 #   notify: update initramfs
