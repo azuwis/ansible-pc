@@ -1,4 +1,8 @@
 ---
+# POST: fcitx-config-gtk3 -> Input Method
+#                         -> + -> [ ] Only Show Current Language -> Rime
+#                         -> - -> Keyboard - English (US)
+
 - name: X11 config dir
   file: dest=/etc/X11/xorg.conf.d/ state=directory
 
