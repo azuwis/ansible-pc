@@ -148,6 +148,15 @@
     dest: /etc/network/interfaces.d/common
     src: interfaces-common
 
+- name: install blobs
+  get_url:
+    dest: "{{ item.dest }}"
+    url: https://github.com/azuwis/blob/raw/master/{{ item.name }}
+    sha256sum: "{{ item.sha256sum }}"
+    mode: '0644'
+  when: blobs is defined
+  with_items: "{{ blobs }}"
+
 # replace syslog with systemd-journald, see http://freedesktop.org/wiki/Software/systemd/Optimizations/
 # - name: create /var/log/journal/
 #   file:
