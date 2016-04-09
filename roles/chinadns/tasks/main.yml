@@ -12,6 +12,13 @@
     dest: /etc/dnsmasq.d/chinadns.conf
   notify: restart dnsmasq
 
+- name: install chinadns blob
+  get_url:
+    dest: /usr/local/bin/chinadns
+    url: https://github.com/azuwis/blob/raw/master/chinadns
+    sha256sum: ba990de6209bdec37fa93c44b6e2e5bba25c2589c7a9a28fe24ff8061e6e5a33
+    mode: '0755'
+
 - name: install systemd service for chinadns
   copy:
     src: chinadns.service
