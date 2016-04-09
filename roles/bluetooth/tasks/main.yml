@@ -8,4 +8,4 @@
     name: "{{ item.name }}"
     groups: bluetooth
     append: yes
-  with_items: staff
+  with_items: "{{ staff }}"
