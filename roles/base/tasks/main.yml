@@ -153,7 +153,7 @@
     dest: "{{ item.dest }}"
     url: https://github.com/azuwis/blob/raw/master/{{ item.name }}
     sha256sum: "{{ item.sha256sum }}"
-    mode: '0644'
+    mode: "{{ item.mode | default('0644') }}"
   when: blobs is defined
   with_items: "{{ blobs }}"
 
