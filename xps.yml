@@ -25,6 +25,7 @@
     - { role: staff, tags: staff }
     - { role: desktop_base, tags: desktop_base }
     - { role: wireless, tags: wireless }
+    - { role: bluetooth, tags: bluetooth }
     - { role: tlp, tags: tlp }
     - { role: dictionary, tags: dictionary }
     - { role: office, tags: office }
