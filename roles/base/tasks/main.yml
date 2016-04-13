@@ -32,7 +32,7 @@
     - netcat-traditional
     - traceroute
     - mtr-tiny
-    - ipcalc
+    - sipcalc
     - curl
     - rsync
     - bzip2
