@@ -123,7 +123,7 @@
   lineinfile:
     dest: /etc/default/grub
     regexp: ^GRUB_CMDLINE_LINUX=
-    line: GRUB_CMDLINE_LINUX="net.ifnames=0{% if grub.cmd is defined %} {{ grub.cmd }}{% endif %}"
+    line: GRUB_CMDLINE_LINUX="{{ grub.cmd }}{% if grub.cmd_extra is defined %} {{ grub.cmd_extra }}{% endif %}"
   notify: update grub
 
 - name: config sshd
