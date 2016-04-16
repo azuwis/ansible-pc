@@ -67,6 +67,7 @@
     - python-pip
     - python-wheel
     - python-setuptools
+    - autossh
 
 - name: extra packages
   apt:
