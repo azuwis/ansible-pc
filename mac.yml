@@ -4,7 +4,7 @@
   vars:
     dpi: 133
     grub:
-      cmd: acpi_apic_instance=2
+      cmd_extra: acpi_apic_instance=2
   roles:
     - { role: staff, tags: staff }
     - { role: apt, tags: apt }
