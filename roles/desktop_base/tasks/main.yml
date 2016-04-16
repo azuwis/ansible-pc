@@ -97,7 +97,7 @@
     - exuberant-ctags           #  vim tagbar plugin
     - emacs
     - emacs-goodies-el
-    - python-jedi               # for emacs anaconda-mode
+    - python-jedi               #  for emacs anaconda-mode
     - python-six
     - xfonts-terminus           #  emacs ime bug
     - aspell                    #  emacs flycheck
@@ -105,6 +105,7 @@
     - chromium                  ## Browser
     - pepperflashplugin-nonfree
     - firefox
+    - hunspell-en-us            #  firefox spell checking
     - browser-plugin-freshplayer-pepperflash
     - fcitx                     ## IME
     - fcitx-config-gtk
