@@ -105,3 +105,4 @@
       replace: <checkForNewReleases>0</checkForNewReleases>
     - regexp: <enabled>1</enabled> # full text search
       replace: <enabled>0</enabled>
+  ignore_errors: yes
