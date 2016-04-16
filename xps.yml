@@ -19,7 +19,7 @@
         dest: /lib/firmware/brcm/BCM-0a5c-6412.hcd
         sha256sum: 6e262584f8cd54b08914dd8e978fbf6191fe243a553ecf0dc6653a7b9eeab0b9
     keyboard:
-      xkboptions: ctrl:swapcaps,altwin:swap_lalt_lwin,terminate:ctrl_alt_bksp
+      xkboptions_extra: altwin:swap_lalt_lwin
   roles:
     - { role: apt, tags: apt }
     - { role: base, tags: base }
