@@ -6,7 +6,6 @@
 - hosts: xps
   become: yes
   vars:
-    domain: localdomain
     dpi: 168
     extra_packages:
       - firmware-brcm80211

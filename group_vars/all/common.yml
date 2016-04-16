@@ -1,4 +1,5 @@
 ---
+domain: localdomain
 staff:
   - name: azuwis
     comment: Zhong Jianxin

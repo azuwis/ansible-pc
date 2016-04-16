@@ -2,7 +2,6 @@
 - hosts: mac
   become: yes
   vars:
-    domain: localdomain
     dpi: 133
     grub:
       cmd: acpi_apic_instance=2

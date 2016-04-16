@@ -2,7 +2,6 @@
 - hosts: nuc
   become: yes
   vars:
-    domain: localdomain
     dpi: 160
     alsa:
       card: 0
