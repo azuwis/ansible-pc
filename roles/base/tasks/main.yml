@@ -68,6 +68,7 @@
     - python-wheel
     - python-setuptools
     - autossh
+    - resolvconf
 
 - name: extra packages
   apt:
