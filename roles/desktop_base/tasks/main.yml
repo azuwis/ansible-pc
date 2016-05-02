@@ -89,6 +89,8 @@
 - name: desktop base packages
   apt: name={{ item }}
   with_items:
+    - xserver-xorg-input-libinput
+    - xserver-xorg-input-synaptics
     - xserver-xorg              ## X
     - xinit
     - x11-xserver-utils         #  xrdb/xmodmap
@@ -165,6 +167,16 @@
     - archivemount
     - powertop
     # - apt-listbugs
+
+- name: packages to remove
+  apt:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - xserver-xorg-input-all
+    - xserver-xorg-input-vmmouse
+    - xserver-xorg-input-mouse
+    - xserver-xorg-input-evdev
 
 - name: create dmenu symlink to rofi
   file:
