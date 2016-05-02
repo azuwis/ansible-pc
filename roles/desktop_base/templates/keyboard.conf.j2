@@ -1,7 +1,20 @@
 Section "InputClass"
+    Identifier "Dell Dell USB Keyboard"
+    MatchIsKeyboard "on"
+    MatchProduct "Dell Dell USB Keyboard"
+    Option "XkbOptions" "{{ keyboard.xkboptions }}"
+EndSection
+
+Section "InputClass"
     Identifier "Logitech Tablet Keyboard GEN"
     MatchIsKeyboard "on"
     MatchProduct "Logitech Tablet Keyboard GEN"
+    Option "XkbOptions" "{{ keyboard.xkboptions }},search:win"
+EndSection
 
-    Option "XKbOptions" "search:win"
+Section "InputClass"
+    Identifier "AT Translated Set 2 keyboard"
+    MatchIsKeyboard "on"
+    MatchProduct "AT Translated Set 2 keyboard"
+    Option "XkbOptions" "{{ keyboard.xkboptions }},altwin:swap_lalt_lwin"
 EndSection

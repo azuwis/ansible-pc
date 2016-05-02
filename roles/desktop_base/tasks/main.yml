@@ -184,12 +184,12 @@
     src: /usr/bin/rofi
     state: link
 
-- name: config keyboard
-  lineinfile:
-    dest: /etc/default/keyboard
-    regexp: ^XKBOPTIONS
-    line: XKBOPTIONS="{{ keyboard.xkboptions }}{% if keyboard.xkboptions_extra is defined %},{{ keyboard.xkboptions_extra }}{% endif %}"
-  notify: reconfigure keyboard-configuration
+# - name: config keyboard
+#   lineinfile:
+#     dest: /etc/default/keyboard
+#     regexp: ^XKBOPTIONS
+#     line: XKBOPTIONS="{{ keyboard.xkboptions }}{% if keyboard.xkboptions_extra is defined %},{{ keyboard.xkboptions_extra }}{% endif %}"
+#   notify: reconfigure keyboard-configuration
 
 - name: config console font
   lineinfile:
