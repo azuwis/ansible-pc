@@ -1,0 +1,6 @@
+// Search key as Super_L
+partial modifier_keys
+xkb_symbols "win" {
+    replace key <I225> { [ Super_L ] };
+    // modifier_map Mod4 { <I225> };
+};

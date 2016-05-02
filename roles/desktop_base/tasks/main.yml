@@ -21,6 +21,28 @@
     src: synaptics.conf
     dest: /etc/X11/xorg.conf.d/
 
+- name: X11 keyboard config
+  template:
+    src: keyboard.conf.j2
+    dest: /etc/X11/xorg.conf.d/keyboard.conf
+
+- name: extra xkb symbols
+  copy:
+    src: xkb_symbols_search
+    dest: /usr/share/X11/xkb/symbols/search
+
+- name: extra xkb rules evdev
+  lineinfile:
+    dest: /usr/share/X11/xkb/rules/evdev
+    insertafter: ^!\s*option\s*=\s*symbols
+    line: '  search:win = +search(win)'
+
+- name: extra xkb rules evdev.lst
+  lineinfile:
+    dest: /usr/share/X11/xkb/rules/evdev.lst
+    insertafter: ^!\s*option$
+    line: '  search:win           XF86Search as Mod4'
+
 - name: test intel graphic card
   shell: lspci -nn | grep -q 'VGA.*8086'
   register: intel_graphic
