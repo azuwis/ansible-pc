@@ -4,7 +4,8 @@ After=network.target
 
 [Service]
 EnvironmentFile=/etc/default/chinadns
-ExecStart=/usr/local/bin/chinadns -b $BIND_ADDR -p $BIND_PORT -c $CHNROUTE -s ${DNS_SERVER},127.0.0.1:7054 $EXTRA_ARGS
+EnvironmentFile=-/var/run/chinadns
+ExecStart=/usr/local/bin/chinadns -b $BIND_ADDR -p $BIND_PORT -c $CHNROUTE -s ${DNS_SERVER},127.0.0.1#7054 $EXTRA_ARGS
 User=proxy
 
 [Install]

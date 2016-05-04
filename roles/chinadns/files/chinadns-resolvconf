@@ -1,0 +1,28 @@
+#!/bin/sh -e
+
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+
+if [ ! -x /usr/local/bin/chinadns ]; then
+    exit 0
+fi
+
+if [ ! -x /lib/resolvconf/list-records ]; then
+    exit 1
+fi
+
+RESOLVCONF_FILES="$(/lib/resolvconf/list-records)"
+
+if [ -n "$RESOLVCONF_FILES" ]; then
+    NS_IP="$(sed -rne 's/^[[:space:]]*nameserver[[:space:]]+//p' $RESOLVCONF_FILES \
+        | egrep -v '^(127\.|::1)' | head -n 1)"
+else
+    NS_IP=""
+fi
+
+if [ -n "$NS_IP" ]; then
+    echo "DNS_SERVER=$NS_IP" > /var/run/chinadns
+    systemctl restart chinadns
+else
+    rm -f /var/run/chinadns
+    systemctl restart chinadns
+fi

@@ -16,19 +16,26 @@
   get_url:
     dest: /usr/local/bin/chinadns
     url: https://github.com/azuwis/blob/raw/master/chinadns
-    sha256sum: ba990de6209bdec37fa93c44b6e2e5bba25c2589c7a9a28fe24ff8061e6e5a33
+    sha256sum: 22dc66f1e3854140f118db896c9404532435068306978429bc83678b07eac407
     mode: '0755'
 
 - name: install systemd service for chinadns
   copy:
     src: chinadns.service
     dest: /etc/systemd/system/
+  notify: systemctl daemon-reload
 
 - name: copy environ file for chinadns
   copy:
     src: chinadns.default
     dest: /etc/default/chinadns
   notify: restart chinadns
+
+- name: copy resolv config for chinadns
+  copy:
+    src: chinadns-resolvconf
+    dest: /etc/resolvconf/update.d/chinadns
+    mode: '0755'
 
 - name: get iplist for chinadns
   get_url:

@@ -13,3 +13,6 @@
   service:
     name: unbound
     state: restarted
+
+- name: systemctl daemon-reload
+  command: systemctl daemon-reload
