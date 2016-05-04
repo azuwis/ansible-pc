@@ -1,0 +1,26 @@
+- name: install pdnsd
+  apt:
+    name: pdnsd
+
+- name: config /etc/default/pdnsd
+  lineinfile:
+    dest: /etc/default/pdnsd
+    regexp: ^START_DAEMON=
+    line: START_DAEMON=yes
+  notify: restart pdnsd
+
+- name: disable pdnsd resolvconf upstream forward
+  file:
+    dest: /etc/resolvconf/update.d/pdnsd
+    mode: a-x
+
+- name: config pdnsd
+  copy:
+    src: pdnsd.conf
+    dest: /etc/pdnsd.conf
+  notify: restart pdnsd
+
+- name: ensure pdnsd are started
+  service:
+    name: pdnsd
+    state: started

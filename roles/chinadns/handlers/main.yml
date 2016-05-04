@@ -14,5 +14,10 @@
     name: unbound
     state: restarted
 
+- name: restart pdnsd
+  service:
+    name: pdnsd
+    state: restarted
+
 - name: systemctl daemon-reload
   command: systemctl daemon-reload
