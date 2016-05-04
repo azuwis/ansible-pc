@@ -23,7 +23,9 @@
   copy:
     src: chinadns.service
     dest: /etc/systemd/system/
-  notify: systemctl daemon-reload
+  notify:
+    - systemctl daemon-reload
+    - restart chinadns
 
 - name: copy environ file for chinadns
   copy:
