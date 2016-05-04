@@ -48,33 +48,12 @@
     name: chinadns
     enabled: yes
 
-- name: install unbound
-  apt: name=unbound
-
-# XXX: Should stop the service before modify these configs?
-- name: config /etc/default/unbound
-  copy:
-    src: unbound.default
-    dest: /etc/default/unbound
-  notify: restart unbound
-
-- name: disable unbound resolvconf upstream forward
-  file:
-    dest: /etc/resolvconf/update.d/unbound
-    mode: a-x
-  notify: restart unbound
-
-- name: config unbound
-  copy:
-    src: unbound.conf
-    dest: /etc/unbound/unbound.conf.d/chinadns.conf
-  notify: restart unbound
-
 - name: ensure services are started
   service:
     name: "{{ item }}"
     state: started
   with_items:
-    - unbound
     - chinadns
     - dnsmasq
+
+- include: unbound.yml
