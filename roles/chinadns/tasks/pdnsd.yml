@@ -3,10 +3,9 @@
     name: pdnsd
 
 - name: config /etc/default/pdnsd
-  lineinfile:
+  copy:
+    src: pdnsd.default
     dest: /etc/default/pdnsd
-    regexp: ^START_DAEMON=
-    line: START_DAEMON=yes
   notify: restart pdnsd
 
 - name: disable pdnsd resolvconf upstream forward
