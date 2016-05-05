@@ -9,6 +9,11 @@
     dest: /etc/default/unbound
   notify: restart unbound
 
+- name: remove unbound root anchor
+  file:
+    dest: /etc/unbound/unbound.conf.d/root-auto-trust-anchor-file.conf
+    state: absent
+
 - name: disable unbound resolvconf upstream forward
   file:
     dest: /etc/resolvconf/update.d/unbound

@@ -50,6 +50,8 @@
     name: chinadns
     enabled: yes
 
+- include: unbound.yml
+
 - name: ensure services are started
   service:
     name: "{{ item }}"
@@ -57,5 +59,3 @@
   with_items:
     - chinadns
     - dnsmasq
-
-- include: pdnsd.yml

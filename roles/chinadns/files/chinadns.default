@@ -2,10 +2,8 @@ BIND_ADDR=127.0.0.1
 BIND_PORT=7053
 CHNROUTE=/etc/chnroute.list
 DNS_SERVER=202.101.172.46
-EXTRA_ARGS=-m
-
-# IPLIST=/etc/chinadns.list
-# EXTRA_ARGS=-d
+EXTRA_ARGS=-c /etc/chinadns.list
+# EXTRA_ARGS=-m
 
 # GZ TELECOM 202.96.128.86
 # HZ CMCC 211.140.13.188
