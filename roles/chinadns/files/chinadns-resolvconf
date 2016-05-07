@@ -21,8 +21,8 @@ fi
 
 if [ -n "$NS_IP" ]; then
     echo "DNS_SERVER=$NS_IP" > /var/run/chinadns
-    systemctl restart chinadns
+    systemctl try-restart chinadns
 else
     rm -f /var/run/chinadns
-    systemctl restart chinadns
+    systemctl try-restart chinadns
 fi
