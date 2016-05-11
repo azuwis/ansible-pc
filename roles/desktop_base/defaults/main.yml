@@ -39,6 +39,9 @@ theme:
     - dest: /root/paper-icon-theme.deb
       url: "https://launchpad.net/~snwh/+archive/ubuntu/pulp/+files/paper-icon-theme_1.1+r240~daily~ubuntu16.04.1_all.deb"
       sha256sum: d43a8b10d1c9d3b2f8421e9d747265c6718d1c722a685eed3abbdf49cbbdf4c7
+  # git:
+  #   - dest: /usr/share/themes/Flat-Plat-Blue/
+  #     repo: https://github.com/peterychuang/Flat-Plat-Blue.git
   icon: Paper
   gtk2: Arc-Darker
   gtk3: Arc-Darker

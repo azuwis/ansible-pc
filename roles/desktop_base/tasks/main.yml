@@ -275,6 +275,12 @@
     deb: "{{ item.dest }}"
   with_items: "{{ theme.debs }}"
 
+# - name: clone theme git
+#   git:
+#     dest: "{{ item.dest }}"
+#     repo: "{{ item.repo }}"
+#   with_items: "{{ theme.git }}"
+
 - name: gtk2 config
   template: src=gtk2.j2 dest=/etc/gtk-2.0/gtkrc
 
