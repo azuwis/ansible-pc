@@ -166,6 +166,7 @@
     - mosh
     - archivemount
     - powertop
+    - qrencode
     # - apt-listbugs
 
 - name: packages to remove
