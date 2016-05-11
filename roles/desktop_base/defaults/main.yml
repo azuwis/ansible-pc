@@ -26,15 +26,10 @@ font:
 
 theme:
   pkgs:
-    - gnome-themes-standard
-    - gtk2-engines-murrine
     - gtk2-engines-pixbuf
+    - arc-theme
     - paper-icon-theme
     - paper-cursor-theme
-  debs:
-    - dest: /root/arc-theme-solid.deb
-      url: "http://download.opensuse.org/repositories/home:/Horst3180/Debian_8.0/all/arc-theme-solid_1459454111.c561afa_all.deb"
-      sha256sum: 0ae29fe7d1b68df9d378ab031d8ff1abc1080fd844e90ef5c51a684cac095b0d
   # git:
   #   - dest: /usr/share/themes/Flat-Plat-Blue/
   #     repo: https://github.com/peterychuang/Flat-Plat-Blue.git

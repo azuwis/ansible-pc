@@ -263,17 +263,17 @@
   apt: name={{ item }}
   with_items: "{{ theme.pkgs }}"
 
-- name: download theme deb packages
-  get_url:
-    dest: "{{ item.dest }}"
-    sha256sum: "{{ item.sha256sum }}"
-    url: "{{ item.url }}"
-  with_items: "{{ theme.debs }}"
+# - name: download theme deb packages
+#   get_url:
+#     dest: "{{ item.dest }}"
+#     sha256sum: "{{ item.sha256sum }}"
+#     url: "{{ item.url }}"
+#   with_items: "{{ theme.debs }}"
 
-- name: install theme deb packages
-  apt:
-    deb: "{{ item.dest }}"
-  with_items: "{{ theme.debs }}"
+# - name: install theme deb packages
+#   apt:
+#     deb: "{{ item.dest }}"
+#   with_items: "{{ theme.debs }}"
 
 # - name: clone theme git
 #   git:
