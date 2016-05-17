@@ -70,6 +70,7 @@
     - autossh
     - resolvconf
     - dosfstools
+    - icdiff
 
 - name: extra packages
   apt:
