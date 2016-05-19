@@ -1,14 +1,7 @@
 ---
-- name: install resolvconf
-  apt:
-    name: resolvconf
-
-- name: install dnsmasq
-  apt: name=dnsmasq
-
-- name: config dnsmasq
+- name: add dnsmasq config for chinadns
   copy:
-    src: dnsmasq.conf
+    src: chinadns-dnsmasq.conf
     dest: /etc/dnsmasq.d/chinadns.conf
   notify: restart dnsmasq
 
@@ -50,12 +43,7 @@
     name: chinadns
     enabled: yes
 
-- include: unbound.yml
-
-- name: ensure services are started
+- name: ensure chinadns services are started
   service:
-    name: "{{ item }}"
+    name: chinadns
     state: started
-  with_items:
-    - chinadns
-    - dnsmasq

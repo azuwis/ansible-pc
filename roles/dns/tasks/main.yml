@@ -1,0 +1,23 @@
+---
+- name: install resolvconf
+  apt:
+    name: resolvconf
+
+- name: install dnsmasq
+  apt:
+    name: dnsmasq
+
+- name: common dnsmasq config
+  copy:
+    src: common-dnsmasq.conf
+    dest: /etc/dnsmasq.d/common.conf
+  notify: restart dnsmasq
+
+- include: unbound.yml
+
+- name: ensure services are started
+  service:
+    name: "{{ item }}"
+    state: started
+  with_items:
+    - dnsmasq
