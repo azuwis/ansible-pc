@@ -6,5 +6,5 @@
       prompt: shadowsocks server
       private: no
   roles:
-    - chinadns
+    - dns
     - shadowsocks_redir

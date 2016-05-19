@@ -19,5 +19,10 @@
     name: pdnsd
     state: restarted
 
+- name: restart resolvconf
+  service:
+    name: resolvconf
+    state: restarted
+
 - name: systemctl daemon-reload
   command: systemctl daemon-reload

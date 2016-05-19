@@ -14,6 +14,7 @@
   notify: restart dnsmasq
 
 - include: unbound.yml
+- include: chn-domains.yml
 
 - name: ensure services are started
   service:
