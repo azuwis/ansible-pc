@@ -1,0 +1,24 @@
+---
+- name: add dnsmasq config for chn-domains
+  copy:
+    src: chn-domains-dnsmasq.conf
+    dest: /etc/dnsmasq.d/chn-domains.conf
+  notify: restart dnsmasq
+
+- name: copy resolv config for chn-domains
+  copy:
+    src: chn-domains-resolvconf
+    dest: /etc/resolvconf/update.d/chn-domains
+    mode: '0755'
+
+- name: copy chn-domains
+  copy:
+    dest: /etc/chn-domains
+    src: chn-domains
+  notify: restart resolvconf
+
+- name: copy bypass-domains
+  copy:
+    dest: /etc/bypass-domains
+    src: bypass-domains
+  notify: restart resolvconf

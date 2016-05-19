@@ -1,0 +1,37 @@
+#!/bin/sh -e
+
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+
+if [ ! -x /usr/sbin/dnsmasq ]; then
+    exit 0
+fi
+
+if [ ! -x /lib/resolvconf/list-records ]; then
+    exit 1
+fi
+
+RESOLVCONF_FILES="$(/lib/resolvconf/list-records)"
+
+if [ -n "$RESOLVCONF_FILES" ]; then
+    NS_IP="$(sed -rne 's/^[[:space:]]*nameserver[[:space:]]+//p' $RESOLVCONF_FILES \
+        | egrep -v '^(127\.|::1)' | head -n 1)"
+else
+    NS_IP=""
+fi
+
+DNSMASQ_CONF="/var/run/chn-domains.conf"
+if [ -n "$NS_IP" ]; then
+    grep -Ev '(^#|^\s*$)' /etc/chn-domains | while read domain
+    do
+        echo "server=/$domain/${NS_IP}"
+    done > $DNSMASQ_CONF
+    grep -Ev '(^#|^\s*$)' /etc/bypass-domains | while read domain
+    do
+        echo "ipset=/$domain/ss_spec_wan_ac"
+    done >> $DNSMASQ_CONF
+    printf "no-resolv\nserver=%s\n" '127.0.0.1#7054' >> $DNSMASQ_CONF
+    systemctl try-restart dnsmasq
+else
+    rm -f $DNSMASQ_CONF
+    systemctl try-restart dnsmasq
+fi
