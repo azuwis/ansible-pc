@@ -19,7 +19,8 @@ else
     NS_IP=""
 fi
 
-DNSMASQ_CONF="/var/run/chn-domains.conf"
+mkdir -p /var/run/chn-domains/
+DNSMASQ_CONF="/var/run/chn-domains/dnsmasq.conf"
 if [ -n "$NS_IP" ]; then
     grep -Ev '(^#|^\s*$)' /etc/chn-domains | while read domain
     do
