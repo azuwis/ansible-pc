@@ -9,6 +9,6 @@ allow-hotplug usb0
 iface usb0 inet dhcp
     metric 1
 
-allow-hotplug bnep0
+# allow-hotplug bnep0
 iface bnep0 inet dhcp
     metric 1
