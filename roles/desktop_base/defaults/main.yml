@@ -4,7 +4,7 @@ keyboard:
 
 font:
   pkgs:
-    - fonts-lato
+    - fonts-roboto
     - fonts-croscore
     - fonts-crosextra-caladea
     - fonts-crosextra-carlito
@@ -15,7 +15,7 @@ font:
     - 30-0-google-croscore-cousine-fontconfig.conf
     - 30-0-google-croscore-tinos-fontconfig.conf
   sans:
-    - Lato
+    - Roboto
     - Noto Sans CJK SC
   serif:
     - Tinos
