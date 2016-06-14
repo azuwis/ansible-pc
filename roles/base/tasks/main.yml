@@ -71,6 +71,7 @@
     - resolvconf
     - dosfstools
     - icdiff
+    - psmisc
 
 - name: extra packages
   apt:
