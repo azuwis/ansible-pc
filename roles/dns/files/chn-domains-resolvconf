@@ -22,11 +22,11 @@ fi
 mkdir -p /var/run/chn-domains/
 DNSMASQ_CONF="/var/run/chn-domains/dnsmasq.conf"
 if [ -n "$NS_IP" ]; then
-    grep -Ev '(^#|^\s*$)' /etc/chn-domains | while read domain
+    cat /etc/chn-domains /etc/chn-domains-extra | grep -Ev '(^#|^\s*$)' | while read domain
     do
         echo "server=/$domain/${NS_IP}"
     done > $DNSMASQ_CONF
-    grep -Ev '(^#|^\s*$)' /etc/bypass-domains | while read domain
+    grep -Ev '(^#|^\s*$)' /etc/chn-domains-extra | while read domain
     do
         echo "ipset=/$domain/ss_spec_wan_ac"
     done >> $DNSMASQ_CONF

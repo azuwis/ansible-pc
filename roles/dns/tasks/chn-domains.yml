@@ -17,8 +17,8 @@
     src: chn-domains
   notify: restart resolvconf
 
-- name: copy bypass-domains
+- name: copy chn-domains-extra
   copy:
-    dest: /etc/bypass-domains
-    src: bypass-domains
+    dest: /etc/chn-domains-extra
+    src: chn-domains-extra
   notify: restart resolvconf
