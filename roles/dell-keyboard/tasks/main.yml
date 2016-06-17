@@ -1,0 +1,7 @@
+---
+- name: install smbios-utils
+  apt:
+    name: smbios-utils
+
+- name: set keyboard illumination timeout
+  command: smbios-keyboard-ctl --set-timeout 30s
