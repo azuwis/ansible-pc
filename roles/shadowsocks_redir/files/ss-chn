@@ -8,4 +8,4 @@ resolveip() {
     fi
 }
 export -f resolveip
-bash /usr/local/bin/ss-rule -c /etc/shadowsocks-libev/redir.json -i /etc/chnroute.list -e "-m multiport --dports 22,53,80,443,587,993,5222,5228" -o "$@"
+bash /usr/local/bin/ss-rule -c /etc/shadowsocks-libev/redir.json -i /etc/chnroute.list -e "-m multiport --dports 22,53,80,8000,443,587,993,5222,5228" -o "$@"
