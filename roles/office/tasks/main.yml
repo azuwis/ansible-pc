@@ -3,7 +3,7 @@
 - name: install office packages
   apt: name="{{ item }}"
   with_items:
-    - libreoffice-gtk
+    - libreoffice-gtk2
     - libreoffice-style-sifr
     - libreoffice-writer
     - libreoffice-impress
