@@ -44,4 +44,4 @@
 
 - name: add {{ item.name }} to torrent group
   user: name={{ item.name }} groups=torrent append=yes
-  with_items: staff
+  with_items: "{{ staff }}"
