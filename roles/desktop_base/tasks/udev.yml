@@ -1,0 +1,31 @@
+- name: list backlight sysfs
+  shell: ls -1 /sys/class/backlight/*/brightness /sys/class/backlight/*/bl_power
+  changed_when: False
+  ignore_errors: True
+  register: backlight_sysfs
+
+- name: set backlight sysfs permission once
+  file:
+    dest: "{{ item }}"
+    owner: root
+    group: video
+    mode: 0664
+  with_items: "{{ backlight_sysfs.stdout_lines }}"
+
+- name: copy udev rule to set backlight sysfs permission
+  copy:
+    src: 99-backlight-permission.rules
+    dest: /etc/udev/rules.d/99-backlight-permission.rules
+
+- name: set kbdlight sysfs permission once
+  file:
+    dest: /sys/class/leds/smc::kbd_backlight/brightness
+    owner: root
+    group: video
+    mode: 0664
+  ignore_errors: True
+
+- name: copy udev rule to set kbdlight sysfs permission
+  copy:
+    src: 99-kbdlight-permission.rules
+    dest: /etc/udev/rules.d/99-kbdlight-permission.rules

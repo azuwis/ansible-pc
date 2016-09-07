@@ -1,0 +1,27 @@
+- name: create dmenu symlink to rofi
+  file:
+    dest: /usr/local/bin/dmenu
+    src: /usr/bin/rofi
+    state: link
+
+- name: unclutter settings
+  lineinfile:
+    dest: /etc/default/unclutter
+    regexp: ^EXTRA_OPTS=
+    line: EXTRA_OPTS=""
+
+- name: custom xsession.d config
+  template: src=20ansible-managed.j2 dest=/etc/X11/Xsession.d/20ansible-managed
+
+- name: system xresources
+  template:
+    dest: /etc/X11/Xresources/ansible-managed
+    src: xresources-ansible-managed.j2
+
+- name: zsh config to startx at login
+  template:
+    src: zprofile.j2
+    dest: ~{{ item.name }}/.zprofile
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  with_items: "{{ staff }}"

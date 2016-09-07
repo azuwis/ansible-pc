@@ -1,0 +1,5 @@
+- name: alsa config
+  template:
+    src: asound.conf.j2
+    dest: /etc/asound.conf
+  when: alsa is defined

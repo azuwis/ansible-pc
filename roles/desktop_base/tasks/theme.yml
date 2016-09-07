@@ -1,0 +1,41 @@
+- name: theme packages
+  apt: name={{ item }}
+  with_items: "{{ theme.pkgs }}"
+
+# - name: download theme deb packages
+#   get_url:
+#     dest: "{{ item.dest }}"
+#     sha256sum: "{{ item.sha256sum }}"
+#     url: "{{ item.url }}"
+#   with_items: "{{ theme.debs }}"
+
+# - name: install theme deb packages
+#   apt:
+#     deb: "{{ item.dest }}"
+#   with_items: "{{ theme.debs }}"
+
+# - name: clone theme git
+#   git:
+#     dest: "{{ item.dest }}"
+#     repo: "{{ item.repo }}"
+#   with_items: "{{ theme.git }}"
+
+- name: gtk2 config
+  template: src=gtk2.j2 dest=/etc/gtk-2.0/gtkrc
+
+- name: gtk3 config
+  template: src=gtk3.j2 dest=/etc/gtk-3.0/settings.ini
+
+- name: qt4 config
+  template: src=qt4.j2 dest=/etc/xdg/Trolltech.conf
+
+# Hack here. When no desktop environment is detected, qt4 use hicolor as
+# fallback icon theme. Let hicolor inherit theme.icon and theme.icon will be
+# used.
+# - name: qt4 icon theme
+#   lineinfile:
+#     dest: /usr/share/icons/hicolor/index.theme
+#     insertafter: ^Name=Hicolor$
+#     regexp: ^Inherits=
+#     line: Inherits={{ theme.icon }}
+#   when: theme.icon is defined

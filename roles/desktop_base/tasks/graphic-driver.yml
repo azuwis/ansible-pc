@@ -1,0 +1,37 @@
+- name: test intel graphic card
+  shell: lspci -nn | grep -q 'VGA.*8086'
+  register: intel_graphic
+  ignore_errors: True
+  changed_when: False
+
+- name: intel graphic driver
+  apt: name={{ item }}
+  when: intel_graphic|success
+  with_items:
+    - xserver-xorg-video-intel
+    - libgl1-mesa-dri
+    - i965-va-driver
+    - vainfo
+
+- name: intel graphic driver config
+  copy: src=intel.conf dest=/etc/X11/xorg.conf.d/
+  when: intel_graphic|success
+
+- name: test nvidia graphic card
+  shell: lspci -nn | grep -q 'VGA.*10de'
+  register: nvidia_graphic
+  ignore_errors: True
+  changed_when: False
+
+- name: nvidia graphic driver
+  apt: name={{ item }}
+  when: nvidia_graphic|success
+  with_items:
+    - linux-headers-amd64
+    - nvidia-driver
+    - libgles1-nvidia
+    - libgles2-nvidia
+
+- name: nvidia graphic driver config
+  copy: src=nvidia.conf dest=/etc/X11/xorg.conf.d/
+  when: nvidia_graphic|success

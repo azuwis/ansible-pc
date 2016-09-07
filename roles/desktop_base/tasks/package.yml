@@ -1,0 +1,92 @@
+- name: desktop base packages
+  apt: name={{ item }}
+  with_items:
+    - xserver-xorg-input-libinput
+    - xserver-xorg-input-synaptics
+    - xserver-xorg              ## X
+    - xinit
+    - x11-xserver-utils         #  xrdb/xmodmap
+    - xdg-user-dirs             #  auto create well known user dirs
+    - hsetroot                  #  set wallpaper
+    - xinput
+    - xdotool
+    - unclutter                 #  auto hide cursor
+    # - dmz-cursor-theme
+    - redshift                  #  ease your eyes
+    - zsh                       ## Shell
+    - zgen
+    - zsh-syntax-highlighting
+    - i3-wm                     ## WM
+    - i3status
+    - i3lock
+    - xautolock
+    - imagemagick
+    - rofi
+    - alsa-utils                ## Sound
+    - lxterminal                ## Terminal
+    - xtermcontrol              #  for set lxterminal color scheme
+    - xfce4-clipman
+    - dunst                     # notification daemon
+    - libnotify-bin
+    - arandr
+    - vim-gtk3                  ## Editor
+    - exuberant-ctags           #  vim tagbar plugin
+    - emacs
+    - python-jedi               #  for emacs anaconda-mode
+    - python-six
+    - xfonts-terminus           #  emacs ime bug
+    - aspell                    #  emacs flycheck
+    - aspell-en
+    - chromium                  ## Browser
+    - pepperflashplugin-nonfree
+    - firefox
+    - hunspell-en-us            #  firefox spell checking
+    - browser-plugin-freshplayer-pepperflash
+    - fcitx                     ## IME
+    - fcitx-config-gtk
+    - fcitx-frontend-gtk2
+    - fcitx-frontend-gtk3
+    - fcitx-frontend-qt4
+    - fcitx-frontend-qt5
+    - fcitx-ui-classic
+    - fcitx-rime
+    - librime-data-double-pinyin
+    - librime-data-pinyin-simp
+    - dbus-x11
+    - dialog
+    - im-config
+    - mpv                       ## Video player
+    - ffmpeg
+    - pqiv                      ## Image viewer
+    - mcomix
+    - scrot
+    - evince                    ## PDF viewer
+    - poppler-data              #  CJK pdf
+    - gpick                     ## Color picker
+    - duc                       ## Disk usage
+    - freerdp-x11               ## Remote desktop client
+    - libfreerdp-plugins-standard
+    - udevil                    ## Auto mounter
+    - pass                      ## Utils
+    - pinentry-gtk2
+    - git-remote-gcrypt
+    - shellcheck
+    - sshfs
+    - makepasswd
+    - whois
+    - sqlite3
+    - mosh
+    - archivemount
+    - powertop
+    - qrencode
+    # - apt-listbugs
+
+- name: packages to remove
+  apt:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - xserver-xorg-input-all
+    - xserver-xorg-input-vmmouse
+    - xserver-xorg-input-mouse
+    - xserver-xorg-input-evdev
