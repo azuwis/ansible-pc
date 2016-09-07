@@ -4,5 +4,9 @@
   with_items:
     - kodi
     - avahi-daemon
-    - libshairplay0
     - libplist3
+
+- name: libshairplay0
+  apt:
+    name: libshairplay0
+  ignore_errors: yes
