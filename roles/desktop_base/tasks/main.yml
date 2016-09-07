@@ -4,10 +4,8 @@
 #                   -> + -> [ ] Only Show Current Language -> Rime
 #                   -> - -> Keyboard - English (US)
 # firefox -> run init-firefox to install vimfx
-#         -> zb to bootstrap
-#         -> open chrome://ublock0/content/dashboard.html#3p-filters.html
-#         -> Regions,languages -> CHN
-#         -> Custom -> https://github.com/azuwis/org/raw/master/adblock-filters.txt
+#         -> ,B to bootstrap
+#         -> ,u to bootstrap ublock
 
 - name: X11 config dir
   file: dest=/etc/X11/xorg.conf.d/ state=directory
