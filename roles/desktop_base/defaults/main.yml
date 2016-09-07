@@ -4,6 +4,7 @@ keyboard:
 
 font:
   pkgs:
+    - fonts-fira
     - fonts-roboto
     - fonts-croscore
     - fonts-crosextra-caladea
@@ -15,13 +16,13 @@ font:
     - 30-0-google-croscore-cousine-fontconfig.conf
     - 30-0-google-croscore-tinos-fontconfig.conf
   sans:
-    - Roboto
+    - Fira Sans
     - Noto Sans CJK SC
   serif:
     - Tinos
     - Noto Sans CJK SC
   monospace:
-    - Cousine
+    - Fira Mono
     - Noto Sans Mono CJK SC
 
 theme:
