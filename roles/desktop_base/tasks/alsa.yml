@@ -3,3 +3,9 @@
     src: asound.conf.j2
     dest: /etc/asound.conf
   when: alsa is defined
+
+- name: workaround alsa-utils not restoring settings
+  copy:
+    dest: /var/lib/alsa/asound.state
+    force: no
+    content: ''
