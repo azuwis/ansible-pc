@@ -5,6 +5,6 @@
 - name: fontconfig settings, local.conf
   template: src=fontconfig.j2 dest=/etc/fonts/local.conf
 
-- name: fontconfig settings, enable from conf.avail
-  file: src=../conf.avail/{{ item }} dest=/etc/fonts/conf.d/{{ item }} state=link force=yes
-  with_items: "{{ font.enable }}"
+# - name: fontconfig settings, enable from conf.avail
+#   file: src=../conf.avail/{{ item }} dest=/etc/fonts/conf.d/{{ item }} state=link force=yes
+#   with_items: "{{ font.enable }}"

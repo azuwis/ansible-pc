@@ -11,10 +11,6 @@ font:
     - fonts-crosextra-carlito
     - fonts-noto-cjk
     - fonts-font-awesome
-  enable:
-    - 30-0-google-croscore-arimo-fontconfig.conf
-    - 30-0-google-croscore-cousine-fontconfig.conf
-    - 30-0-google-croscore-tinos-fontconfig.conf
   sans:
     - Fira Sans
     - Noto Sans CJK SC
