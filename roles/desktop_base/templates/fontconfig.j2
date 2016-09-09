@@ -30,6 +30,18 @@
       </prefer>
   </alias>
 
+  <!-- Font substitutions -->
+  {% for font in font.substitutions %}
+  <match target="pattern">
+    <test qual="any" name="family">
+      <string>{{ font.origin }}</string>
+    </test>
+    <edit name="family" mode="assign" binding="same">
+      <string>{{ font.substitution }}</string>
+    </edit>
+  </match>
+  {% endfor %}
+
   <!-- https://wiki.debian.org/Fonts#Subpixel-hinting_and_Font-smoothing -->
   <match target="font">
     <edit mode="assign" name="rgba">

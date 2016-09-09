@@ -20,6 +20,9 @@ font:
   monospace:
     - Fira Mono
     - Noto Sans Mono CJK SC
+  substitutions:
+    - origin: Arial
+      substitution: Fira Sans
 
 theme:
   pkgs:
