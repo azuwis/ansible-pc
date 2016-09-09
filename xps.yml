@@ -33,4 +33,4 @@
     - { role: adb, tags: adb }
     - { role: email-client, tags: email-client }
 
-    - { role: dell-keyboard, tags: dell-keyboard }
+    - { role: xps, tags: xps }
