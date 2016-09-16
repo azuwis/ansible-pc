@@ -52,7 +52,7 @@
     - fcitx-rime
     - librime-data-double-pinyin
     - librime-data-pinyin-simp
-    - dbus-x11
+    - dbus-user-session
     - dialog
     - im-config
     - mpv                       ## Video player
