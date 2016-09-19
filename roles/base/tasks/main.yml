@@ -60,6 +60,7 @@
     - debsums
     - logrotate
     - manpages
+    - manpages-dev
     - man-db
     - console-setup
     - patch
