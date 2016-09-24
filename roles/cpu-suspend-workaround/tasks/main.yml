@@ -1,0 +1,17 @@
+---
+# https://bbs.archlinux.org/viewtopic.php?pid=1558948#p1558948
+
+- name: install msr-tools
+  apt:
+    name: msr-tools
+
+- name: install systemd service
+  copy:
+    dest: /etc/systemd/system/cpu-suspend-workaround.serivce
+    src: cpu-suspend-workaround.service
+
+- name: enable systemd service
+  service:
+    name: cpu-suspend-workaround
+    enabled: yes
+    state: started

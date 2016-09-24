@@ -1,0 +1,11 @@
+[Unit]
+Description=Flushes the cpu clock modulation MSR to relase cpu lock caused by BIOS bug
+After=suspend.target
+
+[Service]
+User=root
+Type=oneshot
+ExecStart=/usr/sbin/wrmsr -a 0x19a 0x0
+
+[Install]
+WantedBy=suspend.target
