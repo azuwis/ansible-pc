@@ -20,3 +20,10 @@ Section "InputClass"
     MatchProduct "AT Translated Set 2 keyboard"
     Option "XkbOptions" "{{ keyboard.xkboptions }},altwin:swap_lalt_lwin"
 EndSection
+
+Section "InputClass"
+    Identifier "AT Translated Set 2 keyboard"
+    MatchIsKeyboard "on"
+    MatchProduct "Microsoft Microsoft® Nano Transceiver v2.0"
+    Option "XkbOptions" "{{ keyboard.xkboptions }},altwin:swap_lalt_lwin"
+EndSection
