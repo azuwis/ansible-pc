@@ -1,8 +1,9 @@
 ---
 # The fist locale will be set as default locale
+eth: eth0
 grub:
   timeout: 1
-  cmd: net.ifnames=0
+  cmd: ''
 locales:
   - en_US.UTF-8
 timezone: Asia/Shanghai

@@ -152,9 +152,9 @@
     src: interfaces
 
 - name: common network interfaces
-  copy:
+  template:
     dest: /etc/network/interfaces.d/common
-    src: interfaces-common
+    src: interfaces-common.j2
 
 - name: install blobs
   get_url:

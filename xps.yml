@@ -7,6 +7,8 @@
   become: yes
   vars:
     dpi: 168
+    eth: enx0023576c7341
+    wlan: wlp58s0
     extra_packages:
       - firmware-brcm80211
       - firmware-misc-nonfree

@@ -9,9 +9,9 @@
     - ifmetric
 
 - name: /etc/network/interfaces.d/wireless
-  copy:
+  template:
     dest: /etc/network/interfaces.d/wireless
-    src: wireless
+    src: wireless.j2
     owner: root
     group: root
     mode: '0644'
