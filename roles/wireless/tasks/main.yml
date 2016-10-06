@@ -24,3 +24,9 @@
     group: root
     mode: '0600'
   notify: wpa_cli reconfigure
+
+- name: set crda regdomain
+  lineinfile:
+    dest: /etc/default/crda
+    regexp: ^REGDOMAIN=
+    line: REGDOMAIN=CN
