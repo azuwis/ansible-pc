@@ -3,6 +3,7 @@
   become: yes
   vars:
     dpi: 160
+    eth: eno1
     extra_packages:
       - firmware-misc-nonfree
     kernel_modules:
