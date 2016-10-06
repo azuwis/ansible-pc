@@ -3,7 +3,7 @@
   become: yes
   vars:
     wireless_ap:
-      interface: wlan0
-      out_interface: eth0
+      interface: wlx002586ab8c94
+      out_interface: wlp58s0
   roles:
     - wireless_ap
