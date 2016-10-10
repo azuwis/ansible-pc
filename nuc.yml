@@ -32,3 +32,5 @@
     # - { role: bluetooth_keyboard, tags: bluetooth_keyboard }
     - { role: kodi, tags: kodi }
     - { role: torrent, tags: torrent }
+    - { role: sysrqd, tags: sysrqd }
+    - { role: mactelnet-server, tags: mactelnet-server }
