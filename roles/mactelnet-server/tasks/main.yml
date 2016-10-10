@@ -1,0 +1,13 @@
+---
+- name: install mactelnet-server
+  apt:
+    name: mactelnet-server
+
+- name: config mactelnet-server
+  template:
+    dest: /etc/mactelnetd.users
+    src: mactelnetd.users.j2
+    owner: root
+    group: root
+    mode: '0600'
+  notify: restart mactelnet-server

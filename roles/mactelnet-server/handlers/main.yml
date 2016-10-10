@@ -1,0 +1,5 @@
+---
+- name: restart mactelnet-server
+  service:
+    name: mactelnet-server
+    state: restarted
