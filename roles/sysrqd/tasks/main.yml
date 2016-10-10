@@ -1,0 +1,13 @@
+---
+- name: install sysrqd
+  apt:
+    name: sysrqd
+
+- name: config sysrqd
+  template:
+    dest: /etc/sysrqd.secret
+    src: sysrqd.secret.j2
+    owner: root
+    group: root
+    mode: '0600'
+  notify: restart sysrqd

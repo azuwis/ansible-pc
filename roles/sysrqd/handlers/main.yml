@@ -1,0 +1,5 @@
+---
+- name: restart sysrqd
+  service:
+    name: sysrqd
+    state: restarted
