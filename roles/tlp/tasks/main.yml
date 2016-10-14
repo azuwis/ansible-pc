@@ -7,17 +7,17 @@
     - smartmontools
 
 # https://github.com/linrunner/TLP/issues/128
-- name: disable sata link power management
-  replace:
-    dest: /etc/default/tlp
-    regexp: "{{ item.regexp }}"
-    replace: "{{ item.replace }}"
-  with_items:
-    - regexp: ^(SATA_LINKPWR_ON_AC.*)$
-      replace: "#\\1"
-    - regexp: ^(SATA_LINKPWR_ON_BAT.*)$
-      replace: "#\\1"
-  notify: restart tlp
+# - name: disable sata link power management
+#   replace:
+#     dest: /etc/default/tlp
+#     regexp: "{{ item.regexp }}"
+#     replace: "{{ item.replace }}"
+#   with_items:
+#     - regexp: ^(SATA_LINKPWR_ON_AC.*)$
+#       replace: "#\\1"
+#     - regexp: ^(SATA_LINKPWR_ON_BAT.*)$
+#       replace: "#\\1"
+#   notify: restart tlp
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1236679
 - name: set usb blacklist
