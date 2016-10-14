@@ -3,6 +3,7 @@
   template:
     src: shadowsocks-redir.service.j2
     dest: /etc/systemd/system/shadowsocks-redir.service
+  notify: systemctl daemon-reload
 
 - name: config for shadowsocks redir
   template:
@@ -13,25 +14,19 @@
     mode: 0640
   notify: restart shadowsocks-redir
 
-- name: install ipset
-  apt: name=ipset
+- name: install nftables
+  apt:
+    name: nftables
 
-- name: install ss-rule
-  copy:
-    src: shadowsocks.rule
-    dest: /usr/local/bin/ss-rule
-    owner: root
-    group: root
-    mode: 0755
-  notify: restart shadowsocks-redir
+- name: disable nftables service
+  service:
+    name: nftables
+    enabled: no
 
-- name: install ss-chn
-  copy:
-    src: ss-chn
-    dest: /usr/local/bin/ss-chn
-    owner: root
-    group: root
-    mode: 0755
+- name: config for nftables
+  template:
+    src: nftables.conf.j2
+    dest: /etc/shadowsocks-libev/nftables.conf
   notify: restart shadowsocks-redir
 
 - name: enable systemd service for shadowsocks redir

@@ -1,4 +1,3 @@
 ---
 dependencies:
   - { role: 'shadowsocks' }
-  - { role: 'chnroute' }

@@ -4,10 +4,8 @@ After=network.target
 
 [Service]
 ExecStart=/sbin/start-stop-daemon --start --chuid proxy --exec /usr/bin/ss-redir -- -c /etc/shadowsocks-libev/redir.json
-ExecStartPost=/usr/local/bin/ss-chn
-ExecStartPost=/sbin/iptables -t filter -A INPUT ! -i lo -p tcp --dport {{ shadowsocks.local_port }} -j DROP
-ExecStopPost=/usr/local/bin/ss-chn -f
-ExecStopPost=/sbin/iptables -t filter -D INPUT ! -i lo -p tcp --dport {{ shadowsocks.local_port }} -j DROP
+ExecStartPost=/usr/sbin/nft -f /etc/shadowsocks-libev/nftables.conf
+ExecStopPost=-/usr/sbin/nft delete table ip ss-redir
 
 [Install]
 WantedBy=multi-user.target
