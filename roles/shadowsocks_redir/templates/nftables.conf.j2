@@ -26,6 +26,7 @@ table ip ss-redir {
     }
     chain output {
         type nat hook output priority 10;
+        oif lo accept
         ip daddr @local accept
         tcp sport { {{ lookup('file', '/proc/sys/net/ipv4/ip_local_port_range') | replace("\t", '-') }} } tcp dport { 22, 53, 80, 8000, 443, 587, 993, 5222, 5228 } redirect to 7071
     }
