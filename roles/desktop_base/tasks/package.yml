@@ -66,6 +66,7 @@
     - freerdp-x11               ## Remote desktop client
     - libfreerdp-plugins-standard
     - udevil                    ## Auto mounter
+    - go-mtpfs
     - pass                      ## Utils
     - pinentry-gtk2
     - git-remote-gcrypt
