@@ -19,7 +19,7 @@
     - i3-wm                     ## WM
     - i3status
     - i3lock
-    - xautolock
+    - xidle
     - imagemagick
     - rofi
     - alsa-utils                ## Sound
