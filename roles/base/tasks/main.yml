@@ -73,6 +73,7 @@
     - dosfstools
     - icdiff
     - psmisc
+    - fzy
 
 - name: extra packages
   apt:
