@@ -139,6 +139,13 @@
     mode: '0755'
   notify: update grub
 
+- name: set quiet_boot for grub 10_linux
+  lineinfile:
+    dest: /etc/grub.d/10_linux
+    regexp: ^quiet_boot=
+    line: quiet_boot="1"
+  notify: update grub
+
 - name: config sshd
   copy:
     dest: /etc/ssh/sshd_config
