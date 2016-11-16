@@ -132,6 +132,13 @@
     line: GRUB_CMDLINE_LINUX="{{ grub.cmd }}{% if grub.cmd_extra is defined %} {{ grub.cmd_extra }}{% endif %}"
   notify: update grub
 
+- name: grub hold shift to display menu
+  copy:
+    dest: /etc/grub.d/31_hold_shift
+    src: 31_hold_shift
+    mode: '0755'
+  notify: update grub
+
 - name: config sshd
   copy:
     dest: /etc/ssh/sshd_config

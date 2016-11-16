@@ -1,0 +1,26 @@
+#! /bin/sh
+set -e
+
+GRUB_HIDDEN_TIMEOUT_QUIET="${GRUB_HIDDEN_TIMEOUT_QUIET:-true}"
+
+if [ "x${GRUB_HIDDEN_TIMEOUT_QUIET}" = "xtrue" ] ; then
+  verbose=
+else
+  verbose=" --verbose"
+fi
+
+cat <<EOF
+if [ "x\${timeout}" != "x-1" ]; then
+  if keystatus; then
+    if keystatus --shift; then
+      set timeout=-1
+    else
+      set timeout=0
+    fi
+  else
+    if sleep$verbose --interruptible 1 ; then
+      set timeout=0
+    fi
+  fi
+fi
+EOF
