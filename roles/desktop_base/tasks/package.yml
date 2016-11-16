@@ -24,7 +24,7 @@
     - rofi
     - alsa-utils                ## Sound
     - lilyterm                  ## Terminal
-    - xfce4-clipman
+    - qlipper
     - dunst                     # notification daemon
     - libnotify-bin
     - arandr
