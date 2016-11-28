@@ -178,7 +178,7 @@
     sha256sum: "{{ item.sha256sum }}"
     mode: "{{ item.mode | default('0644') }}"
   when: blobs is defined
-  with_items: "{{ blobs }}"
+  with_items: "{{ blobs | default([]) }}"
 
 # replace syslog with systemd-journald, see http://freedesktop.org/wiki/Software/systemd/Optimizations/
 # - name: create /var/log/journal/
