@@ -153,7 +153,18 @@
     owner: root
     group: root
     mode: '0644'
-  notify: reload ssh
+
+- name: disable ssh.service
+  service:
+    name: ssh.service
+    enabled: no
+    state: stopped
+
+- name: enable ssh.socket
+  service:
+    name: ssh.socket
+    enabled: yes
+    state: started
 
 - name: config swappiness
   sysctl:
