@@ -1,0 +1,22 @@
+---
+# POST:
+# certbot certonly \                                                              
+#   --text --agree-tos --email user@foo.bar \                       
+#   --expand --authenticator certbot-external:external \                
+#   --domains "foo.bar,www.foo.bar"
+
+- name: install certbot and nginx
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - certbot
+    - nginx
+
+- name: install certbot-external
+  pip:
+    name: https://github.com/marcan/certbot-external/archive/master.zip
+
+- name: copy certbot-external handler
+  copy:
+    dest: /etc/letsencrypt/external-handler.sh
+    src: external-handler.sh

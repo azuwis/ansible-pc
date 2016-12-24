@@ -34,3 +34,4 @@
     - { role: torrent, tags: torrent }
     - { role: sysrqd, tags: sysrqd }
     - { role: mactelnet-server, tags: mactelnet-server }
+    - { role: certbot, tags: certbot }
