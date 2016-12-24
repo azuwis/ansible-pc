@@ -30,7 +30,7 @@
     - arandr
     - vim-gtk3                  ## Editor
     - exuberant-ctags           #  vim tagbar plugin
-    - emacs
+    - emacs25
     - python-jedi               #  for emacs anaconda-mode
     - python-six
     - xfonts-terminus           #  emacs ime bug
