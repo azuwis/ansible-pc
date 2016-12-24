@@ -37,7 +37,7 @@
     - aspell                    #  emacs flycheck
     - aspell-en
     - chromium                  ## Browser
-    - pepperflashplugin-nonfree
+    # - pepperflashplugin-nonfree
     - firefox
     - hunspell-en-us            #  firefox spell checking
     - flashplugin-nonfree
