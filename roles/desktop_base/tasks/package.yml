@@ -40,7 +40,7 @@
     - pepperflashplugin-nonfree
     - firefox
     - hunspell-en-us            #  firefox spell checking
-    - browser-plugin-freshplayer-pepperflash
+    - flashplugin-nonfree
     - fcitx                     ## IME
     - fcitx-config-gtk
     - fcitx-frontend-gtk2
