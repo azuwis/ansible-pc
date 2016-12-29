@@ -2,9 +2,7 @@ AcceptEnv LANG LC_*
 ChallengeResponseAuthentication no
 PasswordAuthentication no
 PermitRootLogin no
-Port 22
 PrintMotd no
-Protocol 2
 Subsystem sftp /usr/lib/openssh/sftp-server
 UseDNS no
 UsePAM yes
