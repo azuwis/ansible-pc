@@ -20,3 +20,14 @@
   copy:
     dest: /etc/letsencrypt/external-handler.sh
     src: external-handler.sh
+
+- name: create certbot.service override dir
+  file:
+    dest: /etc/systemd/system/certbot.service.d
+    state: directory
+
+- name: override certbot.service
+  copy:
+    dest: /etc/systemd/system/certbot.service.d/override.conf
+    src: certbot.service-override
+  notify: systemctl daemon-reload
