@@ -1,0 +1,3 @@
+---
+- name: setcap l2ping
+  command: setcap cap_net_raw+ep /usr/bin/l2ping
