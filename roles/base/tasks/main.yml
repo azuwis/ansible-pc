@@ -74,6 +74,7 @@
     - icdiff
     - psmisc
     - fzy
+    - libcap2-bin
 
 - name: extra packages
   apt:
