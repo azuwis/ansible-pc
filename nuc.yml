@@ -25,3 +25,4 @@
     - { role: sysrqd, tags: sysrqd }
     - { role: mactelnet-server, tags: mactelnet-server }
     - { role: certbot, tags: certbot }
+    - { role: kcptun-client, tags: kcptun-client }
