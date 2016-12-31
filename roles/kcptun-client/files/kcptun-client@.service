@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=nobody
+User=proxy
 ExecStart=/usr/local/bin/kcptun-client -c /etc/kcptun-client/%i.json
 StandardError=null
 #Restart=always
