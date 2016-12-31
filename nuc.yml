@@ -11,15 +11,6 @@
     alsa:
       card: 0
       device: 3
-    laptop_mode:
-      global:
-        - { key: 'ENABLE_LAPTOP_MODE_ON_AC', value: 1 }
-      board:
-        LM_AC_ACTIVATE_SATA_POWER: 1
-        LM_AC_INTEL_HDA_POWERSAVE: 1
-        INTEL_HDA_DEVICE_TIMEOUT: 1
-        AUTOSUSPEND_RUNTIME_DEVID_BLACKLIST: 045e:0745
-        CONTROL_DPMS_STANDBY: 0
   roles:
     - { role: apt, tags: apt }
     - { role: base, tags: base }
@@ -29,7 +20,6 @@
     - { role: music, tags: music }
     - { role: wireless, tags: wireless }
 
-    # - { role: bluetooth_keyboard, tags: bluetooth_keyboard }
     - { role: kodi, tags: kodi }
     - { role: torrent, tags: torrent }
     - { role: sysrqd, tags: sysrqd }
