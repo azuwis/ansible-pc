@@ -1,0 +1,14 @@
+[Unit]
+Description=Kcptun Client Service
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+ExecStart=/usr/local/bin/kcptun-client -c /etc/kcptun-client/%i.json
+StandardError=null
+#Restart=always
+#RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

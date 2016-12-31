@@ -1,0 +1,9 @@
+---
+- name: systemctl daemon-reload
+  command: systemctl daemon-reload
+
+- name: restart kcptun-client
+  service:
+    name: kcptun-client@{{ item.name }}
+    state: restarted
+  with_items: "{{ kcptun_client }}"

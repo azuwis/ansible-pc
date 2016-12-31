@@ -1,0 +1,34 @@
+---
+- name: install kcptun client
+  get_url:
+    dest: /usr/local/bin/kcptun-client
+    url: https://github.com/azuwis/blob/raw/master/kcptun-client
+    sha256sum: cb2d9282f3a155fc388f10d951e97e029bb30259e7638238d87e9499e5ae6e33
+    mode: '0755'
+
+- name: create kcptun config directory
+  file:
+    dest: /etc/kcptun-client/
+    state: directory
+
+- name: kcptun client config
+  copy:
+    dest: /etc/kcptun-client/{{ item.name }}.json
+    content: "{{ item.config | to_json }}"
+  with_items: "{{ kcptun_client }}"
+  notify: restart kcptun-client
+
+- name: install kcptun client service
+  copy:
+    dest: /etc/systemd/system/kcptun-client@.service
+    src: kcptun-client@.service
+  notify:
+    - systemctl daemon-reload
+    - restart kcptun-client
+
+- name: enable kcptun client service
+  service:
+    name: kcptun-client@{{ item.name }}
+    enabled: yes
+    state: started
+  with_items: "{{ kcptun_client }}"
