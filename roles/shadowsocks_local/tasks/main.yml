@@ -5,9 +5,9 @@
     dest: /etc/systemd/system/
 
 - name: config for shadowsocks local
-  template:
-    src: local.json.j2
+  copy:
     dest: /etc/shadowsocks-libev/local.json
+    content: "{{ shadowsocks | to_nice_json }}"
     owner: proxy
     group: staff
     mode: 0640

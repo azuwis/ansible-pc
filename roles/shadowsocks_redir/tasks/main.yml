@@ -6,9 +6,9 @@
   notify: systemctl daemon-reload
 
 - name: config for shadowsocks redir
-  template:
-    src: redir.json.j2
+  copy:
     dest: /etc/shadowsocks-libev/redir.json
+    content: "{{ shadowsocks | to_nice_json }}"
     owner: proxy
     group: staff
     mode: 0640

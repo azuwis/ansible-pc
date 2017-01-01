@@ -1,7 +1,0 @@
-{
-{% for key, value in shadowsocks.iteritems() %}
-    "{{ key }}":{{ value }}{% if not loop.last %},
-{% endif %}
-{% endfor %}
-
-}
