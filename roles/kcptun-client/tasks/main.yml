@@ -14,7 +14,7 @@
 - name: kcptun client config
   copy:
     dest: /etc/kcptun-client/{{ item.name }}.json
-    content: "{{ item.config | to_json }}"
+    content: "{{ item.config | to_nice_json }}"
     mode: '0640'
     owner: proxy
     group: staff
