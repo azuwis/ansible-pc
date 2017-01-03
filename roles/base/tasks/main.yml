@@ -169,9 +169,14 @@
 
 - name: config swappiness
   sysctl:
-    name: vm.swappiness
-    value: 10
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
     sysctl_file: /etc/sysctl.d/99-ansible-managed.conf
+  with_items:
+    - name: net.ipv4.tcp_fastopen
+      value: 3
+    - name: vm.swappiness
+      value: 10
 
 - name: system network interfaces
   copy:
