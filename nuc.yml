@@ -26,3 +26,4 @@
     - { role: mactelnet-server, tags: mactelnet-server }
     - { role: certbot, tags: certbot }
     - { role: kcptun-client, tags: kcptun-client }
+    - { role: arukas, tags: arukas }

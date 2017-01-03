@@ -1,0 +1,20 @@
+- name: config netrc
+  copy:
+    dest: ~/.netrc
+    content: |
+      machine app.arukas.io
+        login {{ arukas.login }}
+        password {{ arukas.password }}
+    mode: '0600'
+
+- name: copy update-arukas script
+  copy:
+    dest: /usr/local/bin/update-arukas
+    src: update-arukas
+    mode: '0755'
+
+- name: cron to update-arukas
+  cron:
+    name: update arukas
+    minute: '*/30'
+    job: /usr/local/bin/update-arukas
