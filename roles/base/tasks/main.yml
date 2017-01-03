@@ -75,6 +75,7 @@
     - psmisc
     - fzy
     - libcap2-bin
+    - jq
 
 - name: extra packages
   apt:
