@@ -1,10 +1,7 @@
 - name: config netrc
-  copy:
+  template:
     dest: ~/.netrc
-    content: |
-      machine app.arukas.io
-        login {{ arukas.login }}
-        password {{ arukas.password }}
+    src: netrc.j2
     mode: '0600'
 
 - name: copy update-arukas script
