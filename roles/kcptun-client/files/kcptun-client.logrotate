@@ -1,0 +1,14 @@
+/var/log/kcptun-client/*-snmp.log {
+	compress
+	daily
+	missingok
+	rotate 14
+}
+
+/var/log/kcptun-client/*-stderr.log {
+	compress
+	daily
+	missingok
+	rotate 1
+  copytruncate
+}

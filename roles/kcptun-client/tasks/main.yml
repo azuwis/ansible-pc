@@ -11,6 +11,14 @@
     dest: /etc/kcptun-client/
     state: directory
 
+- name: create kcptun log directory
+  file:
+    dest: /var/log/kcptun-client/
+    state: directory
+    owner: proxy
+    group: staff
+    mode: '0750'
+
 - name: kcptun client config
   copy:
     dest: /etc/kcptun-client/{{ item.name }}.json
@@ -35,3 +43,8 @@
     enabled: yes
     state: started
   with_items: "{{ kcptun_client }}"
+
+- name: kcptun logrotate config
+  copy:
+    dest: /etc/logrotate.d/kcptun-client
+    src: kcptun-client.logrotate
