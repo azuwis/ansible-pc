@@ -76,6 +76,7 @@
     - fzy
     - libcap2-bin
     - jq
+    - nethogs
 
 - name: extra packages
   apt:
