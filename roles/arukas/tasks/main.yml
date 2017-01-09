@@ -1,3 +1,7 @@
+- name: install jq
+  apt:
+    name: jq
+
 - name: config netrc
   template:
     dest: ~/.netrc
