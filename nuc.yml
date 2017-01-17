@@ -19,6 +19,7 @@
     - { role: dictionary, tags: dictionary }
     - { role: music, tags: music }
     - { role: wireless, tags: wireless }
+    - { role: tcp-bbr, tags: tcp-bbr }
 
     - { role: kodi, tags: kodi }
     - { role: torrent, tags: torrent }

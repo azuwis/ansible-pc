@@ -31,6 +31,7 @@
     - { role: dictionary, tags: dictionary }
     - { role: office, tags: office }
     - { role: music, tags: music }
+    - { role: tcp-bbr, tags: tcp-bbr }
 
     - { role: adb, tags: adb }
     - { role: email-client, tags: email-client }
