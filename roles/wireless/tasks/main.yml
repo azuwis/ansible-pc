@@ -23,7 +23,7 @@
     owner: root
     group: root
     mode: '0600'
-  notify: wpa_cli reconfigure
+  # notify: wpa_cli reconfigure
 
 - name: set crda regdomain
   lineinfile:
