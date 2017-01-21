@@ -1,5 +1,6 @@
 ---
 domain: localdomain
+debian_dist: sid
 staff:
   - name: azuwis
     comment: Zhong Jianxin
