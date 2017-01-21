@@ -3,8 +3,8 @@
   apt: name={{ item }}
   with_items:
     - kodi
-    - avahi-daemon
-    - libplist3
+    # - avahi-daemon
+    # - libplist3
 
 - name: libshairplay0
   apt:
