@@ -1,0 +1,6 @@
+/var/log/mlvpn/*.log {
+	compress
+	daily
+	missingok
+	rotate 7
+}

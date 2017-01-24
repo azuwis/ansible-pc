@@ -1,0 +1,6 @@
+---
+- name: restart mlvpn
+  service:
+    name: mlvpn@{{ item.name }}
+    state: restarted
+  with_items: "{{ mlvpn }}"

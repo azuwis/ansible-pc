@@ -1,0 +1,44 @@
+---
+- name: install mlvpn
+  apt:
+    name: mlvpn
+
+- name: generate mlvpn config
+  template:
+    dest: /etc/mlvpn/{{ item.name }}.conf
+    src: mlvpn.conf.j2
+    mode: '0600'
+  with_items: "{{ mlvpn }}"
+  notify: restart mlvpn
+
+- name: copy mlvpn up down script
+  copy:
+    dest: /etc/mlvpn/mlvpn_updown.sh
+    src: mlvpn_updown.sh
+    mode: '0700'
+
+- name: copy mlvpn ifup script
+  copy:
+    dest: /etc/network/if-up.d/mlvpn
+    src: mlvpn.ifup
+    mode: '0755'
+
+- name: create log dir
+  file:
+    dest: /var/log/mlvpn/
+    owner: root
+    group: adm
+    mode: '0750'
+    state: directory
+
+- name: config logrotate
+  copy:
+    dest: /etc/logrotate.d/mlvpn.conf
+    src: mlvpn.logrotate
+
+- name: enable mlvpn service
+  service:
+    name: mlvpn@{{ item.name }}
+    enabled: yes
+    state: started
+  with_items: "{{ mlvpn }}"

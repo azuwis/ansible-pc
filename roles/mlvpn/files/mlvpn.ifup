@@ -1,0 +1,25 @@
+#!/bin/sh
+
+MLVPN=/usr/sbin/mlvpn
+MLVPN_INIT=/etc/init.d/mlvpn
+SYSTEMCTL=/bin/systemctl
+SYSTEMD=/run/systemd/system
+
+if [ ! -x $MLVPN ]; then
+    exit 0
+fi
+
+vpns=$(basename -s .conf /etc/mlvpn/*.conf)
+
+if [ x"$vpns" = x'*' ] || [ x"$vpns" = x ]; then
+    exit 0
+fi
+
+for vpn in $vpns; do
+    ## check systemd present
+    if [ -d $SYSTEMD ]; then
+        $SYSTEMCTL --no-block try-restart "mlvpn@$vpn"
+    else
+        $MLVPN_INIT restart "$vpn"
+    fi
+done

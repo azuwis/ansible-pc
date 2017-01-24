@@ -1,0 +1,28 @@
+#jinja2: lstrip_blocks: True
+[general]
+statuscommand = "{{ item.statuscommand | default('/etc/mlvpn/mlvpn_updown.sh') }}"
+mode = "{{ item.mode }}"
+ip4 = "{{ item.ip4 }}"
+mtu = {{ item.mtu | default(1444) }}
+tuntap = "{{ item.tuntap | default('tun') }}"
+{% if item.interface_name is defined %}
+interface_name = "{{ item.interface_name }}"
+{% endif %}
+timeout = {{ item.timeout | default(30) }}
+password = "{{ item.password }}"
+cleartext_data = {{ item.cleartext_data | default(0) }}
+{% if item.reorder_buffer_size is defined %}
+reorder_buffer_size = {{ item.reorder_buffer_size }}
+{% endif %}
+
+{% for tunnel in item.tunnels %}
+[{{ tunnel.name }}]
+  {% if item.mode == 'client' %}
+remotehost = "{{ tunnel.host }}"
+remoteport = {{ tunnel.port }}
+  {% else %}
+bindhost = "{{ tunnel.host }}"
+bindport = {{ tunnel.port }}
+  {% endif %}
+
+{% endfor %}
