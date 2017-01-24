@@ -6,4 +6,5 @@
     - emacs25
     - mu4e
     - maildir-utils-extra
+    - ghostscript
     - msmtp
