@@ -1,0 +1,12 @@
+---
+- name: install dependances
+  apt:
+    name: "{{ item }}"
+  with_items:
+  - python3-xcffib
+  - python3-cairocffi
+
+- name: install set-wallpaper
+  pip:
+    executable: pip3
+    name: https://github.com/mjkillough/set-wallpaper/archive/master.zip#egg=set_wallpaper
