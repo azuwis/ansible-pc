@@ -3,6 +3,11 @@
   apt:
     name: resolvconf
 
+- name: config interface-order
+  copy:
+    dest: /etc/resolvconf/interface-order
+    src: interface-order
+
 - name: install dnsmasq
   apt:
     name: dnsmasq
