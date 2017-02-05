@@ -1,0 +1,3 @@
+deb http://{{ apt_mirror | default("mirrors.zju.edu.cn") }}/debian {{ debian_dist | default(ansible_lsb.codename) }} main contrib non-free
+deb http://{{ apt_mirror | default("mirrors.zju.edu.cn") }}/debian experimental main
+deb http://azuwis.github.io/debian {{ debian_dist | default(ansible_lsb.codename) }} main

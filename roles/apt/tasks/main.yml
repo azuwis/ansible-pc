@@ -14,22 +14,18 @@
     src: preferences.j2
     dest: /etc/apt/preferences
 
-# TODO Use template
-- name: remove /etc/apt/sources.list
-  file: path=/etc/apt/sources.list state=absent
+- name: generate /etc/apt/sources.list
+  template:
+    dest: /etc/apt/sources.list
+    src: sources.list.j2
+  register: result
 
-- name: main sources.list
-  apt_repository: repo='deb http://{{ apt_mirror | default("mirrors.zju.edu.cn") }}/debian {{ debian_dist | default(ansible_lsb.codename) }} main contrib non-free'
+- name: update apt package index if needed
+  apt:
+    update_cache: yes
+  when: result.changed
 
 - name: install custom apt key
   copy:
     src: azuwis.gpg
     dest: /etc/apt/trusted.gpg.d/azuwis.gpg
-
-- name: custom sources.list
-  apt_repository:
-    repo: deb http://azuwis.github.io/debian {{ ansible_lsb.codename }} main
-
-- name: experimental sources.list
-  apt_repository:
-    repo: deb http://{{ apt_mirror | default("mirrors.zju.edu.cn") }}/debian experimental main
