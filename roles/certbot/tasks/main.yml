@@ -14,7 +14,7 @@
 
 - name: install certbot-external
   pip:
-    name: https://github.com/marcan/certbot-external/archive/master.zip
+    name: https://github.com/marcan/certbot-external/archive/master.zip#egg=certbot_external
 
 - name: copy certbot-external handler
   copy:
