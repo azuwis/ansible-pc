@@ -1,8 +1,8 @@
 ---
 # POST:
-# certbot certonly \                                                              
-#   --text --agree-tos --email user@foo.bar \                       
-#   --expand --authenticator certbot-external:external \                
+# certbot certonly \
+#   --text --agree-tos --email user@foo.bar \
+#   --expand --authenticator certbot-external:external \
 #   --domains "foo.bar,www.foo.bar"
 
 - name: install certbot and nginx
