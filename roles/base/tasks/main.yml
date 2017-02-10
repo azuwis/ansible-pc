@@ -29,7 +29,7 @@
     - make
     - telnet
     - tcpdump
-    - netcat-traditional
+    - netcat-openbsd
     - traceroute
     - mtr-tiny
     - sipcalc
