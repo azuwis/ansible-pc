@@ -3,7 +3,7 @@
   get_url:
     dest: /usr/local/bin/kcptun-client
     url: https://github.com/azuwis/blob/raw/master/kcptun-client
-    sha256sum: 56b265f81b8929446a43ff7c514a531dee10b0d97f02da93eddb8f224b184144
+    sha256sum: 95fe11a9d623c4bf7f36a143ad9f43c6b96fd0591da8885afe53d6d0fb6fc45a
     mode: '0755'
 
 - name: create kcptun config directory
