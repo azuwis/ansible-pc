@@ -18,19 +18,19 @@
     dest: /etc/X11/Xresources/ansible-managed
     src: xresources-ansible-managed.j2
 
-- name: copy udevil systemd service file
-  copy:
-    dest: /etc/systemd/system/devmon@.service
-    src: /usr/lib/x86_64-linux-gnu/systemd/system/devmon@.service
-    remote_src: yes
-  notify: systemctl daemon-reload
+# - name: copy udevil systemd service file
+#   copy:
+#     dest: /etc/systemd/system/devmon@.service
+#     src: /usr/lib/x86_64-linux-gnu/systemd/system/devmon@.service
+#     remote_src: yes
+#   notify: systemctl daemon-reload
 
-- name: enable udevil systemd service
-  service:
-    name: devmon@{{ item.name }}
-    enabled: yes
-    state: started
-  with_items: "{{ staff }}"
+# - name: enable udevil systemd service
+#   service:
+#     name: devmon@{{ item.name }}
+#     enabled: yes
+#     state: started
+#   with_items: "{{ staff }}"
 
 - name: zsh config to startx at login
   template:
