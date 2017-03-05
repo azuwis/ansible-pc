@@ -2,7 +2,7 @@
 
 config="/etc/kcptun-client/arukas.json"
 
-upstream=$(curl -fns https://app.arukas.io/api/containers | jq -j '.data[] | select(.attributes.image_name == "mritd/shadowsocks") | .attributes.port_mappings[0][] | select (.container_port == 20000) | .host, .service_port' | sed -n 's/.*-\([0-9]\+\)-\([0-9]\+\)-\([0-9]\+\)-\([0-9]\+\)\..*\.io\([0-9]\+\)/\1.\2.\3.\4:\5/p')
+upstream=$(curl -fns https://app.arukas.io/api/containers | jq -j '.data[] | select(.attributes.image_name == "mritd/shadowsocks") | .attributes.port_mappings[0][] | select (.container_port == 2000) | .host, .service_port' | sed -n 's/.*-\([0-9]\+\)-\([0-9]\+\)-\([0-9]\+\)-\([0-9]\+\)\..*\.io\([0-9]\+\)/\1.\2.\3.\4:\5/p')
 
 if echo "$upstream" | grep -q '^[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+:[0-9]\+$'; then
     local=$(jq -r '.remoteaddr' "$config")
