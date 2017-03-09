@@ -5,8 +5,8 @@ After=network.target
 [Service]
 Type=simple
 User=proxy
-#ExecStart=/usr/local/bin/kcptun-client -c /etc/kcptun-client/%i.json --log /var/log/kcptun-client/%i-stderr.log --snmplog /var/log/kcptun-client/%i-snmp.log
-ExecStart=/usr/local/bin/kcptun-client -c /etc/kcptun-client/%i.json
+#ExecStart=/usr/bin/kcptun-client -c /etc/kcptun-client/%i.json --log /var/log/kcptun-client/%i-stderr.log --snmplog /var/log/kcptun-client/%i-snmp.log
+ExecStart=/usr/bin/kcptun-client -c /etc/kcptun-client/%i.json
 StandardError=null
 Restart=always
 RestartSec=5
