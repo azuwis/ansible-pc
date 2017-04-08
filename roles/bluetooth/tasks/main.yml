@@ -4,6 +4,10 @@
     name: bluez
   notify: setcap l2ping
 
+- name: install bluez-tools
+  apt:
+    name: bluez-tools
+
 - name: add staffs to bluetooth group
   user:
     name: "{{ item.name }}"
