@@ -9,6 +9,7 @@ tap*
 hso*
 em+([0-9])?(_+([0-9]))*
 p+([0-9])p+([0-9])?(_+([0-9]))*
+bnep*
 @(br|eth|en)*([^.]).inet6
 @(br|eth|en)*([^.]).ip6.@(dhclient|dhcpcd|pump|udhcpc)
 @(br|eth|en)*([^.]).inet
