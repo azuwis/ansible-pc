@@ -29,8 +29,6 @@
 DEVICE="$1"
 STATUS="$2"
 
-LOG=/var/log/mlvpn/${DEVICE}.log
-
 [ -z "$STATUS" ] || [ -z "$DEVICE" ] || [ -z "$MTU" ] && exit 1
 
 unamestr=$(uname)
@@ -86,8 +84,7 @@ route_add()
 }
 
 (
-TIMESTAMP=$(date "+%Y-%m-%dT%H:%M:%S")
-ECHO="echo ${TIMESTAMP} "
+ECHO="echo"
 [ "$MTU" -gt 1452 ] && (echo "MTU set too high."; exit 1)
 [ "$MTU" -lt 100 ] && (echo "MTU set too low."; exit 1)
 case "$STATUS" in
@@ -113,6 +110,6 @@ case "$STATUS" in
         ;;
 esac
 
-) >> "$LOG" 2>&1
+) 2>&1 | logger -t mlvpn
 
 exit 0
