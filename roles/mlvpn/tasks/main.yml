@@ -10,6 +10,7 @@
     mode: '0600'
   with_items: "{{ mlvpn }}"
   notify: restart mlvpn
+  no_log: yes
 
 - name: copy mlvpn up down script
   copy:
@@ -29,3 +30,4 @@
     enabled: yes
     state: started
   with_items: "{{ mlvpn }}"
+  no_log: yes

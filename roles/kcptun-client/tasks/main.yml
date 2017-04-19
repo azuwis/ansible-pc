@@ -25,6 +25,7 @@
     group: staff
   with_items: "{{ kcptun_client }}"
   notify: restart kcptun-client
+  no_log: yes
 
 - name: install kcptun client service
   copy:
@@ -40,6 +41,7 @@
     enabled: yes
     state: started
   with_items: "{{ kcptun_client }}"
+  no_log: yes
 
 - name: kcptun logrotate config
   copy:
