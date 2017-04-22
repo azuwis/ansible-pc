@@ -1,4 +1,6 @@
 ---
+# Replace qdisc without reboot: tc qdisc replace dev eth0 root fq
+
 - name: modprobe tcp_bbr
   modprobe:
     name: tcp_bbr
