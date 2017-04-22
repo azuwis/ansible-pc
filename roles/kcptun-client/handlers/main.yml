@@ -7,3 +7,4 @@
     name: kcptun-client@{{ item.name }}
     state: restarted
   with_items: "{{ kcptun_client }}"
+  no_log: yes

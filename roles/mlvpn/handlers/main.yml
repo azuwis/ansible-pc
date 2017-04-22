@@ -4,3 +4,4 @@
     name: mlvpn@{{ item.name }}
     state: restarted
   with_items: "{{ mlvpn }}"
+  no_log: yes
