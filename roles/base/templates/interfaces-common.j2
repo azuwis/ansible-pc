@@ -1,14 +1,14 @@
 iface dhcp inet dhcp
-    metric 1
-
-allow-hotplug {{ eth }}
-iface {{ eth }} inet dhcp
-    metric 1
+    metric 10
 
 allow-hotplug enp0s20f0u2
 iface enp0s20f0u2 inet dhcp
-    metric 1
+    metric 20
 
 # allow-hotplug bnep0
 iface bnep0 inet dhcp
-    metric 1
+    metric 30
+
+allow-hotplug {{ eth }}
+iface {{ eth }} inet dhcp
+    metric 40
