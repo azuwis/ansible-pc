@@ -1,9 +1,9 @@
 ---
+- name: dpkg-reconfigure linux-image
+  shell: dpkg-reconfigure -fnoninteractive "linux-image-$(uname -r)"
+
 - name: update timezone
   shell: dpkg-reconfigure --frontend noninteractive tzdata
-
-- name: update initramfs
-  command: update-initramfs -u
 
 - name: update grub
   command: update-grub

@@ -118,11 +118,11 @@
 
 - name: addition modules in initramfs
   lineinfile:
-    dest: /etc/initramfs-tools/modules
+    dest: /etc/modules
     line: "{{ item }}"
   with_items: "{{ kernel_modules }}"
   when: kernel_modules is defined
-  notify: update initramfs
+  notify: dpkg-reconfigure linux-image
 
 - name: grub timeout
   lineinfile: dest=/etc/default/grub regexp=^GRUB_TIMEOUT= line=GRUB_TIMEOUT={{ grub.timeout }}
