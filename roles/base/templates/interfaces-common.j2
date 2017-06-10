@@ -1,9 +1,13 @@
 iface dhcp inet dhcp
     metric 10
 
+allow-hotplug enp0s20f0u1
+iface enp0s20f0u1 inet dhcp
+    metric 20
+
 allow-hotplug enp0s20f0u2
 iface enp0s20f0u2 inet dhcp
-    metric 20
+    metric 25
 
 # allow-hotplug bnep0
 iface bnep0 inet dhcp
