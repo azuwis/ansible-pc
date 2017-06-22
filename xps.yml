@@ -43,3 +43,6 @@
     - { role: mlvpn, tags: mlvpn }
 
     - { role: xps, tags: xps }
+
+    # - { role: set-wallpaper, tags: set-wallpaper }
+    # - { role: kcptun-client, tags: kcptun-client }
