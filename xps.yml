@@ -17,6 +17,10 @@
     kernel_modules:
       - nvme
       - i915
+    kernel_modules_blacklist:
+      - psmouse
+      - ip_set
+      - ip_tables
     blobs:
       - name: BCM-0a5c-6412.hcd
         dest: /lib/firmware/brcm/BCM-0a5c-6412.hcd
