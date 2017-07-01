@@ -4,12 +4,12 @@ Package: *
 Pin: release a=experimental
 Pin-Priority: 1
 
-Package: firefox
+Package: firefox firefox-l10n-* wpasupplicant
 Pin: release a=experimental
 Pin-Priority: 500
 
 # Package: *
-# Pin: release o=Debian, n={{ ansible_lsb.codename }}
+# Pin: release o=Debian, n={{ debian_dist | default(ansible_lsb.codename) }}
 # Pin-Priority: 600
 
 # Package: *
