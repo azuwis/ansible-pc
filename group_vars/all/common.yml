@@ -1,6 +1,6 @@
 ---
 domain: localdomain
-apt_mirror: ftp.us.debian.org
+apt_mirror: ftp.cn.debian.org
 debian_dist: sid
 staff:
   - name: azuwis
