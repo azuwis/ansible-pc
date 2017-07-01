@@ -30,6 +30,7 @@ theme:
     - arc-theme
     - paper-icon-theme
     - paper-cursor-theme
+    - qt5-style-plugins
   # git:
   #   - dest: /usr/share/themes/Flat-Plat-Blue/
   #     repo: https://github.com/peterychuang/Flat-Plat-Blue.git
@@ -37,7 +38,7 @@ theme:
   gtk2: Arc-Darker
   gtk3: Arc-Darker
   qt4: GTK+
-  qt5: gtk
+  qt5: gtk2
 
 browser:
   default: firefox

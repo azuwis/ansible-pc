@@ -2,8 +2,8 @@
 
 {% if theme.qt5 is defined %}
 # Qt5 style
-# https://wiki.archlinux.org/index.php/Uniform_Look_for_Qt_and_GTK_Applications#Qt5_styles
-export QT_STYLE_OVERRIDE={{ theme.qt5 }}
+# https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications#QGtkStyle
+export QT_QPA_PLATFORMTHEME={{ theme.qt5 }}
 {% endif %}
 
 {% if browser.default is defined %}
