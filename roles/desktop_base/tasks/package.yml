@@ -23,6 +23,8 @@
     - imagemagick
     - rofi
     - alsa-utils                ## Sound
+    - pulseaudio
+    - pavucontrol-qt
     - lilyterm                  ## Terminal
     - qlipper
     - dunst                     # notification daemon
