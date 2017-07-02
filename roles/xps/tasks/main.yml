@@ -8,4 +8,7 @@
 
 # https://wiki.archlinux.org/index.php/Dell_XPS_13_(2016)#Hissing.2FCrackling_noises_when_using_headphones
 - name: headphones crackling noise workaround
-  command: amixer -c 0 cset 'numid=10' 1
+  replace:
+    dest: /usr/share/pulseaudio/alsa-mixer/paths/analog-input-internal-mic.conf
+    regexp: (^\[Element Headphone Mic Boost\]\nswitch = off\nvolume = ).*$
+    replace: \1 22
