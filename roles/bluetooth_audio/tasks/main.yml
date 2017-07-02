@@ -10,4 +10,4 @@
     name: "{{ item }}"
   with_items:
     - pulseaudio-module-bluetooth
-    - pavucontrol
+    - pavucontrol-qt
