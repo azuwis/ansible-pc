@@ -1,4 +1,9 @@
 ---
+- name: add apt dpkg hook for bluez
+  copy:
+    dest: /etc/apt/apt.conf.d/99bluez
+    src: 99bluez
+
 - name: install bluez
   apt:
     name: bluez

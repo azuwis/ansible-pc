@@ -1,0 +1,1 @@
+DPkg::Post-Invoke { "test -x /usr/bin/l2ping && test -x /sbin/setcap && /sbin/setcap cap_net_raw+ep /usr/bin/l2ping || true"; };
