@@ -2,6 +2,7 @@
 - name: install android tools
   apt: name="{{ item }}"
   with_items:
+    - aapt
     - adb
     - fastboot
 
