@@ -28,5 +28,6 @@
     - { role: certbot, tags: certbot }
     - { role: adb, tags: adb }
     - { role: mlvpn, tags: mlvpn }
+    - { role: bluetooth_audio, tags: bluetooth_audio }
     # - { role: kcptun-client, tags: kcptun-client }
     # - { role: arukas, tags: arukas }
