@@ -8,9 +8,6 @@
       - firmware-misc-nonfree
     kernel_modules:
       - i915
-    alsa:
-      card: 0
-      device: 3
   roles:
     - { role: apt, tags: apt }
     - { role: base, tags: base }
