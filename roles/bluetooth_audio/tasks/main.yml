@@ -11,3 +11,8 @@
   with_items:
     - pulseaudio-module-bluetooth
     - pavucontrol-qt
+
+- name: enable switch on connect for pulseaudio
+  lineinfile:
+    dest: /etc/pulse/default.pa
+    line: load-module module-switch-on-connect
