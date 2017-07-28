@@ -32,6 +32,7 @@
     - { role: desktop_base, tags: desktop_base }
     - { role: wireless, tags: wireless }
     - { role: bluetooth, tags: bluetooth }
+    - { role: bluetooth_audio, tags: bluetooth_audio }
     - { role: tlp, tags: tlp }
     - { role: dictionary, tags: dictionary }
     - { role: office, tags: office }
