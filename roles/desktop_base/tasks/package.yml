@@ -10,6 +10,7 @@
     - hsetroot                  #  set wallpaper
     - xinput
     - xdotool
+    - at-spi2-core
     - unclutter                 #  auto hide cursor
     # - dmz-cursor-theme
     - redshift                  #  ease your eyes
