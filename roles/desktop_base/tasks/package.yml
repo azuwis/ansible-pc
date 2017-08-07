@@ -28,6 +28,7 @@
     - pavucontrol-qt
     - tilix                     ## Terminal
     - dconf-cli
+    - desktop-file-utils
     - qlipper
     - dunst                     # notification daemon
     - libnotify-bin
