@@ -1,0 +1,38 @@
+---
+- name: install packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - libpam-pwdfile
+    - ssl-cert
+    - vsftpd
+
+- name: config vsftpd
+  copy:
+    src: vsftpd.conf
+    dest: /etc/vsftpd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: reload vsftpd
+
+- name: config vsftpd pam
+  copy:
+    src: vsftpd.pam
+    dest: /etc/pam.d/vsftpd
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: config vsftpd users
+  copy:
+    dest: /etc/vsftpd.users
+    content: "{{ vsftpd_users }}"
+    owner: root
+    group: root
+    mode: '0600'
+
+- name: disable vsftpd systemd service
+  service:
+    name: vsftpd
+    enabled: no

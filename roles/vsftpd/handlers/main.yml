@@ -1,0 +1,5 @@
+---
+- name: reload vsftpd
+  service:
+    name: vsftpd
+    state: reloaded
