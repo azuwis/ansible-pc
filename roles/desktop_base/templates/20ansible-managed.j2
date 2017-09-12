@@ -14,3 +14,8 @@ export BROWSER={{ browser.default }}
 # Enable xinput2 for firefox, a.k.a. per pixel scrolling
 # https://bugzilla.mozilla.org/show_bug.cgi?id=1207973
 export MOZ_USE_XINPUT2=1
+
+{% if terminal is defined %}
+# Set default browser
+export TERMINAL={{ terminal }}
+{% endif %}

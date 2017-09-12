@@ -42,3 +42,5 @@ theme:
 
 browser:
   default: firefox
+
+terminal: tilix
