@@ -1,0 +1,3 @@
+{% if dpi is defined %}
+export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --force-device-scale-factor={{ dpi/96 }}"
+{% endif %}
