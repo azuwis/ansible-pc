@@ -78,6 +78,7 @@
     - jq
     - nethogs
     - fasd
+    - lr
 
 - name: extra packages
   apt:
