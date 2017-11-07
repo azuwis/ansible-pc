@@ -87,6 +87,8 @@
     - linux-cpupower
     - qrencode
     # - apt-listbugs
+    - brightnessctl
+    - brightness-udev
 
 - name: packages to remove
   apt:
