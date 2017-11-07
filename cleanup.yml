@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: copy udev rule to set backlight sysfs permission
+      file:
+        dest: /etc/udev/rules.d/99-backlight-permission.rules
+        state: absent
+
+    - name: copy udev rule to set kbdlight sysfs permission
+      file:
+        dest: /etc/udev/rules.d/99-kbdlight-permission.rules
+        state: absent
