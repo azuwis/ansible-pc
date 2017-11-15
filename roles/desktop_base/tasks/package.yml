@@ -27,6 +27,7 @@
     - alsa-utils                ## Sound
     - pulseaudio
     - pavucontrol-qt
+    - pulsemixer
     - tilix                     ## Terminal
     - dconf-cli
     - desktop-file-utils
