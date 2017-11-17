@@ -43,4 +43,4 @@ theme:
 browser:
   default: firefox
 
-terminal: tilix
+terminal: gnome-terminal

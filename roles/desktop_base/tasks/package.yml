@@ -28,7 +28,7 @@
     - pulseaudio
     - pavucontrol-qt
     - pulsemixer
-    - tilix                     ## Terminal
+    - gnome-terminal            ## Terminal
     - dconf-cli
     - desktop-file-utils
     - qlipper
