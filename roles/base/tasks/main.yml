@@ -79,6 +79,7 @@
     - nethogs
     - fasd
     - lr
+    - intel-microcode
 
 - name: extra packages
   apt:
