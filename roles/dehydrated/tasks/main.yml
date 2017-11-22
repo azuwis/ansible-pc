@@ -1,0 +1,35 @@
+---
+- name: install dehydrated
+  apt:
+    name: dehydrated
+
+- name: config dehydrated
+  copy:
+    src: ansible-managed.sh
+    dest: /etc/dehydrated/conf.d/ansible-managed.sh
+
+- name: config dehydrated domains
+  copy:
+    dest: /etc/dehydrated/domains.txt
+    content: "{{ dehydrated.domains }}"
+    mode: '0600'
+
+- name: create dehydrated hooks dir
+  file:
+    dest: /etc/dehydrated/hooks/
+    state: directory
+
+- name: dehydrated duckdns hook
+  template:
+    src: hook-duckdns.sh.j2
+    dest: /etc/dehydrated/hooks/duckdns.sh
+    mode: '0700'
+
+- name: check if account exists
+  stat:
+    path: /var/lib/dehydrated/accounts/
+  register: result
+
+- name: register account
+  command: dehydrated --register --accept-terms
+  when: not result.stat.exists
