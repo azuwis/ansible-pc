@@ -6,11 +6,12 @@ font:
   pkgs:
     - fonts-fira
     - fonts-roboto
+    - fonts-comic-neue
     - fonts-croscore
     - fonts-crosextra-caladea
     - fonts-crosextra-carlito
-    - fonts-noto-cjk
     - fonts-font-awesome
+    - fonts-noto-cjk
   sans:
     - Fira Sans
     - Noto Sans CJK SC
