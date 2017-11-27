@@ -31,3 +31,9 @@
     dest: /etc/default/crda
     regexp: ^REGDOMAIN=
     line: REGDOMAIN=CN
+
+- name: disable system wpa_supplicant service
+  service:
+    name: wpa_supplicant
+    enabled: no
+    state: stopped
