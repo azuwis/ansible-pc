@@ -5,6 +5,7 @@
     - iw
     - wireless-tools
     - wpasupplicant
+    - wpagui
     - crda
     - ifmetric
 
