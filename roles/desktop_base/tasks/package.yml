@@ -90,6 +90,7 @@
     # - apt-listbugs
     - brightnessctl
     - brightness-udev
+    - laptop-detect
 
 - name: packages to remove
   apt:
