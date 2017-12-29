@@ -91,6 +91,7 @@
     - brightnessctl
     - brightness-udev
     - laptop-detect
+    - mediainfo
 
 - name: packages to remove
   apt:
