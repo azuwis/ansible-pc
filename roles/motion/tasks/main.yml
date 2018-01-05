@@ -1,0 +1,30 @@
+---
+- name: install packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - motion
+    - uvcdynctrl
+    - v4l-utils
+
+- name: install logrotate rule for uvcdynctrl
+  copy:
+    dest: /etc/logrotate.d/uvcdynctrl
+    src: uvcdynctrl.logrotate
+
+- name: install udev rule to disable led
+  copy:
+    dest: /etc/udev/rules.d/99-motion.rules
+    src: 99-motion.rules
+
+- name: enable motion daemon
+  lineinfile:
+    dest: /etc/default/motion
+    regexp: ^start_motion_daemon=
+    line: start_motion_daemon=yes
+
+- name: config motion
+  copy:
+    dest: /etc/motion/motion.conf
+    src: motion.conf
+  notify: reload motion

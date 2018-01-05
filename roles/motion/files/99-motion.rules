@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="video4linux", DRIVERS=="uvcvideo", RUN+="/usr/bin/uvcdynctrl -d %n -s 'LED1 Mode' 0"

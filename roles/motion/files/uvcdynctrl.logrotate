@@ -1,0 +1,6 @@
+/var/log/uvcdynctrl-udev.log {
+    compress
+    daily
+    missingok
+    rotate 7
+}
