@@ -80,6 +80,7 @@
     - fasd
     - lr
     - intel-microcode
+    - rename
 
 - name: extra packages
   apt:
