@@ -46,10 +46,14 @@ var app = new Vue({
                                 source: motion_prefix + file.name.replace(/\.jpg$/, '.mp4'),
                                 poster: motion_prefix + file.name,
                                 date: date,
-                                hover: false
+                                controls: false
                             };
                         });
                 });
+        },
+        play: function(video, event) {
+            video.controls = true;
+            event.currentTarget.play();
         }
     },
     created: function() {
