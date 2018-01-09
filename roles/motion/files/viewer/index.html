@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Motion Viewer</title>
+        <meta charset="utf-8">
+        <script src="vue.min.js"></script>
+        <script src="axios.min.js"></script>
+        <script src="flatpickr.min.js"></script>
+        <link rel="stylesheet" href="flatpickr.min.css">
+        <script src="vue-flatpickr-component.min.js"></script>
+        <script type="text/x-template" id="app-template">
+            <div>
+                <div>
+                    <flat-pickr v-model="date" :config="dateConfig"></flat-pickr>
+                </div>
+                <video v-for="video in videosFiltered" width="240" height="180" :poster="video.poster" preload="none" :controls="video.hover" @mouseenter="video.hover = true" @mouseleave="video.hover = false" :key="video.source">
+                    <source :src="video.source" type="video/mp4">
+                </video>
+            </div>
+        </script>
+    </head>
+    <body>
+        <div id="app">
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
