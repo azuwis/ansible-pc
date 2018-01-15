@@ -18,8 +18,8 @@ var app = new Vue({
             });
         },
         dateConfig: function() {
-            var minDate = 'today';
-            var maxDate = 'today';
+            var minDate = null;
+            var maxDate = null;
             if(this.videos.length > 0) {
                 minDate = this.videos[0].date;
                 maxDate = this.videos[this.videos.length - 1].date;
