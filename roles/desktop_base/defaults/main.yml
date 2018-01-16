@@ -29,13 +29,13 @@ theme:
   pkgs:
     - gtk2-engines-pixbuf
     - arc-theme
-    - paper-icon-theme
-    - paper-cursor-theme
+    - papirus-icon-theme
+    - dmz-cursor-theme
     - qt5-style-plugins
   # git:
   #   - dest: /usr/share/themes/Flat-Plat-Blue/
   #     repo: https://github.com/peterychuang/Flat-Plat-Blue.git
-  icon: Paper
+  icon: Papirus
   gtk2: Arc-Darker
   gtk3: Arc-Darker
   qt4: GTK+
