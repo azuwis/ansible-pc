@@ -23,6 +23,12 @@
     regexp: ^start_motion_daemon=
     line: start_motion_daemon=yes
 
+- name: copy generate-sprite script
+  copy:
+    dest: /etc/motion/generate-sprite
+    src: generate-sprite
+    mode: '0755'
+
 - name: config motion
   copy:
     dest: /etc/motion/motion.conf
