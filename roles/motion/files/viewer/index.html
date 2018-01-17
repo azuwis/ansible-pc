@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="flatpickr.min.css">
         <script src="vue-flatpickr-component.min.js"></script>
         <link rel="stylesheet" href="bulma.min.css">
+        <link rel="stylesheet" href="app.css">
         <script type="text/x-template" id="app-template">
             <div>
                 <div class="field is-grouped">
@@ -22,8 +23,8 @@
                     </p>
                 </div>
                 <div class="columns is-mobile is-multiline is-gapless">
-                    <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop" v-for="video in videosFiltered">
-                        <video :poster="video.poster" preload="none" :controls="video.controls" @click="play(video, $event)" :key="video.source">
+                    <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop" v-for="video in videosFiltered" :key="video.source">
+                        <video preload="none" :poster="video.img" :controls="video.play" :style="video.style" @click="play(video, $event)" @mousemove="slidePreview(video, $event)" @mouseleave="disablePreview(video)">
                             <source :src="video.source" type="video/mp4">
                         </video>
                     </div>
@@ -32,12 +33,10 @@
         </script>
     </head>
     <body>
-        <section class="section">
-            <div class="container is-fluid">
-                <div id="app">
-                </div>
+        <div class="container is-fluid">
+            <div id="app">
             </div>
-        </section>
+        </div>
         <script src="app.js"></script>
     </body>
 </html>
