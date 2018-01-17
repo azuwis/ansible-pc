@@ -23,9 +23,9 @@
                     </p>
                 </div>
                 <div class="columns is-mobile is-multiline is-gapless">
-                    <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop" v-for="video in videosFiltered" :key="video.source">
-                        <video preload="none" :poster="video.img" :controls="video.play" :style="video.style" @click="play(video, $event)" @mousemove="slidePreview(video, $event)" @mouseleave="disablePreview(video)">
-                            <source :src="video.source" type="video/mp4">
+                    <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop" v-for="video in videosFiltered" :key="video.src">
+                        <video preload="none" :poster="video.poster" :controls="video.controls" :style="video.style" @click="play(video, $event)" @mousemove="slide(video, $event)" @mouseleave="reset(video)">
+                            <source :src="video.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>

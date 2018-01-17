@@ -1,6 +1,6 @@
 var config = {
-    motion_prefix: 'motion/',
-    preview_frames: 50
+    motionPrefix: 'motion/',
+    spriteFrames: 50
 };
 
 Vue.component('flat-pickr', VueFlatpickr);
@@ -36,51 +36,53 @@ var app = new Vue({
     methods: {
         update: function() {
             var vm = this;
-            axios.get(config.motion_prefix)
+            axios.get(config.motionPrefix)
                 .then(function(response) {
                     vm.videos = response.data
                         .filter(function(file) {
-                            return file.name.endsWith('.jpg') && ! file.name.endsWith('-preview.jpg');
+                            return file.name.endsWith('.jpg') && ! file.name.endsWith('-sprite.jpg');
                         })
                         .map(function(file) {
                             var m= file.name.match(/^(\d{4})-(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2})\./);
                             var date = new Date(m[1]+'-'+m[2]+'-'+m[3]+' '+m[4]+':'+m[5]+':'+m[6]);
-                            var basename = config.motion_prefix + file.name.replace(/\.jpg$/, '');
+                            var basename = config.motionPrefix + file.name.replace(/\.jpg$/, '');
                             return {
-                                source: basename + '.mp4',
-                                img: basename + '.jpg',
-                                poster: basename + '.jpg',
-                                preview: basename + '-preview.jpg',
+                                mp4: basename + '.mp4',
+                                jpg: basename + '.jpg',
                                 date: date,
-                                play: false,
-                                previewEnabled: false,
+                                sprite: basename + '-sprite.jpg',
+
+                                poster: basename + '.jpg',
+                                controls: false,
+                                preview: false,
                                 style: null
                             };
                         });
                 });
         },
         play: function(video, event) {
-            this.disablePreview(video);
+            if (video.controls) return;
+            this.reset(video);
             event.currentTarget.play();
-            video.play = true;
+            video.controls = true;
         },
-        slidePreview: function(video, event) {
-            if (video.play) return;
+        slide: function(video, event) {
+            if (video.controls) return;
             var rect = event.target.getBoundingClientRect();
             var left = event.pageX - rect.left;
             var width = rect.right - rect.left;
             var percent = left / width;
-            if (percent > 0.2 && !video.previewEnabled) return;
-            video.previewEnabled = true;
-            video.img = null;
+            if (percent > 0.2 && !video.preview) return;
+            video.preview = true;
+            video.poster = null;
             video.style = {
-                'background-image': 'url(' + video.preview + ')',
-                'background-position': '-' + Math.floor(percent * config.preview_frames) * width + 'px'
+                'background-image': 'url(' + video.sprite + ')',
+                'background-position': '-' + Math.floor(percent * config.spriteFrames) * width + 'px'
             };
         },
-        disablePreview: function(video) {
-            if (video.play) return;
-            video.img = video.poster;
+        reset: function(video) {
+            if (video.controls) return;
+            video.poster = video.jpg;
             video.style = null;
         }
     },
