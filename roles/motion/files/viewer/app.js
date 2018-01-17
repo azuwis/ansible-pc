@@ -73,7 +73,7 @@ var app = new Vue({
             var width = rect.right - rect.left;
             var percent = left / width;
             if (!video.preview) {
-                if (percent < 0.25) {
+                if (percent < 0.1) {
                     video.preview = true;
                 }
             } else {
