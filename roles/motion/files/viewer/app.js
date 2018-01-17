@@ -72,13 +72,18 @@ var app = new Vue({
             var left = event.pageX - rect.left;
             var width = rect.right - rect.left;
             var percent = left / width;
-            if (percent > 0.2 && !video.preview) return;
-            video.preview = true;
-            video.poster = null;
-            video.style = {
-                'background-image': 'url(' + video.sprite + ')',
-                'background-position': '-' + Math.floor(percent * config.spriteFrames) * width + 'px'
-            };
+            if (!video.preview) {
+                if (percent < 0.25) {
+                    video.preview = true;
+                }
+            } else {
+                video.preview = true;
+                video.poster = null;
+                video.style = {
+                    'background-image': 'url(' + video.sprite + ')',
+                    'background-position': '-' + Math.floor(percent * config.spriteFrames) * width + 'px'
+                };
+            }
         },
         reset: function(video) {
             if (video.controls) return;
