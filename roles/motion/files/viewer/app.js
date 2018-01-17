@@ -69,11 +69,18 @@ var app = new Vue({
         slide: function(video, event) {
             if (video.controls) return;
             var rect = event.target.getBoundingClientRect();
-            var left = event.pageX - rect.left;
+            var clientX;
+            if (event.touches) {
+                clientX = event.touches[0].clientX;
+            } else {
+                clientX = event.clientX;
+            }
+            var left = clientX - rect.left;
             var width = rect.right - rect.left;
             var percent = left / width;
+            if (percent >= 0.99) percent = 0.99;
             if (!video.preview) {
-                if (percent < 0.1) {
+                if (percent < 0.2) {
                     video.preview = true;
                 }
             } else {
