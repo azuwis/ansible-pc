@@ -3,11 +3,76 @@ var config = {
     spriteFrames: 50
 };
 
-Vue.component('flat-pickr', VueFlatpickr);
+var MotionVideo = {
+    template: '<video preload="none" :poster="poster" :controls="controls" :style="[styleSize, stylePos]" @click="play" @mousemove="slide" @touchmove="slide" @mouseleave="reset"><source :src="mp4" type="video/mp4"></video>',
+    props: ['basename'],
+    data: function() {
+        var basename = this.basename;
+        return {
+            mp4: basename + '.mp4',
+            jpg: basename + '.jpg',
+            sprite: basename + '-sprite.jpg',
+
+            poster: basename + '.jpg',
+            controls: false,
+            preview: false,
+            styleSize: null,
+            stylePos: null
+        };
+    },
+    methods: {
+        play: function(event) {
+            if (this.controls) return;
+            this.reset();
+            event.currentTarget.play();
+            this.controls = true;
+        },
+        slide: function(event) {
+            if (this.controls) return;
+            var rect = event.target.getBoundingClientRect();
+            var clientX;
+            if (event.touches) {
+                clientX = event.touches[0].clientX;
+            } else {
+                clientX = event.clientX;
+            }
+            var left = clientX - rect.left;
+            var width = rect.right - rect.left;
+            var percent = left / width;
+            if (percent >= 0.99) percent = 0.99;
+            if (!this.preview) {
+                if (percent < 0.2) {
+                    var height = rect.bottom - rect.top;
+                    this.preview = true;
+                    this.poster = this.sprite;
+                    this.styleSize = {
+                        width: width + 'px',
+                        height: height + 'px'
+                    };
+                }
+            } else {
+                this.stylePos = {
+                    'object-position': '-' + Math.floor(percent * config.spriteFrames) * width + 'px'
+                };
+            }
+        },
+        reset: function() {
+            if (this.controls) return;
+            this.preview = false;
+            this.poster = this.jpg;
+            this.styleSize = null;
+            this.stylePos = null;
+        }
+    }
+};
 
 var app = new Vue({
     el: '#app',
     template: '#app-template',
+    components: {
+        'flat-pickr': VueFlatpickr,
+        'motion-video': MotionVideo
+    },
     data: {
         videos: [],
         date: 'today'
@@ -47,61 +112,11 @@ var app = new Vue({
                             var date = new Date(m[1]+'-'+m[2]+'-'+m[3]+' '+m[4]+':'+m[5]+':'+m[6]);
                             var basename = config.motionPrefix + file.name.replace(/\.jpg$/, '');
                             return {
-                                mp4: basename + '.mp4',
-                                jpg: basename + '.jpg',
-                                date: date,
-                                sprite: basename + '-sprite.jpg',
-
-                                poster: basename + '.jpg',
-                                controls: false,
-                                preview: false,
-                                styleSize: null,
-                                stylePos: null
+                                basename: basename,
+                                date: date
                             };
                         });
                 });
-        },
-        play: function(video, event) {
-            if (video.controls) return;
-            this.reset(video);
-            event.currentTarget.play();
-            video.controls = true;
-        },
-        slide: function(video, event) {
-            if (video.controls) return;
-            var rect = event.target.getBoundingClientRect();
-            var clientX;
-            if (event.touches) {
-                clientX = event.touches[0].clientX;
-            } else {
-                clientX = event.clientX;
-            }
-            var left = clientX - rect.left;
-            var width = rect.right - rect.left;
-            var percent = left / width;
-            if (percent >= 0.99) percent = 0.99;
-            if (!video.preview) {
-                if (percent < 0.2) {
-                    var height = rect.bottom - rect.top;
-                    video.preview = true;
-                    video.poster = video.sprite;
-                    video.styleSize = {
-                        width: width + 'px',
-                        height: height + 'px'
-                    };
-                }
-            } else {
-                video.stylePos = {
-                    'object-position': '-' + Math.floor(percent * config.spriteFrames) * width + 'px'
-                };
-            }
-        },
-        reset: function(video) {
-            if (video.controls) return;
-            video.preview = false;
-            video.poster = video.jpg;
-            video.styleSize = null;
-            video.stylePos = null;
         }
     },
     created: function() {
