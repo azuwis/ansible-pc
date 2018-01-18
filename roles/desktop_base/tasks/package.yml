@@ -63,7 +63,7 @@
     - mpv                       ## Video player
     - ffmpeg
     - pqiv                      ## Image viewer
-    - mcomix
+    - qcomicbook
     - scrot
     - evince                    ## PDF viewer
     - poppler-data              #  CJK pdf
