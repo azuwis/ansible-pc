@@ -53,11 +53,10 @@ var app = new Vue({
                                 sprite: basename + '-sprite.jpg',
 
                                 poster: basename + '.jpg',
-                                width: null,
-                                height: null,
                                 controls: false,
                                 preview: false,
-                                style: null
+                                styleSize: null,
+                                stylePos: null
                             };
                         });
                 });
@@ -79,22 +78,21 @@ var app = new Vue({
             }
             var left = clientX - rect.left;
             var width = rect.right - rect.left;
-            var height = rect.bottom - rect.top;
             var percent = left / width;
             if (percent >= 0.99) percent = 0.99;
             if (!video.preview) {
                 if (percent < 0.2) {
+                    var height = rect.bottom - rect.top;
                     video.preview = true;
-                    video.width = width;
-                    video.height = height;
+                    video.poster = video.sprite;
+                    video.styleSize = {
+                        width: width + 'px',
+                        height: height + 'px'
+                    };
                 }
             } else {
-                video.preview = true;
-                video.poster = video.sprite;
-                video.style = {
-                    'width': video.width + 'px',
-                    'height': video.height + 'px',
-                    'object-position': '-' + Math.floor(percent * config.spriteFrames) * video.width + 'px'
+                video.stylePos = {
+                    'object-position': '-' + Math.floor(percent * config.spriteFrames) * width + 'px'
                 };
             }
         },
@@ -102,7 +100,8 @@ var app = new Vue({
             if (video.controls) return;
             video.preview = false;
             video.poster = video.jpg;
-            video.style = null;
+            video.styleSize = null;
+            video.stylePos = null;
         }
     },
     created: function() {
