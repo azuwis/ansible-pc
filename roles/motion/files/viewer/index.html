@@ -23,6 +23,9 @@
                     </p>
                 </div>
                 <div class="columns is-mobile is-multiline is-gapless">
+                    <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+                        <mjpeg src="webcam"></mjpeg>
+                    </div>
                     <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop" v-for="video in videosFiltered" :key="video.src">
                         <motion-video :basename="video.basename"></motion-video>
                     </div>

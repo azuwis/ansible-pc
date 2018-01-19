@@ -3,6 +3,29 @@ var config = {
     spriteFrames: 50
 };
 
+var MJpeg = {
+    template: '<img v-if="play" :src="url" @click="pause"><canvas v-else @click="resume"></canvas>',
+    props: ['src'],
+    data: function(){
+        return {
+            url: this.src,
+            play: true
+        };
+    },
+    methods: {
+        pause: function(event) {
+            // stop mjpeg loading in background
+            event.currentTarget.src = '';
+            this.url = null;
+            this.play = false;
+        },
+        resume: function() {
+            this.url = this.src;
+            this.play = true;
+        }
+    }
+};
+
 var MotionVideo = {
     template: '<video preload="none" :poster="poster" :controls="controls" :style="[styleSize, stylePos]" @click="play" @ended="ended" @mousemove="slide" @touchmove="slide" @mouseleave="reset"><source :src="mp4" type="video/mp4"></video>',
     props: ['basename'],
@@ -81,6 +104,7 @@ var app = new Vue({
     el: '#app',
     template: '#app-template',
     components: {
+        'mjpeg': MJpeg,
         'flat-pickr': VueFlatpickr,
         'motion-video': MotionVideo
     },
