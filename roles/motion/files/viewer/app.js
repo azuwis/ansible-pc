@@ -34,10 +34,18 @@ var MJpeg = {
         pause: function() {
             var img = this.$refs.img;
             var canvas = document.createElement('canvas');
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
+            var width = img.naturalWidth;
+            var height = img.naturalHeight;
+            canvas.width = width;
+            canvas.height = height;
             var ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0);
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.moveTo(width/2 - 40, height/2 - 50);
+            ctx.lineTo(width/2 - 40, height/2 + 50);
+            ctx.lineTo(width/2 + 40, height/2);
+            ctx.fill();
             this.url = canvas.toDataURL('image/png');
             this.play = false;
         },
