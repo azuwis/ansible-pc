@@ -4,7 +4,7 @@ var config = {
 };
 
 var MotionVideo = {
-    template: '<video preload="none" :poster="poster" :controls="controls" :style="[styleSize, stylePos]" @click="play" @mousemove="slide" @touchmove="slide" @mouseleave="reset"><source :src="mp4" type="video/mp4"></video>',
+    template: '<video preload="none" :poster="poster" :controls="controls" :style="[styleSize, stylePos]" @click="play" @ended="ended" @mousemove="slide" @touchmove="slide" @mouseleave="reset"><source :src="mp4" type="video/mp4"></video>',
     props: ['basename'],
     data: function() {
         var basename = this.basename;
@@ -32,6 +32,10 @@ var MotionVideo = {
             this.reset();
             event.currentTarget.play();
             this.controls = true;
+        },
+        ended: function(event) {
+            event.currentTarget.load();
+            this.controls = false;
         },
         slide: function(event) {
             if (this.controls) return;
