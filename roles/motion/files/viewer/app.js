@@ -182,6 +182,12 @@ var app = new Vue({
                             };
                         });
                 });
+        },
+        bottom: function() {
+            window.scrollTo(0, document.body.scrollHeight);
+        },
+        top: function() {
+            window.scrollTo(0, 0);
         }
     },
     created: function() {
