@@ -27,6 +27,14 @@
                         <motion-video :basename="video.basename"></motion-video>
                     </div>
                 </div>
+                <div class="field is-grouped">
+                    <p class="control">
+                        <flat-pickr class="input" v-model="date" :config="dateConfig"></flat-pickr>
+                    </p>
+                    <p class="control">
+                        <a class="button is-primary" @click="update">Update</a>
+                    </p>
+                </div>
             </div>
         </script>
     </head>
