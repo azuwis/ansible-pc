@@ -4,7 +4,7 @@ var config = {
 };
 
 var MJpeg = {
-    template: '<img v-if="play" :src="url" @click="pause"><canvas v-else @click="resume"></canvas>',
+    template: '<img ref="img" v-if="play" :src="url" @click="pause"><canvas v-else @click="resume"></canvas>',
     props: ['src'],
     data: function(){
         return {
@@ -12,10 +12,21 @@ var MJpeg = {
             play: true
         };
     },
+    beforeDestroy: function () {
+        document.removeEventListener('visibilitychange', this.handleVisibilityChange);
+    },
+    mounted() {
+        document.addEventListener('visibilitychange', this.handleVisibilityChange);
+    },
     methods: {
-        pause: function(event) {
-            // stop mjpeg loading in background
-            event.currentTarget.src = '';
+        handleVisibilityChange: function() {
+            if (document.hidden && this.play) {
+                this.pause();
+            }
+        },
+        pause: function() {
+            var img = this.$refs.img;
+            if (img) img.src = ''; // stop mjpeg loading in background
             this.url = null;
             this.play = false;
         },
