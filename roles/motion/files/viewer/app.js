@@ -20,6 +20,12 @@ var MotionVideo = {
             stylePos: null
         };
     },
+    beforeDestroy: function () {
+        window.removeEventListener('resize', this.reset);
+    },
+    mounted() {
+        window.addEventListener('resize', this.reset);
+    },
     methods: {
         play: function(event) {
             if (this.controls) return;
