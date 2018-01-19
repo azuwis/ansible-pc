@@ -4,7 +4,7 @@ var config = {
 };
 
 var MJpeg = {
-    template: '<img ref="img" v-if="play" :src="url" @click="pause"><canvas v-else @click="resume"></canvas>',
+    template: '<img ref="img" :src="url" @click="toggle">',
     props: ['src'],
     data: function(){
         return {
@@ -24,10 +24,21 @@ var MJpeg = {
                 this.pause();
             }
         },
+        toggle: function() {
+            if (this.play) {
+                this.pause();
+            } else {
+                this.resume();
+            }
+        },
         pause: function() {
             var img = this.$refs.img;
-            if (img) img.src = ''; // stop mjpeg loading in background
-            this.url = null;
+            var canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            this.url = canvas.toDataURL('image/png');
             this.play = false;
         },
         resume: function() {
