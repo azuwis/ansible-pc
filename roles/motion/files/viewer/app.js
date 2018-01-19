@@ -52,6 +52,7 @@ var MotionVideo = {
                     this.preview = true;
                     this.poster = this.sprite;
                     this.styleSize = {
+                        'object-fit': 'cover',
                         width: width + 'px',
                         height: height + 'px'
                     };

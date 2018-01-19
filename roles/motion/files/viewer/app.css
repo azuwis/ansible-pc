@@ -1,6 +1,5 @@
 video {
     background-color: black;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
 }
