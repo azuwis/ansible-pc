@@ -15,15 +15,15 @@
         <script type="text/x-template" id="app-template">
             <div>
                 <div class="field is-grouped">
-                    <p class="control">
+                    <div class="control">
+                        <button class="button is-primary" @click="bottom">Bottom</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" @click="update">Update</button>
+                    </div>
+                    <div class="control">
                         <flat-pickr class="input" v-model="date" :config="dateConfig"></flat-pickr>
-                    </p>
-                    <p class="control">
-                        <a class="button is-primary" @click="update">Update</a>
-                    </p>
-                    <p class="control">
-                        <a class="button is-primary" @click="bottom">Bottom</a>
-                    </p>
+                    </div>
                 </div>
                 <div class="columns is-mobile is-multiline is-gapless">
                     <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
@@ -34,15 +34,15 @@
                     </div>
                 </div>
                 <div class="field is-grouped">
-                    <p class="control">
+                    <div class="control">
+                        <button class="button is-primary" @click="top">Top</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" @click="update">Update</button>
+                    </div>
+                    <div class="control">
                         <flat-pickr class="input" v-model="date" :config="dateConfig"></flat-pickr>
-                    </p>
-                    <p class="control">
-                        <a class="button is-primary" @click="update">Update</a>
-                    </p>
-                    <p class="control">
-                        <a class="button is-primary" @click="top">Top</a>
-                    </p>
+                    </div>
                 </div>
             </div>
         </script>
