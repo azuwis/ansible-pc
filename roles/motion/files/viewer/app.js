@@ -32,6 +32,7 @@ var MJpeg = {
             }
         },
         pause: function() {
+            if (!this.play) return;
             var img = this.$refs.img;
             var canvas = document.createElement('canvas');
             var width = img.naturalWidth;
