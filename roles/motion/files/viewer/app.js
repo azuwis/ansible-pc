@@ -37,10 +37,19 @@ var MJpeg = {
             var canvas = document.createElement('canvas');
             var width = img.naturalWidth;
             var height = img.naturalHeight;
-            canvas.width = width;
-            canvas.height = height;
             var ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0);
+            if (width) {
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(img, 0, 0);
+            } else {
+                width = 640;
+                height = 480;
+                canvas.width = width;
+                canvas.height = height;
+                ctx.fillStyle = 'black';
+                ctx.fillRect(0, 0, width, height);
+            }
             ctx.fillStyle = 'white';
             ctx.beginPath();
             ctx.moveTo(width/2 - 40, height/2 - 50);
