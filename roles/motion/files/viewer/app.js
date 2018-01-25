@@ -12,6 +12,7 @@ var MJpeg = {
     data: function(){
         return {
             url: this.src,
+            visible: true,
             play: true
         };
     },
@@ -25,10 +26,15 @@ var MJpeg = {
         docVisibilityChanged: function() {
             if (document.hidden) {
                 this.pause();
+            } else if (this.visible){
+                this.resume();
             }
         },
-        imgVisibilityChanged: function(isVisible, entry) {
-            if (!isVisible) {
+        imgVisibilityChanged: function(visible, entry) {
+            this.visible = visible;
+            if (visible) {
+                this.resume();
+            } else {
                 this.pause();
             }
         },
@@ -68,6 +74,7 @@ var MJpeg = {
             this.play = false;
         },
         resume: function() {
+            if (this.play) return;
             this.url = this.src;
             this.play = true;
         }
