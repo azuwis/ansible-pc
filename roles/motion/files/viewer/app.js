@@ -4,7 +4,10 @@ var config = {
 };
 
 var MJpeg = {
-    template: '<img ref="img" :src="url" @click="toggle">',
+    directives: {
+        'v-observe-visibility': VueObserveVisibility
+    },
+    template: '<img ref="img" :src="url" @click="toggle" v-observe-visibility="imgVisibilityChanged">',
     props: ['src'],
     data: function(){
         return {
@@ -21,6 +24,11 @@ var MJpeg = {
     methods: {
         docVisibilityChanged: function() {
             if (document.hidden) {
+                this.pause();
+            }
+        },
+        imgVisibilityChanged: function(isVisible, entry) {
+            if (!isVisible) {
                 this.pause();
             }
         },
