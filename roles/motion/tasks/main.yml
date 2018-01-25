@@ -3,6 +3,7 @@
   apt:
     name: "{{ item }}"
   with_items:
+    - ffmpeg
     - motion
     - uvcdynctrl
     - v4l-utils
