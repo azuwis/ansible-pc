@@ -13,14 +13,14 @@ var MJpeg = {
         };
     },
     beforeDestroy: function () {
-        document.removeEventListener('visibilitychange', this.handleVisibilityChange);
+        document.removeEventListener('visibilitychange', this.docVisibilityChanged);
     },
     mounted() {
-        document.addEventListener('visibilitychange', this.handleVisibilityChange);
+        document.addEventListener('visibilitychange', this.docVisibilityChanged);
     },
     methods: {
-        handleVisibilityChange: function() {
-            if (document.hidden && this.play) {
+        docVisibilityChanged: function() {
+            if (document.hidden) {
                 this.pause();
             }
         },
