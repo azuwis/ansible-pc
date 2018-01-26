@@ -20,7 +20,7 @@
                         <button class="button is-primary" @click="bottom">Bottom</button>
                     </div>
                     <div class="control">
-                        <button class="button is-primary" @click="update">Update</button>
+                        <button class="button is-primary" @click="update">{{ updateButton }}</button>
                     </div>
                     <div class="control">
                         <flat-pickr class="input" v-model="date" :config="dateConfig"></flat-pickr>
@@ -39,7 +39,7 @@
                         <button class="button is-primary" @click="top">Top</button>
                     </div>
                     <div class="control">
-                        <button class="button is-primary" @click="update">Update</button>
+                        <button class="button is-primary" @click="update">{{ updateButton }}</button>
                     </div>
                     <div class="control">
                         <flat-pickr class="input" v-model="date" :config="dateConfig"></flat-pickr>
