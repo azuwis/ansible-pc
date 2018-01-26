@@ -164,7 +164,7 @@ var app = new Vue({
         'motion-video': MotionVideo
     },
     data: {
-        updateButton: 'Update',
+        isLoading: false,
         videos: [],
         date: 'today'
     },
@@ -192,10 +192,10 @@ var app = new Vue({
     methods: {
         update: function() {
             var vm = this;
-            vm.updateButton = 'Loading';
+            vm.isLoading = true;
             axios.get(config.motionPrefix)
                 .then(function(response) {
-                    vm.updateButton = 'Update';
+                    vm.isLoading = false;
                     vm.videos = response.data
                         .filter(function(file) {
                             return file.name.endsWith('.jpg') && ! file.name.endsWith('-sprite.jpg');
