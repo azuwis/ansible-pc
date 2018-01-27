@@ -75,7 +75,24 @@ var MJpeg = {
         },
         resume: function() {
             if (this.play) return;
-            this.url = this.src;
+            var img = this.$refs.img;
+            var canvas = document.createElement('canvas');
+            var width = img.naturalWidth;
+            var height = img.naturalHeight;
+            var ctx = canvas.getContext('2d');
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0);
+            ctx.fillStyle = '#555';
+            ctx.beginPath();
+            ctx.moveTo(width/2 - 30, height/2 - 30);
+            ctx.lineTo(width/2 - 30, height/2 + 30);
+            ctx.lineTo(width/2 + 20, height/2);
+            ctx.fill();
+            this.url = canvas.toDataURL('image/png');
+            this.$nextTick(function() {
+                this.url = this.src;
+            });
             this.play = true;
         }
     }
