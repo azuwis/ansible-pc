@@ -90,9 +90,10 @@ var MJpeg = {
             ctx.lineTo(width/2 + 20, height/2);
             ctx.fill();
             this.url = canvas.toDataURL('image/png');
-            this.$nextTick(function() {
-                this.url = this.src;
-            });
+            var vm = this;
+            setTimeout(function() {
+                vm.url = vm.src;
+            }, 50);
             this.play = true;
         }
     }
