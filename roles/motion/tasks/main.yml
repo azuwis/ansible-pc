@@ -24,6 +24,27 @@
     regexp: ^start_motion_daemon=
     line: start_motion_daemon=yes
 
+- name: set motion target dir permission
+  file:
+    dest: /var/lib/motion/
+    state: directory
+    owner: motion
+    group: motion
+    mode: '2750'
+
+- name: add www-data to motion group
+  user:
+    name: www-data
+    groups: motion
+    append: yes
+
+- name: add staff to motion group
+  user:
+    name: "{{ item.name }}"
+    groups: motion
+    append: yes
+  with_items: "{{ staff }}"
+
 - name: copy generate-sprite script
   copy:
     dest: /etc/motion/generate-sprite
