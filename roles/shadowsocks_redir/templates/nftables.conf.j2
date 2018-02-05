@@ -2,7 +2,9 @@
 
 table ip ss-redir {
     set local {
-        type ipv4_addr; flags interval;
+        type ipv4_addr
+        flags interval
+        auto-merge
         elements = {
             {{ shadowsocks.server | replace('"', '') }},
 {{ lookup('file', 'chn-cidr') }}
