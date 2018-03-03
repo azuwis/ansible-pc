@@ -3,8 +3,11 @@
   apt:
     name: smbios-utils
 
-- name: set keyboard illumination timeout
-  command: smbios-keyboard-ctl --set-timeout 30s
+- name: set keyboard illumination timeout on battery
+  command: smbios-keyboard-ctl --set-timeout-battery 30s
+
+- name: set keyboard illumination timeout on ac
+  command: smbios-keyboard-ctl --set-timeout-ac 30s
 
 # https://wiki.archlinux.org/index.php/Dell_XPS_13_(2016)#Hissing.2FCrackling_noises_when_using_headphones
 - name: headphones crackling noise workaround
