@@ -1,0 +1,10 @@
+[Unit]
+Description=Remove brcmfmac before suspend
+Before=sleep.target
+
+[Service]
+Type=simple
+ExecStart=-/sbin/modprobe -r brcmfmac
+
+[Install]
+WantedBy=sleep.target
