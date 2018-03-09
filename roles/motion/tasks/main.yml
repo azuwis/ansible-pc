@@ -17,6 +17,7 @@
   copy:
     dest: /etc/udev/rules.d/99-motion.rules
     src: 99-motion.rules
+  notify: dpkg-reconfigure linux-image
 
 - name: enable motion daemon
   lineinfile:

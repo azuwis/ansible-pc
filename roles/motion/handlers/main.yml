@@ -1,4 +1,7 @@
 ---
+- name: dpkg-reconfigure linux-image
+  shell: dpkg-reconfigure -fnoninteractive "linux-image-$(uname -r)"
+
 - name: reload motion
   service:
     name: motion
