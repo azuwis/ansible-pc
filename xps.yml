@@ -45,6 +45,7 @@
     - { role: email-client, tags: email-client }
     - { role: mlvpn, tags: mlvpn }
     - { role: vsftpd, tags: vsftpd }
+    - { role: wireguard, tags: wireguard }
 
     - { role: xps, tags: xps }
 
