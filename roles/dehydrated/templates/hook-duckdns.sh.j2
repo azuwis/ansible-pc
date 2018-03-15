@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-#
 # dns-01 challenge for DuckDNS
 # https://www.duckdns.org/spec.jsp
 
@@ -8,29 +7,51 @@ set -e
 set -u
 set -o pipefail
 
-token="{{ dehydrated.hooks.duckdns.token }}"
+DUCKDNS_TOKEN="{{ dehydrated.hooks.duckdns.token }}"
 
-case "$1" in
-    "deploy_challenge")
-        domain="$(echo $2 | grep -o '[^.]\+\.[^.]\+\.[^.]\+$')"
-        curl "https://www.duckdns.org/update?domains=$domain&token=$token&txt=$4"
-        echo
-        ;;
-    "clean_challenge")
-        domain="$(echo $2 | grep -o '[^.]\+\.[^.]\+\.[^.]\+$')"
-        curl "https://www.duckdns.org/update?domains=$domain&token=$token&txt=removed&clear=true"
-        echo
-        ;;
-    "deploy_cert")
-        ;;
-    "unchanged_cert")
-        ;;
-    "startup_hook")
-        ;;
-    "exit_hook")
-        ;;
-    *)
-        echo Unknown hook "${1}"
-        exit 0
-        ;;
-esac
+deploy_challenge() {
+    local DOMAIN="${1}" TOKEN_FILENAME="${2}" TOKEN_VALUE="${3}"
+    curl "https://www.duckdns.org/update?domains=${DOMAIN}&token=${DUCKDNS_TOKEN}&txt=${TOKEN_VALUE}"
+}
+
+clean_challenge() {
+    local DOMAIN="${1}" TOKEN_FILENAME="${2}" TOKEN_VALUE="${3}"
+    # curl "https://www.duckdns.org/update?domains=${DOMAIN}&token=${DUCKDNS_TOKEN}&txt=removed&clear=true"
+}
+
+deploy_cert() {
+    local DOMAIN="${1}" KEYFILE="${2}" CERTFILE="${3}" FULLCHAINFILE="${4}" CHAINFILE="${5}" TIMESTAMP="${6}"
+    cp "${KEYFILE}" "${FULLCHAINFILE}" /etc/nginx/ssl/
+    systemctl try-reload-or-restart nginx
+}
+
+unchanged_cert() {
+    :
+}
+
+invalid_challenge() {
+    :
+}
+
+request_failure() {
+    :
+}
+
+generate_csr() {
+    :
+}
+
+startup_hook() {
+    :
+}
+
+exit_hook() {
+    :
+}
+
+HANDLER="$1"
+shift
+if [[ "${HANDLER}" =~ ^(deploy_challenge|clean_challenge|deploy_cert|unchanged_cert|invalid_challenge|request_failure|generate_csr|startup_hook|exit_hook)$ ]]
+then
+  "$HANDLER" "$@"
+fi
