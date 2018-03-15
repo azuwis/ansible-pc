@@ -1,0 +1,7 @@
+---
+- name: restart wireguard
+  service:
+    name: wg-quick@{{ item.name }}
+    state: restarted
+  with_items: "{{ wireguard }}"
+  no_log: yes

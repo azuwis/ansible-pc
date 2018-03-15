@@ -1,0 +1,21 @@
+---
+- name: install wireguard
+  apt:
+    name: wireguard
+
+- name: generate wireguard config
+  copy:
+    dest: /etc/wireguard/{{ item.name }}.conf
+    content: "{{ item.config }}"
+    mode: '0600'
+  with_items: "{{ wireguard }}"
+  notify: restart wireguard
+  no_log: yes
+
+- name: enable wireguard service
+  service:
+    name: wg-quick@{{ item.name }}
+    enabled: yes
+    state: started
+  with_items: "{{ wireguard }}"
+  no_log: yes
