@@ -81,6 +81,8 @@
     - lr
     - intel-microcode
     - rename
+    - wdiff
+    - aggregate
 
 - name: extra packages
   apt:
