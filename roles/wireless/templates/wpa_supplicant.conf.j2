@@ -1,8 +1,8 @@
 #jinja2: lstrip_blocks: True
 ctrl_interface=DIR=/run/wpa_supplicant GROUP=netdev
-bgscan="simple:120:-75:600"
-okc=1
-pmf=1
+# bgscan="simple:120:-75:600"
+# okc=1
+# pmf=1
 
 {% for item in wireless.network %}
 network={
