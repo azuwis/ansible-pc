@@ -46,6 +46,7 @@
     - { role: mlvpn, tags: mlvpn }
     - { role: vsftpd, tags: vsftpd }
     - { role: wireguard, tags: wireguard }
+    - { role: cups, tags: cups }
 
     - { role: xps, tags: xps }
 
