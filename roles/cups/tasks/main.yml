@@ -6,6 +6,23 @@
     - cups
     - printer-driver-fujixerox
 
+# Enable on-demand service
+- name: disable cups.service
+  service:
+    name: cups.service
+    enabled: no
+    state: stopped
+
+- name: enable cups.socket
+  service:
+    name: cups.socket
+    enabled: yes
+    state: started
+
+# Make IdleExitTimeout works
+- name: disable web interface
+  command: cupsctl WebInterface=no
+
 - name: create lpadmin user
   user:
     name: lpadmin
