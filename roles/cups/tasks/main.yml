@@ -1,0 +1,16 @@
+---
+- name: install packages
+  apt:
+    name: "{{ item }}"
+    with_items:
+      - cups
+      - printer-driver-fujixerox
+
+- name: create lpadmin user
+  user:
+    name: lpadmin
+    group: lpadmin
+    home: /var/spool/lpd
+    shell: /usr/sbin/nologin
+    password: "{{ cups_admin_password }}"
+    createhome: no
