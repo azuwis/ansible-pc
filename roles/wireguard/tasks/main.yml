@@ -12,10 +12,10 @@
   notify: restart wireguard
   no_log: yes
 
-- name: enable wireguard service
-  service:
-    name: wg-quick@{{ item.name }}
-    enabled: yes
-    state: started
-  with_items: "{{ wireguard }}"
-  no_log: yes
+# - name: enable wireguard service
+#   service:
+#     name: wg-quick@{{ item.name }}
+#     enabled: yes
+#     state: started
+#   with_items: "{{ wireguard }}"
+#   no_log: yes

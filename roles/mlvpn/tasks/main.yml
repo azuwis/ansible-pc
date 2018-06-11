@@ -24,10 +24,10 @@
     src: mlvpn.ifup
     mode: '0755'
 
-- name: enable mlvpn service
-  service:
-    name: mlvpn@{{ item.name }}
-    enabled: yes
-    state: started
-  with_items: "{{ mlvpn }}"
-  no_log: yes
+# - name: enable mlvpn service
+#   service:
+#     name: mlvpn@{{ item.name }}
+#     enabled: yes
+#     state: started
+#   with_items: "{{ mlvpn }}"
+#   no_log: yes
