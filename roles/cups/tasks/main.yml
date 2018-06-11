@@ -2,9 +2,9 @@
 - name: install packages
   apt:
     name: "{{ item }}"
-    with_items:
-      - cups
-      - printer-driver-fujixerox
+  with_items:
+    - cups
+    - printer-driver-fujixerox
 
 - name: create lpadmin user
   user:
