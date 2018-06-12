@@ -65,7 +65,7 @@
     - pqiv                      ## Image viewer
     - qcomicbook
     - scrot
-    - evince                    ## PDF viewer
+    - qpdfview                  ## PDF viewer
     - poppler-data              #  CJK pdf
     - gpick                     ## Color picker
     - duc                       ## Disk usage
