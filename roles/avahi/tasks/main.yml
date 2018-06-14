@@ -1,0 +1,15 @@
+---
+- name: install packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - avahi-daemon
+    - avahi-discover
+    - avahi-utils
+    - libnss-mdns
+
+- name: config avahi-daemon
+  copy:
+    dest: /etc/avahi/avahi-daemon.conf
+    src: avahi-daemon.conf
+  notify: restart avahi-daemon
