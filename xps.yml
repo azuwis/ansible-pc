@@ -47,6 +47,7 @@
     - { role: vsftpd, tags: vsftpd }
     - { role: wireguard, tags: wireguard }
     - { role: cups, tags: cups }
+    - { role: avahi, tags: avahi }
 
     - { role: xps, tags: xps }
 
