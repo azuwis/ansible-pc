@@ -212,6 +212,13 @@
   when: blobs is defined
   with_items: "{{ blobs | default([]) }}"
 
+- name: do not send host name in DHCP
+  lineinfile:
+    backrefs: yes
+    dest: /etc/dhcp/dhclient.conf
+    regexp: ^(send host-name .*)$
+    line: '#\1'
+
 # replace syslog with systemd-journald, see http://freedesktop.org/wiki/Software/systemd/Optimizations/
 # - name: create /var/log/journal/
 #   file:
