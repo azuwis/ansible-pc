@@ -4,6 +4,7 @@
     name: "{{ item }}"
   with_items:
     - cups
+    - printer-driver-cups-pdf
     - printer-driver-fujixerox
 
 # Enable on-demand service
