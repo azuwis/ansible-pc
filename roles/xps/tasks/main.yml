@@ -15,17 +15,17 @@
     dest: /etc/systemd/system/brcmfmac-suspend.service
     src: brcmfmac-suspend.service
 
-- name: enable brcmfmac-suspend service
-  service:
-    name: brcmfmac-suspend
-    enabled: yes
+# - name: enable brcmfmac-suspend service
+#   service:
+#     name: brcmfmac-suspend
+#     enabled: yes
 
 - name: install brcmfmac-resume service
   copy:
     dest: /etc/systemd/system/brcmfmac-resume.service
     src: brcmfmac-resume.service
 
-- name: enable brcmfmac-resume service
-  service:
-    name: brcmfmac-resume
-    enabled: yes
+# - name: enable brcmfmac-resume service
+#   service:
+#     name: brcmfmac-resume
+#     enabled: yes
