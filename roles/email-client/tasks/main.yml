@@ -3,7 +3,7 @@
   apt: name="{{ item }}"
   with_items:
     - isync
-    - emacs25
+    - emacs-gtk
     - mu4e
     - maildir-utils-extra
     - ghostscript
