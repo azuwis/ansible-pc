@@ -16,11 +16,6 @@
     src: synaptics.conf
     dest: /etc/X11/xorg.conf.d/
 
-- name: X11 keyboard config
-  template:
-    src: keyboard.conf.j2
-    dest: /etc/X11/xorg.conf.d/keyboard.conf
-
 - name: extra xkb symbols
   copy:
     src: xkb_symbols_search
