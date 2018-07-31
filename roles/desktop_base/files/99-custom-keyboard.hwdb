@@ -1,3 +1,9 @@
+# swap capslock leftctrl
 evdev:atkbd:dmi:*
  KEYBOARD_KEY_1d=capslock
  KEYBOARD_KEY_3a=leftctrl
+
+# swap leftmeta leftalt on xps13
+evdev:atkbd:dmi:*:svnDellInc.:pnXPS139350:*
+ KEYBOARD_KEY_38=leftmeta
+ KEYBOARD_KEY_db=leftalt
