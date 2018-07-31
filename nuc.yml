@@ -23,7 +23,7 @@
     - { role: sysrqd, tags: sysrqd }
     - { role: mactelnet-server, tags: mactelnet-server }
     - { role: adb, tags: adb }
-    - { role: mlvpn, tags: mlvpn }
+    # - { role: mlvpn, tags: mlvpn }
     - { role: bluetooth_audio, tags: bluetooth_audio }
     - { role: dehydrated, tags: dehydrated }
     - { role: motion, tags: motion }
