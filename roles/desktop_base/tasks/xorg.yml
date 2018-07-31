@@ -1,3 +1,9 @@
+- name: create udev hwdb to swap ctrl capslock
+  copy:
+    src: 99-custom-keyboard.hwdb
+    dest: /etc/udev/hwdb.d/99-custom-keyboard.hwdb
+  notify: update hwdb
+
 - name: X11 config dir
   file: dest=/etc/X11/xorg.conf.d/ state=directory
 

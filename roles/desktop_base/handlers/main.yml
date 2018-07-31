@@ -4,3 +4,6 @@
 
 - name: reconfigure console-setup
   shell: dpkg-reconfigure --frontend noninteractive console-setup
+
+- name: update hwdb
+  shell: systemd-hwdb update; udevadm trigger
