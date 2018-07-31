@@ -1,9 +1,12 @@
-# swap capslock leftctrl
+# Swap capslock leftctrl
 evdev:atkbd:dmi:*
  KEYBOARD_KEY_1d=capslock
  KEYBOARD_KEY_3a=leftctrl
 
-# swap leftmeta leftalt on xps13
+# Swap leftmeta leftalt
+#  Dell XPS13
 evdev:atkbd:dmi:bvn*:bvr*:bd*:svnDell*:pnXPS13*:pvr*
+#  Logitech K400 Plus
+evdev:input:b*v046dp404d*
  KEYBOARD_KEY_38=leftmeta
  KEYBOARD_KEY_db=leftalt
