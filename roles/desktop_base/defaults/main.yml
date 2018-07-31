@@ -1,6 +1,6 @@
 ---
 keyboard:
-    xkboptions: ctrl:swapcaps,terminate:ctrl_alt_bksp
+    xkboptions: terminate:ctrl_alt_bksp
 
 font:
   pkgs:
