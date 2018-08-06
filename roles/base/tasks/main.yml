@@ -48,7 +48,7 @@
     - ncurses-base
     - ncurses-term
     - debfoster
-    - silversearcher-ag
+    - ripgrep
     - tofrodos
     - ncdu
     - os-prober
