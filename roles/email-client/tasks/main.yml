@@ -5,6 +5,5 @@
     - isync
     - emacs-gtk
     - mu4e
-    - maildir-utils-extra
     - ghostscript
     - msmtp
