@@ -43,7 +43,6 @@
 
     - { role: adb, tags: adb }
     - { role: email-client, tags: email-client }
-    - { role: mlvpn, tags: mlvpn }
     - { role: vsftpd, tags: vsftpd }
     - { role: wireguard, tags: wireguard }
     - { role: cups, tags: cups }
@@ -53,3 +52,4 @@
 
     # - { role: set-wallpaper, tags: set-wallpaper }
     # - { role: kcptun-client, tags: kcptun-client }
+    # - { role: mlvpn, tags: mlvpn }
