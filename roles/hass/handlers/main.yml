@@ -1,0 +1,8 @@
+---
+- name: systemctl daemon-reload
+  command: systemctl daemon-reload
+
+- name: restart hass
+  service:
+    name: hass
+    state: restarted

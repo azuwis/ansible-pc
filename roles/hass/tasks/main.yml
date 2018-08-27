@@ -1,0 +1,47 @@
+---
+- name: create hass user
+  user:
+    name: hass
+    uid: 20010
+    shell: /bin/bash
+
+- name: install virtualenv
+  apt:
+    name: virtualenv
+
+- name: install hass
+  pip:
+    name: homeassistant
+    virtualenv: /home/hass/venv
+    virtualenv_python: python3
+  become: yes
+  become_user: hass
+
+- name: create hass config dir
+  file:
+    dest: /home/hass/config
+    state: directory
+    mode: '0750'
+
+- name: config hass
+  template:
+    src: configuration.yaml.j2
+    dest: /home/hass/config/configuration.yaml
+    owner: hass
+    group: hass
+    mode: '0640'
+  notify:
+    - restart hass
+
+- name: install systemd service
+  copy:
+    src: hass.service
+    dest: /etc/systemd/system/hass.service
+  notify:
+    - systemctl daemon-reload
+
+- name: enable systemd service
+  service:
+    name: hass
+    state: started
+    enabled: yes
