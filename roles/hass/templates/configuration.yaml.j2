@@ -4,8 +4,8 @@ homeassistant:
   longitude: 120.17
   unit_system: metric
   time_zone: Asia/Shanghai
-
-introduction:
+  # auth_providers:
+  #  - type: homeassistant
 
 frontend:
 
@@ -15,7 +15,12 @@ http:
   api_password: {{ hass.api_password }}
   server_host: 127.0.0.1
 
+media_player:
+  - platform: braviatv
+    host: {{ hass.braviatv_host }}
+
 updater:
+  reporting: False
 
 discovery:
 
