@@ -1,7 +1,7 @@
 homeassistant:
   name: Home
-  latitude: 30.25
-  longitude: 120.17
+  latitude: {{ hass.latitude }}
+  longitude: {{ hass.longitude }}
   unit_system: metric
   time_zone: Asia/Shanghai
   # auth_providers:
@@ -36,11 +36,15 @@ sun:
 
 sensor:
   - platform: yr
+    monitored_conditions:
+      - temperature
+      - symbol
+      - humidity
 
 tts:
   - platform: google
 
-cloud:
+# cloud:
 
 group:
 

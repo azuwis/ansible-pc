@@ -32,6 +32,8 @@
     mode: '0640'
   notify:
     - restart hass
+  tags:
+    - conf
 
 - name: install systemd service
   copy:
