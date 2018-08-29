@@ -2,35 +2,36 @@ homeassistant:
   name: Home
   latitude: {{ hass.latitude }}
   longitude: {{ hass.longitude }}
-  unit_system: metric
   time_zone: Asia/Shanghai
+  unit_system: metric
   auth_providers:
     - type: homeassistant
     # - type: legacy_api_password
 
-frontend:
+automation:
 
 config:
+
+conversation:
+
+discovery:
+
+frontend:
+
+group:
+
+history:
 
 http:
   server_host: 127.0.0.1
 
-media_player:
-  - platform: braviatv
-    host: {{ hass.braviatv_host }}
-
-updater:
-  reporting: False
-
-discovery:
-
-conversation:
-
-history:
-
 logbook:
 
 map:
+
+media_player:
+  - platform: braviatv
+    host: {{ hass.braviatv_host }}
 
 notify:
   - name: html5
@@ -38,7 +39,7 @@ notify:
     gcm_api_key: '{{ hass.gcm_api_key }}'
     gcm_sender_id: '{{ hass.gcm_sender_id }}'
 
-sun:
+script:
 
 sensor:
   - platform: yr
@@ -47,13 +48,10 @@ sensor:
       - symbol
       - humidity
 
+sun:
+
 tts:
   - platform: google
 
-# cloud:
-
-group:
-
-automation:
-
-script:
+updater:
+  reporting: False
