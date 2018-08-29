@@ -4,8 +4,9 @@ homeassistant:
   longitude: {{ hass.longitude }}
   unit_system: metric
   time_zone: Asia/Shanghai
-  # auth_providers:
-  #  - type: homeassistant
+  auth_providers:
+    - type: homeassistant
+    # - type: legacy_api_password
 
 frontend:
 
