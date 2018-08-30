@@ -55,3 +55,6 @@ tts:
 
 updater:
   reporting: False
+
+zone:
+{{ hass.zone | to_nice_yaml | indent(2, true) }}
