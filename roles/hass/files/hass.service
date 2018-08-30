@@ -5,6 +5,7 @@ After=network.target
 [Service]
 ExecStart=/home/hass/venv/bin/hass -c /home/hass/config
 User=hass
+StandardError=null
 
 [Install]
 WantedBy=multi-user.target
