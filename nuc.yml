@@ -3,11 +3,12 @@
   become: yes
   vars:
     dpi: 160
-    eth: eno1
     extra_packages:
       - firmware-misc-nonfree
+      - vlan
     kernel_modules:
       - i915
+      - 8021q
   roles:
     - { role: apt, tags: apt }
     - { role: base, tags: base }
