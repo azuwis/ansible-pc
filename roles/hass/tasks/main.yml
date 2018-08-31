@@ -31,6 +31,8 @@
   file:
     dest: /home/hass/config
     state: directory
+    owner: hass
+    group: hass
     mode: '0750'
 
 - name: install systemd service
