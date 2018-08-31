@@ -47,6 +47,18 @@ sensor:
 
 sun:
 
+switch:
+  - platform: broadlink
+    host: {{ hass.broadlink_host }}
+    mac: '{{ hass.broadlink_mac }}'
+    switches:
+      water_heater_power:
+        friendly_name: 'Water Heater Power'
+        command_on: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+      water_heater_heat:
+        friendly_name: 'Water Heater Heat'
+        command_on: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+
 tts:
   - platform: google
 
