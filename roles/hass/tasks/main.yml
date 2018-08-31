@@ -35,6 +35,18 @@
     group: hass
     mode: '0750'
 
+- name: rsyslog config
+  copy:
+    dest: /etc/rsyslog.d/hass.conf
+    src: hass.rsyslog
+  notify:
+    - restart rsyslog
+
+- name: logrotate config
+  copy:
+    dest: /etc/logrotate.d/hass
+    src: hass.logrotate
+
 - name: install systemd service
   copy:
     src: hass.service
