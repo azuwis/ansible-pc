@@ -1,4 +1,14 @@
 ---
+# for notify.html5
+- name: install dependences
+  apt:
+    name: {{ item }}
+  with_items:
+    - build-essential
+    - libffi-dev
+    - libpython3-dev
+    - libssl-dev
+
 - name: create hass user
   user:
     name: hass
