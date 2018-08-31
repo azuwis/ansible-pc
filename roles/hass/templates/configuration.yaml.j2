@@ -37,15 +37,13 @@ notify:
     gcm_sender_id: '{{ hass.gcm_sender_id }}'
 
 script:
-  turn_on_water_heater:
-    alias: Turn on Water Heater
+  water_heater:
+    alias: Water Heater
     sequence:
       - alias: Turn on Water Heater Power
         service: switch.broadlink_send_packet_{{ hass.broadlink_host | regex_replace('\.', '_') }}
         data:
           packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
-      - delay:
-          seconds: 5
       - alias: Turn on Water Heater Heating
         service: switch.broadlink_send_packet_{{ hass.broadlink_host | regex_replace('\.', '_') }}
         data:
