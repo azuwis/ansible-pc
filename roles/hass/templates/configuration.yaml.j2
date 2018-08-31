@@ -6,6 +6,13 @@ homeassistant:
   unit_system: metric
 
 automation:
+  - alias: Turn on water heater before sunset
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '-01:00:00'
+    action:
+      service: script.water_heater
 
 config:
 
@@ -38,13 +45,13 @@ notify:
 
 script:
   water_heater:
-    alias: Water Heater
+    alias: Toggle water heater
     sequence:
-      - alias: Turn on Water Heater Power
+      - alias: Toggle water heater power
         service: switch.broadlink_send_packet_{{ hass.broadlink_host | regex_replace('\.', '_') }}
         data:
           packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
-      - alias: Turn on Water Heater Heating
+      - alias: Toggle water heater heating
         service: switch.broadlink_send_packet_{{ hass.broadlink_host | regex_replace('\.', '_') }}
         data:
           packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
