@@ -2,7 +2,7 @@
 # for notify.html5
 - name: install dependences
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
   with_items:
     - build-essential
     - libffi-dev
