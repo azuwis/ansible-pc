@@ -23,6 +23,13 @@
     state: directory
     mode: '0750'
 
+- name: install systemd service
+  copy:
+    src: hass.service
+    dest: /etc/systemd/system/hass.service
+  notify:
+    - systemctl daemon-reload
+
 - name: config hass
   template:
     src: configuration.yaml.j2
@@ -34,13 +41,6 @@
     - restart hass
   tags:
     - conf
-
-- name: install systemd service
-  copy:
-    src: hass.service
-    dest: /etc/systemd/system/hass.service
-  notify:
-    - systemctl daemon-reload
 
 - name: enable systemd service
   service:
