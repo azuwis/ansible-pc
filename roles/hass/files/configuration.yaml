@@ -6,26 +6,37 @@ homeassistant:
   unit_system: metric
   customize: !include customize.yaml
 
-automation: !include automations.yaml
-
-config:
-
-conversation:
-
-discovery:
-
 frontend:
 
-group:
-
-history:
+config:
 
 http:
   server_host: 127.0.0.1
 
+updater:
+  reporting: False
+
+discovery:
+
+conversation:
+
+history:
+
 logbook:
 
 map:
+
+sun:
+
+sensor:
+  - platform: yr
+    monitored_conditions:
+      - temperature
+      - symbol
+      - humidity
+
+tts:
+  - platform: google
 
 media_player:
   - platform: braviatv
@@ -37,26 +48,12 @@ notify:
     gcm_api_key: !secret gcm_api_key
     gcm_sender_id: !secret gcm_sender_id
 
-script: !include scripts.yaml
-
-sensor:
-  - platform: yr
-    monitored_conditions:
-      - temperature
-      - symbol
-      - humidity
-
-sun:
-
 switch:
   - platform: broadlink
     host: !secret broadlink_host
     mac: !secret broadlink_mac
 
-tts:
-  - platform: google
-
-updater:
-  reporting: False
-
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
 zone: !include zones.yaml
