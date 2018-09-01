@@ -61,17 +61,33 @@
     owner: hass
     group: hass
   with_items:
+    - automations.yaml
     - customize.yaml
+    - scripts.yaml
+  tags:
+    - conf
+
+- name: config hass secrets
+  copy:
+    dest: /home/hass/config/{{ item }}.yaml
+    content: "{{ hass[item] }}"
+    owner: hass
+    group: hass
+    mode: '0640'
+  with_items:
+    - secrets
+    - zones
+  notify:
+    - restart hass
   tags:
     - conf
 
 - name: config hass
-  template:
-    src: configuration.yaml.j2
+  copy:
     dest: /home/hass/config/configuration.yaml
+    src: configuration.yaml
     owner: hass
     group: hass
-    mode: '0640'
   notify:
     - restart hass
   tags:

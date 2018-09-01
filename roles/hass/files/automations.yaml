@@ -1,0 +1,7 @@
+- alias: Turn on water heater before sunset
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:00:00'
+  action:
+    service: script.toggle_water_heater
