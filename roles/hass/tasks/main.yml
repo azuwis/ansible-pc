@@ -55,6 +55,17 @@
     - systemctl daemon-reload
 
 - name: config hass
+  copy:
+    src: "{{ item }}"
+    dest: /home/hass/config/{{ item }}
+    owner: hass
+    group: hass
+  with_items:
+    - customize.yaml
+  tags:
+    - conf
+
+- name: config hass
   template:
     src: configuration.yaml.j2
     dest: /home/hass/config/configuration.yaml

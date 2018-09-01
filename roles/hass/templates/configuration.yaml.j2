@@ -4,6 +4,7 @@ homeassistant:
   longitude: {{ hass.longitude }}
   time_zone: Asia/Shanghai
   unit_system: metric
+  customize: !include customize.yaml
 
 automation:
   - alias: Turn on water heater before sunset
