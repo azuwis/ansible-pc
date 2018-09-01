@@ -1,0 +1,6 @@
+/var/log/hass.log {
+    compress
+    daily
+    missingok
+    rotate 7
+}
