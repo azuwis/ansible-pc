@@ -1,2 +1,3 @@
 script.toggle_water_heater:
   icon: mdi:shower-head
+  initial_state: off

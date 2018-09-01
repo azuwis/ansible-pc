@@ -48,14 +48,11 @@ script:
   toggle_water_heater:
     alias: Toggle water heater
     sequence:
-      - alias: Toggle water heater power
-        service: switch.broadlink_send_packet_{{ hass.broadlink_host | regex_replace('\.', '_') }}
-        data:
-          packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
-      - alias: Toggle water heater heating
-        service: switch.broadlink_send_packet_{{ hass.broadlink_host | regex_replace('\.', '_') }}
-        data:
-          packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+      service: switch.broadlink_send_packet_{{ hass.broadlink_host | regex_replace('\.', '_') }}
+      data:
+        packet:
+          - 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+          - 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
 
 sensor:
   - platform: yr
