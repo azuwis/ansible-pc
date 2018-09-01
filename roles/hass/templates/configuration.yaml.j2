@@ -12,7 +12,7 @@ automation:
         event: sunset
         offset: '-01:00:00'
     action:
-      service: script.water_heater
+      service: script.toggle_water_heater
 
 config:
 
@@ -44,7 +44,7 @@ notify:
     gcm_sender_id: '{{ hass.gcm_sender_id }}'
 
 script:
-  water_heater:
+  toggle_water_heater:
     alias: Toggle water heater
     sequence:
       - alias: Toggle water heater power
