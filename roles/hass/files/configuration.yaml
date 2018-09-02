@@ -16,7 +16,7 @@ http:
 updater:
   reporting: False
 
-discovery:
+# discovery:
 
 conversation:
 
