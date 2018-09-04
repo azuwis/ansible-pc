@@ -44,6 +44,8 @@ device_tracker:
     username: !secret ubus_username
     password: !secret ubus_password
     dhcp_software: none
+    new_device_defaults:
+      track_new_devices: False
 
 media_player:
   - platform: braviatv
