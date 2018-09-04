@@ -38,6 +38,13 @@ sensor:
 tts:
   - platform: google
 
+device_tracker:
+  - platform: ubus
+    host: !secret ubus_host
+    username: !secret ubus_username
+    password: !secret ubus_password
+    dhcp_software: none
+
 media_player:
   - platform: braviatv
     host: !secret braviatv_host
