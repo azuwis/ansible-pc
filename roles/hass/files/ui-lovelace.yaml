@@ -1,0 +1,22 @@
+title: Home
+
+views:
+  - title: Home
+    id: home
+    icon: mdi:home-assistant
+    cards:
+      - type: picture-elements
+        image: /local/floorplan.png
+        elements:
+          - type: state-icon
+            entity: media_player.living_room
+            tap_action: toggle
+            style:
+              top: 55%
+              left: 50%
+  - title: Media
+    id: media
+    icon: mdi:television
+    cards:
+      - type: media-control
+        entity: media_player.living_room

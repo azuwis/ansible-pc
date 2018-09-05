@@ -63,6 +63,7 @@
   with_items:
     - automations.yaml
     - customize.yaml
+    - ui-lovelace.yaml
     - scripts.yaml
   tags:
     - conf
@@ -79,6 +80,14 @@
     - zones
   notify:
     - restart hass
+  tags:
+    - conf
+
+- name: copy www directory
+  synchronize:
+    src: www/
+    dest: /home/hass/config/www/
+    rsync_path: sudo -u hass rsync
   tags:
     - conf
 
