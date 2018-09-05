@@ -14,6 +14,12 @@ views:
             style:
               top: 55%
               left: 50%
+          - type: state-icon
+            entity: script.toggle_water_heater
+            tap_action: toggle
+            style:
+              top: 15%
+              left: 22%
   - title: Media
     id: media
     icon: mdi:television
