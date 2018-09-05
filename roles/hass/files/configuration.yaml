@@ -50,6 +50,7 @@ device_tracker:
 media_player:
   - platform: braviatv
     host: !secret braviatv_host
+    name: Living Room
 
 notify:
   - name: html5
