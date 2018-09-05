@@ -1,7 +1,24 @@
-- alias: Turn on water heater before sunset
+- id: water_heater
+  alias: Turn on water heater before sunset
   trigger:
-    - platform: sun
-      event: sunset
-      offset: '-01:00:00'
+    platform: sun
+    event: sunset
+    offset: '-01:00:00'
   action:
     service: script.toggle_water_heater
+
+- id: notify_home
+  alias: Notify home
+  trigger:
+    platform: state
+    entity_id: !secret tracked_devices
+    from: 'not_home'
+    to: 'home'
+  # condition:
+  #   condition: time
+  #   after: '20:00'
+  action:
+    service: notify.html5
+    data_template:
+      message: >
+        {{ state_attr(trigger.entity_id, 'friendly_name') }} arrived home
