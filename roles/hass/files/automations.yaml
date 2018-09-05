@@ -1,5 +1,5 @@
 - id: water_heater
-  alias: Turn on water heater before sunset
+  alias: Water heater
   trigger:
     platform: sun
     event: sunset
