@@ -24,6 +24,11 @@ views:
             style:
               top: 18%
               left: 22%
+      - type: glance
+        entities:
+          - device_tracker.1
+          - device_tracker.2
+          - device_tracker.3
   - title: Media
     id: media
     icon: mdi:cast-connected
