@@ -1,5 +1,5 @@
-toggle_water_heater:
-  alias: Toggle water heater
+water_heater:
+  alias: Water heater
   sequence:
     - alias: Turn on power
       service: !secret broadlink_send_packet
