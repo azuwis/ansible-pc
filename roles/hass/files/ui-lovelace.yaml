@@ -36,3 +36,11 @@ views:
     cards:
       - type: weather-forecast
         entity: weather.hangzhou
+  - title: Settings
+    id: settings
+    icon: mdi:settings
+    cards:
+      - type: entities
+        entities:
+          - automation.notify_home
+          - automation.water_heater
