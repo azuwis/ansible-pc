@@ -93,6 +93,11 @@ switch:
             entity_id: script.water_heater
         icon_template: mdi:water
 
+weather:
+  - platform: yweather
+    name: Hangzhou
+    woeid: 2132574
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
