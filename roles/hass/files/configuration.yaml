@@ -98,6 +98,12 @@ weather:
     name: Hangzhou
     woeid: 2132574
 
+xiaomi_aqara:
+  interface: !secret interface
+  gateways:
+    - mac: !secret lumi_acpartner_v3_mac
+      key: !secret lumi_acpartner_v3_key
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
