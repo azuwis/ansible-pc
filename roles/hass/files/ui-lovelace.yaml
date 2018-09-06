@@ -47,5 +47,11 @@ views:
     cards:
       - type: entities
         entities:
+          - type: call-service
+            name: Reload Hass
+            icon: mdi:home-assistant
+            action_name: Reload
+            service: homeassistant.reload_core_config
+            service_data: {}
           - automation.notify_home
           - automation.water_heater
