@@ -15,10 +15,10 @@ views:
               top: 55%
               left: 50%
           - type: state-icon
-            entity: script.toggle_water_heater
+            entity: switch.water_heater
             tap_action: toggle
             style:
-              top: 15%
+              top: 18%
               left: 22%
   - title: Media
     id: media

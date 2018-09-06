@@ -81,6 +81,22 @@ switch:
           {% else %}
             mdi:television-off
           {% endif %}
+      water_heater:
+        value_template: "{{ states.script.water_heater.state }}"
+        turn_on:
+          service: script.turn_on
+          data:
+            entity_id: script.water_heater
+        turn_off:
+          service: script.turn_off
+          data:
+            entity_id: script.water_heater
+        icon_template: >-
+          {% if is_state('script.water_heater', 'on') %}
+            mdi:water
+          {% else %}
+            mdi:water-off
+          {% endif %}
 
 group: !include groups.yaml
 automation: !include automations.yaml
