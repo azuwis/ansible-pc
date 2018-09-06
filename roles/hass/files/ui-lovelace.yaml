@@ -3,7 +3,7 @@ title: Home
 views:
   - title: Home
     id: home
-    icon: mdi:home-assistant
+    icon: mdi:view-grid
     cards:
       - type: picture-elements
         image: /local/floorplan.png
@@ -22,7 +22,7 @@ views:
               left: 22%
   - title: Media
     id: media
-    icon: mdi:television
+    icon: mdi:cast-connected
     cards:
       - type: media-control
         entity: media_player.living_room
