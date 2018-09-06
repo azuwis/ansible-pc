@@ -9,7 +9,7 @@ views:
         image: /local/floorplan.png
         elements:
           - type: state-icon
-            entity: media_player.living_room
+            entity: switch.media_player_living_room
             tap_action: toggle
             style:
               top: 55%
