@@ -66,7 +66,13 @@ views:
             name: Reload Hass
             icon: mdi:home-assistant
             action_name: Reload
-            service: homeassistant.reload_core_config
+            service: script.hass_reload
+            service_data: {}
+          - type: call-service
+            name: Restart Hass
+            icon: mdi:home-assistant
+            action_name: Restart
+            service: homeassistant.restart
             service_data: {}
           - automation.notify_home
           - automation.water_heater

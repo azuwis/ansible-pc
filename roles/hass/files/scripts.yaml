@@ -11,3 +11,15 @@ water_heater:
       service: !secret broadlink_send_packet
       data:
         packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+
+hass_reload:
+  alias: Reload Hass
+  sequence:
+    - alias: Reload Hass groups
+      service: group.reload
+    - alias: Reload Hass scripts
+      service: script.reload
+    - alias: Reload Hass automations
+      service: automation.reload
+    - alias: Reload Hass core
+      service: homeassistant.reload_core_config
