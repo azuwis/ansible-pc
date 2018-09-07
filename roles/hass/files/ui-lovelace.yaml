@@ -24,6 +24,21 @@ views:
             style:
               top: 18%
               left: 22%
+          - type: state-label
+            entity: sensor.temperature_bedroom
+            style:
+              top: 90%
+              left: 30%
+          - type: state-label
+            entity: sensor.humidity_bedroom
+            style:
+              top: 90%
+              left: 12%
+          - type: state-icon
+            entity: binary_sensor.motion_sensor_living_room
+            style:
+              top: 15%
+              left: 52%
       - type: glance
         entities:
           - device_tracker.1
