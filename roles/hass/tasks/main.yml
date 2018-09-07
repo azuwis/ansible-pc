@@ -114,3 +114,7 @@
     name: hass
     state: started
     enabled: yes
+
+- include: zigbee2mqtt.yml
+  tags:
+    - zigbee

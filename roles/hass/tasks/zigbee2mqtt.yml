@@ -1,0 +1,22 @@
+---
+- name: install nodejs
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - nodejs
+    - nodejs-dev
+    - npm
+
+- name: clone zigbee2mqtt
+  git:
+    repo: https://github.com/Koenkk/zigbee2mqtt.git
+    dest: /home/hass/zigbee2mqtt
+  become: yes
+  become_user: hass
+
+- name: install npm packages
+  npm:
+    path: /home/hass/zigbee2mqtt
+    production: yes
+  become: yes
+  become_user: hass
