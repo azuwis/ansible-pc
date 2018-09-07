@@ -15,6 +15,13 @@
     uid: 20010
     shell: /bin/bash
 
+- name: add staff to hass group
+  user:
+    name: "{{ item.name }}"
+    groups: hass
+    append: yes
+  with_items: "{{ staff }}"
+
 - name: install virtualenv
   apt:
     name: virtualenv
