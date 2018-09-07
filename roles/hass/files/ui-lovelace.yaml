@@ -52,7 +52,7 @@ views:
         entity: media_player.living_room
   - title: Weather
     id: weather
-    icon: mdi:weather-cloudy
+    icon: mdi:weather-partlycloudy
     cards:
       - type: weather-forecast
         entity: weather.hangzhou
