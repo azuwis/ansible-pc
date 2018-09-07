@@ -11,12 +11,15 @@
   alias: Notify home
   trigger:
     platform: state
-    entity_id: !secret tracked_devices
+    entity_id:
+      - device_tracker.1
+      - device_tracker.2
     from: 'not_home'
     to: 'home'
-  # condition:
-  #   condition: time
-  #   after: '20:00'
+  condition:
+    condition: time
+    after: '8:00'
+    before: '21:00'
   action:
     service: notify.html5
     data_template:
