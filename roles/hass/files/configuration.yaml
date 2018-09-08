@@ -75,7 +75,7 @@ switch:
   - platform: template
     switches:
       media_player_living_room:
-        value_template: "{{ states.media_player.living_room.state }}"
+        value_template: "{{ states('media_player.living_room') }}"
         turn_on:
           service: media_player.turn_on
           data:
