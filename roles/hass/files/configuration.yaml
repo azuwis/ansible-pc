@@ -91,13 +91,13 @@ switch:
             mdi:television
           {% endif %}
       water_heater:
-        value_template: "{{ states.script.water_heater.state }}"
+        value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
         turn_on:
           service: script.turn_on
           data:
             entity_id: script.water_heater
         turn_off:
-          service: script.turn_off
+          service: script.turn_on
           data:
             entity_id: script.water_heater
         icon_template: mdi:water

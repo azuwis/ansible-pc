@@ -5,8 +5,33 @@ water_heater:
       service: !secret broadlink_send_packet
       data:
         packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
-    - delay:
-        seconds: 1
+    - delay: '00:00:01'
+    - alias: Turn on heating
+      service: !secret broadlink_send_packet
+      data:
+        packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+    - wait_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
+      timeout: '00:00:10'
+    - condition: template
+      value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
+    - alias: Turn on power
+      service: !secret broadlink_send_packet
+      data:
+        packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+    - delay: '00:00:01'
+    - alias: Turn on heating
+      service: !secret broadlink_send_packet
+      data:
+        packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+    - wait_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
+      timeout: '00:00:10'
+    - condition: template
+      value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
+    - alias: Turn on power
+      service: !secret broadlink_send_packet
+      data:
+        packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+    - delay: '00:00:01'
     - alias: Turn on heating
       service: !secret broadlink_send_packet
       data:
