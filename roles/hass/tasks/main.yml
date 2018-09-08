@@ -115,6 +115,10 @@
     state: started
     enabled: yes
 
+- include: acpartner.yml
+  tags:
+    - acpartner
+
 - include: zigbee2mqtt.yml
   tags:
     - zigbee

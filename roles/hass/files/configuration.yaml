@@ -39,6 +39,14 @@ sensor:
 tts:
   - platform: google
 
+climate:
+  - platform: xiaomi_miio
+    name: AC partner
+    host: !secret lumi_acpartner_v3_host
+    token: !secret lumi_acpartner_v3_token
+    target_sensor: sensor.temperature_bedroom
+    scan_interval: 60
+
 device_tracker:
   - platform: ubus
     host: !secret ubus_host
