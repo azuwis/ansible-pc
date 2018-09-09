@@ -1,0 +1,13 @@
+[Unit]
+Description=zigbee2mqtt
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node index.js
+WorkingDirectory=/home/hass/zigbee2mqtt
+StandardOutput=null
+Restart=always
+User=hass
+
+[Install]
+WantedBy=multi-user.target

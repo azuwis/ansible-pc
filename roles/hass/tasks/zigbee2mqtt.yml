@@ -11,6 +11,7 @@
   git:
     repo: https://github.com/Koenkk/zigbee2mqtt.git
     dest: /home/hass/zigbee2mqtt
+    update: no
   become: yes
   become_user: hass
 
@@ -20,3 +21,32 @@
     production: yes
   become: yes
   become_user: hass
+
+- name: create log directory
+  file:
+    dest: /var/log/zigbee2mqtt
+    owner: hass
+    group: adm
+    mode: '0750'
+    state: directory
+
+- name: install systemd service
+  copy:
+    src: zigbee2mqtt.service
+    dest: /etc/systemd/system/zigbee2mqtt.service
+  notify:
+    - systemctl daemon-reload
+
+- name: enable systemd service
+  service:
+    name: zigbee2mqtt
+    state: started
+    enabled: yes
+
+# /home/hass/zigbee2mqtt/data/configuration.yaml
+# homeassistant: true
+# permit_join: false
+# serial:
+#   disable_led: true
+# advanced:
+#   log_directory: /var/log/zigbee2mqtt
