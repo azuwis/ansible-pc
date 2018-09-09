@@ -10,7 +10,7 @@ views:
     icon: mdi:view-grid
     cards:
       - type: picture-elements
-        image: /local/floorplan.png
+        image: /local/floorplan.png?v=1
         elements:
           - type: state-icon
             entity: switch.media_player_living_room
