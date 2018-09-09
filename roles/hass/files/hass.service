@@ -3,7 +3,7 @@ Description=Home Assistant
 After=network.target
 
 [Service]
-ExecStart=/home/hass/venv/bin/hass -c /home/hass/config
+ExecStart=/home/hass/venv/bin/hass --log-no-color --config /home/hass/config
 User=hass
 
 [Install]
