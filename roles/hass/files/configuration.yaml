@@ -95,11 +95,11 @@ switch:
         turn_on:
           service: script.turn_on
           data:
-            entity_id: script.water_heater
+            entity_id: script.water_heater_on
         turn_off:
           service: script.turn_on
           data:
-            entity_id: script.water_heater
+            entity_id: script.water_heater_off
         icon_template: mdi:water
 
 weather:

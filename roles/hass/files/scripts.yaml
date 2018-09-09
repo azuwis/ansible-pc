@@ -1,14 +1,14 @@
-water_heater:
-  alias: Water heater
+water_heater_on:
+  alias: Water heater on
   sequence:
     - condition: template
       value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
-    - alias: Turn on power
+    - alias: Power button
       service: !secret broadlink_send_packet
       data:
         packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
     - delay: '00:00:01'
-    - alias: Turn on heating
+    - alias: Heating button
       service: !secret broadlink_send_packet
       data:
         packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
@@ -16,12 +16,12 @@ water_heater:
       timeout: '00:01:03'
     - condition: template
       value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
-    - alias: Turn on power
+    - alias: Power button
       service: !secret broadlink_send_packet
       data:
         packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
     - delay: '00:00:01'
-    - alias: Turn on heating
+    - alias: Heating button
       service: !secret broadlink_send_packet
       data:
         packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
@@ -29,15 +29,25 @@ water_heater:
       timeout: '00:01:03'
     - condition: template
       value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
-    - alias: Turn on power
+    - alias: Power button
       service: !secret broadlink_send_packet
       data:
         packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
     - delay: '00:00:01'
-    - alias: Turn on heating
+    - alias: Heating button
       service: !secret broadlink_send_packet
       data:
         packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+
+water_heater_off:
+  alias: Water heater off
+  sequence:
+    - condition: template
+      value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
+    - alias: Power button
+      service: !secret broadlink_send_packet
+      data:
+        packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
 
 hass_reload:
   alias: Reload Hass

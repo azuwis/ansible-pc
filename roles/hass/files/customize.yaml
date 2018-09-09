@@ -1,3 +1,4 @@
-script.water_heater:
-  icon: mdi:water
-  # initial_state: 'off'
+# script.water_heater_on:
+#   icon: mdi:water
+# script.water_heater_off:
+#   icon: mdi:water
