@@ -50,6 +50,9 @@ views:
     cards:
       - type: media-control
         entity: media_player.living_room
+      - type: entities
+        entities:
+          - climate.ac_partner
   - title: Weather
     id: weather
     icon: mdi:weather-partlycloudy
