@@ -61,6 +61,15 @@ media_player:
     host: !secret braviatv_host
     name: Living Room
 
+mqtt:
+  discovery: true
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+
 notify:
   - name: html5
     platform: html5
