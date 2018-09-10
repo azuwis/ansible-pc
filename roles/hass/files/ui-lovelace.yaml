@@ -53,6 +53,11 @@ views:
               top: 90%
               left: 12%
           # people
+          - type: state-icon
+            entity: camera.living_room
+            style:
+              top: 90%
+              left: 87%
           - type: image
             entity: device_tracker.1
             image: /local/device_1.jpg
