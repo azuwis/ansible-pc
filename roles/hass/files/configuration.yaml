@@ -39,6 +39,17 @@ sun:
 tts:
   - platform: google
 
+binary_sensor:
+  - platform: mqtt
+    name: Motion living room
+    state_topic: motion/living_room
+    device_class: motion
+
+camera:
+  - platform: mjpeg
+    mjpeg_url: http://127.0.0.1:8081
+    name: Living room
+
 climate:
   - platform: xiaomi_miio
     name: AC partner
