@@ -41,7 +41,7 @@ tts:
 
 binary_sensor:
   - platform: mqtt
-    name: Motion living room
+    name: motion_living_room
     state_topic: motion/living_room
     device_class: motion
 
