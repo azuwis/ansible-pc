@@ -24,6 +24,11 @@ views:
               top: 15%
               left: 52%
           - type: state-icon
+            entity: light.living_room
+            style:
+              top: 33%
+              left: 52%
+          - type: state-icon
             entity: switch.media_player_living_room
             tap_action: toggle
             style:

@@ -67,6 +67,12 @@ device_tracker:
     new_device_defaults:
       track_new_devices: False
 
+light:
+  - platform: yeelight
+    devices:
+      !secret yeelight_host:
+        name: Living room
+
 media_player:
   - platform: braviatv
     host: !secret braviatv_host
