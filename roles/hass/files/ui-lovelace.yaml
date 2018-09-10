@@ -37,6 +37,11 @@ views:
               top: 18%
               left: 22%
           # bedroom
+          - type: state-icon
+            entity: binary_sensor.motion_bedroom
+            style:
+              top: 66%
+              left: 18%
           - type: state-label
             entity: sensor.ht_bedroom_temperature
             style:
