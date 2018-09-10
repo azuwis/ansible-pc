@@ -1,8 +1,13 @@
 title: Home
 
 excluded_entities:
+  - binary_sensor.motion_living_room
   - script.hass_reload
+  - sensor.ht_bedroom_humidity
+  - sensor.ht_bedroom_temperature
+  - sun.sun
   - switch.media_player_living_room
+  - switch.water_heater
 
 views:
   - title: Home
