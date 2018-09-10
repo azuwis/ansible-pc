@@ -76,6 +76,9 @@ notify:
     gcm_api_key: !secret gcm_api_key
     gcm_sender_id: !secret gcm_sender_id
 
+recorder:
+  db_url: postgres://@/hass
+
 switch:
   - platform: broadlink
     host: !secret broadlink_host

@@ -1,5 +1,5 @@
 ---
-# for notify.html5
+# for notify.html5 recorder
 - name: install dependences
   apt:
     name: "{{ item }}"
@@ -8,6 +8,22 @@
     - libffi-dev
     - libpython3-dev
     - libssl-dev
+    - postgresql
+    - postgresql-server-dev-all
+    - python-psycopg2
+
+- name: create psql db for hass
+  postgresql_db:
+    name: hass
+  become: true
+  become_user: postgres
+
+- name: create psql user for hass
+  postgresql_user:
+    name: hass
+    db: hass
+  become: true
+  become_user: postgres
 
 - name: create hass user
   user:
@@ -26,11 +42,14 @@
   apt:
     name: virtualenv
 
-- name: install hass
+- name: pip3 install homeassistant and psycopg2
   pip:
-    name: homeassistant
+    name: "{{ item }}"
     virtualenv: /home/hass/venv
     virtualenv_python: python3
+  with_items:
+    - homeassistant
+    - psycopg2
   become: yes
   become_user: hass
 
