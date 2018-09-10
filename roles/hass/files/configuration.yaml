@@ -63,6 +63,7 @@ media_player:
 
 mqtt:
   discovery: true
+  broker: 127.0.0.1
   birth_message:
     topic: 'hass/status'
     payload: 'online'

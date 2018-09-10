@@ -1,6 +1,6 @@
 [Unit]
 Description=Home Assistant
-After=network.target
+After=network.target mosquitto.service postgresql.service
 
 [Service]
 ExecStart=/home/hass/venv/bin/hass --log-no-color --config /home/hass/config

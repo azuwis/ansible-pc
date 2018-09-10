@@ -1,5 +1,5 @@
 ---
-# for notify.html5 recorder
+# for mqtt notify.html5 recorder
 - name: install dependences
   apt:
     name: "{{ item }}"
@@ -8,6 +8,7 @@
     - libffi-dev
     - libpython3-dev
     - libssl-dev
+    - mosquitto
     - postgresql
     - postgresql-server-dev-all
     - python-psycopg2
