@@ -118,6 +118,14 @@
   tags:
     - conf
 
+- include: acpartner.yml
+  tags:
+    - acpartner
+
+- include: zigbee2mqtt.yml
+  tags:
+    - zigbee
+
 - name: config hass
   copy:
     dest: /home/hass/config/configuration.yaml
@@ -134,11 +142,3 @@
     name: hass
     state: started
     enabled: yes
-
-- include: acpartner.yml
-  tags:
-    - acpartner
-
-- include: zigbee2mqtt.yml
-  tags:
-    - zigbee
