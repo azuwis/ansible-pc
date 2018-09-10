@@ -72,6 +72,7 @@ light:
     devices:
       !secret yeelight_host:
         name: Living room
+        transition: 600
 
 media_player:
   - platform: braviatv
