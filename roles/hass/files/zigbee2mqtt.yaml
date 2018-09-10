@@ -1,0 +1,24 @@
+homeassistant: true
+permit_join: false
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://localhost'
+serial:
+  port: /dev/ttyACM0
+  disable_led: true
+advanced:
+  log_directory: /var/log/zigbee2mqtt
+devices:
+  '0x00158d00023d57a9':
+    friendly_name: button_bedroom
+    retain: false
+  '0x00158d0001e81c40':
+    friendly_name: ht_bedroom
+    retain: false
+  '0x00158d00022b8fdf':
+    friendly_name: motion_living_room
+    occupancy_timeout: 180
+    retain: false
+  '0x00158d00024689f1':
+    friendly_name: 'plug'
+    retain: false

@@ -30,6 +30,15 @@
     mode: '0750'
     state: directory
 
+- name: config zigbee2mqtt
+  copy:
+    dest: /home/hass/zigbee2mqtt/data/configuration.yaml
+    src: zigbee2mqtt.yaml
+    owner: hass
+    group: hass
+  notify:
+    - restart zigbee2mqtt
+
 - name: install systemd service
   copy:
     src: zigbee2mqtt.service
@@ -42,11 +51,3 @@
     name: zigbee2mqtt
     state: started
     enabled: yes
-
-# /home/hass/zigbee2mqtt/data/configuration.yaml
-# homeassistant: true
-# permit_join: false
-# serial:
-#   disable_led: true
-# advanced:
-#   log_directory: /var/log/zigbee2mqtt

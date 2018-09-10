@@ -11,3 +11,8 @@
   service:
     name: rsyslog
     state: restarted
+
+- name: restart zigbee2mqtt
+  service:
+    name: zigbee2mqtt
+    state: restarted
