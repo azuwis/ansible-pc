@@ -4,6 +4,7 @@
     name: "{{ item }}"
   with_items:
     - ffmpeg
+    - mosquitto-clients
     - motion
     - uvcdynctrl
     - v4l-utils
