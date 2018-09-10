@@ -1,8 +1,8 @@
 title: Home
 
 excluded_entities:
+  - script.hass_reload
   - switch.media_player_living_room
-  - switch.water_heater
 
 views:
   - title: Home
