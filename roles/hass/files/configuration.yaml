@@ -150,6 +150,7 @@ script: !include scripts.yaml
 zone: !include zones.yaml
 
 logger:
+  default: warning
   logs:
     requests.packages.urllib3.connectionpool: critical
     # homeassistant.components.binary_sensor.xiaomi_aqara: debug
