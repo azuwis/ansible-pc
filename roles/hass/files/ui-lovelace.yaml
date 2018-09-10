@@ -17,18 +17,26 @@ views:
       - type: picture-elements
         image: /local/floorplan.png?v=1
         elements:
+          # living room
+          - type: state-icon
+            entity: binary_sensor.motion_living_room
+            style:
+              top: 15%
+              left: 52%
           - type: state-icon
             entity: switch.media_player_living_room
             tap_action: toggle
             style:
               top: 55%
               left: 50%
+          # living room balcony
           - type: state-icon
             entity: switch.water_heater
             tap_action: toggle
             style:
               top: 18%
               left: 22%
+          # bedroom
           - type: state-label
             entity: sensor.ht_bedroom_temperature
             style:
@@ -39,11 +47,7 @@ views:
             style:
               top: 90%
               left: 12%
-          - type: state-icon
-            entity: binary_sensor.motion_living_room
-            style:
-              top: 15%
-              left: 52%
+          # people
           - type: image
             entity: device_tracker.1
             image: /local/device_1.jpg
