@@ -148,9 +148,10 @@ automation: !include automations.yaml
 script: !include scripts.yaml
 zone: !include zones.yaml
 
-# logger:
-#   logs:
-#     homeassistant.components.binary_sensor.xiaomi_aqara: debug
-#     homeassistant.components.xiaomi_aqara: debug
-#     xiaomi_gateway: debug
-#     homeassistant.components.climate.xiaomi_miio: debug
+logger:
+  logs:
+    requests.packages.urllib3.connectionpool: critical
+    # homeassistant.components.binary_sensor.xiaomi_aqara: debug
+    # homeassistant.components.xiaomi_aqara: debug
+    # xiaomi_gateway: debug
+    # homeassistant.components.climate.xiaomi_miio: debug
