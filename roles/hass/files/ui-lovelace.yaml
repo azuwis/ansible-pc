@@ -118,3 +118,4 @@ views:
             service_data: {}
           - automation.notify_home
           - automation.water_heater
+          - automation.water_heater_season

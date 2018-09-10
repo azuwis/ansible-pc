@@ -7,6 +7,17 @@
   action:
     service: script.water_heater_on
 
+- id: water_heater_season
+  alias: Water heater season
+  trigger:
+    platform: time
+    at: '21:00:00'
+  condition:
+    condition: template
+    value_template: "{{ now().month >= 9 or now().month <= 5 }}"
+  action:
+    service: script.water_heater_on
+
 - id: notify_home
   alias: Notify home
   trigger:
