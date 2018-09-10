@@ -16,7 +16,7 @@ devices:
     friendly_name: ht_bedroom
     retain: false
   '0x00158d00022b8fdf':
-    friendly_name: motion_living_room
+    friendly_name: motion_bedroom
     occupancy_timeout: 180
     retain: false
   '0x00158d00024689f1':
