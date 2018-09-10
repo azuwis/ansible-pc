@@ -12,7 +12,6 @@
   trigger:
     platform: state
     entity_id:
-      - device_tracker.1
       - device_tracker.2
     from: 'not_home'
     to: 'home'
