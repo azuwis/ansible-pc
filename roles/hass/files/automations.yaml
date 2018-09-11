@@ -1,5 +1,5 @@
-- id: button_click
-  alias: Button click
+- id: button_single
+  alias: Button single
   trigger:
     platform: mqtt
     topic: zigbee2mqtt/button_bedroom
@@ -9,6 +9,38 @@
   action:
     service: light.toggle
     entity_id: light.living_room
+
+- id: button_double
+  alias: Button double
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/button_bedroom
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.click == 'double' }}"
+  action:
+    service: media_player.toggle
+    entity_id: media_player.tv
+
+- id: button_long
+  alias: Button long
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/button_bedroom
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.click == 'long' }}"
+  action:
+    - service: switch.toggle
+      entity_id: switch.flux
+    - condition: state
+      entity_id: switch.flux
+      state: 'off'
+    - service: light.turn_on
+      entity_id: light.living_room
+      data:
+        brightness: 200
+        kelvin: 5000
 
 - id: water_heater
   alias: Water heater
