@@ -29,7 +29,7 @@ views:
               top: 33%
               left: 52%
           - type: state-icon
-            entity: switch.media_player_living_room
+            entity: switch.tv
             tap_action: toggle
             style:
               top: 55%
@@ -88,7 +88,7 @@ views:
     icon: mdi:cast-connected
     cards:
       - type: media-control
-        entity: media_player.living_room
+        entity: media_player.tv
       - type: entities
         entities:
           - climate.ac_partner
