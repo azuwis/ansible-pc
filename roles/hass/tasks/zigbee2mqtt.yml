@@ -30,6 +30,11 @@
     mode: '0750'
     state: directory
 
+- name: logrotate config
+  copy:
+    dest: /etc/logrotate.d/zigbee2mqtt
+    src: zigbee2mqtt.logrotate
+
 - name: config zigbee2mqtt
   copy:
     dest: /home/hass/zigbee2mqtt/data/configuration.yaml

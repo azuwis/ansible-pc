@@ -8,6 +8,7 @@ serial:
   disable_led: true
 advanced:
   log_directory: /var/log/zigbee2mqtt
+  log_directory_timestamp: false
 devices:
   '0x00158d00023d57a9':
     friendly_name: button_bedroom

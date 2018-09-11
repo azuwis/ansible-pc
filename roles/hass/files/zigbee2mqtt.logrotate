@@ -1,0 +1,7 @@
+/var/log/zigbee2mqtt/log.txt {
+    compress
+    daily
+    missingok
+    rotate 7
+    copytruncate
+}
