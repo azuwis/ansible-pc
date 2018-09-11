@@ -152,7 +152,8 @@ zone: !include zones.yaml
 logger:
   default: warning
   logs:
-    requests.packages.urllib3.connectionpool: critical
+    braviarc.braviarc: critical
+    urllib3.connectionpool: critical
     # homeassistant.components.binary_sensor.xiaomi_aqara: debug
     # homeassistant.components.xiaomi_aqara: debug
     # xiaomi_gateway: debug
