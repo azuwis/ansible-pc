@@ -39,8 +39,9 @@
     - service: light.turn_on
       entity_id: light.living_room
       data:
-        brightness: 200
+        brightness: 175
         kelvin: 5000
+        transition: 30
 
 - id: water_heater
   alias: Water heater
