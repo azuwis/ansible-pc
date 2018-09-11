@@ -1,3 +1,15 @@
+- id: button_click
+  alias: Button click
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/button_bedroom
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.click == 'single' }}"
+  action:
+    service: light.toggle
+    entity_id: light.living_room
+
 - id: water_heater
   alias: Water heater
   trigger:
