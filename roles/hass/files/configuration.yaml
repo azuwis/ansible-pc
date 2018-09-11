@@ -106,6 +106,8 @@ switch:
   - platform: flux
     lights:
       - light.living_room
+    start_time: '7:00'
+    stop_time: '22:00'
     start_colortemp: 5000
     sunset_colortemp: 3400
     stop_colortemp: 2700
