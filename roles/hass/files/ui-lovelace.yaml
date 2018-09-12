@@ -32,7 +32,13 @@ views:
             entity: light.living_room
             style:
               top: 33%
-              left: 52%
+              left: 48%
+          - type: state-icon
+            entity: switch.reading
+            tap_action: toggle
+            style:
+              top: 33%
+              left: 54%
           - type: state-icon
             entity: switch.tv
             tap_action: toggle
