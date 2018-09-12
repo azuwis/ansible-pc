@@ -37,6 +37,21 @@
     data:
       entity_id: switch.reading_living_room
 
+- id: flux_living_room
+  alias: Flux living room
+  trigger:
+    platform: state
+    entity_id: light.living_room
+    to: 'on'
+  condition:
+    condition: time
+    after: '7:00'
+    before: '23:00'
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.flux_living_room
+
 - id: water_heater
   alias: Water heater
   trigger:
