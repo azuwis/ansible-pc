@@ -8,7 +8,8 @@
     value_template: "{{ trigger.payload_json.click == 'single' }}"
   action:
     service: light.toggle
-    entity_id: light.living_room
+    data:
+      entity_id: light.living_room
 
 - id: button_double
   alias: Button double
@@ -20,7 +21,8 @@
     value_template: "{{ trigger.payload_json.click == 'double' }}"
   action:
     service: media_player.toggle
-    entity_id: media_player.tv
+    data:
+      entity_id: media_player.tv
 
 - id: button_long
   alias: Button long
