@@ -88,6 +88,7 @@ views:
               left: 95%
               width: 5%
               border-radius: 50%
+
   - title: Media
     id: media
     icon: mdi:cast-connected
@@ -97,12 +98,14 @@ views:
       - type: entities
         entities:
           - climate.ac_partner
+
   - title: Weather
     id: weather
     icon: mdi:weather-partlycloudy
     cards:
       - type: weather-forecast
         entity: weather.hangzhou
+
   - title: Settings
     id: settings
     icon: mdi:settings
