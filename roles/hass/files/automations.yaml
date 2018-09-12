@@ -31,17 +31,9 @@
     condition: template
     value_template: "{{ trigger.payload_json.click == 'long' }}"
   action:
-    - service: switch.toggle
-      entity_id: switch.flux
-    - condition: state
-      entity_id: switch.flux
-      state: 'off'
-    - service: light.turn_on
-      entity_id: light.living_room
-      data:
-        brightness: 175
-        kelvin: 5000
-        transition: 30
+    service: switch.toggle
+    data:
+      entity_id: switch.reading
 
 - id: water_heater
   alias: Water heater
