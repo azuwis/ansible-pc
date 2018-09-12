@@ -105,6 +105,7 @@ switch:
     mac: !secret broadlink_mac
 
   - platform: flux
+    name: flux_living_room
     lights:
       - light.living_room
     start_time: '7:00'
@@ -116,14 +117,14 @@ switch:
 
   - platform: template
     switches:
-      reading:
-        friendly_name: Reading
-        value_template: "{{ is_state('switch.flux', 'off') }}"
+      reading_living_room:
+        friendly_name: Reading living room
+        value_template: "{{ is_state('switch.flux_living_room', 'off') }}"
         icon_template: mdi:book-open-page-variant
         turn_on:
           - service: switch.turn_off
             data:
-              entity_id: switch.flux
+              entity_id: switch.flux_living_room
           - service: light.turn_on
             entity_id: light.living_room
             data:
@@ -133,7 +134,7 @@ switch:
         turn_off:
           service: switch.turn_on
           data:
-            entity_id: switch.flux
+            entity_id: switch.flux_living_room
 
       tv:
         friendly_name: TV

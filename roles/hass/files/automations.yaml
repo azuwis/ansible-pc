@@ -33,7 +33,7 @@
   action:
     service: switch.toggle
     data:
-      entity_id: switch.reading
+      entity_id: switch.reading_living_room
 
 - id: water_heater
   alias: Water heater

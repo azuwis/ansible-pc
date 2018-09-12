@@ -34,7 +34,7 @@ views:
               top: 33%
               left: 48%
           - type: state-icon
-            entity: switch.reading
+            entity: switch.reading_living_room
             tap_action: toggle
             style:
               top: 33%
