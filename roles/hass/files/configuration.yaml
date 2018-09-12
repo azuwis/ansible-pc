@@ -132,17 +132,51 @@ switch:
           {% else %}
             mdi:television
           {% endif %}
+
       water_heater:
         value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
-        turn_on:
-          service: script.turn_on
-          data:
-            entity_id: script.water_heater_on
-        turn_off:
-          service: script.turn_on
-          data:
-            entity_id: script.water_heater_off
         icon_template: mdi:water
+        turn_on:
+          - alias: Power button
+            service: !secret broadlink_send_packet
+            data:
+              packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+          - delay: '00:00:01'
+          - alias: Heating button
+            service: !secret broadlink_send_packet
+            data:
+              packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+          - wait_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
+            timeout: '00:01:03'
+          - condition: template
+            value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
+          - alias: Power button
+            service: !secret broadlink_send_packet
+            data:
+              packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+          - delay: '00:00:01'
+          - alias: Heating button
+            service: !secret broadlink_send_packet
+            data:
+              packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+          - wait_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
+            timeout: '00:01:03'
+          - condition: template
+            value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
+          - alias: Power button
+            service: !secret broadlink_send_packet
+            data:
+              packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+          - delay: '00:00:01'
+          - alias: Heating button
+            service: !secret broadlink_send_packet
+            data:
+              packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+        turn_off:
+          - alias: Power button
+            service: !secret broadlink_send_packet
+            data:
+              packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
 
 weather:
   - platform: yweather

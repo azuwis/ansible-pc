@@ -7,8 +7,6 @@ excluded_entities:
   - device_tracker.1
   - device_tracker.2
   - light.living_room
-  - script.water_heater_off
-  - script.water_heater_on
   - script.hass_reload
   - sensor.ht_bedroom_humidity
   - sensor.ht_bedroom_temperature
