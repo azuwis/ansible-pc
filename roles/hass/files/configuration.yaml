@@ -160,45 +160,45 @@ switch:
         icon_template: mdi:water
         turn_on:
           - alias: Power button
-            service: !secret broadlink_send_packet
+            service: climate.xiaomi_miio_send_command
             data:
-              packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+              command: 'FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410'
           - delay: '00:00:01'
           - alias: Heating button
-            service: !secret broadlink_send_packet
+            service: climate.xiaomi_miio_send_command
             data:
-              packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+              command: 'FE00000000000000000000000006002E2254003600A801C403840D6C138832000100010100000001000000000100010000010101000101010101000100000001000001000101010001043205C0'
           - wait_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
             timeout: '00:01:03'
           - condition: template
             value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
           - alias: Power button
-            service: !secret broadlink_send_packet
+            service: climate.xiaomi_miio_send_command
             data:
-              packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+              command: 'FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410'
           - delay: '00:00:01'
           - alias: Heating button
-            service: !secret broadlink_send_packet
+            service: climate.xiaomi_miio_send_command
             data:
-              packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+              command: 'FE00000000000000000000000006002E2254003600A801C403840D6C138832000100010100000001000000000100010000010101000101010101000100000001000001000101010001043205C0'
           - wait_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
             timeout: '00:01:03'
           - condition: template
             value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
           - alias: Power button
-            service: !secret broadlink_send_packet
+            service: climate.xiaomi_miio_send_command
             data:
-              packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+              command: 'FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410'
           - delay: '00:00:01'
           - alias: Heating button
-            service: !secret broadlink_send_packet
+            service: climate.xiaomi_miio_send_command
             data:
-              packet: 'JgBkAAABJ5YRExI4ERQROBE4ERQRFBETEjgRExEUEhMSExE4EhMROBEUERMRORI3EjcTEhE4EjgROBE5ETgRFBE4EhMTERITEjcSExEUETgRFRA4EzcROBITETgSAARoAAEolBIADQUAAAAA'
+              command: 'FE00000000000000000000000006002E2254003600A801C403840D6C138832000100010100000001000000000100010000010101000101010101000100000001000001000101010001043205C0'
         turn_off:
           - alias: Power button
-            service: !secret broadlink_send_packet
+            service: climate.xiaomi_miio_send_command
             data:
-              packet: 'JgBkAAABJ5USExI3ERQROBE4EhMRFBITETgRFBETEhMRFBE4ERQROBITEhMROBE4EjgSEhI4EjcRORE4ERQROBEUERMSExEUETgRFBE4EhMROBI4ETgSNxITETgSAARoAAEnlRIADQUAAAAA'
+              command: 'FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410'
 
 weather:
   - platform: yweather
