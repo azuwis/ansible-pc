@@ -103,7 +103,7 @@ views:
         entity: media_player.tv
       - type: entities
         entities:
-          - climate.ac_partner
+          - climate.gree
 
   - title: Weather
     id: weather

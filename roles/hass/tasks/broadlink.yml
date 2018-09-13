@@ -1,0 +1,26 @@
+---
+- name: create dir
+  file:
+    dest: "{{ item }}"
+    owner: hass
+    group: hass
+    state: directory
+  with_items:
+    - /home/hass/config/custom_components/climate
+    - /home/hass/config/broadlink_climate_codes
+
+- name: install broadlink.py
+  get_url:
+    dest: /home/hass/config/custom_components/climate/broadlink.py
+    url: https://github.com/vpnmaster/homeassistant-custom-components/raw/master/custom_components/climate/broadlink.py
+    checksum: sha1:3394d30d6b254e2ec76bc1d2fa54a704dac5f796
+    owner: hass
+    group: hass
+
+- name: install gree.ini
+  get_url:
+    dest: /home/hass/config/broadlink_climate_codes/gree.ini
+    url: https://github.com/vpnmaster/homeassistant-custom-components/raw/master/broadlink_climate_codes/gree.ini
+    checksum: sha1:9e589f0ae909aca003679ee74c69d656afaf3814
+    owner: hass
+    group: hass
