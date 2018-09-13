@@ -53,8 +53,8 @@ camera:
 climate:
   - platform: xiaomi_miio
     name: AC partner
-    host: !secret acpartner_host
-    token: !secret acpartner_token
+    host: !secret ac_partner_host
+    token: !secret ac_partner_token
     target_sensor: sensor.ht_bedroom_temperature
     scan_interval: 60
 
@@ -211,8 +211,8 @@ weather:
 xiaomi_aqara:
   interface: !secret interface
   gateways:
-    - mac: !secret acpartner_mac
-      key: !secret acpartner_key
+    - mac: !secret ac_partner_mac
+      key: !secret ac_partner_key
 
 group: !include groups.yaml
 automation: !include automations.yaml
