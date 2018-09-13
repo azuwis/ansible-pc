@@ -15,7 +15,7 @@ http:
   server_host: 127.0.0.1
 
 updater:
-  reporting: False
+  reporting: no
 
 # discovery:
 
@@ -66,7 +66,7 @@ device_tracker:
     dhcp_software: none
     consider_home: 20
     new_device_defaults:
-      track_new_devices: False
+      track_new_devices: no
 
 light:
   - platform: yeelight
@@ -81,14 +81,14 @@ media_player:
     name: TV
 
 mqtt:
-  discovery: true
+  discovery: yes
   broker: 127.0.0.1
   birth_message:
-    topic: 'hass/status'
-    payload: 'online'
+    topic: hass/status
+    payload: online
   will_message:
-    topic: 'hass/status'
-    payload: 'offline'
+    topic: hass/status
+    payload: offline
 
 notify:
   - name: html5
@@ -119,7 +119,8 @@ switch:
     switches:
       reading_living_room:
         friendly_name: Reading living room
-        value_template: "{{ is_state('light.living_room', 'on') and is_state('switch.flux_living_room', 'off') }}"
+        value_template: >-
+          {{ is_state('light.living_room', 'on') and is_state('switch.flux_living_room', 'off') }}
         icon_template: mdi:book-open-page-variant
         turn_on:
           - service: switch.turn_off
@@ -138,7 +139,8 @@ switch:
 
       tv:
         friendly_name: TV
-        value_template: "{{ states('media_player.tv') }}"
+        value_template: >-
+          {{ states('media_player.tv') }}
         turn_on:
           service: media_player.turn_on
           data:
@@ -151,49 +153,54 @@ switch:
 
       water_heater:
         friendly_name: Water heater
-        value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
+        value_template: >-
+          {{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}
         icon_template: mdi:water
         turn_on:
           - alias: Power button
             service: climate.xiaomi_miio_send_command
             data:
-              command: 'FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410'
+              command: FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410
           - delay: '00:00:01'
           - alias: Heating button
             service: climate.xiaomi_miio_send_command
             data:
-              command: 'FE00000000000000000000000006002E2254003600A801C403840D6C138832000100010100000001000000000100010000010101000101010101000100000001000001000101010001043205C0'
-          - wait_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
+              command: FE00000000000000000000000006002E2254003600A801C403840D6C138832000100010100000001000000000100010000010101000101010101000100000001000001000101010001043205C0
+          - wait_template: >-
+              {{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}
             timeout: '00:01:03'
           - condition: template
-            value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
+            value_template: >-
+              {{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}
           - alias: Power button
             service: climate.xiaomi_miio_send_command
             data:
-              command: 'FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410'
+              command: FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410
           - delay: '00:00:01'
           - alias: Heating button
             service: climate.xiaomi_miio_send_command
             data:
-              command: 'FE00000000000000000000000006002E2254003600A801C403840D6C138832000100010100000001000000000100010000010101000101010101000100000001000001000101010001043205C0'
-          - wait_template: "{{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}"
+              command: FE00000000000000000000000006002E2254003600A801C403840D6C138832000100010100000001000000000100010000010101000101010101000100000001000001000101010001043205C0
+          - wait_template: >-
+              {{ state_attr('climate.ac_partner', 'load_power') | int > 100 }}
             timeout: '00:01:03'
           - condition: template
-            value_template: "{{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}"
+            value_template: >-
+              {{ state_attr('climate.ac_partner', 'load_power') | int < 100 }}
           - alias: Power button
             service: climate.xiaomi_miio_send_command
             data:
-              command: 'FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410'
+              command: FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410
           - delay: '00:00:01'
           - alias: Heating button
             service: climate.xiaomi_miio_send_command
             data:
-              command: 'FE00000000000000000000000006002E2254003600A801C403840D6C138832000100010100000001000000000100010000010101000101010101000100000001000001000101010001043205C0'
+              command: FE00000000000000000000000006002E2254003600A801C403840D6C138832000100010100000001000000000100010000010101000101010101000100000001000001000101010001043205C0
         turn_off:
           - alias: Power button
             service: climate.xiaomi_miio_send_command
             data:
-              command: 'FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410'
+              command: FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410
 
 weather:
   - platform: yweather

@@ -5,7 +5,8 @@
     topic: zigbee2mqtt/button_bedroom
   condition:
     condition: template
-    value_template: "{{ trigger.payload_json.click == 'single' }}"
+    value_template: >-
+      {{ trigger.payload_json.click == 'single' }}
   action:
     service: light.toggle
     data:
@@ -18,7 +19,8 @@
     topic: zigbee2mqtt/button_bedroom
   condition:
     condition: template
-    value_template: "{{ trigger.payload_json.click == 'double' }}"
+    value_template: >-
+      {{ trigger.payload_json.click == 'double' }}
   action:
     service: media_player.toggle
     data:
@@ -31,7 +33,8 @@
     topic: zigbee2mqtt/button_bedroom
   condition:
     condition: template
-    value_template: "{{ trigger.payload_json.click == 'long' }}"
+    value_template: >-
+      {{ trigger.payload_json.click == 'long' }}
   action:
     service: switch.toggle
     data:
@@ -70,7 +73,8 @@
     at: '21:00:00'
   condition:
     condition: template
-    value_template: "{{ now().month >= 9 or now().month <= 5 }}"
+    value_template: >-
+      {{ now().month >= 9 or now().month <= 5 }}
   action:
     service: switch.turn_on
     data:
@@ -82,8 +86,8 @@
     platform: state
     entity_id:
       - device_tracker.2
-    from: 'not_home'
-    to: 'home'
+    from: not_home
+    to: home
   condition:
     condition: time
     after: '8:00'
@@ -91,5 +95,5 @@
   action:
     service: notify.html5
     data_template:
-      message: >
+      message: >-
         {{ state_attr(trigger.entity_id, 'friendly_name') }} arrived home
