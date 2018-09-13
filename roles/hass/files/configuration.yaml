@@ -99,6 +99,10 @@ notify:
 
 recorder:
   db_url: postgres://@/hass
+  exclude:
+    entities:
+      - climate.ac_partner
+      - switch.tv
 
 switch:
   - platform: broadlink
