@@ -29,7 +29,12 @@ map:
 
 sun:
 
-# sensor:
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+
 #   - platform: yr
 #     monitored_conditions:
 #       - temperature
