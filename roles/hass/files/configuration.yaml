@@ -73,6 +73,7 @@ light:
     devices:
       !secret yeelight_host:
         name: Living room
+        save_on_change: no
         transition: 1000
 
 media_player:
