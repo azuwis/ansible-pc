@@ -40,6 +40,49 @@
     data:
       entity_id: switch.reading_living_room
 
+- id: climate_bedroom_auto_off
+  alias: Climate bedroom auto off
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.ht_bedroom_temperature
+    below: 25.5
+    for: '00:30:00'
+  # condition:
+  #   condition: and
+  #   conditions:
+  #     - condition: number_state
+  #       entity_id: weather.hangzhou
+  #       value_template: >-
+  #         {{ state.attributes.temperature }}
+  #       below: 26
+  #     - condition: time
+  #       after: '22:00'
+  #       before: '7:00'
+  action:
+    service: climate.set_operation_mode
+    data:
+      entity_id: climate.bedroom
+      operation_mode: 'off'
+
+- id: climate_bedroom_auto_on
+  alias: Climate bedroom auto on
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.ht_bedroom_temperature
+    above: 26.0
+    for: '00:15:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '22:00'
+        before: '7:00'
+  action:
+    service: climate.set_operation_mode
+    data:
+      entity_id: climate.bedroom
+      operation_mode: 'cool'
+
 - id: flux_living_room_light_on
   alias: Flux living room light on
   trigger:
