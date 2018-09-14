@@ -35,11 +35,11 @@ sensor:
       - type: disk_use_percent
         arg: /home
 
-#   - platform: yr
-#     monitored_conditions:
-#       - temperature
-#       - symbol
-#       - humidity
+  # - platform: yr
+  #   monitored_conditions:
+  #     - humidity
+  #     - symbol
+  #     - temperature
 
 tts:
   - platform: google
