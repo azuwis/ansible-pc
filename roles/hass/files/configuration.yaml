@@ -64,7 +64,7 @@ climate:
     scan_interval: 60
 
   - platform: broadlink
-    name: Gree
+    name: Bedroom
     host: !secret broadlink_host
     mac: !secret broadlink_mac
     ircodes_ini: broadlink_climate_codes/gree.ini
