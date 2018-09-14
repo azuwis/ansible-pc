@@ -40,8 +40,8 @@
     data:
       entity_id: switch.reading_living_room
 
-- id: flux_living_room
-  alias: Flux living room
+- id: flux_living_room_light_on
+  alias: Flux living room light on
   trigger:
     platform: state
     entity_id: light.living_room
@@ -50,6 +50,20 @@
     condition: time
     after: '7:00'
     before: '23:00'
+  action:
+    service: switch.turn_on
+    data:
+      entity_id: switch.flux_living_room
+
+- id: flux_living_room_hass_started
+  alias: Flux living room hass started
+  trigger:
+    platform: homeassistant
+    event: start
+  condition:
+    condition: time
+    after: '22:00'
+    before: '17:00'
   action:
     service: switch.turn_on
     data:
