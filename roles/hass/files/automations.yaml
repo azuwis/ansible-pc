@@ -83,6 +83,54 @@
       entity_id: climate.bedroom
       operation_mode: 'cool'
 
+# - id: cube_flip90
+#   alias: Cube flip90
+#   trigger:
+#     platform: mqtt
+#     topic: zigbee2mqtt/cube
+#   condition:
+#     condition: template
+#     value_template: >-
+#       {{ trigger.payload_json.action == 'flip90' }}
+#   action:
+#     service: xiaomi_aqara.play_ringtone
+#     data:
+#       gw_mac: !secret ac_partner_mac
+#       ringtone_id: 10
+#       ringtone_vol: 50
+
+- id: cube_rotate_left
+  alias: Cube rotate left
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/cube
+  condition:
+    condition: template
+    value_template: >-
+      {{ trigger.payload_json.action == 'rotate_left' }}
+  action:
+    service: light.turn_on
+    entity_id: light.living_room
+    data_template:
+      brightness: >-
+        {{ states.light.living_room.attributes.brightness - 50 }}
+
+- id: cube_rotate_right
+  alias: Cube rotate right
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/cube
+  condition:
+    condition: template
+    value_template: >-
+      {{ trigger.payload_json.action == 'rotate_right' }}
+  action:
+    service: light.turn_on
+    entity_id: light.living_room
+    data_template:
+      brightness: >-
+        {{ states.light.living_room.attributes.brightness + 50 }}
+
 - id: flux_living_room_light_on
   alias: Flux living room light on
   trigger:
