@@ -1,8 +1,8 @@
-- id: button_single
+- id: button_1_single
   alias: Button single
   trigger:
     platform: mqtt
-    topic: zigbee2mqtt/button_bedroom
+    topic: zigbee2mqtt/button_1
   condition:
     condition: template
     value_template: >-
@@ -12,11 +12,11 @@
     data:
       entity_id: light.living_room
 
-- id: button_double
+- id: button_1_double
   alias: Button double
   trigger:
     platform: mqtt
-    topic: zigbee2mqtt/button_bedroom
+    topic: zigbee2mqtt/button_1
   condition:
     condition: template
     value_template: >-
@@ -26,11 +26,11 @@
     data:
       entity_id: media_player.tv
 
-- id: button_long
+- id: button_1_long
   alias: Button long
   trigger:
     platform: mqtt
-    topic: zigbee2mqtt/button_bedroom
+    topic: zigbee2mqtt/button_1
   condition:
     condition: template
     value_template: >-
