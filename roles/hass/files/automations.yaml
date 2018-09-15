@@ -43,21 +43,10 @@
 - id: climate_bedroom_auto_off
   alias: Climate bedroom auto off
   trigger:
-    platform: numeric_state
-    entity_id: sensor.ht_bedroom_temperature
-    below: 25.5
-    for: '00:30:00'
-  # condition:
-  #   condition: and
-  #   conditions:
-  #     - condition: number_state
-  #       entity_id: weather.hangzhou
-  #       value_template: >-
-  #         {{ state.attributes.temperature }}
-  #       below: 26
-  #     - condition: time
-  #       after: '22:00'
-  #       before: '7:00'
+    platform: state
+    entity_id: binary_sensor.door_bedroom
+    to: 'on'
+    for: '00:05:00'
   action:
     service: climate.set_operation_mode
     data:
@@ -67,16 +56,22 @@
 - id: climate_bedroom_auto_on
   alias: Climate bedroom auto on
   trigger:
-    platform: numeric_state
-    entity_id: sensor.ht_bedroom_temperature
-    above: 26.0
-    for: '00:15:00'
+    platform: state
+    entity_id: binary_sensor.door_bedroom
+    to: 'off'
+    for: '00:00:10'
   condition:
     condition: and
     conditions:
       - condition: time
-        after: '22:00'
-        before: '7:00'
+        after: '19:30'
+        before: '22:00'
+      - condition: numeric_state
+        entity_id: sensor.ht_bedroom_temperature
+        above: 27
+      - condition: numeric_state
+        entity_id: sensor.ht_outside_temperature
+        above: 27
   action:
     service: climate.set_operation_mode
     data:
