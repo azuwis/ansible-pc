@@ -27,7 +27,12 @@ views:
             entity: binary_sensor.motion_living_room
             style:
               top: 15%
-              left: 52%
+              left: 50%
+          - type: state-icon
+            entity: binary_sensor.motion_dining_room
+            style:
+              top: 15%
+              left: 68%
           - type: state-icon
             entity: light.living_room
             style:
