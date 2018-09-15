@@ -11,18 +11,30 @@ advanced:
   log_directory_timestamp: false
 devices:
   '0x00158d00023d57a9':
-    friendly_name: button_bedroom
+    friendly_name: button_1
+    retain: false
+  '0x00158d0001e85323':
+    friendly_name: button_2
+    retain: false
+  '0x00158d00027a84d7':
+    friendly_name: cube
+    retain: false
+  '0x00158d00028f9af8':
+    friendly_name: door_bedroom
     retain: false
   '0x00158d0001e81c40':
     friendly_name: ht_bedroom
+    retain: false
+  '0x00158d000215c127':
+    friendly_name: ht_outside
     retain: false
   '0x00158d00022b8fdf':
     friendly_name: motion_bedroom
     occupancy_timeout: 90
     retain: false
+  '0x00158d00020dfcd8':
+    friendly_name: motion_dining_room
+    retain: false
   '0x00158d00024689f1':
     friendly_name: plug
-    retain: false
-  '0x00158d00027a84d7':
-    friendly_name: cube
     retain: false
