@@ -134,8 +134,8 @@ switch:
       - light.living_room
     start_time: '7:00'
     stop_time: '23:00'
-    start_colortemp: 5000
-    sunset_colortemp: 3400
+    start_colortemp: 5600
+    sunset_colortemp: 4000
     stop_colortemp: 2700
     mode: mired
 
@@ -155,7 +155,7 @@ switch:
             data:
               brightness: 175
               kelvin: 5000
-              transition: 30
+              transition: 5
         turn_off:
           service: switch.turn_on
           data:
