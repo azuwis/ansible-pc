@@ -81,7 +81,7 @@
     service: climate.set_operation_mode
     data:
       entity_id: climate.bedroom
-      operation_mode: 'cool'
+      operation_mode: cool
 
 # - id: cube_flip90
 #   alias: Cube flip90
