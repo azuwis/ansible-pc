@@ -46,7 +46,7 @@
     platform: state
     entity_id: binary_sensor.door_bedroom
     to: 'on'
-    for: '00:05:00'
+    for: '00:02:00'
   action:
     service: climate.set_operation_mode
     data:
@@ -63,15 +63,12 @@
   condition:
     condition: and
     conditions:
-      - condition: time
-        after: '19:30'
-        before: '22:00'
       - condition: numeric_state
         entity_id: sensor.ht_bedroom_temperature
-        above: 27
+        above: 26.5
       - condition: numeric_state
         entity_id: sensor.ht_outside_temperature
-        above: 27
+        above: 26.5
   action:
     service: climate.set_operation_mode
     data:
