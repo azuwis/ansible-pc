@@ -72,7 +72,7 @@ input_select:
       - info
       - debug
     initial: info
-    icon: mdi:cellphone-wireless
+    icon: mdi:format-list-bulleted-type
 
 timer:
   zigbee2mqtt_permit_join:
