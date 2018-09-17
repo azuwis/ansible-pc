@@ -30,10 +30,11 @@ devices:
     retain: false
   '0x00158d00022b8fdf':
     friendly_name: motion_bedroom
-    occupancy_timeout: 90
+    occupancy_timeout: 600
     retain: false
   '0x00158d00020dfcd8':
     friendly_name: motion_dining_room
+    occupancy_timeout: 600
     retain: false
   '0x00158d00024689f1':
     friendly_name: plug
