@@ -152,6 +152,34 @@
     data:
       entity_id: switch.flux_living_room
 
+# - id: nightlight_bedroom_auto_off
+#   alias: Nightlight bedroom auto off
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_bedroom
+#     to: 'off'
+#     for: '00:30:00'
+#   action:
+#     service: switch.turn_off
+#     data:
+#       entity_id: switch.plug_switch
+
+# - id: nightlight_bedroom_auto_on
+#   alias: Nightlight bedroom auto on
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_bedroom
+#     to: 'on'
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: sun
+#         after: sunset
+#   action:
+#     service: switch.turn_on
+#     data:
+#       entity_id: switch.plug_switch
+
 - id: water_heater
   alias: Water heater
   trigger:
