@@ -1,10 +1,9 @@
 automation:
-  - id: enable_zigbee_join
-    alias: Enable Zigbee joining
+  - id: enable_zigbee2mqtt_join
     hide_entity: yes
     trigger:
       platform: state
-      entity_id: input_boolean.zigbee_permit_join
+      entity_id: input_boolean.zigbee2mqtt_permit_join
       to: 'on'
     action:
       - service: mqtt.publish
@@ -13,14 +12,13 @@ automation:
           payload: 'true'
       - service: timer.start
         data:
-          entity_id: timer.zigbee_permit_join
+          entity_id: timer.zigbee2mqtt_permit_join
 
-  - id: disable_zigbee_join
-    alias: Disable Zigbee joining
+  - id: disable_zigbee2mqtt_join
     hide_entity: yes
     trigger:
       platform: state
-      entity_id: input_boolean.zigbee_permit_join
+      entity_id: input_boolean.zigbee2mqtt_permit_join
       to: 'off'
     action:
       - service: mqtt.publish
@@ -29,16 +27,15 @@ automation:
           payload: 'false'
       - service: timer.cancel
         data:
-          entity_id: timer.zigbee_permit_join
+          entity_id: timer.zigbee2mqtt_permit_join
 
-  - id: disable_zigbee_join_timer
-    alias: Disable Zigbee joining by timer
+  - id: disable_zigbee2mqtt_join_timer
     hide_entity: yes
     trigger:
       platform: event
       event_type: timer.finished
       event_data:
-        entity_id: timer.zigbee_permit_join
+        entity_id: timer.zigbee2mqtt_permit_join
     action:
       - service: mqtt.publish
         data:
@@ -46,14 +43,13 @@ automation:
           payload: 'false'
       - service: input_boolean.turn_off
         data:
-          entity_id: input_boolean.zigbee_permit_join
+          entity_id: input_boolean.zigbee2mqtt_permit_join
 
-  - id: zigbee_log_level
-    alias: Zigbee2mqtt log level
+  - id: zigbee2mqtt_log_level
     hide_entity: yes
     trigger:
       platform: state
-      entity_id: input_select.zigbee_log_level
+      entity_id: input_select.zigbee2mqtt_log_level
     action:
       service: mqtt.publish
       data_template:
@@ -62,13 +58,13 @@ automation:
           {{ states(trigger.entity_id) }}
 
 input_boolean:
-  zigbee_permit_join:
-    name: Allow devices to join
+  zigbee2mqtt_permit_join:
+    name: Zigbee2mqtt permit join
     initial: no
     icon: mdi:cellphone-wireless
 
 input_select:
-  zigbee_log_level:
+  zigbee2mqtt_log_level:
     name: Zigbee2mqtt log level
     options:
       - error
@@ -79,6 +75,6 @@ input_select:
     icon: mdi:cellphone-wireless
 
 timer:
-  zigbee_permit_join:
-    name: Time remaining
+  zigbee2mqtt_permit_join:
+    name: Zigbee2mqtt permit join time remaining
     duration: 600
