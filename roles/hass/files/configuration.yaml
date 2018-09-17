@@ -31,6 +31,9 @@ map:
 sun:
 
 sensor:
+  - platform: season
+    type: meteorological
+
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
