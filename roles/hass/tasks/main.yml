@@ -118,9 +118,12 @@
 
 - name: copy www directory
   synchronize:
-    src: www/
-    dest: /home/hass/config/www/
+    src: "{{ item }}/"
+    dest: /home/hass/config/{{ item }}/
     rsync_path: sudo -u hass rsync
+  with_items:
+    - packages
+    - www
   tags:
     - conf
 

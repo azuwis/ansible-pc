@@ -6,6 +6,7 @@ homeassistant:
   time_zone: Asia/Shanghai
   unit_system: metric
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 
 frontend:
 
@@ -80,12 +81,6 @@ device_tracker:
     consider_home: 20
     new_device_defaults:
       track_new_devices: no
-
-input_boolean:
-  zigbee_permit_join:
-    name: Allow devices to join
-    initial: no
-    icon: mdi:cellphone-wireless
 
 light:
   - platform: yeelight
@@ -225,11 +220,6 @@ switch:
             service: climate.xiaomi_miio_send_command
             data:
               command: FE00000000000000000000000005002C2251003600A801C403841388320001000101000000010000000001000100000101010001010101000100000000010001000101010100010410
-
-timer:
-  zigbee_permit_join:
-    name: Time remaining
-    duration: 600
 
 weather:
   - platform: yweather
