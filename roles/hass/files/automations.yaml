@@ -180,6 +180,16 @@
 #     data:
 #       entity_id: switch.plug_switch
 
+- id: theme_custom
+  alias: Set custom theme at startup
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: custom
+
 - id: water_heater
   alias: Water heater
   trigger:
