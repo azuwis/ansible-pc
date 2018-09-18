@@ -9,6 +9,9 @@ homeassistant:
   packages: !include_dir_named packages
 
 frontend:
+  themes:
+    custom:
+      state-icon-active-color: '#F57F17'
 
 config:
 
