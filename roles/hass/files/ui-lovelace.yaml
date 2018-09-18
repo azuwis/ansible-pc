@@ -35,6 +35,7 @@ views:
               left: 68%
           - type: state-icon
             entity: light.living_room
+            tap_action: toggle
             style:
               top: 33%
               left: 48%
