@@ -76,6 +76,8 @@ climate:
     temp_sensor: sensor.ht_bedroom_temperature
 
 device_tracker:
+  - platform: owntracks
+
   - platform: ubus
     host: !secret ubus_host
     username: !secret ubus_username
@@ -101,6 +103,8 @@ media_player:
 mqtt:
   discovery: yes
   broker: 127.0.0.1
+  username: local
+  password: local
   birth_message:
     topic: hass/status
     payload: online

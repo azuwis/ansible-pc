@@ -210,7 +210,7 @@
   trigger:
     platform: state
     entity_id:
-      - device_tracker.2
+      - device_tracker.owntracks_2
     from: not_home
     to: home
   condition:
