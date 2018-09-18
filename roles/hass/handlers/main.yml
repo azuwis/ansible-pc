@@ -7,6 +7,11 @@
     name: hass
     state: restarted
 
+- name: reload mosquitto
+  service:
+    name: mosquitto
+    state: reloaded
+
 - name: restart rsyslog
   service:
     name: rsyslog

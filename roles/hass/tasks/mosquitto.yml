@@ -1,0 +1,23 @@
+- name: install mosquitto
+  apt:
+    name: mosquitto
+
+- name: config mosquitto
+  copy:
+    dest: /etc/mosquitto/{{ item }}
+    src: "{{ item }}"
+  with_items:
+    - mosquitto.conf
+    - mosquitto.acl
+  notify:
+    - reload mosquitto
+
+- name: config mosquitto users
+  copy:
+    dest: /etc/mosquitto/mosquitto.users
+    content: "{{ mosquitto_users }}"
+    owner: mosquitto
+    group: mosquitto
+    mode: '0640'
+  notify:
+    - restart mosquitto
