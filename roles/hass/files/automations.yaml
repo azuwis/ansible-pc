@@ -91,37 +91,37 @@
 #       ringtone_id: 10
 #       ringtone_vol: 50
 
-- id: cube_rotate_left
-  alias: Cube rotate left
-  trigger:
-    platform: mqtt
-    topic: zigbee2mqtt/cube
-  condition:
-    condition: template
-    value_template: >-
-      {{ trigger.payload_json.action == 'rotate_left' }}
-  action:
-    service: light.turn_on
-    entity_id: light.living_room
-    data_template:
-      brightness: >-
-        {{ states.light.living_room.attributes.brightness - 50 }}
+# - id: cube_rotate_left
+#   alias: Cube rotate left
+#   trigger:
+#     platform: mqtt
+#     topic: zigbee2mqtt/cube
+#   condition:
+#     condition: template
+#     value_template: >-
+#       {{ trigger.payload_json.action == 'rotate_left' }}
+#   action:
+#     service: light.turn_on
+#     entity_id: light.living_room
+#     data_template:
+#       brightness: >-
+#         {{ states.light.living_room.attributes.brightness - 50 }}
 
-- id: cube_rotate_right
-  alias: Cube rotate right
-  trigger:
-    platform: mqtt
-    topic: zigbee2mqtt/cube
-  condition:
-    condition: template
-    value_template: >-
-      {{ trigger.payload_json.action == 'rotate_right' }}
-  action:
-    service: light.turn_on
-    entity_id: light.living_room
-    data_template:
-      brightness: >-
-        {{ states.light.living_room.attributes.brightness + 50 }}
+# - id: cube_rotate_right
+#   alias: Cube rotate right
+#   trigger:
+#     platform: mqtt
+#     topic: zigbee2mqtt/cube
+#   condition:
+#     condition: template
+#     value_template: >-
+#       {{ trigger.payload_json.action == 'rotate_right' }}
+#   action:
+#     service: light.turn_on
+#     entity_id: light.living_room
+#     data_template:
+#       brightness: >-
+#         {{ states.light.living_room.attributes.brightness + 50 }}
 
 - id: flux_living_room_light_on
   alias: Flux living room light on
