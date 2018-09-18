@@ -143,6 +143,22 @@ switch:
 
   - platform: template
     switches:
+      climate_bedroom:
+        friendly_name: Climate bedroom
+        value_template: >-
+          {{ not is_state_attr('climate.bedroom', 'operation_mode', 'off') }}
+        icon_template: mdi:air-conditioner
+        turn_on:
+          service: climate.set_operation_mode
+          data:
+            entity_id: climate.bedroom
+            operation_mode: cool
+        turn_off:
+          service: climate.set_operation_mode
+          data:
+            entity_id: climate.bedroom
+            operation_mode: 'off'
+
       reading_living_room:
         friendly_name: Reading living room
         value_template: >-

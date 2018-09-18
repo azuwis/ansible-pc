@@ -69,7 +69,8 @@ views:
               top: 64.8%
               left: 29.5%
           - type: state-icon
-            entity: climate.bedroom
+            entity: switch.climate_bedroom
+            tap_action: toggle
             style:
               top: 79%
               left: 34%
