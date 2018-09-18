@@ -3,10 +3,13 @@ permit_join: false
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://localhost'
+  user: local
+  password: local
 serial:
   port: /dev/ttyACM0
   disable_led: true
 advanced:
+  channel: 26
   log_directory: /var/log/zigbee2mqtt
   log_directory_timestamp: false
 devices:
