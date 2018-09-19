@@ -138,6 +138,9 @@ views:
               top: 67%
               left: 89.6%
 
+      - type: weather-forecast
+        entity: weather.hangzhou
+
   - title: Media
     id: media
     icon: mdi:cast-connected
@@ -148,12 +151,17 @@ views:
         entities:
           - climate.bedroom
 
-  - title: Weather
-    id: weather
-    icon: mdi:weather-partlycloudy
+  - title: Map
+    id: map
+    icon: mdi:map
+    panel: yes
     cards:
-      - type: weather-forecast
-        entity: weather.hangzhou
+      - type: map
+        entities:
+          - device_tracker.owntracks_1
+          - device_tracker.owntracks_2
+          - zone.home
+          - zone.work
 
   - title: Settings
     id: settings
@@ -173,6 +181,15 @@ views:
             action_name: Restart
             service: homeassistant.restart
             service_data: {}
+          - type: call-service
+            name: Test notification
+            icon: mdi:message-text
+            action_name: Test
+            service: notify.html5
+            service_data:
+              message: This is a test message
+      - type: entities
+        entities:
           - automation.climate_bedroom_auto_cool
           - automation.climate_bedroom_auto_off
           - automation.flux_living_room_light_on
@@ -180,7 +197,6 @@ views:
           - automation.water_heater
           - automation.water_heater_season
       - type: entities
-        title: Zigbee2mqtt
         show_header_toggle: no
         entities:
           - input_boolean.zigbee2mqtt_permit_join

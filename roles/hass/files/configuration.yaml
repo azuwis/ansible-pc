@@ -29,7 +29,7 @@ history:
 
 logbook:
 
-map:
+# map:
 
 sun:
 
@@ -127,6 +127,7 @@ recorder:
     entities:
       - climate.ac_partner
       - switch.tv
+      - switch.climate_bedroom
 
 switch:
   - platform: broadlink
