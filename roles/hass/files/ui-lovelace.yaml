@@ -88,17 +88,17 @@ views:
             entity: switch.climate_bedroom
             tap_action: toggle
             style:
-              top: 79%
+              top: 83%
               left: 34%
           - type: state-label
             entity: sensor.ht_bedroom_temperature
             style:
               top: 90%
-              left: 30%
+              left: 12.5%
           - type: state-label
             entity: sensor.ht_bedroom_humidity
             style:
-              top: 90%
+              top: 85%
               left: 12%
           # people
           - type: state-icon
