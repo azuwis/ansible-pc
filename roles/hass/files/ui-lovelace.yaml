@@ -182,10 +182,10 @@ views:
     cards:
       - type: history-graph
         entities:
-          - sensor.filtered_bedroom_humidity
-          - sensor.filtered_bedroom_temperature
-          - sensor.filtered_outside_humidity
-          - sensor.filtered_outside_temperature
+          - sensor.bedroom_humidity
+          - sensor.bedroom_temperature
+          - sensor.outside_humidity
+          - sensor.outside_temperature
 
   - title: Map
     id: map
