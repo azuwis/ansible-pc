@@ -35,7 +35,7 @@ sun:
 
 sensor:
   - platform: filter
-    name: Filtered bedroom humidity
+    name: Bedroom humidity
     entity_id: sensor.ht_bedroom_humidity
     filters:
       - filter: outlier
@@ -46,18 +46,7 @@ sensor:
         precision: 2
 
   - platform: filter
-    name: Filtered outside humidity
-    entity_id: sensor.ht_outside_humidity
-    filters:
-      - filter: outlier
-        window_size: 4
-        radius: 4.0
-      - filter: lowpass
-        time_constant: 10
-        precision: 2
-
-  - platform: filter
-    name: Filtered bedroom temperature
+    name: Bedroom temperature
     entity_id: sensor.ht_bedroom_temperature
     filters:
       - filter: outlier
@@ -70,7 +59,18 @@ sensor:
         precision: 2
 
   - platform: filter
-    name: Filtered outside temperature
+    name: Outside humidity
+    entity_id: sensor.ht_outside_humidity
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 4.0
+      - filter: lowpass
+        time_constant: 10
+        precision: 2
+
+  - platform: filter
+    name: Outside temperature
     entity_id: sensor.ht_outside_temperature
     filters:
       - filter: outlier

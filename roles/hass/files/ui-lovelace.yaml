@@ -181,10 +181,6 @@ views:
           - sensor.filtered_bedroom_temperature
           - sensor.filtered_outside_humidity
           - sensor.filtered_outside_temperature
-          - sensor.ht_bedroom_humidity
-          - sensor.ht_bedroom_temperature
-          - sensor.ht_outside_humidity
-          - sensor.ht_outside_temperature
 
   - title: Map
     id: map
