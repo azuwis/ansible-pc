@@ -71,7 +71,7 @@ views:
             entity: switch.water_heater
             tap_action: toggle
             style:
-              top: 18%
+              top: 17%
               left: 22%
           # bedroom
           - type: state-icon
