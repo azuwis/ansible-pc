@@ -168,8 +168,13 @@ views:
           entities:
             - climate.bedroom
 
-      - type: weather-forecast
-        entity: weather.hangzhou
+      - type: conditional
+        conditions:
+          - entity: weather.hangzhou
+            state_not: dummy
+        card:
+          type: weather-forecast
+          entity: weather.hangzhou
 
   - title: History
     id: history
