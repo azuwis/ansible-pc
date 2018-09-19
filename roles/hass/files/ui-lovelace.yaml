@@ -86,11 +86,15 @@ views:
               left: 34%
           - type: state-label
             entity: sensor.ht_bedroom_temperature
+            tap_action: navigate
+            navigation_path: /lovelace/history
             style:
               top: 90%
               left: 12.5%
           - type: state-label
             entity: sensor.ht_bedroom_humidity
+            tap_action: navigate
+            navigation_path: /lovelace/history
             style:
               top: 85%
               left: 12%
@@ -123,11 +127,15 @@ views:
           # outside
           - type: state-label
             entity: sensor.ht_outside_temperature
+            tap_action: navigate
+            navigation_path: /lovelace/history
             style:
               top: 72%
               left: 90%
           - type: state-label
             entity: sensor.ht_outside_humidity
+            tap_action: navigate
+            navigation_path: /lovelace/history
             style:
               top: 67%
               left: 89.6%
@@ -163,15 +171,20 @@ views:
       - type: weather-forecast
         entity: weather.hangzhou
 
-  - title: Media
-    id: media
-    icon: mdi:cast-connected
+  - title: History
+    id: history
+    icon: mdi:chart-line
     cards:
-      - type: media-control
-        entity: media_player.tv
-      - type: entities
+      - type: history-graph
         entities:
-          - climate.bedroom
+          - sensor.filtered_bedroom_humidity
+          - sensor.filtered_bedroom_temperature
+          - sensor.filtered_outside_humidity
+          - sensor.filtered_outside_temperature
+          - sensor.ht_bedroom_humidity
+          - sensor.ht_bedroom_temperature
+          - sensor.ht_outside_humidity
+          - sensor.ht_outside_temperature
 
   - title: Map
     id: map
