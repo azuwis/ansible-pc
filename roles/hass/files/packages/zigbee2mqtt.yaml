@@ -1,5 +1,6 @@
 automation:
   - id: enable_zigbee2mqtt_join
+    alias: Enable zigbee2mqtt join
     hide_entity: yes
     trigger:
       platform: state
@@ -15,6 +16,7 @@ automation:
           entity_id: timer.zigbee2mqtt_permit_join
 
   - id: disable_zigbee2mqtt_join
+    alias: Disable zigbee2mqtt join
     hide_entity: yes
     trigger:
       platform: state
@@ -30,6 +32,7 @@ automation:
           entity_id: timer.zigbee2mqtt_permit_join
 
   - id: disable_zigbee2mqtt_join_timer
+    alias: Disable zigbee2mqtt join timer
     hide_entity: yes
     trigger:
       platform: event
@@ -46,6 +49,7 @@ automation:
           entity_id: input_boolean.zigbee2mqtt_permit_join
 
   - id: zigbee2mqtt_log_level
+    alias: Zigbee2mqtt log level
     hide_entity: yes
     trigger:
       platform: state

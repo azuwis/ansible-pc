@@ -1,16 +1,31 @@
 title: Home
 
 excluded_entities:
-  - binary_sensor.motion_living_room
+  - automation.disable_zigbee2mqtt_join
+  - automation.disable_zigbee2mqtt_join_timer
+  - automation.enable_zigbee2mqtt_join
+  - automation.flux_living_room_hass_started
+  - automation.set_custom_theme_at_startup
+  - automation.zigbee2mqtt_log_level
+  - binary_sensor.door_bedroom
   - binary_sensor.motion_bedroom
+  - binary_sensor.motion_dining_room
+  - binary_sensor.motion_living_room
   - camera.living_room
+  - climate.ac_partner
   - device_tracker.owntracks_1
   - device_tracker.owntracks_2
   - light.living_room
   - script.hass_reload
+  - sensor.season
   - sensor.ht_bedroom_humidity
   - sensor.ht_bedroom_temperature
+  - sensor.ht_outside_humidity
+  - sensor.ht_outside_temperature
+  - sensor.illumination_acpartner
   - sun.sun
+  - switch.climate_bedroom
+  - switch.reading_living_room
   - switch.tv
   - switch.water_heater
 
@@ -158,6 +173,9 @@ views:
             action_name: Restart
             service: homeassistant.restart
             service_data: {}
+          - automation.climate_bedroom_auto_cool
+          - automation.climate_bedroom_auto_off
+          - automation.flux_living_room_light_on
           - automation.notify_home
           - automation.water_heater
           - automation.water_heater_season

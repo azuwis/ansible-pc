@@ -53,8 +53,8 @@
       entity_id: climate.bedroom
       operation_mode: 'off'
 
-- id: climate_bedroom_auto_on
-  alias: Climate bedroom auto on
+- id: climate_bedroom_auto_cool
+  alias: Climate bedroom auto cool
   trigger:
     platform: state
     entity_id: binary_sensor.door_bedroom
