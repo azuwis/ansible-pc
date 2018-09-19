@@ -1,0 +1,14 @@
+- name: workaround for yeelight
+  lineinfile:
+    dest: /home/hass/venv/lib/python3.6/site-packages/homeassistant/components/light/yeelight.py
+    regexp: ^YEELIGHT_RGB_MIN_KELVIN =
+    line: YEELIGHT_RGB_MIN_KELVIN = 2700
+
+- name: workaround for braviarc
+  lineinfile:
+    dest: /home/hass/venv/lib/python3.6/site-packages/braviarc/braviarc.py
+    regexp: "{{ item }}"
+    state: absent
+  with_items:
+    - TvPower
+    - self\.get_power_status

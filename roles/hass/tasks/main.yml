@@ -53,12 +53,6 @@
   become: yes
   become_user: hass
 
-- name: workaround for yeelight
-  lineinfile:
-    dest: /home/hass/venv/lib/python3.6/site-packages/homeassistant/components/light/yeelight.py
-    regexp: ^YEELIGHT_RGB_MIN_KELVIN =
-    line: YEELIGHT_RGB_MIN_KELVIN = 2700
-
 - name: create hass config dir
   file:
     dest: /home/hass/config
@@ -141,6 +135,10 @@
 - include: zigbee2mqtt.yml
   tags:
     - zigbee
+
+- include: workaround.yml
+  tags:
+    - workaround
 
 - name: config hass
   copy:
