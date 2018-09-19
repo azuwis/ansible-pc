@@ -63,13 +63,13 @@ automation:
 
 input_boolean:
   zigbee2mqtt_permit_join:
-    name: Zigbee2mqtt permit join
+    name: Permit join
     initial: no
     icon: mdi:cellphone-wireless
 
 input_select:
   zigbee2mqtt_log_level:
-    name: Zigbee2mqtt log level
+    name: Log level
     options:
       - error
       - warn
@@ -80,5 +80,5 @@ input_select:
 
 timer:
   zigbee2mqtt_permit_join:
-    name: Zigbee2mqtt permit join time remaining
+    name: Time remaining
     duration: 600

@@ -179,6 +179,10 @@ views:
           - automation.notify_home
           - automation.water_heater
           - automation.water_heater_season
+      - type: entities
+        title: Zigbee2mqtt
+        show_header_toggle: no
+        entities:
           - input_boolean.zigbee2mqtt_permit_join
           - timer.zigbee2mqtt_permit_join
           - input_select.zigbee2mqtt_log_level
