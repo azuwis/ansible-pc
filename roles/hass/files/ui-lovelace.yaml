@@ -53,13 +53,7 @@ views:
             tap_action: toggle
             style:
               top: 33%
-              left: 48%
-          - type: state-icon
-            entity: switch.reading_living_room
-            tap_action: toggle
-            style:
-              top: 33%
-              left: 54%
+              left: 50%
           - type: state-icon
             entity: switch.tv
             tap_action: toggle
@@ -137,6 +131,25 @@ views:
             style:
               top: 67%
               left: 89.6%
+
+      - type: conditional
+        conditions:
+          - entity: media_player.tv
+            state: 'on'
+        card:
+          type: media-control
+          entity: media_player.tv
+
+      - type: conditional
+        conditions:
+          - entity: light.living_room
+            state: 'on'
+        card:
+          type: entities
+          entities:
+            - light.living_room
+            - switch.reading_living_room
+            - switch.flux_living_room
 
       - type: weather-forecast
         entity: weather.hangzhou
