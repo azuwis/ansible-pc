@@ -151,6 +151,15 @@ views:
             - switch.reading_living_room
             - switch.flux_living_room
 
+      - type: conditional
+        conditions:
+          - entity: switch.climate_bedroom
+            state: 'on'
+        card:
+          type: entities
+          entities:
+            - climate.bedroom
+
       - type: weather-forecast
         entity: weather.hangzhou
 
