@@ -38,48 +38,8 @@ sensor:
     name: Bedroom humidity
     entity_id: sensor.ht_bedroom_humidity
     filters:
-      - filter: outlier
-        window_size: 4
-        radius: 4.0
-      - filter: lowpass
-        time_constant: 10
-        precision: 2
-
-  - platform: filter
-    name: Bedroom temperature
-    entity_id: sensor.ht_bedroom_temperature
-    filters:
-      - filter: outlier
-        window_size: 4
-        radius: 2.0
-      - filter: lowpass
-        time_constant: 10
       - filter: time_simple_moving_average
-        window_size: 00:05
-        precision: 2
-
-  - platform: filter
-    name: Outside humidity
-    entity_id: sensor.ht_outside_humidity
-    filters:
-      - filter: outlier
-        window_size: 4
-        radius: 4.0
-      - filter: lowpass
-        time_constant: 10
-        precision: 2
-
-  - platform: filter
-    name: Outside temperature
-    entity_id: sensor.ht_outside_temperature
-    filters:
-      - filter: outlier
-        window_size: 4
-        radius: 2.0
-      - filter: lowpass
-        time_constant: 10
-      - filter: time_simple_moving_average
-        window_size: 00:05
+        window_size: '00:30'
         precision: 2
 
   - platform: season

@@ -183,9 +183,10 @@ views:
       - type: history-graph
         entities:
           - sensor.bedroom_humidity
-          - sensor.bedroom_temperature
-          - sensor.outside_humidity
-          - sensor.outside_temperature
+          - sensor.ht_bedroom_humidity
+          - sensor.ht_bedroom_temperature
+          - sensor.ht_outside_humidity
+          - sensor.ht_outside_temperature
 
   - title: Map
     id: map
