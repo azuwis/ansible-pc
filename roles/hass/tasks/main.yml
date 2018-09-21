@@ -80,20 +80,6 @@
   notify:
     - systemctl daemon-reload
 
-- name: config hass
-  copy:
-    src: "{{ item }}"
-    dest: /home/hass/config/{{ item }}
-    owner: hass
-    group: hass
-  with_items:
-    - automations.yaml
-    - customize.yaml
-    - ui-lovelace.yaml
-    - scripts.yaml
-  tags:
-    - conf
-
 - name: config hass secrets
   copy:
     dest: /home/hass/config/{{ item }}.yaml
@@ -109,25 +95,6 @@
   tags:
     - conf
 
-- name: copy www directory
-  synchronize:
-    src: "{{ item }}/"
-    dest: /home/hass/config/{{ item }}/
-    rsync_path: sudo -u hass rsync
-  with_items:
-    - packages
-    - www
-  tags:
-    - conf
-
-- include: acpartner.yml
-  tags:
-    - acpartner
-
-- include: broadlink.yml
-  tags:
-    - broadlink
-
 - include: mosquitto.yml
   tags:
     - mosquitto
@@ -139,17 +106,6 @@
 - include: workaround.yml
   tags:
     - workaround
-
-- name: config hass
-  copy:
-    dest: /home/hass/config/configuration.yaml
-    src: configuration.yaml
-    owner: hass
-    group: hass
-  notify:
-    - restart hass
-  tags:
-    - conf
 
 - name: enable systemd service
   service:
