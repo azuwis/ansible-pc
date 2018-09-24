@@ -1,4 +1,10 @@
 ---
+- name: add hass to dialout group
+  user:
+    name: hass
+    groups: dialout
+    append: yes
+
 - name: install nodejs
   apt:
     name: "{{ item }}"
