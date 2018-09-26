@@ -49,6 +49,8 @@
     group: hass
   notify:
     - restart zigbee2mqtt
+  tags:
+    - conf
 
 - name: install systemd service
   copy:
