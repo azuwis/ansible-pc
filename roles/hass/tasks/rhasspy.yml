@@ -1,0 +1,17 @@
+---
+- name: install packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - libasound2-dev
+    - libpulse-dev
+    - phonetisaurus
+    - portaudio19-dev
+    - sox
+    - swig
+
+- name: add hass to audio group
+  user:
+    name: hass
+    groups: audio
+    append: yes
