@@ -1,16 +1,22 @@
 ---
-# for mqtt notify.html5 recorder
 - name: install dependences
   apt:
     name: "{{ item }}"
   with_items:
     - build-essential
-    - libffi-dev
     - libpython3-dev
+    # notify.html5
+    - libffi-dev
     - libssl-dev
+    # recoder
     - postgresql
     - postgresql-server-dev-all
     - python-psycopg2
+    # web_speech
+    - chromedriver
+    - dbus-x11
+    - pulseaudio
+    - xvfb
 
 - name: create psql db for hass
   postgresql_db:
