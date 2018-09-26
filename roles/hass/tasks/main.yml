@@ -37,6 +37,12 @@
     uid: 20010
     shell: /bin/bash
 
+- name: add hass to bluetooth group
+  user:
+    name: hass
+    groups: bluetooth
+    append: yes
+
 - name: add staff to hass group
   user:
     name: "{{ item.name }}"
