@@ -60,6 +60,7 @@
     virtualenv: /home/hass/venv
     virtualenv_python: python3
   with_items:
+    - wheel
     - homeassistant
     - psycopg2
   become: yes
