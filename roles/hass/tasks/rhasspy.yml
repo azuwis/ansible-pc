@@ -3,7 +3,6 @@
   apt:
     name: "{{ item }}"
   with_items:
-    - libasound2-dev
     - libpulse-dev
     - phonetisaurus
     - portaudio19-dev
