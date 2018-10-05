@@ -1,0 +1,24 @@
+---
+- name: install packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - libatlas-base-dev
+    - portaudio19-dev
+    - python3-dev
+    # - sox
+    - swig
+
+- name: pip3 install snowboy
+  pip:
+    name: https://github.com/Kitt-AI/snowboy/archive/v1.3.0.tar.gz
+    virtualenv: /home/hass/venv
+    virtualenv_python: python3
+  become: yes
+  become_user: hass
+
+- name: add hass to audio group
+  user:
+    name: hass
+    groups: audio
+    append: yes
