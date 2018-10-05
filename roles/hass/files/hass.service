@@ -5,6 +5,7 @@ After=network.target mosquitto.service postgresql.service
 [Service]
 ExecStart=/home/hass/venv/bin/hass --log-no-color --config /home/hass/config
 User=hass
+EnvironmentFile=/home/hass/config/env
 
 [Install]
 WantedBy=multi-user.target
