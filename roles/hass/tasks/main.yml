@@ -5,6 +5,9 @@
   with_items:
     - build-essential
     - libpython3-dev
+    # media_player.vlc
+    - vlc-bin
+    - vlc-plugin-base
     # notify.html5
     - libffi-dev
     - libssl-dev
