@@ -1,10 +1,23 @@
 ---
+# sudo cupsctl WebInterface=yes
+# http://127.0.0.1:631/
+# sudo cupsctl WebInterface=no
+#
+# HP LaserJet Professional M1213nf MFP
+# DeviceURI socket://<ip>:9100
+# MakeModel HP LaserJet Professional M1212nf MFP Foomatic/foo2xqx (recommended)
+#
+# FUJI XEROX
+# DeviceURI lpd://<user>@<ip>/LPD
+# MakeModel FX Printer Driver for Linux
+
 - name: install packages
   apt:
     name: "{{ item }}"
   with_items:
     - cups
     - printer-driver-cups-pdf
+    - printer-driver-foo2zjs
     - printer-driver-fujixerox
 
 # Enable on-demand service
