@@ -1,8 +1,18 @@
 #!/bin/sh
 video="$1"
 size="${2:-50}"
+disk="${3:-1024}"
 
 nb_frames=$(ffprobe -v error -select_streams v:0 -show_entries stream=nb_frames -of default=nokey=1:noprint_wrappers=1 "$video")
 mod="$((nb_frames/size))"
 [ "$mod" -eq 0 ] && mod=1
 ffmpeg -loglevel panic -y -an -i "$video" -frames 1 -vf "select=not(mod(n\,$mod)),scale=-1:240,tile=${size}x1" "${video%.*}-sprite.jpg"
+
+stat=$(stat --file-system --format='%f %s' "$video")
+block_free="${a% *}"
+block_size="${a#* }"
+free_mb="$((block_free * block_size / 1048576))"
+if [ "$free_mb" -le "$disk" ]
+then
+    killall motion
+fi
