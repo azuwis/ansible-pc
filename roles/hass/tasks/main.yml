@@ -119,6 +119,10 @@
   tags:
     - zigbee
 
+- include: snowboy.yml
+  tags:
+    - snowboy
+
 - include: workaround.yml
   tags:
     - workaround
