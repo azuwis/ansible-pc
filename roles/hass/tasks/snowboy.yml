@@ -11,9 +11,10 @@
 
 - name: pip3 install snowboy
   pip:
-    name: git+https://github.com/Kitt-AI/snowboy.git
+    name: https://github.com/Kitt-AI/snowboy/archive/master.zip#egg=snowboy
     virtualenv: /home/hass/venv
-    virtualenv_python: python3
+    virtualenv_command: /usr/bin/python3 -m venv
+    editable: no
   become: yes
   become_user: hass
 

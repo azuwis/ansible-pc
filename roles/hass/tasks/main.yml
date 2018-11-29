@@ -53,15 +53,15 @@
     append: yes
   with_items: "{{ staff }}"
 
-- name: install virtualenv
+- name: install python3-venv
   apt:
-    name: virtualenv
+    name: python3-venv
 
 - name: pip3 install homeassistant and psycopg2
   pip:
     name: "{{ item }}"
     virtualenv: /home/hass/venv
-    virtualenv_python: python3
+    virtualenv_command: /usr/bin/python3 -m venv
   with_items:
     - wheel
     - homeassistant
