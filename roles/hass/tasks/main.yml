@@ -16,7 +16,7 @@
     - postgresql-server-dev-all
     - python-psycopg2
     # web_speech
-    - chromedriver
+    - chromium-driver
     - dbus-x11
     - pulseaudio
     - xvfb
