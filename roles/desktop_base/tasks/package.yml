@@ -17,6 +17,7 @@
     - redshift                  #  ease your eyes
     - zsh                       ## Shell
     - zgen
+    - zsh-autosuggestions
     - zsh-syntax-highlighting
     - i3-wm                     ## WM
     - i3status
