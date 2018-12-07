@@ -102,4 +102,3 @@
     - xserver-xorg-input-vmmouse
     - xserver-xorg-input-mouse
     - xserver-xorg-input-evdev
-    - dbus-x11
