@@ -48,7 +48,7 @@
     # - pepperflashplugin-nonfree
     - firefox
     - hunspell-en-us            #  firefox spell checking
-    - flashplugin-nonfree
+    # - flashplugin-nonfree
     - fcitx                     ## IME
     - fcitx-config-gtk
     - fcitx-frontend-gtk2
