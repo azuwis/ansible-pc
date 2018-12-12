@@ -39,7 +39,6 @@
     - { role: tlp, tags: tlp }
     - { role: dictionary, tags: dictionary }
     - { role: office, tags: office }
-    - { role: music, tags: music }
     - { role: tcp-bbr, tags: tcp-bbr }
 
     - { role: adb, tags: adb }
@@ -51,6 +50,7 @@
 
     - { role: xps, tags: xps }
 
-    # - { role: set-wallpaper, tags: set-wallpaper }
     # - { role: kcptun-client, tags: kcptun-client }
     # - { role: mlvpn, tags: mlvpn }
+    # - { role: music, tags: music }
+    # - { role: set-wallpaper, tags: set-wallpaper }
