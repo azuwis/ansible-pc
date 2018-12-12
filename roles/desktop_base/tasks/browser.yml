@@ -45,7 +45,7 @@
     dest: /etc/firefox/ansible-managed.js
     src: firefox-ansible-managed.js.j2
 
-- name: chromium settings
-  template:
-    dest: /etc/chromium.d/ansible-managed
-    src: chromium-ansible-managed.j2
+# - name: chromium settings
+#   template:
+#     dest: /etc/chromium.d/ansible-managed
+#     src: chromium-ansible-managed.j2

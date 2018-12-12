@@ -8,6 +8,7 @@
   become: yes
   vars:
     dpi: 168
+    font_size: 16
     eth: enx0023576c7341
     wlan: wlp58s0
     grub:

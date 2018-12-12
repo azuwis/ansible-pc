@@ -39,10 +39,10 @@
 #     state: started
 #   with_items: "{{ staff }}"
 
-- name: zsh config to startx at login
-  template:
-    src: zprofile.j2
-    dest: ~{{ item.name }}/.zprofile
-    owner: "{{ item.name }}"
-    group: "{{ item.name }}"
-  with_items: "{{ staff }}"
+# - name: zsh config to startx at login
+#   template:
+#     src: zprofile.j2
+#     dest: ~{{ item.name }}/.zprofile
+#     owner: "{{ item.name }}"
+#     group: "{{ item.name }}"
+#   with_items: "{{ staff }}"
