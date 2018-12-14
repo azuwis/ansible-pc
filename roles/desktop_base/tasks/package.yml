@@ -35,6 +35,7 @@
     - qlipper
     - dunst                     # notification daemon
     - libnotify-bin
+    - libglib2.0-bin            # gsettings gdbus
     - arandr
     - vim-gtk3                  ## Editor
     - exuberant-ctags           #  vim tagbar plugin
