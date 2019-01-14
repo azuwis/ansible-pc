@@ -67,7 +67,7 @@
     - pqiv                      ## Image viewer
     - qcomicbook
     - scrot
-    - qpdfview                  ## PDF viewer
+    - zathura                   ## PDF viewer
     - poppler-data              #  CJK pdf
     - gpick                     ## Color picker
     - duc                       ## Disk usage
@@ -93,6 +93,11 @@
     - brightness-udev
     - laptop-detect
     - mediainfo
+    - sway                      ## Wayland
+    - swaylock
+    - mako-notifier
+    - xwayland
+    - qtwayland5
 
 - name: packages to remove
   apt:
