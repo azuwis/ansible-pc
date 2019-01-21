@@ -1,10 +1,3 @@
----
-- name: make alsa default to pulseaudio
-  file:
-    dest: /etc/alsa/conf.d/99-pulseaudio-default.conf
-    src: /etc/alsa/conf.d/99-pulseaudio-default.conf.example
-    state: link
-
 - name: create dmenu symlink to rofi
   file:
     dest: /usr/local/bin/dmenu
