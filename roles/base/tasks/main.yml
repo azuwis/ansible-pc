@@ -76,6 +76,7 @@
     - fzy
     - libcap2-bin
     - jq
+    - gron
     - nethogs
     - fasd
     - lr
