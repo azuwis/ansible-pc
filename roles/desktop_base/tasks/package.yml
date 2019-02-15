@@ -95,6 +95,7 @@
     - mediainfo
     - sway                      ## Wayland
     - swaylock
+    - swayidle
     - mako-notifier
     - xwayland
     - qtwayland5
