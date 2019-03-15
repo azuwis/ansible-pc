@@ -10,6 +10,7 @@ serial:
   disable_led: true
 advanced:
   channel: 26
+  last_seen: 'ISO_8601_local'
   log_directory: /var/log/zigbee2mqtt
 devices:
   '0x00158d00023d57a9':
