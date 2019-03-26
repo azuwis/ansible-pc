@@ -32,7 +32,7 @@ devices:
     friendly_name: ht_bedroom
     retain: false
   '0x00158d000215c127':
-    friendly_name: ht_outside
+    friendly_name: ht_climate_bedroom
     retain: false
   '0x00158d00022b8fdf':
     friendly_name: motion_living_room
