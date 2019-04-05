@@ -9,8 +9,8 @@
   apt:
     name: "{{ item }}"
   with_items:
+    - libnode-dev
     - nodejs
-    - nodejs-dev
     - npm
 
 - name: clone zigbee2mqtt
