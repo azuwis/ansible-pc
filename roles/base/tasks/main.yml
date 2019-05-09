@@ -84,6 +84,8 @@
     - rename
     - wdiff
     - aggregate
+    - geoip-bin
+    - geoip-database-extra
 
 - name: extra packages
   apt:
