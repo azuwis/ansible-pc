@@ -75,6 +75,8 @@
     - udevil                    ## Auto mounter
     - go-mtpfs
     - pass                      ## Utils
+    - pass-extension-otp
+    - oathtool
     - pinentry-gtk2
     - git-remote-gcrypt
     - shellcheck
