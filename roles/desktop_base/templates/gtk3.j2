@@ -4,7 +4,7 @@
 gtk-theme-name = {{ theme.gtk3 | default(theme.gtk2) }}
 gtk-icon-theme-name = {{ theme.icon }}
 gtk-fallback-icon-theme = gnome
-{% if font_size is defined %}
-gtk-font-name = Sans {{ font_size }}
+{% if font.size is defined %}
+gtk-font-name = Sans {{ font.size }}
 {% endif %}
 #gtk-key-theme-name = Emacs

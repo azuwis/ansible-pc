@@ -3,6 +3,7 @@ keyboard:
     xkboptions: terminate:ctrl_alt_bksp
 
 font:
+  size: 16
   pkgs:
     - fonts-fira
     - fonts-roboto

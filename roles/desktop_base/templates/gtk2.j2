@@ -3,8 +3,8 @@
 gtk-theme-name="{{ theme.gtk2 }}"
 gtk-icon-theme-name="{{ theme.icon }}"
 gtk-key-theme-name="Emacs"
-{% if font_size is defined %}
-gtk-font-name = "Sans {{ font_size }}"
+{% if font.size is defined %}
+gtk-font-name = "Sans {{ font.size }}"
 {% endif %}
 
 # GVim maximized gap workaround, http://superuser.com/a/351324
