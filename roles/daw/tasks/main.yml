@@ -1,0 +1,6 @@
+- name: install packages
+  apt:
+    name:
+      - ardour
+      - pulseaudio-module-jack
+      - qjackctl
