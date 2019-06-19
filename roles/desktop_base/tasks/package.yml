@@ -67,6 +67,7 @@
     - pqiv                      ## Image viewer
     - qcomicbook
     - scrot
+    - flameshot
     - zathura                   ## PDF viewer
     - poppler-data              #  CJK pdf
     - gpick                     ## Color picker
