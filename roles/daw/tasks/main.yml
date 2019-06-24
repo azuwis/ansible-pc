@@ -1,6 +1,12 @@
 - name: install packages
   apt:
     name:
+      # ardour
+      - a2jmidid
       - ardour
       - pulseaudio-module-jack
       - qjackctl
+      # linuxsampler
+      - gigedit
+      - linuxsampler
+      - qsampler
