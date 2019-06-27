@@ -1,3 +1,8 @@
+# qjackctl:
+#   Options -> Execute script after Startup:
+#     pactl load-module module-jack-sink channels=2; pactl load-module module-jack-source; pactl set-default-sink jack_out; a2jmidid -e &
+#   Misc -> Start JACK audio server on application startup [x]
+#        -> Enable ALSA Sequencer support [ ]
 - name: install packages
   apt:
     name:
