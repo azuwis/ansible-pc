@@ -11,6 +11,10 @@
       - ardour
       - pulseaudio-module-jack
       - qjackctl
+      # plugins
+      - dragonfly-reverb
+      - mda-lv2
+      - x42-plugins
       # linuxsampler
       - gigedit
       - linuxsampler
