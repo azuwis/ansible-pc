@@ -74,6 +74,7 @@
     - icdiff
     - psmisc
     - fzy
+    - fd-find
     - libcap2-bin
     - jq
     - gron
