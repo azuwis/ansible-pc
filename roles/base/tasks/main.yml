@@ -87,6 +87,9 @@
     - aggregate
     - geoip-bin
     - geoip-database-extra
+    - borgmatic
+    - bat
+    - htop
 
 - name: extra packages
   apt:

@@ -12,6 +12,7 @@
     - libgl1-mesa-dri
     - i965-va-driver-shaders
     - vainfo
+    - intel-gpu-tools
 
 - name: intel graphic driver config
   copy: src=intel.conf dest=/etc/X11/xorg.conf.d/

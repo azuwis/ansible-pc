@@ -9,6 +9,7 @@
       # ardour
       - a2jmidid
       - ardour
+      - jack-keyboard
       - pulseaudio-module-jack
       - qjackctl
       # plugins
