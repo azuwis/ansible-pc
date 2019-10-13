@@ -45,9 +45,9 @@
 
 - name: download offline wiktionary
   get_url:
-    url: http://www.dictinfo.com/stardict/wikt-en-en-2015-07-17.7z
+    url: http://www.dictinfo.com/stardict/wikt-en-ALL-2018-05-15.7z
     dest: /tmp/wikt-en.7z
-    sha256sum: 36677dae3f73cc63fec7d10dd8a129293c7d43c4c005a762e60ebbe966c8ab1e
+    sha256sum: 784fcc2d477bf68e6a098c1a329e5c183eb559c39c2cb91ab3b49d1969e049d0
   when: wikt|failed
 
 - name: unpack offline wiktionary
