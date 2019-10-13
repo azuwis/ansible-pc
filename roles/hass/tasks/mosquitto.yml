@@ -20,4 +20,4 @@
     group: mosquitto
     mode: '0640'
   notify:
-    - restart mosquitto
+    - reload mosquitto
