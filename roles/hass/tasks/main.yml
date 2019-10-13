@@ -40,10 +40,10 @@
     uid: 20010
     shell: /bin/bash
 
-- name: add hass to bluetooth group
+- name: add hass to audio,bluetooth groups
   user:
     name: hass
-    groups: bluetooth
+    groups: audio,bluetooth
     append: yes
 
 - name: add staff to hass group
@@ -65,7 +65,7 @@
   with_items:
     - wheel
     - homeassistant
-    - psycopg2
+    # - psycopg2
   become: yes
   become_user: hass
 
@@ -119,9 +119,9 @@
   tags:
     - zigbee
 
-- include: snowboy.yml
-  tags:
-    - snowboy
+# - include: snowboy.yml
+#   tags:
+#     - snowboy
 
 - include: workaround.yml
   tags:

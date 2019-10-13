@@ -17,9 +17,3 @@
     editable: no
   become: yes
   become_user: hass
-
-- name: add hass to audio group
-  user:
-    name: hass
-    groups: audio
-    append: yes
