@@ -90,6 +90,7 @@
     - borgmatic
     - bat
     - htop
+    - acl
 
 - name: extra packages
   apt:
