@@ -8,15 +8,15 @@
   apt: name={{ item }}
   when: intel_graphic|success
   with_items:
-    - xserver-xorg-video-intel
+    # - xserver-xorg-video-intel
     - libgl1-mesa-dri
     - i965-va-driver-shaders
     - vainfo
     - intel-gpu-tools
 
-- name: intel graphic driver config
-  copy: src=intel.conf dest=/etc/X11/xorg.conf.d/
-  when: intel_graphic|success
+# - name: intel graphic driver config
+#   copy: src=intel.conf dest=/etc/X11/xorg.conf.d/
+#   when: intel_graphic|success
 
 - name: test nvidia graphic card
   shell: lspci -nn | grep -q 'VGA.*10de'
