@@ -20,12 +20,13 @@
     src: sources.list.j2
   register: result
 
+- name: install custom apt key
+  copy:
+    src: azuwis.gpg
+    dest: /etc/apt/trusted.gpg.d/azuwis.gpg
+
 - name: update apt package index if needed
   apt:
     update_cache: yes
   when: result.changed
 
-- name: install custom apt key
-  copy:
-    src: azuwis.gpg
-    dest: /etc/apt/trusted.gpg.d/azuwis.gpg
