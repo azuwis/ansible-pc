@@ -4,12 +4,6 @@
     src: /usr/bin/rofi
     state: link
 
-- name: unclutter settings
-  lineinfile:
-    dest: /etc/default/unclutter
-    regexp: ^EXTRA_OPTS=
-    line: EXTRA_OPTS=""
-
 - name: custom xsession.d config
   template: src=20ansible-managed.j2 dest=/etc/X11/Xsession.d/20ansible-managed
 

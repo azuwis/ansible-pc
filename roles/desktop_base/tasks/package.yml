@@ -11,7 +11,7 @@
     - xinput
     - xdotool
     - at-spi2-core
-    - unclutter                 #  auto hide cursor
+    - unclutter-xfixes          #  auto hide cursor
     - fbautostart               #  start xdg autostart
     # - dmz-cursor-theme
     - redshift                  #  ease your eyes
