@@ -9,6 +9,7 @@
     - xdg-user-dirs             #  auto create well known user dirs
     - hsetroot                  #  set wallpaper
     - xinput
+    - mesa-utils
     - xdotool
     - at-spi2-core
     - unclutter-xfixes          #  auto hide cursor
