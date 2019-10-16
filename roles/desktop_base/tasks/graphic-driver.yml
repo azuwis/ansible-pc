@@ -9,6 +9,7 @@
   when: intel_graphic|success
   with_items:
     # - xserver-xorg-video-intel
+    - xserver-xorg-video-dummy
     - libgl1-mesa-dri
     - i965-va-driver-shaders
     - vainfo
