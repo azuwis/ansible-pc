@@ -1,47 +1,44 @@
 ---
 - name: install qbittorrent-nox
-  apt: name=qbittorrent-nox
-
-- name: create torrent user
-  user:
-    name: torrent
-    uid: 20000
-    shell: /usr/sbin/nologin
-
-- name: "set permission for torrent's home dir"
-  file: dest=/home/torrent mode=0750
+  apt:
+    name: qbittorrent-nox
 
 - name: create .config dir
   file:
-    dest: /home/torrent/.config/
+    dest: ~{{ item.name }}/.config/
     state: directory
-    owner: torrent
-    group: torrent
-    mode: 0770
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: "0700"
+  with_items: "{{ staff }}"
 
 - name: create qbittorrent config dir
   file:
-    dest: /home/torrent/.config/qBittorrent/
+    dest: ~{{ item.name }}/.config/qBittorrent/
     state: directory
-    owner: torrent
-    group: torrent
-    mode: 0770
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: "0755"
+  with_items: "{{ staff }}"
 
 - name: init config file
   copy:
     src: qBittorrent.conf
-    dest: /home/torrent/.config/qBittorrent/qBittorrent.conf
-    owner: torrent
-    group: torrent
-    mode: 0660
+    dest: ~{{ item.name }}/.config/qBittorrent/qBittorrent.conf
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+    mode: "0644"
     force: no
+  with_items: "{{ staff }}"
 
 - name: systemd service
-  copy: src=qbittorrent.service dest=/etc/systemd/system/
+  copy:
+    src: qbittorrent@.service
+    dest: /etc/systemd/system/
 
 - name: start qbittorrent
-  service: name=qbittorrent state=started enabled=yes
-
-- name: add {{ item.name }} to torrent group
-  user: name={{ item.name }} groups=torrent append=yes
+  service:
+    name: qbittorrent@{{ item.name }}
+    state: started
+    enabled: yes
   with_items: "{{ staff }}"
