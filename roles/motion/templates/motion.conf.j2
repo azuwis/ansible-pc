@@ -1,6 +1,6 @@
 pid_file /var/run/motion/motion.pid
 log_file /var/log/motion/motion.log
-target_dir /var/lib/motion
+target_dir {{ motion.path }}
 
 videodevice /dev/video0
 v4l2_palette 8

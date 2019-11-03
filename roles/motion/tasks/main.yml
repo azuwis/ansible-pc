@@ -1,13 +1,12 @@
 ---
 - name: install packages
   apt:
-    name: "{{ item }}"
-  with_items:
-    - ffmpeg
-    - mosquitto-clients
-    - motion
-    - uvcdynctrl
-    - v4l-utils
+    name:
+      - ffmpeg
+      - mosquitto-clients
+      - motion
+      - uvcdynctrl
+      - v4l-utils
 
 - name: install logrotate rule for uvcdynctrl
   copy:
@@ -28,7 +27,7 @@
 
 - name: set motion target dir permission
   file:
-    dest: /var/lib/motion/
+    dest: "{{ motion.path }}"
     state: directory
     owner: motion
     group: motion
@@ -54,7 +53,7 @@
     mode: '0755'
 
 - name: config motion
-  copy:
+  template:
     dest: /etc/motion/motion.conf
-    src: motion.conf
+    src: motion.conf.j2
   notify: reload motion
