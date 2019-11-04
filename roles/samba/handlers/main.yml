@@ -1,0 +1,5 @@
+---
+- name: reload smbd
+  service:
+    name: smbd
+    state: reloaded

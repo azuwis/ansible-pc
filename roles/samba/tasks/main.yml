@@ -1,0 +1,16 @@
+---
+- name: install packages
+  apt:
+    name: samba
+
+- name: disable nmbd
+  service:
+    name: nmbd
+    state: stopped
+    enabled: no
+
+- name: config samba
+  template:
+    dest: /etc/samba/smb.conf
+    src: smb.conf.j2
+  notify: reload smbd
