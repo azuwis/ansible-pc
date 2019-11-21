@@ -1,0 +1,19 @@
+local settings = {
+  ['tracker1.host'] = {
+    incomplete = 0,
+    uploaded = {4, 9},
+    downloaded = {0, .1},
+    percent = 70,
+    speed = 102400,
+  },
+  ['tracker2.host'] = {
+    https = true,
+    incomplete = 3,
+    uploaded = {.1, .6},
+    downloaded = {0, .07},
+    percent = 20,
+    speed = 102400,
+  },
+}
+
+return settings

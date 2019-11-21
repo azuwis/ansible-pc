@@ -1,0 +1,29 @@
+---
+- name: install packages
+  apt:
+    name:
+      - libnginx-mod-http-lua
+      - lua-zlib
+
+- name: create dirs
+  file:
+    dest: "{{ item }}"
+    state: directory
+  with_items:
+    - /etc/nginx/lua/
+    - /etc/nginx/lua/torrent/
+
+- name: copy files
+  copy:
+    dest: /etc/nginx/lua/torrent/{{ item }}.lua
+    src: "{{ item }}.lua"
+  with_items:
+    - body_filter
+    - header_filter
+    - rewrite
+    - stats
+
+- name: nginx site
+  template:
+    dest: /etc/nginx/sites-enabled/torrent
+    src: torrent.j2

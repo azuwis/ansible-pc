@@ -1,0 +1,34 @@
+lua_package_path '/etc/nginx/lua/torrent/?.lua;;';
+lua_shared_dict torrent 1m;
+server {
+	listen 127.0.0.1:8086;
+	server_name _;
+
+	root /var/www/html;
+	resolver {{ ansible_dns.nameservers[0] }} ipv6=off;
+	access_log /var/log/nginx/torrent.log;
+	error_log /var/log/nginx/torrent-error.log notice;
+
+ 	# gzip_types text/plain;
+	location = /t.txt {
+		lua_code_cache off;
+		set $tracker_scheme $scheme;
+		rewrite_by_lua_file /etc/nginx/lua/torrent/rewrite.lua;
+		header_filter_by_lua_file /etc/nginx/lua/torrent/header_filter.lua;
+		body_filter_by_lua_file /etc/nginx/lua/torrent/body_filter.lua;
+	}
+
+	location = /stats {
+		lua_code_cache off;
+		content_by_lua_file /etc/nginx/lua/torrent/stats.lua;
+	}
+
+	location / {
+		proxy_ssl_server_name on;
+		set $tracker_scheme $scheme;
+		rewrite_by_lua_file /etc/nginx/lua/torrent/rewrite.lua;
+		proxy_pass $tracker_scheme://$host;
+		header_filter_by_lua_file /etc/nginx/lua/torrent/header_filter.lua;
+		body_filter_by_lua_file /etc/nginx/lua/torrent/body_filter.lua;
+	}
+}
