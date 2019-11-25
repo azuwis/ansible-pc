@@ -13,6 +13,7 @@ server {
 	location = /t.txt {
 		lua_code_cache off;
 		set $tracker_scheme $scheme;
+		set $tracker_host $host;
 		rewrite_by_lua_file /etc/nginx/lua/torrent/rewrite.lua;
 		header_filter_by_lua_file /etc/nginx/lua/torrent/header_filter.lua;
 		body_filter_by_lua_file /etc/nginx/lua/torrent/body_filter.lua;
@@ -26,8 +27,9 @@ server {
 	location / {
 		proxy_ssl_server_name on;
 		set $tracker_scheme $scheme;
+		set $tracker_host $host;
 		rewrite_by_lua_file /etc/nginx/lua/torrent/rewrite.lua;
-		proxy_pass $tracker_scheme://$host;
+		proxy_pass $tracker_scheme://$tracker_host;
 		header_filter_by_lua_file /etc/nginx/lua/torrent/header_filter.lua;
 		body_filter_by_lua_file /etc/nginx/lua/torrent/body_filter.lua;
 	}

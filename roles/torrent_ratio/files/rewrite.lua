@@ -36,6 +36,9 @@ if settings ~= nil and type(args.uploaded) == 'string' and type(args.downloaded)
   if settings.https then
     ngx.var.tracker_scheme = 'https'
   end
+  if settings.port then
+    ngx.var.tracker_host = string.format('%s:%d', ngx.var.tracker_host, settings.port)
+  end
   local uploaded = tonum(args.uploaded)
   local downloaded = tonum(args.downloaded)
   local epoch = ngx.time()
@@ -65,4 +68,4 @@ if settings ~= nil and type(args.uploaded) == 'string' and type(args.downloaded)
   updown = string.format('hash: %s, up: %s/%s, down: %s,', tohex(args.info_hash), format(report_uploaded), format(uploaded), format(downloaded))
 end
 ngx.req.set_uri_args(args)
-ngx.log(ngx.NOTICE, string.format('%s announce: "%s://%s%s%s%s"', updown, ngx.var.tracker_scheme, ngx.var.host, ngx.var.uri, ngx.var.is_args, ngx.var.args))
+ngx.log(ngx.NOTICE, string.format('%s announce: "%s://%s%s%s%s"', updown, ngx.var.tracker_scheme, ngx.var.tracker_host, ngx.var.uri, ngx.var.is_args, ngx.var.args))
