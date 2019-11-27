@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 local settings = require('settings')
 settings = settings[ngx.var.host]
 if settings == nil then
@@ -18,7 +20,8 @@ if chunk ~= "" then
     incomplete = tonumber(match)
     local torrent = ngx.shared.torrent
     local args = ngx.req.get_uri_args()
-    local info = torrent:get(args.info_hash)
-    torrent:set(args.info_hash, info .. incomplete)
+    local info_hash = utils.tohex(args.info_hash)
+    local info = torrent:get(info_hash)
+    torrent:set(info_hash, info .. incomplete)
   end
 end

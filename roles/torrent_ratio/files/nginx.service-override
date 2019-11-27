@@ -1,0 +1,4 @@
+[Service]
+ExecStop=
+ExecStop=-/usr/bin/curl --silent --output /var/lib/nginx/torrent_ratio 'http://127.0.0.1:8086/stats?raw'
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid

@@ -1,5 +1,6 @@
 lua_package_path '/etc/nginx/lua/torrent/?.lua;;';
 lua_shared_dict torrent 1m;
+init_by_lua_file /etc/nginx/lua/torrent/init.lua;
 server {
 	listen 127.0.0.1:8086;
 	server_name _;

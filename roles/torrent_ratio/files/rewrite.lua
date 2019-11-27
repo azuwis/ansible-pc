@@ -1,12 +1,8 @@
 local utils = require('utils')
 
-local random = function(range)
+local function random(range)
   local l, u = unpack(range)
   return l + math.random() * (u - l)
-end
-
-local tonum = function(str)
-  return tonumber(str) or 0
 end
 
 local torrent = ngx.shared.torrent
@@ -21,21 +17,22 @@ if settings ~= nil and type(args.uploaded) == 'string' and type(args.downloaded)
   if settings.port then
     ngx.var.tracker_host = string.format('%s:%d', ngx.var.tracker_host, settings.port)
   end
-  local uploaded = tonum(args.uploaded)
-  local downloaded = tonum(args.downloaded)
+  local uploaded = utils.tonum(args.uploaded)
+  local downloaded = utils.tonum(args.downloaded)
   local epoch = ngx.time()
   local report_uploaded = uploaded
-  local info = torrent:get(args.info_hash)
+  local info_hash = utils.tohex(args.info_hash)
+  local info = torrent:get(info_hash)
   if args.event ~= 'started' and info ~= nil then
     local previous_report_uploaded, previous_uploaded, previous_downloaded, previous_epoch, incomplete = string.match(info, '^(%d*),(%d*),(%d*),(%d*),(%d*)$')
-    previous_report_uploaded = tonum(previous_report_uploaded)
-    previous_uploaded = tonum(previous_uploaded)
-    previous_downloaded = tonum(previous_downloaded)
-    previous_epoch = tonum(previous_epoch)
+    previous_report_uploaded = utils.tonum(previous_report_uploaded)
+    previous_uploaded = utils.tonum(previous_uploaded)
+    previous_downloaded = utils.tonum(previous_downloaded)
+    previous_epoch = utils.tonum(previous_epoch)
     report_uploaded = previous_report_uploaded
     local delta_uploaded = uploaded - previous_uploaded
     report_uploaded = report_uploaded + delta_uploaded
-    if tonum(incomplete) >= settings.incomplete then
+    if utils.tonum(incomplete) >= settings.incomplete then
       report_uploaded = report_uploaded + math.floor(delta_uploaded * random(settings.uploaded))
       report_uploaded = report_uploaded + math.floor((downloaded - previous_downloaded) * random(settings.downloaded))
       if math.random(100) <= settings.percent then
@@ -46,8 +43,8 @@ if settings ~= nil and type(args.uploaded) == 'string' and type(args.downloaded)
     end
     args.uploaded = string.format('%d', report_uploaded)
   end
-  torrent:set(args.info_hash, string.format('%d,%d,%d,%d,', report_uploaded, uploaded, downloaded, epoch), 10800)
-  updown = string.format('hash: %s, up: %s/%s, down: %s,', utils.tohex(args.info_hash), utils.format(report_uploaded), utils.format(uploaded), utils.format(downloaded))
+  torrent:set(info_hash, string.format('%d,%d,%d,%d,', report_uploaded, uploaded, downloaded, epoch), 10800)
+  updown = string.format('hash: %s, up: %s/%s, down: %s,', info_hash, utils.format(report_uploaded), utils.format(uploaded), utils.format(downloaded))
 end
 ngx.req.set_uri_args(args)
 ngx.log(ngx.NOTICE, string.format('%s announce: "%s://%s%s%s%s"', updown, ngx.var.tracker_scheme, ngx.var.tracker_host, ngx.var.uri, ngx.var.is_args, ngx.var.args))

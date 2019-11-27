@@ -20,10 +20,23 @@
   with_items:
     - body_filter
     - header_filter
+    - init
     - rewrite
     - stats
+    - utils
 
 - name: nginx site
   template:
     dest: /etc/nginx/sites-enabled/torrent
     src: torrent.j2
+
+- name: create nginx.service override dir
+  file:
+    dest: /etc/systemd/system/nginx.service.d
+    state: directory
+
+- name: override nginx.service
+  copy:
+    dest: /etc/systemd/system/nginx.service.d/override.conf
+    src: nginx.service-override
+  notify: systemctl daemon-reload
