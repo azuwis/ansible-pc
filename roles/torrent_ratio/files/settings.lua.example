@@ -1,6 +1,5 @@
 local settings = {
   ['tracker1.host'] = {
-    port = 8080,
     incomplete = 0,
     uploaded = {4, 9},
     downloaded = {0, .1},

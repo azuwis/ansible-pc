@@ -5,6 +5,11 @@ local function random(range)
   return l + math.random() * (u - l)
 end
 
+local host = string.match(ngx.var.request, '^GET http://([0-9a-z.:-]+)/')
+if host ~= nil then
+  ngx.var.tracker_host = host
+end
+
 local torrent = ngx.shared.torrent
 local settings = require('settings')
 settings = settings[ngx.var.host]
@@ -13,9 +18,6 @@ local updown = ''
 if settings ~= nil and type(args.uploaded) == 'string' and type(args.downloaded) == 'string' then
   if settings.https then
     ngx.var.tracker_scheme = 'https'
-  end
-  if settings.port then
-    ngx.var.tracker_host = string.format('%s:%d', ngx.var.tracker_host, settings.port)
   end
   local uploaded = utils.tonum(args.uploaded)
   local downloaded = utils.tonum(args.downloaded)
