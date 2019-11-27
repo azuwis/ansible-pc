@@ -6,9 +6,9 @@
     extra_packages:
       - firmware-misc-nonfree
       - vlan
-    kernel_modules:
-      - i915
-      - 8021q
+    # kernel_modules:
+    #   - i915
+    #   - 8021q
   roles:
     - { role: apt, tags: apt }
     - { role: base, tags: base }
@@ -18,13 +18,15 @@
     - { role: wireless, tags: wireless }
     - { role: tcp-bbr, tags: tcp-bbr }
 
-    - { role: kodi, tags: kodi }
+    # - { role: kodi, tags: kodi }
     - { role: torrent, tags: torrent }
-    - { role: sysrqd, tags: sysrqd }
-    - { role: mactelnet-server, tags: mactelnet-server }
+    - { role: torrent_ratio, tags: torrent_ratio }
+    - { role: samba, tags: samba }
+    # - { role: sysrqd, tags: sysrqd }
+    # - { role: mactelnet-server, tags: mactelnet-server }
     - { role: adb, tags: adb }
     - { role: bluetooth_audio, tags: bluetooth_audio }
-    - { role: dehydrated, tags: dehydrated }
+    # - { role: dehydrated, tags: dehydrated }
     - { role: motion, tags: motion }
     - { role: hass, tags: hass }
 
