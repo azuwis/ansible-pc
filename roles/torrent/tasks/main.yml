@@ -44,7 +44,7 @@
     dest: ~torrent/.config/qBittorrent/qBittorrent.conf
     owner: torrent
     group: torrent
-    mode: '0644'
+    mode: '0660'
     force: no
 
 - name: systemd service
