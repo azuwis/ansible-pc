@@ -1,6 +1,7 @@
 ---
 - name: set hostname
-  hostname: name={{ inventory_hostname }}
+  hostname:
+    name: "{{ inventory_hostname }}"
 
 - name: set domain to {{ domain }}
   lineinfile:
@@ -9,115 +10,122 @@
     line: "127.0.0.1\t{{ inventory_hostname }}.{{ domain }} {{ inventory_hostname }}"
 
 - name: base packages
-  apt: name={{ item }}
-  with_items:
-    - locales
-    - less
-    - file
-    - bash-completion
-    - ca-certificates
-    - pciutils
-    - usbutils
-    - dnsutils
-    - sysfsutils
-    - ethtool
-    - sudo
-    - systemd-sysv
-    - libpam-systemd
-    - systemd-cron
-    - dbus
-    - make
-    - telnet
-    - tcpdump
-    - netcat-openbsd
-    - traceroute
-    - mtr-tiny
-    - sipcalc
-    - curl
-    - rsync
-    - bzip2
-    - xz-utils
-    - zip
-    - unzip
-    - unrar
-    - p7zip-full
-    - p7zip-rar
-    - lsof
-    - strace
-    - tmux
-    - ncurses-base
-    - ncurses-term
-    - debfoster
-    - ripgrep
-    - tofrodos
-    - ncdu
-    - os-prober
-    - git-hub
-    - perl-doc
-    - myrepos
-    - apt-utils
-    - apt-listchanges
-    - debsums
-    - logrotate
-    - manpages
-    - manpages-dev
-    - man-db
-    - console-setup
-    - patch
-    - moreutils
-    - python-pip
-    - python-wheel
-    - python-setuptools
-    - autossh
-    - resolvconf
-    - dosfstools
-    - icdiff
-    - psmisc
-    - fzy
-    - fd-find
-    - libcap2-bin
-    - jq
-    - gron
-    - nethogs
-    - fasd
-    - lr
-    - intel-microcode
-    - rename
-    - wdiff
-    - aggregate
-    - geoip-bin
-    - geoip-database-extra
-    - borgmatic
-    - bat
-    - htop
-    - acl
+  apt:
+    name:
+      - locales
+      - less
+      - file
+      - bash-completion
+      - ca-certificates
+      - pciutils
+      - usbutils
+      - dnsutils
+      - sysfsutils
+      - ethtool
+      - sudo
+      - systemd-sysv
+      - libpam-systemd
+      - systemd-cron
+      - dbus
+      - make
+      - telnet
+      - tcpdump
+      - netcat-openbsd
+      - traceroute
+      - mtr-tiny
+      - sipcalc
+      - curl
+      - rsync
+      - bzip2
+      - xz-utils
+      - zip
+      - unzip
+      - unrar
+      - p7zip-full
+      - p7zip-rar
+      - lsof
+      - strace
+      - tmux
+      - ncurses-base
+      - ncurses-term
+      - debfoster
+      - ripgrep
+      - tofrodos
+      - ncdu
+      - os-prober
+      - git-hub
+      - perl-doc
+      - myrepos
+      - apt-utils
+      - apt-listchanges
+      - debsums
+      - logrotate
+      - manpages
+      - manpages-dev
+      - man-db
+      - console-setup
+      - patch
+      - moreutils
+      - python-pip
+      - python-wheel
+      - python-setuptools
+      - autossh
+      - resolvconf
+      - dosfstools
+      - icdiff
+      - psmisc
+      - fzy
+      - fd-find
+      - libcap2-bin
+      - jq
+      - gron
+      - nethogs
+      - fasd
+      - lr
+      - intel-microcode
+      - rename
+      - wdiff
+      - aggregate
+      - geoip-bin
+      - geoip-database-extra
+      - borgmatic
+      - bat
+      - htop
+      - acl
 
 - name: extra packages
   apt:
-    name: "{{ item }}"
-  with_items: "{{ extra_packages }}"
+    name: "{{ extra_packages }}"
   when: extra_packages is defined
 
 - name: unneeded packages
   apt:
-    name: "{{ item }}"
     state: absent
     purge: yes
-  with_items:
-    - nscd
-    - ntpdate
-    - cron
-    - installation-report
+    name:
+      - cron
+      - ifupdown
+      - installation-report
+      - isc-dhcp-client
+      - isc-dhcp-common
+      - nscd
+      - ntpdate
 
 - name: locales to generate
-  locale_gen: name="{{ item }}" state=present
+  locale_gen:
+    name: "{{ item }}"
+    state: present
   with_items: "{{ locales }}"
 
 - name: default locale
-  copy: dest=/etc/default/locale content="LANG={{ locales[0] }}\n"
+  copy:
+    dest: /etc/default/locale
+    content: "LANG={{ locales[0] }}\n"
 
 - name: set /etc/timezone to {{ timezone }}
-  copy: content="{{ timezone }}\n" dest=/etc/timezone
+  copy:
+    content: "{{ timezone }}\n"
+    dest: /etc/timezone
   notify: update timezone
 
 - name: link /etc/localtime
@@ -146,7 +154,10 @@
   notify: dpkg-reconfigure linux-image
 
 - name: grub timeout
-  lineinfile: dest=/etc/default/grub regexp=^GRUB_TIMEOUT= line=GRUB_TIMEOUT={{ grub.timeout }}
+  lineinfile:
+    dest: /etc/default/grub
+    regexp: ^GRUB_TIMEOUT=
+    line: GRUB_TIMEOUT={{ grub.timeout }}
   notify: update grub
 
 - name: grub linux init cmd
@@ -163,12 +174,12 @@
 #     mode: '0755'
 #   notify: update grub
 
-- name: set quiet_boot for grub 10_linux
-  lineinfile:
-    dest: /etc/grub.d/10_linux
-    regexp: ^quiet_boot=
-    line: quiet_boot="1"
-  notify: update grub
+# - name: set quiet_boot for grub 10_linux
+#   lineinfile:
+#     dest: /etc/grub.d/10_linux
+#     regexp: ^quiet_boot=
+#     line: quiet_boot="1"
+#   notify: update grub
 
 - name: config sshd
   copy:
@@ -190,7 +201,7 @@
     enabled: yes
     state: started
 
-- name: config swappiness
+- name: config sysctl
   sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"
@@ -201,16 +212,6 @@
     - name: vm.swappiness
       value: 10
 
-- name: system network interfaces
-  copy:
-    dest: /etc/network/interfaces
-    src: interfaces
-
-- name: common network interfaces
-  template:
-    dest: /etc/network/interfaces.d/common
-    src: interfaces-common.j2
-
 - name: install blobs
   get_url:
     dest: "{{ item.dest }}"
@@ -219,13 +220,6 @@
     mode: "{{ item.mode | default('0644') }}"
   when: blobs is defined
   with_items: "{{ blobs | default([]) }}"
-
-- name: do not send host name in DHCP
-  lineinfile:
-    backrefs: yes
-    dest: /etc/dhcp/dhclient.conf
-    regexp: ^(send host-name .*)$
-    line: '#\1'
 
 # replace syslog with systemd-journald, see http://freedesktop.org/wiki/Software/systemd/Optimizations/
 # - name: create /var/log/journal/
