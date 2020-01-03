@@ -9,6 +9,7 @@ serial:
   port: /dev/ttyACM0
   disable_led: true
 advanced:
+  availability_timeout: 600
   channel: 26
   last_seen: 'ISO_8601_local'
   log_directory: /var/log/zigbee2mqtt
