@@ -12,7 +12,7 @@ server {
 
  	# gzip_types text/plain;
 	location = /t.txt {
-		lua_code_cache off;
+		# lua_code_cache off;
 		set $tracker_scheme $scheme;
 		set $tracker_host $host;
 		rewrite_by_lua_file /etc/nginx/lua/torrent/rewrite.lua;
@@ -21,7 +21,7 @@ server {
 	}
 
 	location = /stats {
-		lua_code_cache off;
+		# lua_code_cache off;
 		content_by_lua_file /etc/nginx/lua/torrent/stats.lua;
 	}
 
