@@ -1,25 +1,24 @@
 ---
 - name: wireless packages
-  apt: name={{ item }}
-  with_items:
-    - iw
-    - wireless-tools
-    - wpasupplicant
-    - wpagui
-    - crda
-    - ifmetric
+  apt:
+    name:
+      - iw
+      - wireless-tools
+      - wpasupplicant
+      - wpagui
+      - crda
 
-- name: /etc/network/interfaces.d/wireless
+- name: systemd network
   template:
-    dest: /etc/network/interfaces.d/wireless
-    src: wireless.j2
+    dest: /etc/systemd/network/{{ wlan }}.network
+    src: wlan.network.j2
     owner: root
     group: root
     mode: '0644'
 
-- name: /etc/wpa_supplicant/wpa_supplicant.conf
+- name: wpasupplicant
   template:
-    dest: /etc/wpa_supplicant/wpa_supplicant.conf
+    dest: /etc/wpa_supplicant/wpa_supplicant-{{ wlan }}.conf
     src: wpa_supplicant.conf.j2
     owner: root
     group: root
@@ -37,3 +36,9 @@
     name: wpa_supplicant
     enabled: no
     state: stopped
+
+- name: enable system wpa_supplicant@wlan
+  service:
+    name: wpa_supplicant@{{ wlan }}
+    enabled: yes
+    state: started
