@@ -187,11 +187,18 @@
     enabled: yes
     state: started
 
-- name: config systemd-resolved
+- name: disable systemd-resolved dnssec
   lineinfile:
     dest: /etc/systemd/resolved.conf
     insertafter: ^\[Resolve\]$
     line: DNSSEC=no
+  notify: restart systemd-resolved
+
+- name: disable systemd-resolved global dns server
+  lineinfile:
+    dest: /etc/systemd/resolved.conf
+    insertafter: ^\[Resolve\]$
+    line: DNS=
   notify: restart systemd-resolved
 
 - name: enable systemd-resolved
