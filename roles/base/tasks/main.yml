@@ -187,6 +187,13 @@
     enabled: yes
     state: started
 
+- name: config systemd-resolved
+  lineinfile:
+    dest: /etc/systemd/resolved.conf
+    insertafter: ^\[Resolve\]$
+    line: DNSSEC=no
+  notify: restart systemd-resolved
+
 - name: enable systemd-resolved
   service:
     name: systemd-resolved

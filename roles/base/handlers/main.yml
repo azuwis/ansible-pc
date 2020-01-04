@@ -14,4 +14,11 @@
     state: reloaded
 
 - name: restart journald
-  service: name=systemd-journald state=restarted
+  service:
+    name: systemd-journald
+    state: restarted
+
+- name: restart systemd-resolved
+  service:
+    name: systemd-resolved
+    state: restarted
