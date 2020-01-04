@@ -70,7 +70,6 @@
       - python-wheel
       - python-setuptools
       - autossh
-      - resolvconf
       - dosfstools
       - icdiff
       - psmisc
@@ -110,6 +109,7 @@
       - isc-dhcp-common
       - nscd
       - ntpdate
+      - resolvconf
 
 - name: locales to generate
   locale_gen:
@@ -180,6 +180,18 @@
 #     regexp: ^quiet_boot=
 #     line: quiet_boot="1"
 #   notify: update grub
+
+- name: enable systemd-networkd
+  service:
+    name: systemd-networkd
+    enabled: yes
+    state: started
+
+- name: enable systemd-resolved
+  service:
+    name: systemd-resolved
+    enabled: yes
+    state: started
 
 - name: config sshd
   copy:
