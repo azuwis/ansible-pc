@@ -4,21 +4,3 @@
     src: chn-domains-dnsmasq.conf
     dest: /etc/dnsmasq.d/chn-domains.conf
   notify: restart dnsmasq
-
-- name: copy resolv config for chn-domains
-  copy:
-    src: chn-domains-resolvconf
-    dest: /etc/resolvconf/update.d/chn-domains
-    mode: '0755'
-
-- name: copy chn-domains
-  copy:
-    dest: /etc/chn-domains
-    src: chn-domains
-  notify: restart resolvconf
-
-- name: copy chn-domains-extra
-  copy:
-    dest: /etc/chn-domains-extra
-    src: chn-domains-extra
-  notify: restart resolvconf

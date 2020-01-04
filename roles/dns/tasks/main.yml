@@ -1,13 +1,4 @@
 ---
-- name: install resolvconf
-  apt:
-    name: resolvconf
-
-- name: config interface-order
-  copy:
-    dest: /etc/resolvconf/interface-order
-    src: interface-order
-
 - name: install dnsmasq
   apt:
     name: dnsmasq
@@ -17,6 +8,11 @@
     src: common-dnsmasq.conf
     dest: /etc/dnsmasq.d/common.conf
   notify: restart dnsmasq
+
+- name: config /etc/resolv.conf
+  copy:
+    dest: /etc/resolv.conf
+    content: "nameserver 127.0.0.1\n"
 
 - include: unbound.yml
 - include: chn-domains.yml
