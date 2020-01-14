@@ -1,0 +1,50 @@
+---
+- name: install dependences
+  apt:
+    name:
+      - build-essential
+      - libpython3-dev
+      - python3-venv
+
+- name: pip3 install mitmproxy
+  pip:
+    virtualenv: /home/torrent/torrent_ratio
+    virtualenv_command: /usr/bin/python3 -m venv
+    name: mitmproxy
+  become: yes
+  become_user: torrent
+
+- name: install torrent_ratio
+  copy:
+    dest: /home/torrent/torrent_ratio/torrent_ratio.py
+    src: torrent_ratio.py
+    owner: torrent
+    group: torrent
+
+- name: create mitmproxy config dir
+  file:
+    dest: /home/torrent/.mitmproxy
+    state: directory
+    owner: torrent
+    group: torrent
+    mode: '0750'
+
+- name: config mitmproxy
+  copy:
+    dest: /home/torrent/.mitmproxy/config.yaml
+    src: config.yaml
+    owner: torrent
+    group: torrent
+  notify: restart torrent_ratio
+
+- name: install systemd service
+  copy:
+    src: torrent_ratio.service
+    dest: /etc/systemd/system/torrent_ratio.service
+  notify: systemctl daemon-reload
+
+- name: enable systemd service
+  service:
+    name: torrent_ratio
+    state: started
+    enabled: yes

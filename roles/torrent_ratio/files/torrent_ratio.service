@@ -1,0 +1,11 @@
+[Unit]
+Description=Torrent Ratio
+After=network.target
+Before=qbittorrent.service
+
+[Service]
+ExecStart=/home/torrent/torrent_ratio/bin/mitmdump
+User=torrent
+
+[Install]
+WantedBy=multi-user.target
