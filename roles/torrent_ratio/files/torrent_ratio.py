@@ -57,7 +57,7 @@ class TorrentRatio:
             info = self.torrent[info_hash]
             delta_uploaded = uploaded - info['uploaded']
             delta_downloaded = downloaded - info['downloaded']
-            delta_epoch = epoch = info['epoch']
+            delta_epoch = epoch - info['epoch']
             if delta_uploaded >= 0 and delta_downloaded >= 0 and delta_epoch <= 10800:
                 report_uploaded = info['report_uploaded']
                 report_uploaded += delta_uploaded
