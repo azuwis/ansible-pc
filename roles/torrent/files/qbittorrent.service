@@ -1,6 +1,6 @@
 [Unit]
 Description=Bittorrent client based on libtorrent-rasterbar
-After=network.target nginx.service
+After=network.target
 
 [Service]
 ExecStart=/usr/bin/qbittorrent-nox
