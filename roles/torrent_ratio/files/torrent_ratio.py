@@ -62,7 +62,9 @@ class TorrentRatio:
                 report_uploaded = info['report_uploaded']
                 report_uploaded += delta_uploaded
                 incomplete = info['incomplete'] if 'incomplete' in info else 0
-                if incomplete > 0:
+                if int(query['left']) > 0:
+                    incomplete -= 1
+                if incomplete >= 1:
                     report_uploaded += math.floor(delta_uploaded * random.uniform(*setting['uploaded']))
                     report_uploaded += math.floor(delta_downloaded * random.uniform(*setting['downloaded']))
                     percent = min(incomplete * setting['percent_multi'], setting['percent_max'])
