@@ -10,17 +10,19 @@ import time
 class TorrentRatio:
     def __init__(self):
         low = {
-            'uploaded': (.1, .6),
-            'downloaded': (0, .07),
-            'percent_multi': .2,
-            'percent_max': .5,
-            'speed': 102400
+            'uploaded': (0.1, 0.6),
+            'downloaded': (0, 0.07),
+            'percent_min': 0.2,
+            'percent_max': 0.5,
+            'percent_step': 0.02,
+            'speed': 51200
         }
-        high = {
+        high = { # noqa
             'uploaded': (2, 4),
-            'downloaded': (.08, .1),
-            'percent_multi': .4,
-            'percent_max': .7,
+            'downloaded': (0.08, 0.1),
+            'percent_min': 0.4,
+            'percent_max': 0.7,
+            'percent_step': 0.06,
             'speed': 102400
         }
         self.setting = {
@@ -77,7 +79,7 @@ class TorrentRatio:
                 if incomplete >= 1:
                     report_uploaded += math.floor(delta_uploaded * random.uniform(*setting['uploaded']))
                     report_uploaded += math.floor(delta_downloaded * random.uniform(*setting['downloaded']))
-                    percent = min(incomplete * setting['percent_multi'], setting['percent_max'])
+                    percent = min(setting['percent_min'] + (incomplete - 1) * setting['percent_step'], setting['percent_max'])
                     if random.random() < percent:
                         report_uploaded += math.floor(delta_epoch * setting['speed'] * random.random())
                 query['uploaded'] = report_uploaded
@@ -90,7 +92,7 @@ class TorrentRatio:
                      (info_hash, format(report_uploaded), format(uploaded), format(downloaded), incomplete))
 
     def response(self, flow):
-        pattern = re.compile('10:incompletei(\d+)e')
+        pattern = re.compile('10:incompletei(\d+)e') # noqa
         content = flow.response.content.decode('ascii', 'ignore')
         match = pattern.search(content)
         if match:
