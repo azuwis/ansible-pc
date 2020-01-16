@@ -6,6 +6,8 @@ Before=qbittorrent.service
 [Service]
 ExecStart=/home/torrent/torrent_ratio/bin/mitmdump
 User=torrent
+RuntimeMaxSec=86400
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
