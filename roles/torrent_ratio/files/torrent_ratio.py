@@ -1,5 +1,4 @@
 from mitmproxy import ctx
-import json
 import math
 import os
 import random
@@ -47,7 +46,7 @@ class TorrentRatio:
     def request(self, flow):
 
         def format(num, suffix=''):
-            for unit in ['','K','M','G','T','P','E','Z']:
+            for unit in ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z']:
                 if abs(num) < 1024.0:
                     return '%3.1f%s%s' % (num, unit, suffix)
                 num /= 1024.0
@@ -99,8 +98,9 @@ class TorrentRatio:
             info_hash = query['info_hash'].encode('utf-8', 'surrogateescape').hex()
             incomplete = int(match.group(1))
             self.con.execute('''UPDATE torrent SET incomplete=? WHERE info_hash=?''',
-                            (incomplete, info_hash))
+                             (incomplete, info_hash))
             self.con.commit()
+
 
 addons = [
     TorrentRatio()
