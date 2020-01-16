@@ -64,7 +64,7 @@ class TorrentRatio:
             setting = self.setting[host]
         epoch = time.time()
         report_uploaded = uploaded
-        incomplete = -1
+        incomplete = -3
         info = self.con.execute('''SELECT * FROM torrent WHERE info_hash=?''', (info_hash,)).fetchone()
         if ('event' not in query or query['event'] != 'started') and info:
             delta_uploaded = uploaded - info['uploaded']
@@ -74,8 +74,6 @@ class TorrentRatio:
                 report_uploaded = info['report_uploaded']
                 report_uploaded += delta_uploaded
                 incomplete = info['incomplete']
-                if int(query['left']) > 0:
-                    incomplete -= 1
                 if incomplete >= 1:
                     report_uploaded += math.floor(delta_uploaded * random.uniform(*setting['uploaded']))
                     report_uploaded += math.floor(delta_downloaded * random.uniform(*setting['downloaded']))
@@ -86,10 +84,10 @@ class TorrentRatio:
         self.con.execute('''REPLACE INTO
         torrent(info_hash, host, report_uploaded, uploaded, downloaded, epoch, incomplete)
         values (?, ?, ?, ?, ?, ?, ?)''',
-                         (info_hash, host, report_uploaded, uploaded, downloaded, epoch, -1))
+                         (info_hash, host, report_uploaded, uploaded, downloaded, epoch, -2))
         self.con.commit()
-        ctx.log.warn('%s: up: %s/%s, down: %s, incomplete: %s' %
-                     (info_hash, format(report_uploaded), format(uploaded), format(downloaded), incomplete))
+        ctx.log.warn('%s up: %s/%s, down: %s, incomplete: %s, host: %s' %
+                     (info_hash, format(report_uploaded), format(uploaded), format(downloaded), incomplete, host))
 
     def response(self, flow):
         pattern = re.compile('10:incompletei(\d+)e') # noqa
@@ -99,9 +97,12 @@ class TorrentRatio:
             query = flow.request.query
             info_hash = query['info_hash'].encode('utf-8', 'surrogateescape').hex()
             incomplete = int(match.group(1))
+            if int(query['left']) > 0 or ('event' in query and query['event'] == 'completed'):
+                incomplete -= 1
             self.con.execute('''UPDATE torrent SET incomplete=? WHERE info_hash=?''',
                              (incomplete, info_hash))
             self.con.commit()
+            ctx.log.warn('%s incomplete: %s' % (info_hash, incomplete))
 
 
 addons = [
