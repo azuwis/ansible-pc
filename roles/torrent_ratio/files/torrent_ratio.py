@@ -4,6 +4,7 @@ import math
 import os
 import random
 import re
+import sqlite3
 import time
 
 
@@ -32,17 +33,26 @@ class TorrentRatio:
                 'percent_max': .5
             }
         }
-        self.dump_file = os.path.join(os.path.dirname(__file__), 'torrent_ratio.json')
-        self.torrent = {}
-        if os.path.isfile(self.dump_file):
-            with open(self.dump_file, 'r') as dump_file:
-                self.torrent = json.load(dump_file)
+        db_file = os.path.join(os.path.dirname(__file__), 'torrent_ratio.db')
+        self.con = sqlite3.connect(db_file)
+        self.con.row_factory = sqlite3.Row
+        self.con.execute('''CREATE TABLE IF NOT EXISTS torrent
+        (info_hash TEXT PRIMARY KEY, host TEXT, report_uploaded INTEGER,
+        uploaded INTEGER, downloaded INTEGER, epoch REAL,
+        incomplete INTEGER)''')
 
     def done(self):
-        with open(self.dump_file, 'w') as dump_file:
-            json.dump(self.torrent, dump_file)
+        self.con.close()
 
     def request(self, flow):
+
+        def format(num, suffix=''):
+            for unit in ['','K','M','G','T','P','E','Z']:
+                if abs(num) < 1024.0:
+                    return '%3.1f%s%s' % (num, unit, suffix)
+                num /= 1024.0
+            return '%.1f%s%s' % (num, 'Y', suffix)
+
         query = flow.request.query
         info_hash = query['info_hash'].encode('utf-8', 'surrogateescape').hex()
         uploaded = int(query['uploaded'])
@@ -53,15 +63,16 @@ class TorrentRatio:
             setting = self.setting[host]
         epoch = time.time()
         report_uploaded = uploaded
-        if ('event' not in query or query['event'] != 'started') and info_hash in self.torrent:
-            info = self.torrent[info_hash]
+        incomplete = -1
+        info = self.con.execute('''SELECT * FROM torrent WHERE info_hash=?''', (info_hash,)).fetchone()
+        if ('event' not in query or query['event'] != 'started') and info:
             delta_uploaded = uploaded - info['uploaded']
             delta_downloaded = downloaded - info['downloaded']
             delta_epoch = epoch - info['epoch']
             if delta_uploaded >= 0 and delta_downloaded >= 0 and delta_epoch <= 10800:
                 report_uploaded = info['report_uploaded']
                 report_uploaded += delta_uploaded
-                incomplete = info['incomplete'] if 'incomplete' in info else 0
+                incomplete = info['incomplete']
                 if int(query['left']) > 0:
                     incomplete -= 1
                 if incomplete >= 1:
@@ -71,14 +82,13 @@ class TorrentRatio:
                     if random.random() < percent:
                         report_uploaded += math.floor(delta_epoch * setting['speed'] * random.random())
                 query['uploaded'] = report_uploaded
-        self.torrent[info_hash] = {
-            'host': host,
-            'report_uploaded': report_uploaded,
-            'uploaded': uploaded,
-            'downloaded': downloaded,
-            'epoch': epoch
-        }
-        ctx.log.warn('%s: %s' % (info_hash, json.dumps(self.torrent[info_hash])))
+        self.con.execute('''REPLACE INTO
+        torrent(info_hash, host, report_uploaded, uploaded, downloaded, epoch, incomplete)
+        values (?, ?, ?, ?, ?, ?, ?)''',
+                         (info_hash, host, report_uploaded, uploaded, downloaded, epoch, -1))
+        self.con.commit()
+        ctx.log.warn('%s: up: %s/%s, down: %s, incomplete: %s' %
+                     (info_hash, format(report_uploaded), format(uploaded), format(downloaded), incomplete))
 
     def response(self, flow):
         pattern = re.compile('10:incompletei(\d+)e')
@@ -88,7 +98,9 @@ class TorrentRatio:
             query = flow.request.query
             info_hash = query['info_hash'].encode('utf-8', 'surrogateescape').hex()
             incomplete = int(match.group(1))
-            self.torrent[info_hash]['incomplete'] = incomplete
+            self.con.execute('''UPDATE torrent SET incomplete=? WHERE info_hash=?''',
+                            (incomplete, info_hash))
+            self.con.commit()
 
 addons = [
     TorrentRatio()
