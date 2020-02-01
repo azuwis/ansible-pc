@@ -1,0 +1,11 @@
+[Unit]
+Description=Torrent Ratio
+After=network.target
+Before=qbittorrent.service
+
+[Service]
+ExecStart=/usr/local/bin/torrent-ratio -v
+User=torrent
+
+[Install]
+WantedBy=multi-user.target

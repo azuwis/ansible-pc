@@ -1,0 +1,8 @@
+---
+- name: systemctl daemon-reload
+  command: systemctl daemon-reload
+
+- name: restart torrent-ratio
+  service:
+    name: torrent-ratio
+    state: restarted
