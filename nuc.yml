@@ -20,7 +20,7 @@
 
     # - { role: kodi, tags: kodi }
     - { role: torrent, tags: torrent }
-    - { role: torrent_ratio, tags: torrent_ratio }
+    - { role: torrent-ratio, tags: torrent-ratio }
     - { role: samba, tags: samba }
     # - { role: sysrqd, tags: sysrqd }
     # - { role: mactelnet-server, tags: mactelnet-server }
