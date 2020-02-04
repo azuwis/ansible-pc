@@ -1,0 +1,2 @@
+if $programname == 'torrent-ratio' then /var/log/torrent-ratio.log
+&stop

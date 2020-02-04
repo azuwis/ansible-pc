@@ -14,6 +14,18 @@
 #     group: torrent
 #   notify: restart torrent-ratio
 
+- name: rsyslog config
+  copy:
+    dest: /etc/rsyslog.d/torrent-ratio.conf
+    src: torrent-ratio.rsyslog
+  notify:
+    - restart rsyslog
+
+- name: logrotate config
+  copy:
+    dest: /etc/logrotate.d/torrent-ratio
+    src: torrent-ratio.logrotate
+
 - name: install systemd service
   copy:
     src: torrent-ratio.service

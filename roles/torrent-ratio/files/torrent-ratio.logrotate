@@ -1,0 +1,6 @@
+/var/log/torrent-ratio.log {
+    compress
+    daily
+    missingok
+    rotate 7
+}
