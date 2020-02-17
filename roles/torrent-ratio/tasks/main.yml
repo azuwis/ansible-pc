@@ -2,14 +2,14 @@
 - name: install torrent-ratio
   get_url:
     dest: /usr/local/bin/torrent-ratio
-    url: https://github.com/azuwis/torrent-ratio/releases/download/v0.2/torrent-ratio
-    sha256sum: ce50c9939950d834634d134fb127986dffdff5a326645ebf0268bd3820ab49f6
+    url: https://github.com/azuwis/torrent-ratio/releases/download/v0.3/torrent-ratio
+    sha256sum: ca229f59deba290bd1a5e7a9978dce0a7f0790ab29da02135a58603cce9a0163
     mode: '0755'
 
 # - name: config torrent-ratio
 #   copy:
-#     dest: /home/torrent/.torrent-ratio.json
-#     src: torrent-ratio.json
+#     dest: /home/torrent/.torrent-ratio.yaml
+#     src: torrent-ratio.yaml
 #     owner: torrent
 #     group: torrent
 #   notify: restart torrent-ratio
