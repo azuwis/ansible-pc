@@ -1,108 +1,108 @@
 - name: desktop base packages
-  apt: name={{ item }}
-  with_items:
-    - xserver-xorg-input-libinput
-    - xserver-xorg-input-synaptics
-    - xserver-xorg              ## X
-    - xinit
-    - x11-xserver-utils         #  xrdb/xmodmap
-    - xdg-user-dirs             #  auto create well known user dirs
-    - hsetroot                  #  set wallpaper
-    - xinput
-    - mesa-utils
-    - xdotool
-    - at-spi2-core
-    - unclutter-xfixes          #  auto hide cursor
-    - fbautostart               #  start xdg autostart
-    # - dmz-cursor-theme
-    - redshift                  #  ease your eyes
-    - zsh                       ## Shell
-    - zgen
-    - zsh-autosuggestions
-    - zsh-syntax-highlighting
-    - i3-wm                     ## WM
-    - i3status
-    - i3lock
-    - xidle
-    - imagemagick
-    - rofi
-    - alsa-utils                ## Sound
-    - pulseaudio
-    - pavucontrol-qt
-    - pulsemixer
-    - gnome-terminal            ## Terminal
-    - dconf-cli
-    - desktop-file-utils
-    - qlipper
-    - dunst                     # notification daemon
-    - libnotify-bin
-    - libglib2.0-bin            # gsettings gdbus
-    - arandr
-    - vim-gtk3                  ## Editor
-    - exuberant-ctags           #  vim tagbar plugin
-    - emacs-gtk
-    - python-jedi               #  for emacs anaconda-mode
-    - python-six
-    - xfonts-terminus           #  emacs ime bug
-    - aspell                    #  emacs flycheck
-    - aspell-en
-    - chromium                  ## Browser
-    # - pepperflashplugin-nonfree
-    - firefox
-    - hunspell-en-us            #  firefox spell checking
-    # - flashplugin-nonfree
-    - fcitx                     ## IME
-    - fcitx-config-gtk
-    - fcitx-frontend-gtk2
-    - fcitx-frontend-gtk3
-    - fcitx-frontend-qt5
-    - fcitx-ui-classic
-    - fcitx-rime
-    - librime-data-double-pinyin
-    - librime-data-pinyin-simp
-    - dbus-user-session
-    - dialog
-    - im-config
-    - mpv                       ## Video player
-    - ffmpeg
-    - pqiv                      ## Image viewer
-    - qcomicbook
-    - scrot
-    - flameshot
-    - zathura                   ## PDF viewer
-    - poppler-data              #  CJK pdf
-    - gpick                     ## Color picker
-    - duc                       ## Disk usage
-    - freerdp2-x11              ## Remote desktop client
-    - udevil                    ## Auto mounter
-    - go-mtpfs
-    - pass                      ## Utils
-    - pass-extension-otp
-    - oathtool
-    - pinentry-gtk2
-    - git-remote-gcrypt
-    - shellcheck
-    - sshfs
-    - makepasswd
-    - whois
-    - sqlite3
-    - mosh
-    - archivemount
-    - powertop
-    - powerstat
-    - linux-cpupower
-    - qrencode
-    # - apt-listbugs
-    - brightnessctl
-    - brightness-udev
-    - laptop-detect
-    - mediainfo
-    - sway                      ## Wayland
-    - swaylock
-    - swayidle
-    - mako-notifier
-    - xwayland
-    - qtwayland5
+  apt:
+    name:
+      - xserver-xorg-input-libinput
+      - xserver-xorg-input-synaptics
+      - xserver-xorg              ## X
+      - xinit
+      - x11-xserver-utils         #  xrdb/xmodmap
+      - xdg-user-dirs             #  auto create well known user dirs
+      - hsetroot                  #  set wallpaper
+      - xinput
+      - mesa-utils
+      - xdotool
+      - at-spi2-core
+      - unclutter-xfixes          #  auto hide cursor
+      - fbautostart               #  start xdg autostart
+      # - dmz-cursor-theme
+      - redshift                  #  ease your eyes
+      - zsh                       ## Shell
+      - zgen
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+      - i3-wm                     ## WM
+      - i3status
+      - i3lock
+      - xidle
+      - imagemagick
+      - rofi
+      - alsa-utils                ## Sound
+      - pulseaudio
+      - pavucontrol-qt
+      - pulsemixer
+      - gnome-terminal            ## Terminal
+      - dconf-cli
+      - desktop-file-utils
+      - qlipper
+      - dunst                     # notification daemon
+      - libnotify-bin
+      - libglib2.0-bin            # gsettings gdbus
+      - arandr
+      - vim-gtk3                  ## Editor
+      - exuberant-ctags           #  vim tagbar plugin
+      - emacs-gtk
+      - python-jedi               #  for emacs anaconda-mode
+      - python-six
+      - xfonts-terminus           #  emacs ime bug
+      - aspell                    #  emacs flycheck
+      - aspell-en
+      - chromium                  ## Browser
+      # - pepperflashplugin-nonfree
+      - firefox
+      - hunspell-en-us            #  firefox spell checking
+      # - flashplugin-nonfree
+      - fcitx                     ## IME
+      - fcitx-config-gtk
+      - fcitx-frontend-gtk2
+      - fcitx-frontend-gtk3
+      - fcitx-frontend-qt5
+      - fcitx-ui-classic
+      - fcitx-rime
+      - librime-data-double-pinyin
+      - librime-data-pinyin-simp
+      - dbus-user-session
+      - dialog
+      - im-config
+      - mpv                       ## Video player
+      - ffmpeg
+      - pqiv                      ## Image viewer
+      - qcomicbook
+      - scrot
+      - flameshot
+      - zathura                   ## PDF viewer
+      - poppler-data              #  CJK pdf
+      - gpick                     ## Color picker
+      - duc                       ## Disk usage
+      - freerdp2-x11              ## Remote desktop client
+      - udevil                    ## Auto mounter
+      - go-mtpfs
+      - pass                      ## Utils
+      - pass-extension-otp
+      - oathtool
+      - pinentry-gtk2
+      - git-remote-gcrypt
+      - shellcheck
+      - sshfs
+      - makepasswd
+      - whois
+      - sqlite3
+      - mosh
+      - archivemount
+      - powertop
+      - powerstat
+      - linux-cpupower
+      - qrencode
+      # - apt-listbugs
+      - brightnessctl
+      - brightness-udev
+      - laptop-detect
+      - mediainfo
+      - sway                      ## Wayland
+      - swaylock
+      - swayidle
+      - mako-notifier
+      - xwayland
+      - qtwayland5
 
 - name: packages to remove
   apt:
