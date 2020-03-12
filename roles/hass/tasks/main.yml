@@ -14,7 +14,6 @@
     # recoder
     - postgresql
     - postgresql-server-dev-all
-    - python-psycopg2
     # web_speech
     - chromium-driver
     - dbus-x11
@@ -65,7 +64,7 @@
   with_items:
     - wheel
     - homeassistant
-    # - psycopg2
+    - psycopg2
   become: yes
   become_user: hass
 
