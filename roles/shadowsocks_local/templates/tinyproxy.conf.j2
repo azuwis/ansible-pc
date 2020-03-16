@@ -1,0 +1,21 @@
+User tinyproxy
+Group tinyproxy
+Port 8123
+Listen 127.0.0.1
+Timeout 600
+DefaultErrorFile "/usr/share/tinyproxy/default.html"
+StatFile "/usr/share/tinyproxy/stats.html"
+LogFile "/var/log/tinyproxy/tinyproxy.log"
+LogLevel Info
+PidFile "/run/tinyproxy/tinyproxy.pid"
+Upstream socks5 127.0.0.1:{{ shadowsocks.local_port }}
+MaxClients 100
+MinSpareServers 5
+MaxSpareServers 20
+StartServers 10
+MaxRequestsPerChild 0
+Allow 127.0.0.1
+ViaProxyName "tinyproxy"
+DisableViaHeader Yes
+ConnectPort 443
+ConnectPort 563

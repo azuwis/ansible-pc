@@ -4,7 +4,7 @@
     name: shadowsocks-local
     state: restarted
 
-- name: restart polipo
+- name: restart tinyproxy
   service:
-    name: polipo
+    name: tinyproxy
     state: restarted
