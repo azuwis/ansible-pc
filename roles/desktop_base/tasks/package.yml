@@ -12,6 +12,7 @@
       - mesa-utils
       - xdotool
       - at-spi2-core
+      - font-viewer
       - unclutter-xfixes          #  auto hide cursor
       - fbautostart               #  start xdg autostart
       # - dmz-cursor-theme
