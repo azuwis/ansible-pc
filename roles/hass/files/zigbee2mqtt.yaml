@@ -15,13 +15,13 @@ advanced:
   log_directory: /var/log/zigbee2mqtt
 devices:
   '0x00158d00023d57a9':
-    friendly_name: button_1
+    friendly_name: button_a
     retain: false
   '0x00158d0001e85323':
-    friendly_name: button_2
+    friendly_name: button_b
     retain: false
   '0x00158d0002b88f11':
-    friendly_name: button_3
+    friendly_name: button_c
     retain: false
   '0x00158d00027a84d7':
     friendly_name: cube
