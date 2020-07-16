@@ -2,8 +2,8 @@
 - name: install torrent-ratio
   get_url:
     dest: /usr/local/bin/torrent-ratio
-    url: https://github.com/azuwis/torrent-ratio/releases/download/v0.3/torrent-ratio
-    sha256sum: ca229f59deba290bd1a5e7a9978dce0a7f0790ab29da02135a58603cce9a0163
+    url: https://github.com/azuwis/torrent-ratio/releases/download/v0.4/torrent-ratio
+    sha256sum: fb99ea1c33bcd72fabf73db2b4a6025f94086b5c5a605e0c7d7bbb8a8020d3e3
     mode: '0755'
 
 # - name: config torrent-ratio
