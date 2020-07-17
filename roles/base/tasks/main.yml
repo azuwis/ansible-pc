@@ -33,7 +33,7 @@
       - netcat-openbsd
       - traceroute
       - mtr-tiny
-      - sipcalc
+      - ipcalc-ng
       - curl
       - rsync
       - bzip2
@@ -91,6 +91,7 @@
       - bat
       - htop
       - acl
+      - iotop-c
 
 - name: extra packages
   apt:
