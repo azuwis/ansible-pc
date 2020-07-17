@@ -59,6 +59,14 @@
       - fcitx-frontend-qt5
       - fcitx-ui-classic
       - fcitx-rime
+      - fcitx5
+      - fcitx5-frontend-gtk2
+      - fcitx5-frontend-gtk3
+      - fcitx5-frontend-qt5
+      - fcitx5-module-dbus
+      - fcitx5-module-wayland
+      - fcitx5-module-xorg
+      - fcitx5-table
       - librime-data-double-pinyin
       - librime-data-pinyin-simp
       - dbus-user-session
@@ -67,6 +75,7 @@
       - mpv                       ## Video player
       - ffmpeg
       - pqiv                      ## Image viewer
+      - qimgv
       - qcomicbook
       - scrot
       - flameshot
@@ -101,6 +110,15 @@
       - sway                      ## Wayland
       - swaylock
       - swayidle
+      - waybar
+      - wob
+      - wofi
+      - wf-recorder
+      - grim
+      - slurp
+      - clipman
+      - ydotool
+      - ydotoold
       - mako-notifier
       - xwayland
       - qtwayland5
