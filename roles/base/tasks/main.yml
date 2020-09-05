@@ -238,8 +238,8 @@
       value: 3
     - name: net.ipv6.conf.all.disable_ipv6
       value: 1
-    - name: vm.swappiness
-      value: 10
+    # - name: vm.swappiness
+    #   value: 10
 
 - name: install blobs
   get_url:
