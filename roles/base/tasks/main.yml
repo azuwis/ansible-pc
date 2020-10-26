@@ -75,7 +75,7 @@
       - jq
       - gron
       - nethogs
-      - fasd
+      - zoxide
       - lr
       - intel-microcode
       - rename
