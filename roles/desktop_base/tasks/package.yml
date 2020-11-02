@@ -60,13 +60,16 @@
       - fcitx-ui-classic
       - fcitx-rime
       - fcitx5
+      - fcitx5-config-qt
       - fcitx5-frontend-gtk2
       - fcitx5-frontend-gtk3
       - fcitx5-frontend-qt5
       - fcitx5-module-dbus
       - fcitx5-module-wayland
       - fcitx5-module-xorg
-      - fcitx5-table
+      - fcitx5-pinyin
+      - fcitx5-module-pinyinhelper
+      - fcitx5-material-color
       - librime-data-double-pinyin
       - librime-data-pinyin-simp
       - dbus-user-session
