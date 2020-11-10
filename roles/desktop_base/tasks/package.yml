@@ -52,13 +52,6 @@
       - firefox
       - hunspell-en-us            #  firefox spell checking
       # - flashplugin-nonfree
-      - fcitx                     ## IME
-      - fcitx-config-gtk
-      - fcitx-frontend-gtk2
-      - fcitx-frontend-gtk3
-      - fcitx-frontend-qt5
-      - fcitx-ui-classic
-      - fcitx-rime
       - fcitx5
       - fcitx5-config-qt
       - fcitx5-frontend-gtk2
@@ -70,6 +63,7 @@
       - fcitx5-pinyin
       - fcitx5-module-pinyinhelper
       - fcitx5-material-color
+      - fcitx5-rime
       - librime-data-double-pinyin
       - librime-data-pinyin-simp
       - dbus-user-session
