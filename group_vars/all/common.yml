@@ -1,4 +1,5 @@
 ---
+ansible_python_interpreter: /usr/bin/python3
 domain: localdomain
 apt_mirror: ftp.cn.debian.org
 debian_dist: sid
