@@ -4,11 +4,15 @@
 
 - name: config mosquitto
   copy:
-    dest: /etc/mosquitto/{{ item }}
-    src: "{{ item }}"
-  with_items:
-    - mosquitto.conf
-    - mosquitto.acl
+    dest: /etc/mosquitto/mosquitto.acl
+    src: mosquitto.acl
+  notify:
+    - reload mosquitto
+
+- name: config mosquitto
+  copy:
+    dest: /etc/mosquitto/conf.d/local.conf
+    src: mosquitto.conf
   notify:
     - reload mosquitto
 
