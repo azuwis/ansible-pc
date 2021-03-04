@@ -74,7 +74,7 @@
       - libcap2-bin
       - jq
       - gron
-      - nethogs
+      - netproc
       - zoxide
       - lr
       - intel-microcode
