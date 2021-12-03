@@ -47,12 +47,12 @@ class TorrentRatio:
 
     def request(self, flow):
 
-        def format(num, suffix=''):
-            for unit in ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z']:
+        def format(num):
+            for unit in ['B', 'K', 'M', 'G']:
                 if abs(num) < 1024.0:
-                    return '%3.1f%s%s' % (num, unit, suffix)
+                    return '%3.1f%s' % (num, unit)
                 num /= 1024.0
-            return '%.1f%s%s' % (num, 'Y', suffix)
+            return '%.1f%s' % (num, 'T')
 
         query = flow.request.query
         info_hash = query['info_hash'].encode('utf-8', 'surrogateescape').hex()
