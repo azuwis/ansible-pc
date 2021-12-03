@@ -15,7 +15,9 @@ class TorrentRatio:
             'percent_min': 0.2,
             'percent_max': 0.5,
             'percent_step': 0.02,
-            'speed': 51200
+            'speed': 51200,
+            'port': 0,
+            'peer_id': ''
         }
         high = { # noqa
             'uploaded': (2, 4),
@@ -23,7 +25,9 @@ class TorrentRatio:
             'percent_min': 0.4,
             'percent_max': 0.7,
             'percent_step': 0.06,
-            'speed': 102400
+            'speed': 102400,
+            'port': 0,
+            'peer_id': ''
         }
         self.setting = {
             'default': low,
@@ -62,6 +66,10 @@ class TorrentRatio:
         setting = self.setting['default']
         if host in self.setting:
             setting = self.setting[host]
+        if setting['peer_id'] != '':
+            query['peer_id'] = setting['peer_id']
+        if setting['port'] > 0 and setting['port'] < 65536:
+            query['port'] = setting['port']
         epoch = time.time()
         report_uploaded = uploaded
         incomplete = -3
