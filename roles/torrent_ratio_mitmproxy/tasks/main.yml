@@ -14,13 +14,6 @@
   become: yes
   become_user: torrent
 
-- name: install torrent_ratio
-  copy:
-    dest: /home/torrent/torrent_ratio/torrent_ratio.py
-    src: torrent_ratio.py
-    owner: torrent
-    group: torrent
-
 - name: create mitmproxy config dir
   file:
     dest: /home/torrent/.mitmproxy
@@ -36,6 +29,13 @@
     owner: torrent
     group: torrent
   notify: restart torrent_ratio
+
+- name: install torrent_ratio
+  copy:
+    dest: /home/torrent/.mitmproxy/torrent_ratio.py
+    src: torrent_ratio.py
+    owner: torrent
+    group: torrent
 
 - name: install systemd service
   copy:
